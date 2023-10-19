@@ -1,4 +1,4 @@
 package pages;
 
-public class DashboardPage {
+public class DashboardPage extends CommonPage{
 }

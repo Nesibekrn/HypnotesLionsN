@@ -1,4 +1,4 @@
 package pages;
 
-public class EmailSmsPage {
+public class EmailSmsPage extends CommonPage{
 }

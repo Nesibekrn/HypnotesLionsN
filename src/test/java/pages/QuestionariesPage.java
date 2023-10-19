@@ -1,4 +1,4 @@
 package pages;
 
-public class QuestionariesPage {
+public class QuestionariesPage extends CommonPage{
 }

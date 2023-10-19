@@ -1,4 +1,4 @@
 package pages;
 
-public class CouponsPage {
+public class CouponsPage extends  CommonPage{
 }

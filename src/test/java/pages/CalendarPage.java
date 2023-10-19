@@ -1,4 +1,4 @@
 package pages;
 
-public class CalendarPage {
+public class CalendarPage extends CommonPage{
 }

@@ -1,4 +1,4 @@
 package pages;
 
-public class SettingsPage {
+public class SettingsPage extends CommonPage{
 }

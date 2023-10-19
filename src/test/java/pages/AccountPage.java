@@ -1,4 +1,4 @@
 package pages;
 
-public class AccountPage {
+public class AccountPage extends CommonPage{
 }

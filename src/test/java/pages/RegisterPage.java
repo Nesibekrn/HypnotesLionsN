@@ -1,4 +1,4 @@
 package pages;
 
-public class RegisterPage {
+public class RegisterPage extends CommonPage{
 }
