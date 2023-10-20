@@ -1,6 +1,4 @@
-
-
-feature : Registration must be created with Sign in Facebook.
+Feature: Registration must be created with Sign in Facebook.
 @US_026
 @UI
 Scenario: Verify that user is able to register with an facebook account
