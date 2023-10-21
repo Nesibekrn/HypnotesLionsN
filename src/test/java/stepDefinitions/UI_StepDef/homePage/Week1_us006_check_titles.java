@@ -3,8 +3,14 @@ package stepDefinitions.UI_StepDef.homePage;
 import enums.COLOR;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.ConfigurationReader;
 import utilities.JS_utilities;
+
+import java.time.Duration;
 
 import static stepDefinitions.Hooks.*;
 
@@ -34,33 +40,46 @@ public class Week1_us006_check_titles {
     public void assert_first_header_backround_color_is_green() {
         // enum
         COLOR.TEXT_GREEN_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(0));
-       //2. way ==> extention class
+        //2. way ==> extention class
         commonPage.getHomePage().listHeader.get(0).assertBackroundColor(COLOR.TEXT_GREEN_BACKROUND.getRGBA());
-
 
     }
 
     @When("user scroll to second header")
     public void user_scroll_to_second_header() {
-      JS_utilities.scrollIntoViewJS(commonPage.getHomePage().listHeader.get(1));
-//        //2. way actions class
-       actions.moveToElement(commonPage.getHomePage().listHeader.get(1));
-//        //3. way extention
-       commonPage.getHomePage().listHeader.get(1).scrollIntoViewJS();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", commonPage.getHomePage().listHeader.get(1));
+        waitForVisibility(commonPage.getHomePage().listHeader.get(1));
 
+        commonPage.getHomePage().listHeader.get(1).hoverWebElement();
+
+        waitFor(2);
 
 
     }
 
+    public static void waitFor(int sec) {
+        try {
+            Thread.sleep(sec*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static WebElement waitForVisibility(WebElement webElement) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
     @Then("assert first header color should be black")
     public void assert_first_header_color_should_be_black() {
-        //COLOR.BlACK_TEXT.assertTextColor(commonPage.getHomePage().listHeader.get(0));
+        COLOR.BlACK_TEXT.assertTextColor(commonPage.getHomePage().listHeader.get(0));
 
 
     }
 
     @Then("assert first header background color should be grey")
     public void assert_first_header_backround_color_should_be_grey() {
+        COLOR.TEXT_GRAY_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(0));
 
     }
 }

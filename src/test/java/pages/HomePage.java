@@ -14,6 +14,8 @@ public class HomePage extends CommonPage{
 
     @FindBy(xpath = "//a[@class='ant-btn css-15rg2km ant-btn-link features-btn']")
     public List<WebElement> listHeader;
+    @FindBy(xpath = "//span[text()='Payment Service']")
+    public WebElement secondHeader;
 
 
 
