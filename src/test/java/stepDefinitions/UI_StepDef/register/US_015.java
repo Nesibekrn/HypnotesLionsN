@@ -42,7 +42,7 @@ public class US_015 extends CommonPage {
     @Given("the user enter an email address")
     public void the_user_enter_an_email_address() {
         clickWithTimeOut(getRegisterPage().emailOrPhone,6);
-        getRegisterPage().emailOrPhone.sendKeys("hypnotes2022cl1@gmail.com");
+        getRegisterPage().emailOrPhone.sendKeys("testdsd398@gmail.com");
 
     }
     @Given("the user clicks on next button")
@@ -50,18 +50,22 @@ public class US_015 extends CommonPage {
         getRegisterPage().nextButton.click();
     }
     @Given("the user enter an password")
-    public void the_user_enter_an_password() {
-        getRegisterPage().passwordGoogle.sendKeys("Aydinlik2023");
-    }
-    @When("the user clicks on next button for password")
-    public void the_user_clicks_on_next_button_for_password() {
-        getRegisterPage().nextButton.click();
+    public void the_user_enter_an_password() throws InterruptedException {
+        getRegisterPage().passwordGoogle.sendKeys("Test123.");
+        Thread.sleep(2000);
     }
 
-    @Then("user is registered successfully")
-    public void user_is_registered_successfully() {
-        boolean loginAvatar=getRegisterPage().nameAvatar.isDisplayed();
-        Assert.assertTrue(loginAvatar);
+    @When("the user clicks on next button for password")
+    public void the_user_clicks_on_next_button_for_password() throws InterruptedException {
+        getRegisterPage().nextButton.click();
+        Thread.sleep(2000);
+    }
+
+    @Then("User is registered successfully")
+    public void User_is_registered_successfully() throws InterruptedException {
+        Thread.sleep(2000);
+        String clientDasboardUrl="https://test.hypnotes.net/client-dashboard";
+        Assert.assertEquals(driver.getCurrentUrl(),clientDasboardUrl);
     }
 
 

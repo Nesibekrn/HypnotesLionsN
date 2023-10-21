@@ -12,4 +12,4 @@ Feature: Register functionality with Google account
     And the user clicks on next button
     And the user enter an password
     When the user clicks on next button
-    Then ser is registered successfully
+    Then  User is registered successfully
