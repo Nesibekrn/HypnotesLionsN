@@ -1,9 +1,19 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
+import static stepDefinitions.Hooks.driver;
+
 public class HomePage extends CommonPage{
+
+    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[2]")
+    public List<WebElement> feature1;
+    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[3]")
+    public List<WebElement> feature2;
     @FindBy(xpath="//*[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
 

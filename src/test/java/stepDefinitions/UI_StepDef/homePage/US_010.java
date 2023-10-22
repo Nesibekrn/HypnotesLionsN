@@ -1,18 +1,22 @@
 package stepDefinitions.UI_StepDef.homePage;
 
 
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
 import pages.HomePage;
 
 import java.time.Duration;
+import java.util.List;
 
 import static stepDefinitions.Hooks.driver;
 import static utilities.JS_utilities.*;
@@ -32,11 +36,39 @@ public class US_010 extends CommonPage {
 
     }
 
-    @Then("user is able to view each <titles>")
-    public void user_is_able_to_view_each_titles(io.cucumber.datatable.DataTable dataTable) {
-        System.out.println("Test");
+    @Then("user is able to view each titles")
+    public void userIsAbleToViewEachTitles(DataTable titles) {
 
+        List<String> title=titles.asList();
+//        for(String e:title){
+//           System.out.println(e);
+//        }
+//        System.out.println("***************************************");
+        for(int i=1; i<=getHomePage().feature1.size()-1; i++){
+//            System.out.println(getHomePage().feature1.get(i).getText());
+//            System.out.println("***************************************");
 
+            Assert.assertEquals(getHomePage().feature1.get(i).getText(),title.get(i));
+        }
+        waitFor(5);
+    }
+
+    @And("the user able to view these titles")
+    public void theUserAbleToViewTheseTitles(DataTable titles) {
+
+        List<String> title=titles.asList();
+        for(String e:title){
+            System.out.println(e);
+        }
+        System.out.println("***************************************");
+        for(int i=1; i<=getHomePage().feature2.size()-1; i++) {
+            System.out.println(getHomePage().feature2.get(i).getText());
+            System.out.println("***************************************");
+
+             Assert.assertEquals(getHomePage().feature2.get(i).getText(),title.get(i));
+        }
+
+        waitFor(5);
     }
 
     //calendar
@@ -81,6 +113,7 @@ public class US_010 extends CommonPage {
 
 
     // Notifications & Reminders
+    //There is a bug , it is navigating to register
     @When("the user clicks on the  Notifications & Reminders title")
     public void the_user_clicks_on_the_notifications_reminders_title() throws InterruptedException {
         scrollAndClickWithJS(getHomePage().NotificationsReminders);
@@ -94,6 +127,7 @@ public class US_010 extends CommonPage {
 
 
     // Multiple Payment Service Options
+    //There is a bug, it is navigating to invoice page
     @When("the user clicks on the  Multiple Payment Service Options title")
     public void the_user_clicks_on_the_multiple_payment_service_options_title() {
         scrollAndClickWithJS(getHomePage().MultiplePaymentServiceOptions);
@@ -133,6 +167,7 @@ public class US_010 extends CommonPage {
 
 
     //Customize Your Scheduler & URL
+ //   There is a bug it is navigating to register page
     @When("the user clicks on the  Customize Your Scheduler & URL title")
     public void the_user_clicks_on_the_customize_your_scheduler_url_title() {
         scrollAndClickWithJS(getHomePage().CustomizeYourSchedulerURL);
@@ -145,7 +180,7 @@ public class US_010 extends CommonPage {
     }
 
 //Custom Forms & Documents
-
+//   There is a bug it is navigating to register page
     @When("the user clicks on the  Custom Forms & Documents title")
     public void the_user_clicks_on_the_custom_forms_documents_title() {
         scrollAndClickWithJS(getHomePage().CustomFormsDocuments);
@@ -159,6 +194,7 @@ public class US_010 extends CommonPage {
 
 
     // Multiple Locations
+    //   There is a bug it is navigating to register page
     @When("the user clicks on the  Multiple Locations title")
     public void the_user_clicks_on_the_multiple_locations_title() {
         scrollAndClickWithJS(getHomePage().MultipleLocations);
@@ -172,6 +208,7 @@ public class US_010 extends CommonPage {
 
 
     //Multiple Providers
+    //   There is a bug it is navigating to register page
     @When("the user clicks on the  Multiple Providers title")
     public void the_user_clicks_on_the_multiple_providers_title() {
         scrollAndClickWithJS(getHomePage().MultipleProviders);
@@ -185,6 +222,7 @@ public class US_010 extends CommonPage {
 
 
     //Dashboard & Reporting
+
     @When("the user clicks on the  Dashboard & Reporting title")
     public void the_user_clicks_on_the_dashboard_reporting_title() {
         scrollAndClickWithJS(getHomePage().DashboardReporting);
@@ -192,7 +230,7 @@ public class US_010 extends CommonPage {
     }
     @Then("Dashboard & Reporting page is opened")
     public void dashboard_reporting_page_is_opened() {
-        String expectedUrl="https://test.hypnotes.net/features/telehealth-video-conferencing";
+        String expectedUrl="https://test.hypnotes.net/features/get-organized";
         Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     }
 
@@ -205,22 +243,23 @@ public class US_010 extends CommonPage {
     }
     @Then("Client Portal page is opened")
     public void client_portal_page_is_opened() {
-        String expectedUrl="https://test.hypnotes.net/features/telehealth-video-conferencing";
+        String expectedUrl="https://test.hypnotes.net/features/client-patient-portal";
         Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     }
 
 
     //Biofeedback\/Emotion-Detection
-    @When("the user clicks on the  Biofeedback\\/Emotion-Detection title")
+    @When("the user clicks on the  BiofeedbackEmotion Detection title")
     public void the_user_clicks_on_the_biofeedback_emotion_detection_title() {
         scrollAndClickWithJS(getHomePage().BiofeedbackEmotionDetection);
         waitFor(5);
     }
-    @Then("Biofeedback\\/Emotion-Detection page is opened")
+    @Then("BiofeedbackEmotion Detection page is opened")
     public void biofeedback_emotion_detection_page_is_opened() {
-        String expectedUrl="https://test.hypnotes.net/features/telehealth-video-conferencing";
+        String expectedUrl="https://test.hypnotes.net/features/biofeedback-ai-emotion-recognition";
         Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     }
+
 
 
 
@@ -233,12 +272,13 @@ public class US_010 extends CommonPage {
     }
     @Then("Handwriting to Text Conversion page is opened")
     public void handwriting_to_text_conversion_page_is_opened() {
-        String expectedUrl="https://test.hypnotes.net/features/telehealth-video-conferencing";
+        String expectedUrl="https://test.hypnotes.net/features/textconversion";
         Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     }
 
 
     //3rd Party Integration
+    // there is a bug, it is navigating to register page
     @When("the user clicks on the  3rd Party Integration title")
     public void the_user_clicks_on_the_3rd_party_integration_title() {
         scrollAndClickWithJS(getHomePage().thirdrdPartyIntegration);
@@ -246,9 +286,24 @@ public class US_010 extends CommonPage {
     }
     @Then("3rd Party Integration page is opened")
     public void rd_party_integration_page_is_opened() {
-        String expectedUrl="https://test.hypnotes.net/features/telehealth-video-conferencing";
+        String expectedUrl="https://test.hypnotes.net/features/textconversion";
         Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
     }
+
+    //Industry Required Client Notes
+    //There is a bug , it is navigating to register page
+    @When("the user clicks on the  Industry Required Client Notes title")
+    public void the_user_clicks_on_the_industry_required_client_notes_title() {
+        scrollAndClickWithJS(getHomePage().IndustryRequiredClientNotes);
+        waitFor(5);
+    }
+
+    @Then("Industry Required Client Notes page is opened")
+    public void industry_required_client_notes_page_is_opened() {
+        String expectedUrl="https://test.hypnotes.net/features/textconversion";
+        Assert.assertEquals(driver.getCurrentUrl(),expectedUrl);
+    }
+
 
 
 }
