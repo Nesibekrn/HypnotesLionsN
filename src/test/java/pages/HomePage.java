@@ -4,11 +4,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends CommonPage{
-
     @FindBy(xpath="//*[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
 
-    @FindBy(xpath = "//div[text()='Product Demo']")//us09
+    @FindBy(xpath = "//div[text()='Product Demo']")
     public WebElement productDemo;
     @FindBy(xpath = "//div[text()='How Does Hypnotes Work?']")
     public WebElement hynotesWork;
@@ -23,6 +22,6 @@ public class HomePage extends CommonPage{
     @FindBy(xpath = "//div[text()='Reviews/Testimonials']")
     public WebElement reviewsTestimonials;
     @FindBy(xpath = "//div[text()='Get Started For Free']")
-    public WebElement getStarted;//us09
+    public WebElement getStarted;
 
 }
