@@ -1,10 +1,10 @@
-
+@UI
 Feature:US_009 When I enter the home page as a user
 
   Scenario: TC-01 I should be able to see various titles and perform various controls."Our Platform
   Footer sections of the site must be viewable.
     Given User goes to home page
-    When The user sees our platform section at the bottom of the page
+    When The user sees our platform section at the button of the page
     Then The user verifies that the product demo button is visible and clickable
     Then The user verifies that the How Does Hypnotes Work? button is visible and clickable
     Then The user verifies that the Pricing button is visible and clickable

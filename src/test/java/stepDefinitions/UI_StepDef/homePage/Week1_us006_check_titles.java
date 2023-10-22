@@ -9,7 +9,7 @@ import utilities.JS_utilities;
 import static stepDefinitions.Hooks.*;
 
 public class Week1_us006_check_titles {
-
+/*
     @Given("user goes to home page")
     public void user_goes_to_home_page() {
         driver.get(ConfigurationReader.getProperty("url"));
@@ -63,4 +63,6 @@ public class Week1_us006_check_titles {
     public void assert_first_header_backround_color_should_be_grey() {
 
     }
+
+ */
 }

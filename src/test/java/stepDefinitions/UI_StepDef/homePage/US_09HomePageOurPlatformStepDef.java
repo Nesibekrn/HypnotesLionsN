@@ -4,21 +4,42 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import pages.CommonPage;
+import pages.HomePage;
+import utilities.ConfigurationReader;
+import utilities.JS_utilities;
+import utilities.ReusableMethods;
 
-public class US_09HomePageOurPlatformStepDef {
+import static stepDefinitions.Hooks.driver;
+
+public class US_09HomePageOurPlatformStepDef  {
+    HomePage homePage=new HomePage();
+
     @Given("User goes to home page")
     public void userGoesToHomePage() {
+        driver.get(ConfigurationReader.getProperty("url"));
 
     }
 
-    @When("The user sees our platform section at the bottom of the page")
+    @When("The user sees our platform section at the button of the page")
     public void theUserSeesOurPlatformSectionAtTheBottomOfThePage() {
+  JS_utilities.scrollDownByJS();
+  ReusableMethods.waitFor(2);
+      JavascriptExecutor js = (JavascriptExecutor) driver;
+      js.executeScript("window.scrollBy(0, 500)");
+  Assert.assertTrue(homePage.ourPlatform.isDisplayed());
+
+
 
     }
 
     @Then("The user verifies that the product demo button is visible and clickable")
     public void theUserVerifiesThatTheProductDemoButtonIsVisibleAndClickable() {
-
+Assert.assertTrue(homePage.productDemo.isDisplayed());
+Boolean product=homePage.productDemo.isDisplayed();
+      Assert.assertTrue(homePage.productDemo.);
     }
 
     @And("The user clicks on the product demo button, the user sees the relevant page.")
