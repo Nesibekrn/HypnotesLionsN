@@ -14,22 +14,23 @@ public class HomePage extends CommonPage{
 
     @FindBy(xpath = "//a[@class='ant-btn css-15rg2km ant-btn-link features-btn']")
     public List<WebElement> listHeader;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//span[text()='Contact Us']")
+    public WebElement contactUsButton;
+    @FindBy(xpath = "//input[@name='subject']")
+    public WebElement subject_input;
+    @FindBy(xpath = "//input[@name='fullname']")
+    public WebElement fullName_input;
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement email_input;
+    @FindBy(xpath = "//input[@name='phoneNumber']")
+    public WebElement phoneNumber_input;
+    // @FindBy(xpath = "//select[@name='bestTimeToReach']")
+    @FindBy(id = "best-time-to-reach")
+    public WebElement bestTimeToReach_dropDown;
+    @FindBy(xpath = "//textarea[@name='content']")
+    public WebElement messagesContent_textarea;
+    @FindBy(xpath = "//button[text()='Send Message']")
+    public WebElement sendMessage_button;
     @FindBy(xpath ="//div[text()='Calendar']")
     public WebElement calendar;
 
