@@ -29,6 +29,7 @@ public class HomePage extends CommonPage{
 
 
 
+
     @FindBy(xpath ="//div[text()='Calendar']")
     public WebElement calendar;
 
@@ -88,6 +89,7 @@ public class HomePage extends CommonPage{
     public List<WebElement> feature1;
     @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[3]")
     public List<WebElement> feature2;
+
 
 
 }
