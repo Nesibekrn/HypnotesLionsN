@@ -1,5 +1,4 @@
 package utilities;
-import manifold.ext.rt.api.This;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
@@ -11,9 +10,6 @@ import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.isElementPresent;
 
 public class JS_utilities {
-    public static void scrollToWebElement(@This WebElement webElement){
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);",webElement);
-    }
     public static void scrollAndClickWithJS(WebElement webElement) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
@@ -23,7 +19,7 @@ public class JS_utilities {
     }
     public static void scrollToBottom() {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0,document.body.scrollHeight)");
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(2);
     }
     //This method will takes two parameter: WebElement, and WebDriver
     //When you pass the element, JS will click on that element
