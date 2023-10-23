@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.ConfigurationReader;
-import utilities.JS_utilities;
+
 
 import java.time.Duration;
 
@@ -49,8 +49,8 @@ public class Week1_us006_check_titles {
     public void user_scroll_to_second_header() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", commonPage.getHomePage().listHeader.get(1));
         waitForVisibility(commonPage.getHomePage().listHeader.get(1));
-
         commonPage.getHomePage().listHeader.get(1).hoverWebElement();
+        //actions.moveToElement(commonPage.getHomePage().listHeader.get(1)).build().perform();
 
         waitFor(2);
 
