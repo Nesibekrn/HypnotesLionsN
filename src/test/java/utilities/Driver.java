@@ -103,7 +103,7 @@ public class Driver {
                 switch (browserType) {
 
                     case "chrome":
-//                        WebDriverManager.chromedriver().setup();
+//                       WebDriverManager.chromedriver().setup();
 
                         driverPool.set(new ChromeDriver(chromeOptions));
                         break;
