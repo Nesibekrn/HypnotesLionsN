@@ -14,7 +14,7 @@ import java.time.Duration;
 
 import static stepDefinitions.Hooks.*;
 
-public class Week1_us006_check_titles {
+public class US_006_StepDef {
 
     @Given("user goes to home page")
     public void user_goes_to_home_page() {
@@ -49,26 +49,16 @@ public class Week1_us006_check_titles {
     public void user_scroll_to_second_header() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", commonPage.getHomePage().listHeader.get(1));
         waitForVisibility(commonPage.getHomePage().listHeader.get(1));
+        waitFor(2);
         commonPage.getHomePage().listHeader.get(1).hoverWebElement();
         //actions.moveToElement(commonPage.getHomePage().listHeader.get(1)).build().perform();
 
-        waitFor(2);
+        waitFor(1);
 
 
     }
 
-    public static void waitFor(int sec) {
-        try {
-            Thread.sleep(sec*1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
-    public static WebElement waitForVisibility(WebElement webElement) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.visibilityOf(webElement));
-    }
 
     @Then("assert first header color should be black")
     public void assert_first_header_color_should_be_black() {
@@ -81,5 +71,17 @@ public class Week1_us006_check_titles {
     public void assert_first_header_backround_color_should_be_grey() {
         COLOR.TEXT_GRAY_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(0));
 
+    }
+    public static void waitFor(int sec) {
+        try {
+            Thread.sleep(sec*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static WebElement waitForVisibility(WebElement webElement) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 }
