@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class HomePage extends CommonPage{
-    @FindBy(xpath="//*[@data-test-id='loginScreen_logIn']")
+        @FindBy(xpath="//*[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
 
     @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
@@ -16,7 +16,19 @@ public class HomePage extends CommonPage{
     public List<WebElement> listHeader;
 
 
-    //Features sections locators in the footer
+
+
+
+
+
+
+
+
+
+
+
+
+
     @FindBy(xpath ="//div[text()='Calendar']")
     public WebElement calendar;
 
@@ -28,6 +40,7 @@ public class HomePage extends CommonPage{
 
     @FindBy(xpath ="//div[contains(text(),'Notifications & Reminders')]")
     public WebElement NotificationsReminders;
+
     @FindBy(xpath ="//div[contains(text(),'Multiple Payment Service Options')]")
     public WebElement MultiplePaymentServiceOptions;
 
@@ -48,6 +61,7 @@ public class HomePage extends CommonPage{
 
     @FindBy(xpath ="//div[contains(text(),'Multiple Providers')]")
     public WebElement MultipleProviders;
+
     @FindBy(xpath ="//div[contains(text(),'Dashboard & Reporting')]")
     public WebElement DashboardReporting;
 
