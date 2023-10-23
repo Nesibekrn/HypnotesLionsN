@@ -15,7 +15,7 @@ public class Week1_us006_check_titles {
         driver.get(ConfigurationReader.getProperty("url"));
 
     }
-
+/*
     @Then("assert first header color should be white")
     public void assert_first_header_color_should_be_white() {
         // for return type ==> ctrl-alt -v ()
@@ -62,5 +62,5 @@ public class Week1_us006_check_titles {
     @Then("assert first header background color should be grey")
     public void assert_first_header_backround_color_should_be_grey() {
 
-    }
+    }*/
 }

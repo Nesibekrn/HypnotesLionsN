@@ -31,6 +31,8 @@ public class HomePage extends CommonPage{
     public WebElement messagesContent_textarea;
     @FindBy(xpath = "//button[text()='Send Message']")
     public WebElement sendMessage_button;
+    @FindBy(xpath = "//span[text()='Message sent successfully ']")
+    public WebElement messageSentSuccessfully_message;
     @FindBy(xpath ="//div[text()='Calendar']")
     public WebElement calendar;
 
