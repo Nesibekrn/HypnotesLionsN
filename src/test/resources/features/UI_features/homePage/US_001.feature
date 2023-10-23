@@ -3,7 +3,7 @@ Feature: User goes to homepage
   @UI
   Scenario: US_001
     Given User goes to "https://test.hypnotes.net"
-    And User gets page title
+    And User verify that homepage is loaded
 
 
 
