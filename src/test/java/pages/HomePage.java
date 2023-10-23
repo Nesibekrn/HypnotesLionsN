@@ -1,21 +1,19 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static stepDefinitions.Hooks.driver;
-
 public class HomePage extends CommonPage{
-
-    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[2]")
-    public List<WebElement> feature1;
-    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[3]")
-    public List<WebElement> feature2;
     @FindBy(xpath="//*[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
+
+    @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
+    public List<WebElement> listTitles;
+
+    @FindBy(xpath = "//a[@class='ant-btn css-15rg2km ant-btn-link features-btn']")
+    public List<WebElement> listHeader;
 
 
     //Features sections locators in the footer
@@ -72,5 +70,8 @@ public class HomePage extends CommonPage{
     @FindBy(xpath ="//span[contains(text(),'Newsletter')]")
     public WebElement scrollElement;
 
-
+    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[2]")
+    public List<WebElement> feature1;
+    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[3]")
+    public List<WebElement> feature2;
 }
