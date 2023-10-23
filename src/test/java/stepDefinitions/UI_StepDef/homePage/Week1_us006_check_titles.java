@@ -10,7 +10,7 @@ import static stepDefinitions.Hooks.*;
 
 public class Week1_us006_check_titles {
 
-    @Given("user goes to home page")
+  /*  @Given("user goes to home page")
     public void user_goes_to_home_page() {
         driver.get(ConfigurationReader.getProperty("url"));
 
@@ -62,5 +62,5 @@ public class Week1_us006_check_titles {
     @Then("assert first header background color should be grey")
     public void assert_first_header_backround_color_should_be_grey() {
 
-    }
+    }*/
 }

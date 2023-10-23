@@ -1,5 +1,4 @@
 package utilities;
-import static stepDefinitions.Hooks.driver;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -23,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
 
-    private static WebDriverWait wait;
+    public static WebDriverWait wait;
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -93,10 +92,10 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public static WebElement waitForClickablility(WebElement element, int timeout) {
+   /* public static WebElement waitForClickablility() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
+    }*/
     public static WebElement waitForClickablility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
