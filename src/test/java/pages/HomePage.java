@@ -5,8 +5,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class HomePage extends CommonPage{
-    @FindBy(xpath="//*[@data-test-id='loginScreen_logIn']")
+public class HomePage extends CommonPage {
+    @FindBy(xpath = "//*[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
     @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
     public List<WebElement> listTitles;
@@ -34,81 +34,69 @@ public class HomePage extends CommonPage{
     public WebElement ressourcesText;
     @FindBy(xpath = "//p[@class='ContactForm_formTitle__JMH9d']")
     public WebElement contactUsText;
+    @FindBy(xpath = "//img[@style='border-radius: 20px; width: 93%; padding: 10px; justify-content: center;']")
+    public List<WebElement> images;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @FindBy(xpath ="//div[text()='Calendar']")
+    @FindBy(xpath = "//div[text()='Calendar']")
     public WebElement calendar;
 
-    @FindBy(xpath ="//div[contains(text(),'Services')]")
+    @FindBy(xpath = "//div[contains(text(),'Services')]")
     public WebElement services;
 
-    @FindBy(xpath ="//div[contains(text(),'eSign and Document Storage')]")
+    @FindBy(xpath = "//div[contains(text(),'eSign and Document Storage')]")
     public WebElement eSignDocumentStorage;
 
-    @FindBy(xpath ="//div[contains(text(),'Notifications & Reminders')]")
+    @FindBy(xpath = "//div[contains(text(),'Notifications & Reminders')]")
     public WebElement NotificationsReminders;
 
-    @FindBy(xpath ="//div[contains(text(),'Multiple Payment Service Options')]")
+    @FindBy(xpath = "//div[contains(text(),'Multiple Payment Service Options')]")
     public WebElement MultiplePaymentServiceOptions;
 
-    @FindBy(xpath ="//div[contains(text(),'Billing and Invoicing')]")
+    @FindBy(xpath = "//div[contains(text(),'Billing and Invoicing')]")
     public WebElement BillingInvoicing;
 
-    @FindBy(xpath ="//div[contains(text(),'Free Secure Telehealth Video Conferencing')]")
+    @FindBy(xpath = "//div[contains(text(),'Free Secure Telehealth Video Conferencing')]")
     public WebElement FreeSecureTelehealthVideoConferencing;
 
-    @FindBy(xpath ="//div[contains(text(),'Customize Your Scheduler & URL')]")
+    @FindBy(xpath = "//div[contains(text(),'Customize Your Scheduler & URL')]")
     public WebElement CustomizeYourSchedulerURL;
 
-    @FindBy(xpath ="//div[contains(text(),'Custom Forms & Documents')]")
+    @FindBy(xpath = "//div[contains(text(),'Custom Forms & Documents')]")
     public WebElement CustomFormsDocuments;
 
-    @FindBy(xpath ="//div[contains(text(),'Multiple Locations')]")
+    @FindBy(xpath = "//div[contains(text(),'Multiple Locations')]")
     public WebElement MultipleLocations;
 
-    @FindBy(xpath ="//div[contains(text(),'Multiple Providers')]")
+    @FindBy(xpath = "//div[contains(text(),'Multiple Providers')]")
     public WebElement MultipleProviders;
 
-    @FindBy(xpath ="//div[contains(text(),'Dashboard & Reporting')]")
+    @FindBy(xpath = "//div[contains(text(),'Dashboard & Reporting')]")
     public WebElement DashboardReporting;
 
 
-    @FindBy(xpath ="//div[contains(text(),'Client Portal')]")
+    @FindBy(xpath = "//div[contains(text(),'Client Portal')]")
     public WebElement ClientPortal;
 
-    @FindBy(xpath ="//div[contains(text(),'Biofeedback/Emotion-Detection')]")
+    @FindBy(xpath = "//div[contains(text(),'Biofeedback/Emotion-Detection')]")
     public WebElement BiofeedbackEmotionDetection;
 
-    @FindBy(xpath ="//div[contains(text(),'Handwriting to Text Conversion')]")
+    @FindBy(xpath = "//div[contains(text(),'Handwriting to Text Conversion')]")
     public WebElement HandwritingtoTextConversion;
 
-    @FindBy(xpath ="//div[contains(text(),'3rd Party Integration')]")
+    @FindBy(xpath = "//div[contains(text(),'3rd Party Integration')]")
     public WebElement thirdrdPartyIntegration;
-    @FindBy(xpath ="//div[contains(text(),'Industry Required Client Notes')]")
+    @FindBy(xpath = "//div[contains(text(),'Industry Required Client Notes')]")
     public WebElement IndustryRequiredClientNotes;
 
 
-    @FindBy(xpath ="//span[contains(text(),'Newsletter')]")
+    @FindBy(xpath = "//span[contains(text(),'Newsletter')]")
     public WebElement scrollElement;
 
-    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[2]")
+    @FindBy(xpath = "//body/div[@id='__next']/div[1]/div[2]/div[2]")
     public List<WebElement> feature1;
-    @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[3]")
+    @FindBy(xpath = "//body/div[@id='__next']/div[1]/div[2]/div[3]")
     public List<WebElement> feature2;
-
 
 
 }

@@ -8,11 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.ConfigurationReader;
+import utilities.JS_utilities;
+import utilities.ReusableMethods;
 
 
 import java.time.Duration;
+import java.util.List;
 
 import static stepDefinitions.Hooks.*;
+import static utilities.ReusableMethods.waitFor;
 
 public class US_006_StepDef {
 
@@ -45,10 +49,18 @@ public class US_006_StepDef {
 
     }
 
+    @And("assert {string} title is visible")
+    public void assertTitleIsVisible(String title) {
+        String str = commonPage.getHomePage().listTitles.get(0).getText();
+        Assert.assertTrue(str.contains(title));
+
+
+    }
+
     @When("user scroll to second header")
     public void user_scroll_to_second_header() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", commonPage.getHomePage().listHeader.get(1));
-        waitForVisibility(commonPage.getHomePage().listHeader.get(1));
+        JS_utilities.scrollIntoViewJS(commonPage.getHomePage().listHeader.get(0));
+        ReusableMethods.waitForVisibility(commonPage.getHomePage().listHeader.get(1), 10);
         waitFor(2);
         commonPage.getHomePage().listHeader.get(1).hoverWebElement();
         //actions.moveToElement(commonPage.getHomePage().listHeader.get(1)).build().perform();
@@ -57,7 +69,6 @@ public class US_006_StepDef {
 
 
     }
-
 
 
     @Then("assert first header color should be black")
@@ -72,16 +83,80 @@ public class US_006_StepDef {
         COLOR.TEXT_GRAY_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(0));
 
     }
-    public static void waitFor(int sec) {
-        try {
-            Thread.sleep(sec*1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
+    @Then("assert  second header color should be white")
+    public void assertSecondHeaderColorShouldBeWhite() {
+        COLOR.WHITE_TEXT.assertTextColor(commonPage.getHomePage().listHeader.get(1));
+
+
     }
 
-    public static WebElement waitForVisibility(WebElement webElement) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.visibilityOf(webElement));
+    @And("assert second header background color is green")
+    public void assertSecondHeaderBackgroundColorIsGreen() {
+        COLOR.TEXT_GREEN_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(1));
+    }
+
+
+    @And("assert {string} title_two is visible")
+    public void assertTitle_twoIsVisible(String title2) {
+        String str = commonPage.getHomePage().listTitles.get(1).getText();
+        assert str.contains(title2);
+    }
+
+
+    @When("user scroll to {int}. header")
+    public void userScrollToHeader(int no) {
+        JS_utilities.scrollIntoViewJS(commonPage.getHomePage().listHeader.get(no - 2));
+        ReusableMethods.waitForVisibility(commonPage.getHomePage().listHeader.get(no - 1), 10);
+        waitFor(2);
+        commonPage.getHomePage().listHeader.get(no - 1).hoverWebElement();
+
+
+        waitFor(2);
+
+
+    }
+
+    @Then("assert  {int}. header color should be white")
+    public void assertHeaderColorShouldBeWhite(int no) {
+        COLOR.WHITE_TEXT.assertTextColor(commonPage.getHomePage().listHeader.get(no - 1));
+
+    }
+
+    @And("assert {int}. header background color is green")
+    public void assertHeaderBackgroundColorIsGreen(int no) {
+        COLOR.TEXT_GREEN_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(no - 1));
+
+    }
+
+
+    @And("assert {string} title_{int} is visible")
+    public void assertTitle_IsVisible(String title3, int no) {
+        String str = commonPage.getHomePage().listTitles.get(no - 1).getText();
+        assert str.contains(title3);
+    }
+
+    @And("assert image{int} is visible")
+    public void assertImageIsVisible(int no) {
+        assert commonPage.getHomePage().images.get(no - 1).isDisplayed();
+
+    }
+
+    @Then("assert headers are clickable")
+    public void assertHeadersAreClickable() {
+        List<WebElement> headers = commonPage.getHomePage().listHeader;
+
+        for (int i = 0; i < headers.size(); i++) {
+            String title_HomePage = driver.getTitle();
+            waitFor(2);
+            JS_utilities.clickElementByJS(commonPage.getHomePage().listHeader.get(i));
+            waitFor(1);
+            String title_secondWindows = driver.getTitle();
+            assert !title_secondWindows.equalsIgnoreCase(title_HomePage);
+            driver.navigate().back();
+            waitFor(1);
+
+
+        }
     }
 }
