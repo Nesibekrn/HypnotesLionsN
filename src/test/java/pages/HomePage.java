@@ -12,6 +12,7 @@ public class HomePage extends CommonPage {
     public List<WebElement> listTitles;
     @FindBy(xpath = "//a[@class='ant-btn css-15rg2km ant-btn-link features-btn']")
     public List<WebElement> listHeader;
+
     @FindBy(xpath = "//span[text()='Payment Service']")
     public WebElement secondHeader;
     @FindBy(xpath = "//span[@data-test-id='loginScreen_features']")
@@ -38,7 +39,49 @@ public class HomePage extends CommonPage {
     public List<WebElement> images;
 
 
-    @FindBy(xpath = "//div[text()='Calendar']")
+
+
+    @FindBy(xpath = "(//img[@alt='logo'])[2]")
+    public WebElement faceBookIcon;
+    @FindBy(xpath = "(//img[@alt='logo'])[3]")
+    public WebElement linkedinIcon;
+    @FindBy(xpath = "(//img[@alt='logo'])[4]")
+    public WebElement xIcon;
+    @FindBy(xpath = "(//img[@alt='logo'])[5]")
+    public WebElement instagramIcon;
+    @FindBy(xpath = "//input[@data-test-id='mainPage_enterYourEmailAddress_input']")
+    public WebElement inputEmailFooter;
+    @FindBy(xpath = "//button[@data-test-id='mainPage_SignUpButton']")
+    public WebElement signUpButtonFooter;
+    @FindBy(xpath = "//i[@class='x1b0d499 xmgbrsx']")
+    public WebElement faceBookX;
+
+
+
+
+
+    @FindBy(xpath = "//span[text()='Contact Us']")
+    public WebElement contactUsButton;
+    @FindBy(xpath = "//input[@name='subject']")
+    public WebElement subject_input;
+    @FindBy(xpath = "//input[@name='fullname']")
+    public WebElement fullName_input;
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement email_input;
+    @FindBy(xpath = "//input[@name='phoneNumber']")
+    public WebElement phoneNumber_input;
+    // @FindBy(xpath = "//select[@name='bestTimeToReach']")
+    @FindBy(id = "best-time-to-reach")
+    public WebElement bestTimeToReach_dropDown;
+    @FindBy(xpath = "//textarea[@name='content']")
+    public WebElement messagesContent_textarea;
+    @FindBy(xpath = "//button[@type='submit']")
+  //  @FindBy(xpath = "//button[text()='Send Message']")
+    public WebElement sendMessage_button;
+    @FindBy(xpath = "//span[text()='Message sent successfully ']")
+    public WebElement messageSentSuccessfully_message;
+    @FindBy(xpath ="//div[text()='Calendar']")
+
     public WebElement calendar;
 
     @FindBy(xpath = "//div[contains(text(),'Services')]")
@@ -97,6 +140,8 @@ public class HomePage extends CommonPage {
     public List<WebElement> feature1;
     @FindBy(xpath = "//body/div[@id='__next']/div[1]/div[2]/div[3]")
     public List<WebElement> feature2;
+    @FindBy(xpath = "//div[text()='Help & Support']")
+    public WebElement helpAndSupport;
 
 
 }
