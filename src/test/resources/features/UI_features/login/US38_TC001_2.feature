@@ -15,6 +15,6 @@
         When enters a incorrect <"email"> and <"password">
         Then verify the error message
         Examples:
-          | "email" | "password" |
-          | "email" | "password" |
+          | "email"        | "password" |
+          | "kk@gmail.com" | "0000"     |
 
