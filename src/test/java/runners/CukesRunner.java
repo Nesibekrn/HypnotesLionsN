@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "json:target/reports/json/json-reports/cucumber.json",
                 "junit:target/reports/xml/xml-report/cucumber.xml",
                 "rerun:target/reports/rerun.txt",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                "com.aventstack.exten treports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         features = "src/test/resources/features",
         glue = "stepDefinitions",

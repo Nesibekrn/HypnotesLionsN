@@ -53,7 +53,7 @@ public class US_006_StepDef {
         commonPage.getHomePage().listHeader.get(1).hoverWebElement();
         //actions.moveToElement(commonPage.getHomePage().listHeader.get(1)).build().perform();
 
-        waitFor(1);
+        waitFor(2);
 
 
     }
