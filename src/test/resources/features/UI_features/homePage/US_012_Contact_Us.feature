@@ -12,8 +12,19 @@ Feature:When I enter the home page as a user, I should be able to see various ti
     When user clicks on Contact Us button
     Then user can see Contact Us page
 
-  @TC-02453
-  Scenario Outline: TC-02-After entering the necessary information in the menu, the send button should be clicked.
+  @TC-02
+  Scenario: TC-02-After entering the necessary information in the menu, the send button should be clicked.
+    When user clicks on Contact Us button
+    And user types subject section subject
+    * user types Full Name section fullName
+    * user types email section email
+    * user types Phone Number section phoneNumber
+    * user types "Morning" at the Best Time section
+    * user types Message section message
+    * user clicks Send Message button
+    Then user can see Message sent successfully
+
+    Scenario Outline: TC-03
     When user clicks on Contact Us button
     And user types subject section "<subject>"
     * user types Full Name section "<fullName>"
@@ -24,6 +35,6 @@ Feature:When I enter the home page as a user, I should be able to see various ti
     * user clicks Send Message button
     Then user can see 'Message sent successfully' message
     Examples:
-      | subject | fullName | email | phoneNumber | bestTime | message |
-      |         |          |       |             |          |         |
+      | subject        | fullName | email         | phoneNumber | bestTime | message        |
+      | Hypnotherapist | Fatma    | afg@gmail.com | 78342121    |          | Please call me |
 

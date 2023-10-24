@@ -1,59 +1,105 @@
 package stepDefinitions.UI_StepDef.homePage;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
 public class US_012_StepDefs extends CommonPage {
+    Faker faker = new Faker();
+
     @When("user clicks on Contact Us button")
     public void user_clicks_on_contact_us_button() {
-       getHomePage().contactUsButton.click();
-        ReusableMethods.waitFor(3);
+        getHomePage().contactUsButton.click();
+        ReusableMethods.waitForVisibility(getHomePage().subject_input,2);
     }
+
     @Then("user can see Contact Us page")
     public void user_can_see_contact_us_page() {
-        Assert.assertEquals("https://test.hypnotes.net/contact-us",driver.getCurrentUrl());
+        Assert.assertEquals("https://test.hypnotes.net/contact-us", driver.getCurrentUrl());
     }
+
     @When("user types Full Name section {string}")
-    public void user_types_full_name_section(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_types_full_name_section(String fullName) {
+        getHomePage().fullName_input.sendKeys(fullName);
     }
+
     @When("user types email section {string}")
-    public void user_types_email_section(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_types_email_section(String email) {
+        getHomePage().email_input.sendKeys(email);
     }
+
     @When("user types Phone Number section {string}")
-    public void user_types_phone_number_section(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_types_phone_number_section(String phoneNumber) {
+        getHomePage().phoneNumber_input.sendKeys(phoneNumber);
     }
+
     @When("user types Best Time section {string}")
-    public void user_types_best_time_section(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_types_best_time_section(String bestTime) {
+        getHomePage().bestTimeToReach_dropDown.click();
     }
+
     @When("user types Message section {string}")
-    public void user_types_message_section(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_types_message_section(String message) {
+        getHomePage().messagesContent_textarea.sendKeys(message);
     }
+
     @When("user clicks Send Message button")
     public void user_clicks_send_message_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+     ReusableMethods.scrollAndClickWithJS(getHomePage().sendMessage_button);
+     ReusableMethods.waitFor(1);
     }
-    @Then("user can see {string} message")
-    public void user_can_see_message(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+    @Then("user can see Message sent successfully")
+    public void user_can_see_message() {
+        Assert.assertTrue(getHomePage().messageSentSuccessfully_message.isDisplayed());
     }
 
     @And("user types subject section {string}")
-    public void userTypesSubjectSection(String arg0) {
+    public void userTypesSubjectSection(String subject) {
+        getHomePage().subject_input.sendKeys(subject);
     }
+
+    @And("user types subject section subject")
+    public void userTypesSubjectSectionSubject() {
+        getHomePage().subject_input.sendKeys("Hypnotherapist Booking");
+    }
+
+    @When("user types Full Name section fullName")
+    public void user_types_full_name_section_full_name() {
+        getHomePage().fullName_input.sendKeys(faker.name().fullName());
+    }
+
+    @When("user types email section email")
+    public void user_types_email_section_email() {
+        getHomePage().email_input.sendKeys(faker.internet().emailAddress());
+    }
+
+    @When("user types Phone Number section phoneNumber")
+    public void user_types_phone_number_section_phone_number() {
+        getHomePage().phoneNumber_input.sendKeys(faker.phoneNumber().phoneNumber());
+    }
+
+    @When("user types {string} at the Best Time section")
+    public void user_types_at_the_best_time_section(String bestTime) {
+        Select select = new Select(getHomePage().bestTimeToReach_dropDown);
+        switch (bestTime) {
+            case "Morning":
+                select.selectByVisibleText(bestTime);
+                break;
+            case "Afternoon":
+                select.selectByVisibleText("Afternoon");
+                break;
+        }
+    }
+
+    @When("user types Message section message")
+    public void user_types_message_section_message() {
+        getHomePage().messagesContent_textarea.sendKeys(faker.lorem().paragraph());
+    }
+
 }

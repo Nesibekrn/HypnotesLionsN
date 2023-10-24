@@ -29,7 +29,8 @@ public class HomePage extends CommonPage{
     public WebElement bestTimeToReach_dropDown;
     @FindBy(xpath = "//textarea[@name='content']")
     public WebElement messagesContent_textarea;
-    @FindBy(xpath = "//button[text()='Send Message']")
+    @FindBy(xpath = "//button[@type='submit']")
+  //  @FindBy(xpath = "//button[text()='Send Message']")
     public WebElement sendMessage_button;
     @FindBy(xpath = "//span[text()='Message sent successfully ']")
     public WebElement messageSentSuccessfully_message;
@@ -92,6 +93,8 @@ public class HomePage extends CommonPage{
     public List<WebElement> feature1;
     @FindBy(xpath="//body/div[@id='__next']/div[1]/div[2]/div[3]")
     public List<WebElement> feature2;
+    @FindBy(xpath = "//div[text()='Help & Support']")
+    public WebElement helpAndSupport;
 
 
 
