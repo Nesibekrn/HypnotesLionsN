@@ -4,12 +4,21 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CommonPage;
+import utilities.JS_utilities;
+import utilities.ReusableMethods;
 
 public class US_003_StepDef extends CommonPage {
+
+    @Then("User navigates to the bottom of the page")
+    public void userNavigatesToTheBottomOfThePage() {
+        JS_utilities.scrollToBottom();
+    }
 
     @Then("User should see the Facebook icon")
     public void userShouldSeeTheFacebookIcon() {
 
+        ReusableMethods.waitForVisibility(getHomePage().facebookIcon,5);
+        ReusableMethods.verifyElementDisplayed(getHomePage().facebookIcon);
 
     }
 
@@ -60,4 +69,6 @@ public class US_003_StepDef extends CommonPage {
     @When("User clicks instagram icon")
     public void userClicksInstagramIcon() {
     }
+
+
 }

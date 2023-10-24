@@ -19,7 +19,7 @@ public class JS_utilities {
     }
     public static void scrollToBottom() {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("window.scrollBy(0,document.body.scrollHeight)");
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
     }
     //This method will takes two parameter: WebElement, and WebDriver
     //When you pass the element, JS will click on that element
