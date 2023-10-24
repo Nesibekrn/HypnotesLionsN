@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -95,6 +96,17 @@ public class HomePage extends CommonPage{
     public List<WebElement> feature2;
     @FindBy(xpath = "//div[text()='Help & Support']")
     public WebElement helpAndSupport;
+    public void bestTimeDropDown(String bestTime,WebElement bestTimeWebElemet) {
+        Select select = new Select(bestTimeWebElemet);
+        switch (bestTime) {
+            case "Morning":
+                select.selectByVisibleText(bestTime);
+                break;
+            case "Afternoon":
+                select.selectByVisibleText("Afternoon");
+                break;
+        }
+    }
 
 
 
