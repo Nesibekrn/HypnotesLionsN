@@ -1,5 +1,4 @@
 package utilities;
-import static stepDefinitions.Hooks.driver;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
