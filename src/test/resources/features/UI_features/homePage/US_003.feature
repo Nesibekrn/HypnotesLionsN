@@ -1,21 +1,25 @@
+@UI
 Feature: Social Media Icons on Home Page
-  @US_003
-  @UI
-Background:
-    Given User goes to "https://test.hypnotes.net"
-    Then User clicks login button
 
+
+
+    Background:
+    Given User goes to "https://test.hypnotes.net"
+
+  @UI
   Scenario: Verify the visibility of social media icons
     Then User should see the Facebook icon
-    And User see the LinkedIn icon
+    And User see LinkedIn icon
     And User should see the X icon
     And User should see the Instagram icon
 
+  @UI
   Scenario: Verify the clickability of social media icons
     Then facebook icon should be clickable
     When User clicks facebook icon
     Then User should be taken to the company-related "https://www.facebook.com/hypnotesinc"
 
+  @UI
   Scenario: User should see and control social media icons
     Then twitter icon should be clickable
     When User clicks twitter icon
