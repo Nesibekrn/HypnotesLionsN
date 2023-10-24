@@ -29,10 +29,10 @@ public class US_09HomePageOurPlatformStepDef {
 
     @When("The user sees our platform section at the button of the page")
     public void theUserSeesOurPlatformSectionAtTheBottomOfThePage() {
-        JS_utilities.scrollDownByJS();
+        JS_utilities.scrollToBottom();
         ReusableMethods.waitFor(2);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 500)");
+     JavascriptExecutor js = (JavascriptExecutor) driver;
+       js.executeScript("window.scrollBy(0, 500)");
         Assert.assertTrue(homePage.ourPlatform.isDisplayed());
 
 
@@ -64,6 +64,8 @@ public class US_09HomePageOurPlatformStepDef {
     public void theUserVerifiesThatThePricingButtonIsVisibleAndClickable() {
         assertTrue(homePage.pricing.isDisplayed());
         ReusableMethods.waitFor(3);
+        driver.navigate().back();
+        ReusableMethods.waitFor(3);
         homePage.pricing.click();
         ReusableMethods.waitFor(2);
         String pricingUrl = "https://test.hypnotes.net/pricing";
@@ -77,6 +79,7 @@ public class US_09HomePageOurPlatformStepDef {
     public void theUserVerifiesThatTheHIPAAComplianceButtonIsVisibleAndClickable() {
         assertTrue(homePage.hipaaCompliance.isDisplayed());
         ReusableMethods.waitFor(2);
+        driver.navigate().back();
         homePage.hipaaCompliance.click();
         String hipaUrl = "https://test.hypnotes.net/features/hipaa-security";
         ReusableMethods.waitFor(3);
@@ -90,6 +93,7 @@ public class US_09HomePageOurPlatformStepDef {
     public void theUserVerifiesThatTheSecureLoginAccountVerificationDataStorageButtonIsVisibleAndClickable() {
         assertTrue(homePage.secureLogin.isDisplayed());
         ReusableMethods.waitFor(2);
+        driver.navigate().back();
         homePage.secureLogin.click();
         String secureUrl = "https://test.hypnotes.net/features/hipaa-security";
         ReusableMethods.waitFor(3);
@@ -101,6 +105,7 @@ public class US_09HomePageOurPlatformStepDef {
     public void theUserVerifiesThatTheGetStartedForFreeButtonIsVisibleAndClickable() {
         assertTrue(homePage.getStarted.isDisplayed());
         ReusableMethods.waitFor(2);
+        driver.navigate().back();
         homePage.getStarted.click();
         String getStartedFreeUrl = "https://test.hypnotes.net/register";
         ReusableMethods.waitFor(3);
@@ -111,6 +116,7 @@ public class US_09HomePageOurPlatformStepDef {
     public void theUserVerifiesThatTheReviewsTestimonialsButtonIsVisibleAndClickable() {
         assertTrue(homePage.reviewsTestimonials.isDisplayed());
         ReusableMethods.waitFor(2);
+        driver.navigate().back();
         homePage.reviewsTestimonials.click();
         String reviewUrl = "https://test.hypnotes.net/#reviewRow";
         ReusableMethods.waitFor(2);
