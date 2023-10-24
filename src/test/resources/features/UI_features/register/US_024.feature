@@ -1,7 +1,10 @@
-Feature: User Registration
+@UI
+Feature: User goes to home page.
+
   @US_024
-  Scenario: User clicks on "Sign Up for Free" button and verifies registration options
-    Given the user is on the home page
-    When the user clicks on the "Sign Up for Free" button
+
+  Scenario: TC001
+    Given user goes to home page
+    When the user clicks on the Sign Up for Free button
     Then the "Sign Up for Free" button should be clickable
-    And the "Register As a Therapist" menu should appear
+    Then the "Register As a Therapist" menu should appear

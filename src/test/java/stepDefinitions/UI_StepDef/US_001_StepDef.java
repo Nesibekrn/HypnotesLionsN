@@ -14,6 +14,6 @@ public class US_001_StepDef extends CommonPage {
 
     @Then("User clicks login button")
     public void userClicksLoginButton() {
-getHomePage().loginButton.click();
+      getHomePage().loginButton.click();
     }
 }
