@@ -9,17 +9,17 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//*[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//img[@data-test-id='facebookLink_footerLogo']")
 
-    @FindBy(xpath = "//img[@href='https://www.facebook.com/hypnotesinc']")
     public WebElement facebookIcon;
 
-    @FindBy(id = "//img[@href='https://www.linkedin.com/company/hypnotes/']")
+    @FindBy(xpath= "//img[@data-test-id='linkedinLink_footerLogo']")
     public WebElement linkedinIcon;
 
-    @FindBy(id = "//img[@href='https://twitter.com/HypnotesInc']")
+    @FindBy(xpath = "//img[@data-test-id='twitterLink_footerLogo']")
     public WebElement twitterIcon;
 
-    @FindBy(id = "//img[@href='https://www.instagram.com/hypnotesinc']")
+    @FindBy(xpath = "//img[@data-test-id='instagramLink_footerLogo']")
     public WebElement instagramIcon;
 
     @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
