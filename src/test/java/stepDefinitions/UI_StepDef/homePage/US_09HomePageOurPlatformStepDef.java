@@ -14,6 +14,7 @@ import utilities.ConfigurationReader;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 
@@ -37,141 +38,86 @@ public class US_09HomePageOurPlatformStepDef {
 
     }
 
-    @Then("The user verifies that the product demo button is visible and clickable")
+    @Then("The user verifies that the product demo button is visible and clickable,the user sees the relevant page.")
     public void theUserVerifiesThatTheProductDemoButtonIsVisibleAndClickable() {
         Assert.assertTrue(homePage.productDemo.isDisplayed());
         ReusableMethods.waitFor(2);
         homePage.productDemo.click();
+            String productDemoUrl = "https://test.hypnotes.net/register";
+            ReusableMethods.waitFor(4);
+            assertEquals(driver.getCurrentUrl(), productDemoUrl);
         ReusableMethods.waitFor(3);
-    }
-
-
-    @And("The user clicks on the product demo button, the user sees the relevant page.")
-    public void theUserClicksOnTheProductDemoButtonTheUserSeesTheRelevantPage() {
-        // WebElement openedElement =homePage.productDemo;
-        boolean isOpened = homePage.productDemo.isDisplayed();
-        if (isOpened) {
-            System.out.println("Sayfa açıldı.");
-        } else {
-            System.out.println("Sayfa açılmadı.");
         }
-        ReusableMethods.waitFor(3);
-    }
-
-    @Then("The user verifies that the How Does Hypnotes Work? button is visible and clickable")
+    @When("The user verifies that the How Does Hypnotes Work button is visible and clickable,the user sees the relevant page")
     public void theUserVerifiesThatTheHowDoesHypnotesWorkButtonIsVisibleAndClickable() {
-        //Assert.assertTrue(String.valueOf(homePage.hynotesWork.isDisplayed()),false);
         Assert.assertTrue(homePage.hynotesWork.isDisplayed());
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(4);
         homePage.hynotesWork.click();
+        String productDemoUrl = "https://test.hypnotes.net/how-it-works";
+        ReusableMethods.waitFor(3);
+        assertEquals(driver.getCurrentUrl(), productDemoUrl);
         ReusableMethods.waitFor(3);
 
     }
 
-
-    @And("The user clicks on the product How Does Hypnotes Work?, the user sees the relevant page.")
-    public void theUserClicksOnTheProductHowDoesHypnotesWorkTheUserSeesTheRelevantPage() {
-        boolean isOpened = homePage.hynotesWork.isDisplayed();
-        if (isOpened) {
-            System.out.println("Sayfa açıldı.");
-        } else {
-            System.out.println("Sayfa açılmadı.");
-        }
-        ReusableMethods.waitFor(3);
-    }
-
-    @Then("The user verifies that the Pricing button is visible and clickable")
+    @Then("The user verifies that the Pricing button is visible and clickable,the user sees the relevant page.")
     public void theUserVerifiesThatThePricingButtonIsVisibleAndClickable() {
         assertTrue(homePage.pricing.isDisplayed());
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
         homePage.pricing.click();
+        ReusableMethods.waitFor(2);
+        String pricingUrl = "https://test.hypnotes.net/pricing";
+        ReusableMethods.waitFor(3);
+        assertEquals(driver.getCurrentUrl(), pricingUrl);
         ReusableMethods.waitFor(3);
     }
 
-    @And("The user clicks on the product Pricing, the user sees the relevant page.")
-    public void theUserClicksOnTheProductPricingTheUserSeesTheRelevantPage() {
-        boolean isOpened = homePage.pricing.isDisplayed();
-        if (isOpened) {
-            System.out.println("Sayfa açıldı.");
-        } else {
-            System.out.println("Sayfa açılmadı.");
-        }
-        ReusableMethods.waitFor(3);
-    }
 
-    @Then("The user verifies that the HIPAA Compliance button is visible and clickable")
+    @Then("The user verifies that the HIPAA Compliance button is visible and clickable,the user sees the relevant page.")
     public void theUserVerifiesThatTheHIPAAComplianceButtonIsVisibleAndClickable() {
         assertTrue(homePage.hipaaCompliance.isDisplayed());
         ReusableMethods.waitFor(2);
-       homePage.hipaaCompliance.click();
+        homePage.hipaaCompliance.click();
+        String hipaUrl = "https://test.hypnotes.net/features/hipaa-security";
+        ReusableMethods.waitFor(3);
+        assertEquals(driver.getCurrentUrl(), hipaUrl);
         ReusableMethods.waitFor(2);
     }
 
-    @And("The user clicks on the product HIPAA Compliance, the user sees the relevant page.")
-    public void theUserClicksOnTheProductHIPAAComplianceTheUserSeesTheRelevantPage() {
-        boolean isOpened = homePage.hipaaCompliance.isDisplayed();
-        if (isOpened) {
-            System.out.println("Sayfa açıldı.");
-        } else {
-            System.out.println("Sayfa açılmadı.");
-        }
-        ReusableMethods.waitFor(3);
-    }
 
-    @Then("The user verifies that the Secure Login, Account Verification & Data Storage button is visible and clickable")
+
+    @Then("The user verifies that the Secure Login, Account Verification & Data Storage button is visible and clickable, the user sees the relevant page.")
     public void theUserVerifiesThatTheSecureLoginAccountVerificationDataStorageButtonIsVisibleAndClickable() {
         assertTrue(homePage.secureLogin.isDisplayed());
         ReusableMethods.waitFor(2);
         homePage.secureLogin.click();
+        String secureUrl = "https://test.hypnotes.net/features/hipaa-security";
+        ReusableMethods.waitFor(3);
+        assertEquals(driver.getCurrentUrl(), secureUrl);
         ReusableMethods.waitFor(2);
     }
 
-    @And("The user clicks on the product Secure Login, Account Verification & Data Storage, the user sees the relevant page.")
-    public void theUserClicksOnTheProductSecureLoginAccountVerificationDataStorageTheUserSeesTheRelevantPage() {
-        boolean isOpened = homePage.secureLogin.isDisplayed();
-        if (isOpened) {
-            System.out.println("Sayfa açıldı.");
-        } else {
-            System.out.println("Sayfa açılmadı.");
-        }
-        ReusableMethods.waitFor(2);
-    }
-
-
-    @Then("The user verifies that the Get Started For Free button is visible and clickable")
+    @Then("The user verifies that the Get Started For Free button is visible and clickable,the user sees the relevant page.")
     public void theUserVerifiesThatTheGetStartedForFreeButtonIsVisibleAndClickable() {
-       assertTrue(homePage.getStarted.isDisplayed());
+        assertTrue(homePage.getStarted.isDisplayed());
         ReusableMethods.waitFor(2);
-     homePage.getStarted.click();
-        ReusableMethods.waitFor(2);
-    }
-
-    @And("The user clicks on the Get Started For Free, the user sees the relevant page.")
-    public void theUserClicksOnTheGetStartedForFreeTheUserSeesTheRelevantPage() {
-        boolean isOpened = homePage.getStarted.isDisplayed();
-        if (isOpened) {
-            System.out.println("Sayfa açıldı.");
-        } else {
-            System.out.println("Sayfa açılmadı.");
-        }
+        homePage.getStarted.click();
+        String getStartedFreeUrl = "https://test.hypnotes.net/register";
+        ReusableMethods.waitFor(3);
+        assertEquals(driver.getCurrentUrl(), getStartedFreeUrl);
         ReusableMethods.waitFor(2);
     }
-
-    @Then("The user verifies that the Reviews Testimonials button is visible and clickable")
+    @Then("The user verifies that the Reviews Testimonials button is visible and clickable,the user sees the relevant page.")
     public void theUserVerifiesThatTheReviewsTestimonialsButtonIsVisibleAndClickable() {
         assertTrue(homePage.reviewsTestimonials.isDisplayed());
         ReusableMethods.waitFor(2);
-       homePage.reviewsTestimonials.click();
+        homePage.reviewsTestimonials.click();
+        String reviewUrl = "https://test.hypnotes.net/#reviewRow";
+        ReusableMethods.waitFor(2);
+        assertEquals(driver.getCurrentUrl(), reviewUrl);
+
         ReusableMethods.waitFor(2);
     }
 
-    @And("The user clicks on the Reviews Testimonials, the user sees the relevant page")
-    public void theUserClicksOnTheReviewsTestimonialsTheUserSeesTheRelevantPage() {
-        boolean isOpened = homePage.reviewsTestimonials.isDisplayed();
-        if (isOpened) {
-            System.out.println("Sayfa açıldı.");
-        } else {
-            System.out.println("Sayfa açılmadı.");
-        }
+
     }
-}

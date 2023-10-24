@@ -22,9 +22,9 @@ public class HomePage extends CommonPage{
     public WebElement ourPlatform;//09
     @FindBy(xpath = "//div[text()='Product Demo']")
     public WebElement productDemo;//09
-    @FindBy(xpath = "//div[text()='How Does Hypnotes Work?']")
+    @FindBy(xpath = "//div[@href='/how-it-works']")
     public WebElement hynotesWork;//09
-    @FindBy(xpath = "//div[text()='Pricing']")
+    @FindBy(xpath = "//div[@href='/pricing']")
     public WebElement pricing;//09
     @FindBy(xpath = "//div[text()='HIPAA Compliance']")
     public WebElement hipaaCompliance;//09
