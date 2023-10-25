@@ -4,4 +4,3 @@ Feature: User goes to homepage
   Scenario: US_001
     Given User goes to "https://test.hypnotes.net"
     Then User clicks login button
-

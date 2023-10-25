@@ -7,5 +7,5 @@ Feature: The user goes to home page
     And If the user click Turkiye flag language should be Turkish
     Then If the user click Germany flag language should be German
     And If the user click France flag language should be French
-    Then If the user click Spain flag language should be Spanish
     And If the user click Russia flag language should be Russian
+    Then If the user click Spain flag language should be Spanish

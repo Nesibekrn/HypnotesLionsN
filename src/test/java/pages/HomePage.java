@@ -18,35 +18,33 @@ public class HomePage extends CommonPage{
     @FindBy(xpath = "//*[@id=\"__next\"]/div/div[1]/div/div[3]/span[1]/div")
     public WebElement languageButton;
 
-    /*@FindBy(xpath = "//*[@id=\"rc_select_0\"]")
-    ///html/body/div[1]/div/div[1]/div/div[3]/span[1]/div/div/span[1]/input
-    ///html/body/div[1]/div/div[1]/div/div[3]/span[1]/div/div/span[1]/input
-    public WebElement usaFlag;*/
-
-    @FindBy(xpath = "//input[@aria-activedescendant=\"rc_select_0_list_0\"]")
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[1]")
     public WebElement usaFlag;
 
-    @FindBy(xpath = "//input[@aria-activedescendant=\"rc_select_0_list_1\"]")
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[2]")
     public WebElement turkiyeFlag;
 
-    @FindBy(xpath = "//input[@aria-activedescendant=\"rc_select_0_list_2\"]")
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[3]")
     public WebElement germanyFlag;
 
-    @FindBy(xpath = "//input[@aria-activedescendant=\"rc_select_0_list_3\"]")
-    //aria-activedescendant="rc_select_1_list_3"
+    @FindBy(xpath ="(//div[contains(@class,'ant-select-item-option')]/div)[4]")
+
     public WebElement franceFlag;
 
-    @FindBy(xpath = "//input[@aria-activedescendant=\"rc_select_0_list_4\"]")
+    @FindBy(xpath ="(//div[contains(@class,'ant-select-item-option')]/div)[5]")
     public WebElement russiaFlag;
 
-    @FindBy(xpath = "//input[@aria-activedescendant=\"rc_select_0_list_5 \"]")
-    //@FindBy(xpath ="//input([@aria-activedescendant=\"rc_select_1_list_5]")
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[6]")
     public WebElement spainFlag;
 
     @FindBy(xpath = "//*[@id=\"__next\"]/div/main/div[2]/div/div[1]/h1")
     public WebElement sayfaSlogani;
-    ////*[@id="__next"]/div/main/div[2]/div/div[1]/h1
 
+    @FindBy(xpath = "//*[@id=\"__next\"]/div/main/div[2]/div/div[3]/h3")
+    public WebElement paraTasarrufu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div/main/div[2]/div/div[2]/h3")
+    public WebElement leSloganim;
 
 
 
