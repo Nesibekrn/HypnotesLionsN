@@ -53,14 +53,13 @@ public class US_012_StepDefs extends CommonPage {
         getHomePage().phoneNumber_input.sendKeys(faker.phoneNumber().phoneNumber());
     }
 
-    @When("user types {string} at the Best Time section")
-    public void user_types_at_the_best_time_section(String bestTime) {
-        getHomePage().bestTimeDropDown(bestTime,getHomePage().bestTimeToReach_dropDown);
-    }
-
     @When("user types Message section message")
     public void user_types_message_section_message() {
         getHomePage().messagesContent_textarea.sendKeys(faker.lorem().paragraph());
+    }
+    @When("user types {string} at the Best Time section")
+    public void user_types_at_the_best_time_section(String bestTime) {
+        getHomePage().bestTimeDropDown(bestTime,getHomePage().bestTimeToReach_dropDown);
     }
 
 }
