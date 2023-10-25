@@ -10,7 +10,6 @@ public class HomePage extends CommonPage {
     public WebElement loginButton;
 
     @FindBy(xpath = "//img[@data-test-id='facebookLink_footerLogo']")
-
     public WebElement facebookIcon;
 
     @FindBy(xpath= "//img[@data-test-id='linkedinLink_footerLogo']")

@@ -13,7 +13,7 @@ Feature: Social Media Icons on Home Page
     And User should see the Instagram icon
 
   @UI
-  Scenario: Verify the clickability of social media icons
+  Scenario: Verify the clickability of social media i477+
     Then facebook icon should be clickable
     When User clicks facebook icon
     Then User should be taken to the company-related "https://www.facebook.com/hypnotesinc"
