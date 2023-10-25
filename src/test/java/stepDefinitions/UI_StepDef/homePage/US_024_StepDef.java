@@ -2,6 +2,7 @@ package stepDefinitions.UI_StepDef.homePage;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pages.CommonPage;
 
 public class US_024_StepDef extends CommonPage {
@@ -13,8 +14,12 @@ public class US_024_StepDef extends CommonPage {
 
     @Then("the {string} button should be clickable")
     public void theButtonShouldBeClickable(String arg0) {
+       // Assert.assertTrue(getHomePage()..isEnabled());
 
-    }
+        }
+
+
+
 
     @Then("the {string} menu should appear")
     public void theMenuShouldAppear(String arg0) {
