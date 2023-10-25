@@ -38,6 +38,7 @@ public class Week1_us006_check_titles {
         commonPage.getHomePage().listHeader.get(0).assertBackroundColor(COLOR.TEXT_GREEN_BACKROUND.getRGBA());
 
 
+
     }
 
     @When("user scroll to second header")
