@@ -71,6 +71,34 @@ public class RegisterPage extends CommonPage{
     @FindBy(xpath = "//p[normalize-space()='A special character']")
     public WebElement specialCharacterValidation;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @FindBy(xpath="//span[@class='ant-typography style_signUpBtn__JTRJm css-15rg2km']")
     public WebElement signUpFreeButton;
     @FindBy(xpath="//a[@data-test-id='registerPage_I_am_a_client']")
@@ -86,4 +114,11 @@ public class RegisterPage extends CommonPage{
 
     @FindBy(xpath=" //button[@id='oauth__auth-form__submit-btn']")
     public WebElement allowButton;
+
+
+
+
+
+
+
 }
