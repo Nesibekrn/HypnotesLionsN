@@ -23,6 +23,7 @@ public class US_019_StepDef extends CommonPage {
     @Given("user goes to client register page")
     public void userGoesToClientRegisterPage() {
         driver.get("https://test.hypnotes.net/register/client");
+        //getRegisterPage().inputName.sendKeys(faker.name().firstName());
     }
     @When("user enters a valid Name")
     public void user_enters_a_valid_name() {
