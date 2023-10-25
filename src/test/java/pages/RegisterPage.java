@@ -78,4 +78,19 @@ public class RegisterPage extends CommonPage{
     @FindBy(xpath ="//h3[@class='RegisterForm_formTitle__aW1LG']" )
     public WebElement registerAsaTherapist;
 
+    @FindBy(xpath="//span[@class='ant-typography style_signUpBtn__JTRJm css-15rg2km']")
+    public WebElement signUpFreeButton;
+    @FindBy(xpath="//a[@data-test-id='registerPage_I_am_a_client']")
+    public WebElement iAmClientButton;
+    @FindBy(xpath="//button[@aria-label='Sign in']")
+    public WebElement signInButtonLinkedin;
+    @FindBy(xpath=" //input[@id='username']")
+    public WebElement input_emailLinkedin;
+    @FindBy(xpath=" //input[@id='password']")
+    public WebElement input_passwordLinkedin;
+    @FindBy(xpath="(//div[@class='RegisterForm_fontSmall__p6mzi'][normalize-space()='Sign in with Linkedin'])[1]")
+    public WebElement signInWithLinkedinButton;
+
+    @FindBy(xpath=" //button[@id='oauth__auth-form__submit-btn']")
+    public WebElement allowButton;
 }
