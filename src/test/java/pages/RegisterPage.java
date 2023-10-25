@@ -24,7 +24,7 @@ public class RegisterPage extends CommonPage {
     public WebElement nameAvatar;
 
 
-    @FindBy(xpath = "//input[@placeholder=' Name']")
+    @FindBy(css = "[data-test-id='registerAsClientPage_name']")
     public WebElement inputName;
 
 
@@ -36,7 +36,7 @@ public class RegisterPage extends CommonPage {
     public WebElement inputEmail;
 
 
-    @FindBy(xpath = "//input[@placeholder=' Password']")
+    @FindBy(css = "[data-test-id='registerAsClientPage_password']")
     public WebElement inputPassword;
 
 

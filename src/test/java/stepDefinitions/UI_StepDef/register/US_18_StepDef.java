@@ -11,10 +11,10 @@ import static org.junit.Assert.assertTrue;
 public class US_18_StepDef extends CommonPage {
 
 
-    @Then("the user clicks on the Sign Up for Free button")
-    public void the_user_clicks_on_the_sign_up_for_free_button() {
-        getRegisterPage().signUpFreeButton.click();
-    }
+//    @Then("the user clicks on the Sign Up for Free button")
+//    public void the_user_clicks_on_the_sign_up_for_free_button() {
+//        getRegisterPage().signUpFreeButton.click();
+//    }
 
     @Then("User clicks I am Client underneath the Sign up button.")
     public void user_clicks_i_am_client_underneath_the_sign_up_button() {
