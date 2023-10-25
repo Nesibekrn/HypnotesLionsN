@@ -38,6 +38,7 @@ public class LoginPage extends CommonPage{
     @FindBy(xpath = "//button[@id='unlock-account-1698098954911-9']")
     public WebElement alertMessage;
 
+
     @FindBy(xpath = "//a[@href='/login/client']")
     public WebElement clientLogin_link;
     @FindBy(xpath = "//a[@href='/reset-password']")
