@@ -37,5 +37,4 @@ public class LoginPage extends CommonPage{
 
     @FindBy(xpath = "//button[@id='unlock-account-1698098954911-9']")
     public WebElement alertMessage;
-
 }
