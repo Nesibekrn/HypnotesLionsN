@@ -13,29 +13,28 @@ public class US_039_StepDef extends CommonPage {
     }
 
 
-
     @When("the user enters a valid email address {string}")
     public void theUserEntersAValidEmailAddress(String email) {
-        getLoginPage()..sendKeys(email);
+        //getLoginPage()..sendKeys(email);
     }
 
     @And("the user enters a valid password {string}")
     public void theUserEntersAValidPassword(String arg0) {
     }
 
-    @And("clicks the login button")
+    @And("clicks the login")
     public void clicksTheLoginButton() {
-        getLoginPage().
+       // getLoginPage().
     }
 
     @Then("the user should be successfully logged in")
     public void theUserShouldBeSuccessfullyLoggedIn() {
     }
+
 }
 
+   // @When("user clicks on login button")
+    //public void userClicksOnLoginButton() {
+      //  getLoginPage().loginAsClientPage_loginButton.click();
 
-    @When("user clicks on login button")
-    public void userClicksOnLoginButton() {
-        getLoginPage().loginAsClientPage_loginButton.click();
-    }
 

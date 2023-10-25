@@ -1,10 +1,12 @@
 Feature: User Login
   @US_039
 
+    Background:
+    Given user goes to home page
 
   Scenario: Successful login with valid email and password
-    Given the user is on the login page
+    Given clicks the login button
     When the user enters a valid email address "user1@gmail.com"
     And the user enters a valid password "user1Passsword"
-    And clicks the login button
+    And clicks the login
     Then the user should be successfully logged in
