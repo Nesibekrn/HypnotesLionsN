@@ -72,6 +72,33 @@ public class RegisterPage extends CommonPage{
     public WebElement specialCharacterValidation;
 
 
+
+        @FindBy(xpath = "//input[@name='fullname']")
+        public WebElement input_fullName;
+        @FindBy(xpath = "//input[@name='email']")
+        public WebElement input_email;
+        @FindBy(xpath = "//input[@name='password']")
+        public WebElement input_password;
+        @FindBy(xpath = "//button[@type='submit']")
+        public WebElement button_signUp;
+        @FindBy(xpath = "//h3[.='Verify Email']")
+        public WebElement header_verifyEmail;
+        @FindBy(xpath = "//span[.='Validation error.']")
+        public WebElement popUp_validationError;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @FindBy(xpath = "//span[@data-test-id=\"loginScreen_signUpIt'sFree\"]")
     public WebElement signupFreeButton;
 
