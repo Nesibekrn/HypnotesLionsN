@@ -1,5 +1,6 @@
 Feature: Registration must be created with Sign in Facebook.
   @UI @US_016
+
   Scenario:  Verify that user goes facebook page
     Given the user navigates hypnotes web page
     And the user clicks on Sign Up free button
