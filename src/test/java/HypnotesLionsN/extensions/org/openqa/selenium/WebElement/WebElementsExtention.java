@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import utilities.Driver;
 
+import static stepDefinitions.Hooks.actions;
 import static stepDefinitions.Hooks.driver;
 
 @Extension
@@ -26,6 +27,9 @@ public class WebElementsExtention {
   public static void scrollIntoViewJS(@This WebElement element) {
     JavascriptExecutor jsexecutor = ((JavascriptExecutor) driver);
     jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+  }
+  public static void hoverWebElement(@This WebElement element ){
+    actions.moveToElement(element).build().perform();
   }
 
 }
