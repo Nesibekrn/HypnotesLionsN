@@ -269,5 +269,16 @@ public class ReusableMethods {
         }
         return flag;
     }
+    public static void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    public static void scrollToBottom() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)");
+        waitFor(2);
+    }
+    public static void scrollAndClickWithJS(WebElement webElement) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
+    }
 
 }
