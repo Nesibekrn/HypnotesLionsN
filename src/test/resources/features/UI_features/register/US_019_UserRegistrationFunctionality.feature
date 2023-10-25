@@ -1,6 +1,6 @@
 @UI @US_019
 Feature: User Registration Functionality
-
+//test
   Background:
     Given user goes to client register page
 
