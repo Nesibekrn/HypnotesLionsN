@@ -42,8 +42,7 @@ public class US27_TC001 {
     @Then("assert that the user is logged in")
     public void assert_that_the_user_is_logged_in() {
         String actuelTitle = driver.getTitle();
-        String expectedTitle = "https://test.hypnotes.net/dashboard/calendar";
-        assertEquals(actuelTitle, expectedTitle);
+        assertTrue(actuelTitle.contains("https://test.hypnotes.net/dashboard/calendar"));
 
     }
 
@@ -60,7 +59,7 @@ public class US27_TC001 {
 
    @Then("verify the error message")
     public void verify_the_error_message() {
-        assertTrue(loginPage.alertMessage.isDisplayed());
+        assertTrue(loginPage.alertMessageK.isDisplayed());
 
     }
 

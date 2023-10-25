@@ -8,7 +8,7 @@ Feature:US27
     Then assert that the user is logged in
 
 
-@US27
+  @UI
   Scenario Outline: US27_TC002 Negative scenario for Login with Apple account
     Given user goes to home page
     When  clicks the login button
