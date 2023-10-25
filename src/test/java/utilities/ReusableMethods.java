@@ -19,6 +19,7 @@ import java.util.Random;
 import java.util.function.Function;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static stepDefinitions.Hooks.driver;
 
 public class ReusableMethods {
 
