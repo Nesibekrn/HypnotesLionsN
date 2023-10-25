@@ -21,6 +21,11 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//img[@data-test-id='instagramLink_footerLogo']")
     public WebElement instagramIcon;
 
+    @FindBy(xpath = "//*[text()='Real People, Real Feedback']")
+    public WebElement testimonialsSectionText;
+
+    @FindBy(css = "div.swiper-button-next")
+    public  WebElement nextButton;
     @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
     public List<WebElement> listTitles;
 
