@@ -10,13 +10,13 @@ import static HypnotesLionsN.extensions.org.openqa.selenium.WebElement.WebElemen
 import static utilities.ReusableMethods.waitFor;
 
 public class US_31_TherapistPassword extends CommonPage {
-    @When("the expression A lowercase letter returns green")
+    @When("user types lowercase {string} in the password field")
     public void userTypesLowercaseInThePasswordField(String letter) {
         getRegisterPage().inputPassword.click();
         waitFor(2);
 
 
-        getRegisterPage().inputPassword.sendKeys("xx");
+        getRegisterPage().inputPassword.sendKeys(letter);
         waitFor(3);
 
 
@@ -24,12 +24,13 @@ public class US_31_TherapistPassword extends CommonPage {
 
     }
 
-    @Then("the expression {string} returns green")
+    @Then("the expression A lowercase letter returns green")
     public void theExpressionALowercaseLetterReturnsGreen() {
         String actualTextColor=getRegisterPage().lowercaseExpression.getCssValue("color");
         System.out.println(actualTextColor);
-       // String expectedColor = "";
-        //Assert.assertEquals(expectedColor, actualTextColor);
+       String expectedColor = "rgba(35, 108, 47, 1)";
+        Assert.assertEquals(expectedColor, actualTextColor);
 
     }
 }
+

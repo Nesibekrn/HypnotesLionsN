@@ -108,4 +108,6 @@ public class RegisterPage extends CommonPage {
 
 
 
+    @FindBy(xpath = " (//p[@class='RegisterForm_validationText__h8UUu'])[3]")
+    public WebElement uppercaseExpression;
 }
