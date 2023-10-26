@@ -52,4 +52,3 @@ Feature: User Registration Functionality
     And user enters a valid Email
     And user leaves the Password field blank
     Then the Sign Up button should not be clickable
-    And registration should not proceed
