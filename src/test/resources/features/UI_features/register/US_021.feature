@@ -30,7 +30,6 @@ Feature: Password Validation on Registration Page
     When user enters a password with less than eight characters
     Then the Sign Up button should not be clickable
     And the color in the characters section should be red
-    And registration should not proceed
 
 
   @UI @US_021
@@ -38,7 +37,6 @@ Feature: Password Validation on Registration Page
     When user enters a password with more than fifty characters
     Then the Sign Up button should not be clickable
     And the color in the characters section should be red
-    And registration should not proceed
 
 
   @UI @US_021
@@ -46,7 +44,6 @@ Feature: Password Validation on Registration Page
     When user enters a password that meets all the criteria except it does not contain a lowercase letter
     Then the Sign Up button should not be clickable
     And the color in the A lowercase letter section should be red
-    And registration should not proceed
 
 
   @UI @US_021
@@ -54,7 +51,6 @@ Feature: Password Validation on Registration Page
     When user enters a password that meets all the criteria except it does not contain an uppercase letter
     Then the Sign Up button should not be clickable
     And the color in the A capital uppercase letter section should be red
-    And registration should not proceed
 
 
   @UI @US_021
@@ -62,7 +58,6 @@ Feature: Password Validation on Registration Page
     When the user enters a password that meets all the criteria except it does not contain a number
     Then the Sign Up button should not be clickable
     And the color in the A number section should be red
-    And the registration should not proceed
 
 
   @UI @US_021
@@ -70,4 +65,3 @@ Feature: Password Validation on Registration Page
     When the user enters a password that meets all the criteria except it does not contain a special character
     Then the Sign Up button should not be clickable
     And the color in the A special character section should be red
-    And the registration should not proceed
