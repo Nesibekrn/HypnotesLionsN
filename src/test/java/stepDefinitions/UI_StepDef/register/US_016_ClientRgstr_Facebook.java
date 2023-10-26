@@ -13,10 +13,12 @@ public class US_016_ClientRgstr_Facebook extends CommonPage {
     public void the_user_navigates_hypnotes_web_page() {
         driver.get("https://test.hypnotes.net/");
     }
-    @Given("the user clicks on Sign Up free button")
+   @Given("the user clicks on Sign Up free button")
     public void the_user_clicks_on_sign_up_free_button() {
-        getRegisterPage().signUpForFree.click();
-    }
+        getRegisterPage().signUpForFree.click();}
+
+
+
     @Given("the user clicks on the Client Log in")
     public void the_user_clicks_on_the_client_log_in() {
         getRegisterPage().clientLogin.click();
