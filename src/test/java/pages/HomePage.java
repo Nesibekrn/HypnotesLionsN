@@ -26,6 +26,13 @@ public class HomePage extends CommonPage {
 
     @FindBy(css = "div.swiper-button-next")
     public  WebElement nextButton;
+
+    @FindBy(xpath = "//div[@class='swiper-button-prev']")
+    public  WebElement prevButton;
+
+    @FindBy(css = "span.swiper-pagination-bullet")
+    public List<WebElement> bulletPoints;
+
     @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
     public List<WebElement> listTitles;
 

@@ -1,13 +1,29 @@
 @UI
 Feature:Testimonials section
 
-
+Background:
+  When User goes to "https://test.hypnotes.net"
+  Then User should be able to see 'Real People, Real Feedback'
   @UI
+
   Scenario:
-    When User goes to "https://test.hypnotes.net"
-    Then User should be able to see 'Real People, Real Feedback'
-    When User click on next button
-    Then assert testimonials has changed
+    When User should see next button
+    Then next button should be clickable
+    And User clicks on next button
+    Then assert testimonials has changed by next button
+
+
+  Scenario:
+    When User should see prev button
+    Then prev button should be clickable
+    And User clicks on prev button
+    Then assert testimonials has changed by prev button
+
+
+
+
+
+
 
 
 
