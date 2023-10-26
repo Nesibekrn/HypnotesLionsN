@@ -1,4 +1,4 @@
-@UI
+@UI @US27
 Feature:US27
   Scenario: US27_TC001 Positive scenario for Login with Apple account
     Given user goes to home page
@@ -8,7 +8,7 @@ Feature:US27
     Then assert that the user is logged in
 
 
-  @UI
+
   Scenario Outline: US27_TC002 Negative scenario for Login with Apple account
     Given user goes to home page
     When  clicks the login button
@@ -17,5 +17,6 @@ Feature:US27
     Then verify the error message
     Examples:
       | "email"        | "password" |
-      | "kk@gmail.com" | "p11"       |
+      | "kk@gmail.com" | "123456"   |
+      | "kk@gmail.com" | "1"        |
 

@@ -48,6 +48,33 @@ public class LoginPage extends CommonPage{
     @FindBy(xpath = "//span[@class='ant-btn-icon']")
     public WebElement showPassword_icon;
 
+    @FindBy(xpath="//div[@class='LoginForm_fontSmall__y0l1R'][normalize-space()='Sign in with Facebook']")
+    public WebElement signInWithFacebook;
+
+    @FindBy(xpath="//input[@id='email']")
+    public WebElement input_emailFacebook;
+
+    @FindBy(xpath=" //input[@id='pass']")
+    public WebElement input_PassFacebook;
+
+    @FindBy(xpath="//button[@id='loginbutton']")
+    public WebElement loginButtonFacebook;
+
+    @FindBy(xpath="//input[@id='username']")
+    public WebElement emailLinkedIn;
+
+    @FindBy(xpath="//input[@id='password']")
+    public WebElement passwordLinkedIn;
+
+    @FindBy(xpath="//button[@type='submit']")
+    public WebElement signInWithLinkedIn;
+    @FindBy(xpath="//div[@id='error-for-password']")
+    public WebElement errorMessage_LinkIn;
+
+    @FindBy(xpath="//a[@class='ant-dropdown-trigger ant-dropdown-open']")
+    public WebElement profileDDM;
+
+
 
 
 }
