@@ -22,7 +22,8 @@ public class HomePage extends CommonPage {
     public WebElement Pricing;
     @FindBy(xpath = "//span[@data-test-id='loginScreen_resources']")
     public WebElement resources;
-    @FindBy(xpath = "//span[@data-test-id='loginScreen_contactUs']")
+    @FindBy(xpath = "(//span[@class='ant-typography style_headerSecondColumnItems__4sbRA css-15rg2km'])[4]")
+    //span[@data-test-id='loginScreen_contactUs']
     public WebElement contactUs;
     @FindBy(xpath = "//div[@class='ant-select-selector']")
     public WebElement language;
@@ -84,6 +85,39 @@ public class HomePage extends CommonPage {
     @FindBy(xpath ="//div[text()='Calendar']")
 
     public WebElement calendar;
+    @FindBy(xpath = "//div[@class='ant-select css-15rg2km ant-select-single']")
+    //div[@class='ant-select css-15rg2km ant-select-single ant-select-open']
+    public WebElement languageButton;
+
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[1]")
+    public WebElement usaFlag;
+
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[2]")
+    public WebElement turkiyeFlag;
+
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[3]")
+    public WebElement germanyFlag;
+
+    @FindBy(xpath ="(//div[contains(@class,'ant-select-item-option')]/div)[4]")
+
+    public WebElement franceFlag;
+
+    @FindBy(xpath ="(//div[contains(@class,'ant-select-item-option')]/div)[5]")
+    public WebElement russiaFlag;
+
+    @FindBy(xpath = "(//div[contains(@class,'ant-select-item-option')]/div)[6]")
+    public WebElement spainFlag;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div/main/div[2]/div/div[1]/h1")
+    public WebElement sayfaSlogani;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div/main/div[2]/div/div[3]/h3")
+    public WebElement paraTasarrufu;
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div/main/div[2]/div/div[2]/h3")
+    public WebElement leSloganim;
+
+
 
     @FindBy(xpath = "//div[contains(text(),'Services')]")
     public WebElement services;
@@ -154,6 +188,23 @@ public class HomePage extends CommonPage {
                 break;
         }
     }
+
+    @FindBy(xpath = "//*[@id=\"__next\"]/div/div[2]/div/div/div[1]/div[2]")
+    public WebElement appointmentScheduling;
+    @FindBy(xpath = "//div[@class='style_headerLeft__Hwr1T']")
+    public WebElement exceptionalFeaturesPricing;
+
+    @FindBy(xpath = "(//div[@class='ant-typography style_MegaMenu2ItemTitle__G1pDK css-15rg2km'])[4]")
+    public WebElement aboutUsButton;
+
+    @FindBy(xpath = "(//h2[@class='Hero_headline__vocwZ'])[1]")
+    public WebElement whoIsHypnotes;
+
+    @FindBy(xpath = "//div[@class='style_titleContainer__eG2fC']")
+    public WebElement howCanWeHelp;
+
+
+
 
 
 }

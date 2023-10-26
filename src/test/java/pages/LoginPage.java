@@ -48,6 +48,12 @@ public class LoginPage extends CommonPage{
     @FindBy(xpath = "//span[@class='ant-btn-icon']")
     public WebElement showPassword_icon;
 
+    @FindBy(xpath = "//div[@class='LoginForm_formTitle__yLRNe']")
+    public WebElement therapistLogin;
+
+    @FindBy(xpath = "//div[@class='RegisterForm_formTitle__aW1LG']")
+    public WebElement registerAsATherapist;
+
     @FindBy(xpath="//div[@class='LoginForm_fontSmall__y0l1R'][normalize-space()='Sign in with Facebook']")
     public WebElement signInWithFacebook;
 
