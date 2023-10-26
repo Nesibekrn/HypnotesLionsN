@@ -1,9 +1,9 @@
 Feature: User Login
-  @UI
-  @US_039
+
 
     Background:
     Given user goes to home page
+  @US_039
 @UI
   Scenario: Successful login with valid email and password
     Given clicks the login button
