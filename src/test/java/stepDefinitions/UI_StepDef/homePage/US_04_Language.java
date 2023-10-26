@@ -24,11 +24,9 @@ public class US_04_Language extends CommonPage {
     }
     @Then("If the user click Turkiye flag language should be Turkish")
     public void if_the_user_click_turkiye_flag_language_should_be_turkish() {
-        ReusableMethods.waitFor(2);
-        getHomePage().languageButton.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
         scrollAndClickWithJS(getHomePage().turkiyeFlag);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
         String sayfaSloganim ="Para Tasarrufu";
         Assert.assertEquals(getHomePage().paraTasarrufu.getText(),sayfaSloganim);
 
@@ -38,11 +36,7 @@ public class US_04_Language extends CommonPage {
     @Then("If the user click Germany flag language should be German")
     public void if_the_user_click_germany_flag_language_should_be_german() {
         ReusableMethods.waitFor(2);
-        actions.moveToElement(getHomePage().languageButton).perform();
-        getHomePage().languageButton.click();
-        ReusableMethods.waitFor(2);
-        actions.moveToElement(getHomePage().germanyFlag).perform();
-        getHomePage().germanyFlag.click();
+        scrollAndClickWithJS(getHomePage().germanyFlag);
         ReusableMethods.waitFor(2);
         String motto = "Hypnotes macht alles möglich";
         Assert.assertEquals(getHomePage().sayfaSlogani.getText(),motto);
@@ -51,25 +45,17 @@ public class US_04_Language extends CommonPage {
     @Then("If the user click France flag language should be French")
     public void if_the_user_click_france_flag_language_should_be_french() {
         ReusableMethods.waitFor(2);
-        actions.moveToElement(getHomePage().languageButton).perform();
-        getHomePage().languageButton.click();
+        scrollAndClickWithJS(getHomePage().franceFlag);
         ReusableMethods.waitFor(2);
-        actions.moveToElement(getHomePage().franceFlag).perform();
-        getHomePage().franceFlag.click();
-        ReusableMethods.waitFor(2);
-        String leSlogan="Sauvegarder Temps";
-        Assert.assertEquals(getHomePage().leSloganim.getText(),leSlogan);
+        String leSlogan="Hypnotes fait tout ce qu'il faut";
+        Assert.assertEquals(getHomePage().sayfaSlogani.getText(),leSlogan);
 
     }
 
     @Then("If the user click Russia flag language should be Russian")
     public void if_the_user_click_russia_flag_language_should_be_russian() {
         ReusableMethods.waitFor(2);
-        actions.moveToElement(getHomePage().languageButton).perform();
-        getHomePage().languageButton.click();
-        ReusableMethods.waitFor(5);
-        actions.moveToElement(getHomePage().russiaFlag).perform();
-        getHomePage().russiaFlag.click();
+        scrollAndClickWithJS(getHomePage().russiaFlag);
         ReusableMethods.waitFor(2);
         String russianSlogan = "Hypnotes делает все возможное";
         Assert.assertEquals(getHomePage().sayfaSlogani.getText(),russianSlogan);
@@ -78,11 +64,7 @@ public class US_04_Language extends CommonPage {
     @Then("If the user click Spain flag language should be Spanish")
     public void if_the_user_click_spain_flag_language_should_be_spanish() {
         ReusableMethods.waitFor(2);
-        actions.moveToElement(getHomePage().languageButton).perform();
-        getHomePage().languageButton.click();
-        ReusableMethods.waitFor(5);
-        actions.moveToElement(getHomePage().spainFlag).perform();
-        getHomePage().spainFlag.click();
+        scrollAndClickWithJS(getHomePage().spainFlag);
         ReusableMethods.waitFor(2);
         String spanishSlogan = "Hypnotes hace de todo";
         Assert.assertEquals(getHomePage().sayfaSlogani.getText(),spanishSlogan);
