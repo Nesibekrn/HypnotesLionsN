@@ -6,4 +6,3 @@ Feature: User goes to homepage
     And User verify that homepage is loaded
 
 
-
