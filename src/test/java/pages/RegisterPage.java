@@ -108,4 +108,15 @@ public class RegisterPage extends CommonPage {
 
     @FindBy(xpath = " //button[@id='oauth__auth-form__submit-btn']")
     public WebElement allowButton;
+
+   @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
+    public WebElement signInWithApple;
+   @FindBy(css="#account_name_text_field ")
+    public WebElement inputMail;
+   @FindBy(css="#password_text_field")
+    public WebElement enterPassword;
+   @FindBy(xpath="//i[@class='shared-icon icon_sign_in']")
+    public WebElement next_button;
+   @FindBy(xpath ="//button[@type='button'][1]")
+    public WebElement continueButton;
 }
