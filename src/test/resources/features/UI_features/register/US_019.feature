@@ -22,7 +22,7 @@ Feature: User Registration Functionality
     And user enters a valid Email
     And user enters a valid Password
     And the user clicks the Sign Up button
-    Then user verifies Name warning message contains "Please fill out this field."
+    Then user verifies Name warning message contains "Please fill in this field."
 
 
   @UI @US_019
@@ -32,7 +32,7 @@ Feature: User Registration Functionality
     And user enters a valid Email
     And user enters a valid Password
     And user clicks the Sign Up button
-    Then user verifies Surname warning message contains "Please fill out this field."
+    Then user verifies Surname warning message contains "Please fill in this field."
 
 
   @UI @US_019
@@ -42,7 +42,7 @@ Feature: User Registration Functionality
     And user leaves the Email field blank
     And user enters a valid Password
     And user clicks the Sign Up button
-    Then user verifies Email warning message contains "Please fill out this field."
+    Then user verifies Email warning message contains "Please fill in this field."
 
 
   @UI @US_019

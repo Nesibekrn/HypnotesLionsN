@@ -40,7 +40,7 @@ public class RegisterPage extends CommonPage {
     public WebElement inputEmail;
 
 
-    @FindBy(xpath = "//input[@placeholder=' Password']")
+    @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement inputPassword;
 
 
