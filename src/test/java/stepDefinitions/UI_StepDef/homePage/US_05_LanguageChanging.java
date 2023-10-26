@@ -1,0 +1,429 @@
+package stepDefinitions.UI_StepDef.homePage;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+import pages.CommonPage;
+import utilities.ReusableMethods;
+
+import static org.junit.Assert.assertEquals;
+import static utilities.JS_utilities.scrollAndClickWithJS;
+
+public class US_05_LanguageChanging extends CommonPage {
+    @When("The user clicks usa flag language button")
+    public void theUserClicksUsaFlagLanguageButton() {
+        getHomePage().languageButton.click();
+        ReusableMethods.waitFor(2);
+    }
+
+    @Then("The user verify navbar buttons if they are visible and English")
+    public void theUserVerifyNavbarButtonsIfTheyAreVisibleAndEnglish() {
+        Assert.assertTrue(getHomePage().features.isDisplayed());
+        String feauture = "Features";
+        Assert.assertEquals(feauture,getHomePage().features.getText());
+
+        Assert.assertTrue(getHomePage().Pricing.isDisplayed());
+        String price = "Pricing";
+        Assert.assertEquals(price,getHomePage().Pricing.getText());
+
+        Assert.assertTrue(getHomePage().resources.isDisplayed());
+        String resource = "Resources";
+        String test3 = getHomePage().resources.getText();
+        Assert.assertEquals(resource, getHomePage().resources.getText());
+
+        Assert.assertTrue(getHomePage().contactUs.isDisplayed());
+        String contactUs = "Contact Us";
+        Assert.assertEquals(contactUs,getHomePage().contactUs.getText());
+
+        Assert.assertTrue(getHomePage().loginButton.isDisplayed());
+        String login = "Login";
+        Assert.assertEquals(login,getHomePage().loginButton.getText());
+
+        Assert.assertTrue(getHomePage().SignUPForFree.isDisplayed());
+        String signUp = "Sign Up for Free";
+        Assert.assertEquals(signUp,getHomePage().SignUPForFree.getText());
+
+    }
+
+    @And("The user clicks features button and verify if all the features are English")
+    public void theUserClicksFeaturesButtonAndVerifyIfAllTheFeaturesAreEnglish() {
+        getHomePage().features.click();
+        ReusableMethods.hover(getHomePage().appointmentScheduling);
+        String appointment = "Appointment Scheduling";
+        Assert.assertEquals(appointment,getHomePage().appointmentScheduling.getText());
+
+
+    }
+
+    @And("The user clicks Pricing button and verify if the page is English")
+    public void theUserClicksPricingButtonAndVerifyIfThePageIsEnglish() {
+        ReusableMethods.waitFor(2);
+        ReusableMethods.hover(getHomePage().Pricing);
+        getHomePage().Pricing.click();
+        String pricing = "Exceptional\n" +
+                "Features,\n" +
+                "Affordable Prices";
+        Assert.assertEquals(pricing,getHomePage().exceptionalFeaturesPricing.getText());
+
+
+    }
+
+    @And("The user clicks Resources button and verify if all resources are English")
+    public void theUserClicksResourcesButtonAndVerifyIfAllResourcesAreEnglish() {
+        ReusableMethods.hover(getHomePage().resources);
+        getHomePage().resources.click();
+        ReusableMethods.hover(getHomePage().aboutUsButton);
+        getHomePage().aboutUsButton.click();
+        String who = "Who is Hypnotes?";
+        Assert.assertEquals(who,getHomePage().whoIsHypnotes.getText());
+
+    }
+
+    @And("The user clicks Contact us button and verify if the page is English")
+    public void theUserClicksContactUsButtonAndVerifyIfThePageIsEnglish() {
+        ReusableMethods.hover(getHomePage().contactUsButton);
+        getHomePage().contactUsButton.click();
+        String help = "How can we help?";
+        Assert.assertEquals(help,getHomePage().howCanWeHelp.getText());
+    }
+
+    @And("The user clicks Login button and verify the page is English")
+    public void theUserClicksLoginButtonAndVerifyThePageIsEnglish() {
+        ReusableMethods.hover(getHomePage().loginButton);
+        getHomePage().loginButton.click();
+        String therapistLogin = "Therapist Login";
+        Assert.assertEquals(therapistLogin,getLoginPage().therapistLogin.getText());
+
+    }
+
+    @And("The user clicks Sign up for free button and varify the page is English")
+    public void theUserClicksSignUpForFreeButtonAndVarifyThePageIsEnglish() {
+        ReusableMethods.hover(getHomePage().SignUPForFree);
+        getHomePage().SignUPForFree.click();
+        String register = "Register As a Therapist";
+        Assert.assertEquals(register,getLoginPage().registerAsATherapist.getText());
+
+    }
+
+    @When("The user clicks Turkiye flag language button")
+    public void theUserClicksTurkiyeFlagLanguageButton() {
+        //ReusableMethods.waitFor(5);
+       // ReusableMethods.hover(getHomePage().languageButton);
+        getHomePage().languageButton.click();
+        ReusableMethods.waitFor(2);
+        scrollAndClickWithJS(getHomePage().turkiyeFlag);
+    }
+
+    @Then("The user verify navbar buttons if they are visible and Turkish")
+    public void theUserVerifyNavbarButtonsIfTheyAreVisibleAndTurkish() {
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(getHomePage().features.isDisplayed());
+        String ozellikler = "Özellikler";
+        Assert.assertEquals(ozellikler,getHomePage().features.getText());
+
+        Assert.assertTrue(getHomePage().Pricing.isDisplayed());
+        String fiyatlandirma = "Fiyatlandırma";
+        Assert.assertEquals(fiyatlandirma,getHomePage().Pricing.getText());
+
+        Assert.assertTrue(getHomePage().resources.isDisplayed());
+        String kaynaklar = "Kaynaklar";
+        Assert.assertEquals(kaynaklar, getHomePage().resources.getText());
+
+        Assert.assertTrue(getHomePage().contactUs.isDisplayed());
+        String bizeUlasin = "Bize Ulaşın";
+        Assert.assertEquals(bizeUlasin,getHomePage().contactUs.getText());
+
+        Assert.assertTrue(getHomePage().loginButton.isDisplayed());
+        String giris = "Giriş";
+        Assert.assertEquals(giris,getHomePage().loginButton.getText());
+
+        Assert.assertTrue(getHomePage().SignUPForFree.isDisplayed());
+        String ucretsizKayit = "Ücretsiz Kaydolun";
+        Assert.assertEquals(ucretsizKayit,getHomePage().SignUPForFree.getText());
+    }
+
+    @And("The user clicks features button and verify if all the features are Turkish")
+    public void theUserClicksFeaturesButtonAndVerifyIfAllTheFeaturesAreTurkish() {
+        getHomePage().features.click();
+        ReusableMethods.hover(getHomePage().appointmentScheduling);
+        String randevu = "Randevu Planlama";
+        Assert.assertEquals(randevu,getHomePage().appointmentScheduling.getText());
+
+    }
+
+    @And("The user clicks Pricing button and verify if the page is Turkish")
+    public void theUserClicksPricingButtonAndVerifyIfThePageIsTurkish() {
+        ReusableMethods.hover(getHomePage().Pricing);
+        getHomePage().Pricing.click();
+        String fiyat = "Olağanüstü\n" +
+                "Özellikler,\n" +
+                "Uygun Fiyatlar";
+        Assert.assertEquals(fiyat,getHomePage().exceptionalFeaturesPricing.getText());
+
+    }
+
+    @And("The user clicks Resources button and verify if all resources are Turkish")
+    public void theUserClicksResourcesButtonAndVerifyIfAllResourcesAreTurkish() {
+        ReusableMethods.hover(getHomePage().resources);
+        getHomePage().resources.click();
+        ReusableMethods.hover(getHomePage().aboutUsButton);
+        getHomePage().aboutUsButton.click();
+        String kim = "Hypnotes kimdir?";
+        Assert.assertEquals(kim,getHomePage().whoIsHypnotes.getText());
+    }
+
+    @And("The user clicks Contact us button and verify if the page is Turkish")
+    public void theUserClicksContactUsButtonAndVerifyIfThePageIsTurkish() {
+        ReusableMethods.waitFor(2);
+        ReusableMethods.hover(getHomePage().contactUs);
+        getHomePage().contactUs.click();
+        String yardim = "Nasıl yardımcı olabiliriz?";
+        Assert.assertEquals(yardim,getHomePage().howCanWeHelp.getText());
+    }
+
+    @And("The user clicks Login button and verify the page is Turkish")
+    public void theUserClicksLoginButtonAndVerifyThePageIsTurkish() {
+        ReusableMethods.hover(getHomePage().loginButton);
+        getHomePage().loginButton.click();
+        String giris = "Terapist Giriş";
+        Assert.assertEquals(giris,getLoginPage().therapistLogin.getText());
+    }
+
+    @And("The user clicks Sign up for free button and varify the page is Turkish")
+    public void theUserClicksSignUpForFreeButtonAndVarifyThePageIsTurkish() {
+        ReusableMethods.hover(getHomePage().SignUPForFree);
+        getHomePage().SignUPForFree.click();
+        String kaydolun = "Terapist Olarak Kaydolun";
+        Assert.assertEquals(kaydolun,getLoginPage().registerAsATherapist.getText());
+    }
+
+    @When("The user clicks Germany flag language button")
+    public void theUserClicksGermanyFlagLanguageButton() {
+        getHomePage().languageButton.click();
+        ReusableMethods.waitFor(2);
+        scrollAndClickWithJS(getHomePage().germanyFlag);
+    }
+
+    @Then("The user verify navbar buttons if they are visible and German")
+    public void theUserVerifyNavbarButtonsIfTheyAreVisibleAndGerman() {
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(getHomePage().features.isDisplayed());
+        String ozelliklerAlm = "Eigenschaften";
+        Assert.assertEquals(ozelliklerAlm,getHomePage().features.getText());
+
+        Assert.assertTrue(getHomePage().Pricing.isDisplayed());
+        String fiyatlandirmaAlm = "Preisgestaltung";
+        Assert.assertEquals(fiyatlandirmaAlm,getHomePage().Pricing.getText());
+
+        Assert.assertTrue(getHomePage().resources.isDisplayed());
+        String kaynaklarAlm = "Ressourcen";
+        Assert.assertEquals(kaynaklarAlm, getHomePage().resources.getText());
+
+        Assert.assertTrue(getHomePage().contactUs.isDisplayed());
+        String bizeUlasinAlm = "Kontakt";
+        Assert.assertEquals(bizeUlasinAlm,getHomePage().contactUs.getText());
+
+        Assert.assertTrue(getHomePage().loginButton.isDisplayed());
+        String girisAlm = "Anmeldung";
+        Assert.assertEquals(girisAlm,getHomePage().loginButton.getText());
+
+        Assert.assertTrue(getHomePage().SignUPForFree.isDisplayed());
+        String ucretsizKayitAlm = "Kostenlos anmelden";
+        Assert.assertEquals(ucretsizKayitAlm,getHomePage().SignUPForFree.getText());
+    }
+
+    @And("The user clicks features button and verify if all the features are German")
+    public void theUserClicksFeaturesButtonAndVerifyIfAllTheFeaturesAreGerman() {
+        getHomePage().features.click();
+        ReusableMethods.hover(getHomePage().appointmentScheduling);
+        String randevuAlm = "Terminplanung";
+        Assert.assertEquals(randevuAlm,getHomePage().appointmentScheduling.getText());
+    }
+
+    @And("The user clicks Pricing button and verify if the page is German")
+    public void theUserClicksPricingButtonAndVerifyIfThePageIsGerman() {
+        ReusableMethods.hover(getHomePage().Pricing);
+        getHomePage().Pricing.click();
+        String fiyatAlm = "Außergewöhnlich\n" +
+                "Eigenschaften,\n" +
+                "Erschwingliche Preise";
+        Assert.assertEquals(fiyatAlm,getHomePage().exceptionalFeaturesPricing.getText());
+
+    }
+
+    @And("The user clicks Resources button and verify if all resources are German")
+    public void theUserClicksResourcesButtonAndVerifyIfAllResourcesAreGerman() {
+        ReusableMethods.hover(getHomePage().resources);
+        getHomePage().resources.click();
+        ReusableMethods.hover(getHomePage().aboutUsButton);
+        getHomePage().aboutUsButton.click();
+        String kimAlm = "Wer ist Hypnotes?";
+        Assert.assertEquals(kimAlm,getHomePage().whoIsHypnotes.getText());
+    }
+
+    @And("The user clicks Contact us button and verify if the page is German")
+    public void theUserClicksContactUsButtonAndVerifyIfThePageIsGerman() {
+        ReusableMethods.waitFor(2);
+        ReusableMethods.hover(getHomePage().contactUs);
+        getHomePage().contactUs.click();
+        String yardimAlm = "Wie können wir helfen?";
+        Assert.assertEquals(yardimAlm,getHomePage().howCanWeHelp.getText());
+    }
+
+    @And("The user clicks Login button and verify the page is German")
+    public void theUserClicksLoginButtonAndVerifyThePageIsGerman() {
+        ReusableMethods.hover(getHomePage().loginButton);
+        getHomePage().loginButton.click();
+        String girisAlm = "Therapeut Login";
+        Assert.assertEquals(girisAlm,getLoginPage().therapistLogin.getText());
+    }
+
+    @And("The user clicks Sign up for free button and varify the page is German")
+    public void theUserClicksSignUpForFreeButtonAndVarifyThePageIsGerman() {
+        ReusableMethods.hover(getHomePage().SignUPForFree);
+        getHomePage().SignUPForFree.click();
+        String kaydolunAlm = "Als Therapeut registrieren";
+        Assert.assertEquals(kaydolunAlm,getLoginPage().registerAsATherapist.getText());
+    }
+
+    @When("The user clicks France flag language button")
+    public void theUserClicksFranceFlagLanguageButton() {
+        getHomePage().languageButton.click();
+        ReusableMethods.waitFor(2);
+        scrollAndClickWithJS(getHomePage().franceFlag);
+    }
+
+    @Then("The user verify navbar buttons if they are visible and French")
+    public void theUserVerifyNavbarButtonsIfTheyAreVisibleAndFrench() {
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(getHomePage().features.isDisplayed());
+        String ozelliklerFr = "Caractéristiques";
+        Assert.assertEquals(ozelliklerFr,getHomePage().features.getText());
+
+        Assert.assertTrue(getHomePage().Pricing.isDisplayed());
+        String fiyatlandirmaFr = "Tarification";
+        Assert.assertEquals(fiyatlandirmaFr,getHomePage().Pricing.getText());
+
+        Assert.assertTrue(getHomePage().resources.isDisplayed());
+        String kaynaklarFr = "Ressources";
+        Assert.assertEquals(kaynaklarFr, getHomePage().resources.getText());
+
+        Assert.assertTrue(getHomePage().contactUs.isDisplayed());
+        String bizeUlasinFr = "Nous contacter";
+        Assert.assertEquals(bizeUlasinFr,getHomePage().contactUs.getText());
+
+        Assert.assertTrue(getHomePage().loginButton.isDisplayed());
+        String girisFr = "Connexion";
+        Assert.assertEquals(girisFr,getHomePage().loginButton.getText());
+
+        Assert.assertTrue(getHomePage().SignUPForFree.isDisplayed());
+        String ucretsizKayitFr = "S'inscrire gratuitement";
+        Assert.assertEquals(ucretsizKayitFr,getHomePage().SignUPForFree.getText());
+    }
+
+    @And("The user clicks features button and verify if all the features are French")
+    public void theUserClicksFeaturesButtonAndVerifyIfAllTheFeaturesAreFrench() {
+        getHomePage().features.click();
+        ReusableMethods.hover(getHomePage().appointmentScheduling);
+        String randevuFr = "Prise de rendez-vous";
+        Assert.assertEquals(randevuFr,getHomePage().appointmentScheduling.getText());
+
+    }
+
+    @And("The user clicks Pricing button and verify if the page is French")
+    public void theUserClicksPricingButtonAndVerifyIfThePageIsFrench() {
+        ReusableMethods.hover(getHomePage().Pricing);
+        getHomePage().Pricing.click();
+        String fiyatFr = "Exceptionnel\n" +
+                "Caractéristiques,\n" +
+                "Prix abordables";
+        Assert.assertEquals(fiyatFr,getHomePage().exceptionalFeaturesPricing.getText());
+    }
+
+    @And("The user clicks Resources button and verify if all resources are French")
+    public void theUserClicksResourcesButtonAndVerifyIfAllResourcesAreFrench() {
+        ReusableMethods.hover(getHomePage().resources);
+        getHomePage().resources.click();
+        ReusableMethods.hover(getHomePage().aboutUsButton);
+        getHomePage().aboutUsButton.click();
+        String kimFr = "Qui est Hypnotes ?";
+        Assert.assertEquals(kimFr,getHomePage().whoIsHypnotes.getText());
+    }
+
+    @And("The user clicks Contact us button and verify if the page is French")
+    public void theUserClicksContactUsButtonAndVerifyIfThePageIsFrench() {
+    }
+
+    @And("The user clicks Login button and verify the page is French")
+    public void theUserClicksLoginButtonAndVerifyThePageIsFrench() {
+    }
+
+    @And("The user clicks Sign up for free button and varify the page is French")
+    public void theUserClicksSignUpForFreeButtonAndVarifyThePageIsFrench() {
+    }
+
+    @When("The user clicks Russia flag language button")
+    public void theUserClicksRussiaFlagLanguageButton() {
+    }
+
+    @Then("The user verify navbar buttons if they are visible and Russian")
+    public void theUserVerifyNavbarButtonsIfTheyAreVisibleAndRussian() {
+    }
+
+    @And("The user clicks features button and verify if all the features are Russian")
+    public void theUserClicksFeaturesButtonAndVerifyIfAllTheFeaturesAreRussian() {
+    }
+
+    @And("The user clicks Pricing button and verify if the page is Russian")
+    public void theUserClicksPricingButtonAndVerifyIfThePageIsRussian() {
+    }
+
+    @And("The user clicks Resources button and verify if all resources are Russian")
+    public void theUserClicksResourcesButtonAndVerifyIfAllResourcesAreRussian() {
+    }
+
+    @And("The user clicks Contact us button and verify if the page is Russian")
+    public void theUserClicksContactUsButtonAndVerifyIfThePageIsRussian() {
+    }
+
+    @And("The user clicks Login button and verify the page is Russian")
+    public void theUserClicksLoginButtonAndVerifyThePageIsRussian() {
+    }
+
+    @And("The user clicks Sign up for free button and varify the page is Russian")
+    public void theUserClicksSignUpForFreeButtonAndVarifyThePageIsRussian() {
+    }
+
+    @When("The user clicks Spain flag language button")
+    public void theUserClicksSpainFlagLanguageButton() {
+    }
+
+    @Then("The user verify navbar buttons if they are visible and Spanish")
+    public void theUserVerifyNavbarButtonsIfTheyAreVisibleAndSpanish() {
+    }
+
+    @And("The user clicks features button and verify if all the features are Spanish")
+    public void theUserClicksFeaturesButtonAndVerifyIfAllTheFeaturesAreSpanish() {
+    }
+
+    @And("The user clicks Pricing button and verify if the page is Spanish")
+    public void theUserClicksPricingButtonAndVerifyIfThePageIsSpanish() {
+    }
+
+    @And("The user clicks Resources button and verify if all resources are Spanish")
+    public void theUserClicksResourcesButtonAndVerifyIfAllResourcesAreSpanish() {
+    }
+
+    @And("The user clicks Contact us button and verify if the page is Spanish")
+    public void theUserClicksContactUsButtonAndVerifyIfThePageIsSpanish() {
+    }
+
+    @And("The user clicks Login button and verify the page is Spanish")
+    public void theUserClicksLoginButtonAndVerifyThePageIsSpanish() {
+    }
+
+    @And("The user clicks Sign up for free button and varify the page is Spanish")
+    public void theUserClicksSignUpForFreeButtonAndVarifyThePageIsSpanish() {
+    }
+}
