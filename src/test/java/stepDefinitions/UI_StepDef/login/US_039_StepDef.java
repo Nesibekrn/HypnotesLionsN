@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pages.CommonPage;
 
 public class US_039_StepDef extends CommonPage {
@@ -15,26 +16,29 @@ public class US_039_StepDef extends CommonPage {
 
     @When("the user enters a valid email address {string}")
     public void theUserEntersAValidEmailAddress(String email) {
-        //getLoginPage()..sendKeys(email);
+        getLoginPage().email_login.sendKeys(email);
+        //getLoginPage().email_login.sendKeys("user1@gmail.com");
+
     }
 
     @And("the user enters a valid password {string}")
-    public void theUserEntersAValidPassword(String arg0) {
+    public void theUserEntersAValidPassword(String password) {
+        getLoginPage().password_Login.sendKeys(password);
+       // getLoginPage().password_Login.sendKeys( "user1Passsword");
     }
 
     @And("clicks the login")
     public void clicksTheLoginButton() {
-       // getLoginPage().
+       getLoginPage().login_button.click();
     }
 
     @Then("the user should be successfully logged in")
     public void theUserShouldBeSuccessfullyLoggedIn() {
+        //Assert.assertTrue
     }
 
 }
 
-   // @When("user clicks on login button")
-    //public void userClicksOnLoginButton() {
-      //  getLoginPage().loginAsClientPage_loginButton.click();
+
 
 
