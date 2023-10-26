@@ -1,4 +1,4 @@
-@UI
+@UI @US_05
 Feature: The user changes languages settings and verify languages
   Scenario: TC_01
     Given User goes to "https://test.hypnotes.net"
@@ -12,6 +12,7 @@ Feature: The user changes languages settings and verify languages
     And The user clicks Sign up for free button and varify the page is English
 
   Scenario:TC_02
+    Given User goes to "https://test.hypnotes.net"
     When The user clicks Turkiye flag language button
     Then The user verify navbar buttons if they are visible and Turkish
     And The user clicks features button and verify if all the features are Turkish
@@ -22,6 +23,7 @@ Feature: The user changes languages settings and verify languages
     And The user clicks Sign up for free button and varify the page is Turkish
 
   Scenario:TC_03
+    Given User goes to "https://test.hypnotes.net"
     When The user clicks Germany flag language button
     Then The user verify navbar buttons if they are visible and German
     And The user clicks features button and verify if all the features are German
@@ -32,6 +34,7 @@ Feature: The user changes languages settings and verify languages
     And The user clicks Sign up for free button and varify the page is German
 
   Scenario:TC_04
+    Given User goes to "https://test.hypnotes.net"
     When The user clicks France flag language button
     Then The user verify navbar buttons if they are visible and French
     And The user clicks features button and verify if all the features are French
@@ -42,6 +45,7 @@ Feature: The user changes languages settings and verify languages
     And The user clicks Sign up for free button and varify the page is French
 
   Scenario: TC_05
+    Given User goes to "https://test.hypnotes.net"
     When The user clicks Russia flag language button
     Then The user verify navbar buttons if they are visible and Russian
     And The user clicks features button and verify if all the features are Russian
@@ -52,6 +56,7 @@ Feature: The user changes languages settings and verify languages
     And The user clicks Sign up for free button and varify the page is Russian
 
   Scenario: TC_06
+    Given User goes to "https://test.hypnotes.net"
     When The user clicks Spain flag language button
     Then The user verify navbar buttons if they are visible and Spanish
     And The user clicks features button and verify if all the features are Spanish
