@@ -1,4 +1,4 @@
-Feature: User goes to homepage
+ Feature: User goes to homepage
   @US_001
   @UI
   Scenario: US_001

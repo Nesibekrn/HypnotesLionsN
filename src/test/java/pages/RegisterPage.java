@@ -36,7 +36,7 @@ public class RegisterPage extends CommonPage {
     public WebElement inputEmail;
 
 
-    @FindBy(xpath = "//input[@placeholder=' Password']")
+    @FindBy(xpath ="//input[@name='password']")
     public WebElement inputPassword;
 
 
@@ -102,4 +102,10 @@ public class RegisterPage extends CommonPage {
 
     @FindBy(xpath = " //button[@id='oauth__auth-form__submit-btn']")
     public WebElement allowButton;
+
+    @FindBy(xpath = " (//p[@class='RegisterForm_validationText__h8UUu'])[2]")
+    public WebElement lowercaseExpression;
+
+
+
 }
