@@ -18,7 +18,7 @@ import static stepDefinitions.Hooks.driver;
 
 public class US_040_StepDef {
 
-    LoginPage loginPage = new LoginPage();
+    LoginPage loginPage = new LoginPage ();
 
 
     @Given("User is on the home page")
@@ -53,7 +53,7 @@ public class US_040_StepDef {
     @Then("User enters a valid email")
     public void user_enters_a_valid_email() {
         loginPage.ButtonEmail.sendKeys(ConfigurationReader.getProperty("validEmail"));
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
 
     }
 
@@ -79,12 +79,12 @@ public class US_040_StepDef {
         driver.switchTo().newWindow(WindowType.WINDOW);
         driver.get("https://yopmail.com/fr/");
         ReusableMethods.waitFor(1);
-        ReusableMethods.switchToWindow(1);//burayi kapatip birdaha dene
-        ReusableMethods.waitFor(1);
+                //ReusableMethods.switchToWindow(1);//burayi kapatip birdaha dene
+
         loginPage.MailCookies.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
         loginPage.MailSaissirAdresse.sendKeys("testhypnotes",Keys.ENTER);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
 
         /* ((JavascriptExecutor) driver).executeScript("window.open('', '_blank');");
         driver.get("https://yopmail.com/fr/");
@@ -93,16 +93,20 @@ public class US_040_StepDef {
 
     @Then("New Password  screen should appear")
     public void new_password_screen_should_appear() {
-        ReusableMethods.waitFor(3);
-        // JS_utilities.clickWithJS(loginPage.PasswordReset);
-        driver.switchTo().newWindow(WindowType.WINDOW);
-        driver.get(ConfigurationReader.getProperty("mailyeniadres"));
-        ReusableMethods.waitFor(2);
+        driver.switchTo().frame(loginPage.IframeYopmail);
+        loginPage.PasswordResetButton.click();
+
+        //ReusableMethods.switchToWindow("https://test.hypnotes.net/reset-password/update-password?token=");
+        //driver.switchTo().parentFrame();
+        ReusableMethods.waitFor(5);
+
+
 
     }
     //yeni sayfaya gectik
     @Then("User enter valid email for New Password")
     public void user_enter_valid_email_for_new_password() {
+        loginPage.EmailAddressForNewPassword.click();
         loginPage.EmailAddressForNewPassword.sendKeys(ConfigurationReader.getProperty("validEmail"));
         ReusableMethods.waitFor(3);
 
@@ -110,6 +114,7 @@ public class US_040_StepDef {
     }
     @Then("User enter new Password")
     public void user_enter_new_password() {
+        loginPage.NewPasswordforRESET.click();
         loginPage.NewPasswordforRESET.sendKeys(ConfigurationReader.getProperty("resetpassword"));
         ReusableMethods.waitFor(1);
 
@@ -118,7 +123,9 @@ public class US_040_StepDef {
 
     @Then("User enter comfirm Password")
     public void user_enter_comfirm_password() {
+        loginPage.ComfirmPassword.click();
         loginPage.ComfirmPassword.sendKeys(ConfigurationReader.getProperty("resetpassword"));
+        ReusableMethods.waitFor(1);
 
 
     }
@@ -136,12 +143,12 @@ public class US_040_StepDef {
     @Then("Click Go to Login Page")
     public void click_go_to_login_page() {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
     @Then("Therapist Login  should be seen")
     public void therapist_login_should_be_seen() {
         // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 
 

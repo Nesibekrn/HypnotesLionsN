@@ -8,7 +8,7 @@ Feature: As a user Forgot your password? and I should be able to check the new p
     When Click Login
 
 
-
+  @UI
   Scenario: The user sould be able to successfully create a new password
 
     Then User click Forgot Your Password

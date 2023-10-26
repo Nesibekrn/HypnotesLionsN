@@ -2,7 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-<<<<<<< HEAD
+
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigurationReader;
 import utilities.Driver;
@@ -41,37 +41,30 @@ public class LoginPage extends CommonPage {
     public WebElement MailSaissirAdresse;
 
 
+    @FindBy(xpath = "//input[@data-test-id=' newPassword_yourMailAddress']")
+    public WebElement EmailAddressForNewPassword;
 
-    @FindBy(xpath = "//input[@placeholder='Your Email Address']")
-    public WebElement EmailAddressForNewPassword ;
 
-
-    @FindBy(xpath = "//input[@placeholder='New Password' and @type='password' and @data-test-id='newPassword_newPassword' and @id='plainPassword']")
+    @FindBy(xpath = "//input[@data-test-id='newPassword_newPassword']")
     public WebElement NewPasswordforRESET;
 
-    @FindBy(xpath = "//input[@placeholder='Confirm Password']")
-    public WebElement ComfirmPassword ;
+    @FindBy(xpath = "//input[@data-test-id='newwPassword_confirmPassword']")
+    public WebElement ComfirmPassword;
 
 
     @FindBy(xpath = "//button[@data-test-id='newPassword_submitButton']")
     public WebElement Submitbutton;
 
+    @FindBy(xpath = "//iframe[@id='ifmail']")
+    public WebElement IframeYopmail;
+
+    @FindBy(xpath = "//a[contains(text(),'PASSWORD RESET')]")
+    public WebElement PasswordResetButton;
 
 
 
 
 
-
-
-
-
-
-
-
-
-=======
-
-public class LoginPage extends CommonPage{
     @FindBy(xpath = "//input[@name='username']")
     public WebElement email_login;
     @FindBy(xpath = "//input[@name='password']")
@@ -115,8 +108,7 @@ public class LoginPage extends CommonPage{
     public WebElement needAnAccount_link;
     @FindBy(xpath = "//span[@class='ant-btn-icon']")
     public WebElement showPassword_icon;
->>>>>>> main
-
-
-
 }
+
+
+
