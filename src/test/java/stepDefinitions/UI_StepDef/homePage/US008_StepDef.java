@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static stepDefinitions.Hooks.driver;
+
 public class US008_StepDef extends CommonPage {
 
     @Then("User should be able to see {string}")
@@ -82,34 +84,32 @@ public class US008_StepDef extends CommonPage {
 
     }
 
-    @When("User should see the Hypnotherapist's name {String}")
-    public void userShouldSeeTheHypnotherapistSName(String tName) {
-
-        String therapiestNameXpath = "//h5[.='%s']";
-
-        String xpath = String.format(therapiestNameXpath, tName);
-
-        String actualThName = Driver.getDriver().findElement(By.xpath(xpath)).getText();
+    @When("User should see the Hypnotherapist's {string} {int}")
+    public void userShouldSeeTheHypnotherapistS(String tName, int slideNumber) {
+        String HypnotherapistNameXpath = "//h5[.='%s']";
+        ReusableMethods.clickWithTimeOut(getHomePage().bulletPoints.get(slideNumber), 3);
+        String xpath = String.format(HypnotherapistNameXpath,tName);
+        ReusableMethods.waitForVisibility(driver.findElement(By.xpath(xpath)),5);
+        ReusableMethods.verifyElementDisplayed(driver.findElement(By.xpath(xpath)));
+        String actualThName = driver.findElement(By.xpath(xpath)).getText();
         Assert.assertEquals(actualThName, tName);
-        Assert.assertTrue(Driver.getDriver().findElement(By.xpath(xpath)).isDisplayed);
+    }
 
+    @When("theraphyst SC accounts should be unique with {string} {int}")
+    public void theraphystSCAccountsShouldBeUniqueWith(String tName, int slideNumber) {
+
+        ReusableMethods.clickWithTimeOut(getHomePage().bulletPoints.get(slideNumber), 3);
+        String thrapistSocMediaAccount = "//h5[.='%s']/..//a";
+        String xpath = String.format(thrapistSocMediaAccount, tName);
+        List<WebElement> scmElements = Driver.getDriver().findElements(By.xpath(xpath));
+        List<String> scmActualLinks = scmElements.stream().map(e -> e.getAttribute("href")).collect(Collectors.toList());
+        Set<String> scmExpectedList = new HashSet<>(scmActualLinks);
+
+        System.out.println("scmLinks = " + scmActualLinks);
+        System.out.println("scmElements = " + scmElements);
+
+        Assert.assertEquals(scmExpectedList.size(), scmActualLinks.size());
 
     }
 
-    @When("theraphyst SC accounts should be unique")
-    public void scAccountsShouldBeUnique(List<String> tNames) {
-        for (String tName : tNames) {
-
-            String thrapistSocMediaAccounts = "//h5[.='%s']/..//a";
-            String xpath = String.format(thrapistSocMediaAccounts, tName);
-
-            List<WebElement> therapystSocialMediaAccounts = Driver.getDriver().findElements(By.xpath(xpath));
-            List<String> scValues = therapystSocialMediaAccounts.stream().map(e -> e.getAttribute("href")).collect(Collectors.toList());
-
-            Set<String> scValuesInSet = new HashSet<>(scValues);
-            Assert.assertEquals("number of SC accounts should be same for list and set", scValues.size(), scValuesInSet.size());
-        }
-
-
-    }
 }
