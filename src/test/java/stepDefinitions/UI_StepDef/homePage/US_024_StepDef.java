@@ -13,6 +13,7 @@ public class US_024_StepDef extends CommonPage {
     public void theUserClicksOnTheSignUpForFreeButton() {
         getRegisterPage().signupFreeButton.click();
 
+
     }
 
     @Then("the Sign Up for Free button should be clickable")
