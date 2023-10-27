@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import utilities.Driver;
 import utilities.JS_utilities;
@@ -51,13 +52,15 @@ public class US008_StepDef extends CommonPage {
 
     @Then("assert testimonials has changed by next button")
     public void assertTestimonialsHasChangedByNextButton() {
+
         JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
 
-        Assert.assertEquals("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0).getCssValue("background-color"));
+        ReusableMethods.assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
 
         ReusableMethods.clickWithTimeOut(getHomePage().nextButton, 3);
 
-        Assert.assertEquals("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0).getCssValue("background-color"));
+        ReusableMethods.assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+
     }
 
     @Then("assert testimonials has changed by prev button")
@@ -65,10 +68,11 @@ public class US008_StepDef extends CommonPage {
 
         JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
 
-        Assert.assertEquals("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0).getCssValue("background-color"));
+        ReusableMethods.assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
 
         ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 3);
 
-        Assert.assertEquals("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(1).getCssValue("background-color"));
+        ReusableMethods.assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+
     }
 }

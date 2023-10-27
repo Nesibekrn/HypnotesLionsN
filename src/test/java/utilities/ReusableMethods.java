@@ -298,4 +298,13 @@ public class ReusableMethods {
         return flag;
     }
 
+    /**
+     *
+     * @param color
+     * @param webElement
+     */
+    public static void assertBackgroundColour(String color, WebElement webElement) {
+        Assert.assertEquals(color, webElement.getCssValue("background-color"));
+    }
+
 }
