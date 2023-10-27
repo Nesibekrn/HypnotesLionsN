@@ -10,37 +10,37 @@ public class US_022_StepDef extends CommonPage {
 
     @Then("User clicks Sign in button on nav-bar.")
     public void UserclicksSigninbuttononnavbar() {
-        getHomePage().signUpFreeButton.click();
+        getRegisterPage().signUpFreeButton.click();
     }
 
     @And("User clicks I am Client underneath the Sign up button.")
     public void userClicksIAmClientUnderneathTheSignUpButton() {
-        getHomePage().iAmClient.click();
+        getRegisterPage().iAmClient.click();
     }
 
     @And("User enters valid credentials,then clicks Sign up button.")
     public void userEntersValidCredentialsThenClicksSignUpButton() {
-        getHomePage().creatingValidCredentials();
+        getRegisterPage().creatingValidCredentials();
     }
 
     @Then("User verifies Verify Email warning window displayed.")
     public void userVerifiesVerifyEmailWarningWindowDisplayed() {
-        Assert.assertTrue(getHomePage().verifyEmailText.isDisplayed());
+        Assert.assertTrue(getRegisterPage().verifyEmailText.isDisplayed());
     }
 
     @Then("User verifies all warning texts are visible on Verify Email section.")
     public void userVerifiesAllWarningTextsAreVisibleOnVerifyEmailSection() {
-        getHomePage().verifyEmailAllTexts();
+        getRegisterPage().verifyEmailAllTexts();
     }
 
     @And("User verifies Send again button is clickable.")
     public void userVerifiesSendAgainButtonIsClickable() {
-        getHomePage().sendAgain.click();
+        getRegisterPage().sendAgain.click();
     }
 
     @And("User verifies that warning message is pops up after clicking Send again button.")
     public void userVerifiesThatWarningMessageIsPopsUpAfterClickingSendAgainButton() {
-        waitForVisibility(getHomePage().popUpMessage,1000);
-        assert getHomePage().popUpMessage.isDisplayed();
+        waitForVisibility(getRegisterPage().popUpMessage,1000);
+        assert getRegisterPage().popUpMessage.isDisplayed();
     }
 }
