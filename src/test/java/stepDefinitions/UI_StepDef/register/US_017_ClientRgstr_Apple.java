@@ -46,7 +46,7 @@ public class US_017_ClientRgstr_Apple extends CommonPage {
     @Given("the user enters a valid  email in the email field")
     public void the_user_enters_a_valid_email_in_the_email_field() {
         ReusableMethods.waitFor(1);
-        getRegisterPage().inputMail.sendKeys("euroasiabazaar@gmail.com");
+        getRegisterPage().inputMail.sendKeys("kesf@gmail.com");
         ReusableMethods.waitFor(1);
         getRegisterPage().next_button.click();
 
@@ -54,7 +54,7 @@ public class US_017_ClientRgstr_Apple extends CommonPage {
     @Given("the user enters a  password in the password fields.")
     public void the_user_enters_a_password_in_the_password_fields() {
         ReusableMethods.waitFor(1);
-        getRegisterPage().enterPassword.sendKeys("Yasirbera2016&");
+        getRegisterPage().enterPassword.sendKeys("12hk&99");
         ReusableMethods.waitFor(1);
         getRegisterPage().next_button.click();
 
