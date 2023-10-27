@@ -12,19 +12,19 @@ public abstract class CommonPage {
 
 
     }
-    private HomePage homePage;
-    private LoginPage loginPage;
-    private RegisterPage registerPage;
-    private CalendarPage calendarPage;
-    private AccountPage accountPage;
-    private ClientsPage clientsPage;
-    private CouponsPage couponsPage;
-    private DashboardPage dashboardPage;
-    private DocumentsPage documentsPage;
-    private EmailSmsPage emailSmsPage;
+    public HomePage homePage;
+    public LoginPage loginPage;
+    public RegisterPage registerPage;
+    public CalendarPage calendarPage;
+    public AccountPage accountPage;
+    public ClientsPage clientsPage;
+    public CouponsPage couponsPage;
+    public DashboardPage dashboardPage;
+    public DocumentsPage documentsPage;
+    public EmailSmsPage emailSmsPage;
     private QuestionariesPage questionariesPage;
-    private ServicesPage servicesPage;
-    private SettingsPage settingsPage;
+    public ServicesPage servicesPage;
+    public SettingsPage settingsPage;
 
     public HomePage getHomePage(){
         if(homePage==null){
