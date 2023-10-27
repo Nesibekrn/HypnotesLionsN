@@ -1,4 +1,6 @@
+
 package utilities;
+import static stepDefinitions.Hooks.driver;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
@@ -20,8 +22,6 @@ import java.util.Random;
 import java.util.function.Function;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static stepDefinitions.Hooks.driver;
-
 public class ReusableMethods {
 
     public static WebDriverWait wait;
@@ -213,12 +213,10 @@ public class ReusableMethods {
         }
         return element;
     }
-
     public static void switchToWindow(int windowNumber) {
         List<String> list = new ArrayList<>(Driver.getDriver().getWindowHandles());
         Driver.getDriver().switchTo().window(list.get(windowNumber));
     }
-
     public static void uploadFilePath(String filePath) {
         try {
             ReusableMethods.waitFor(3);
@@ -282,5 +280,4 @@ public class ReusableMethods {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
     }
-
 }
