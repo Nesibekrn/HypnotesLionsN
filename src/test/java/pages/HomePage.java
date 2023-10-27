@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.commons.compress.archivers.zip.X000A_NTFS;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,6 +24,9 @@ public class HomePage extends CommonPage {
 
     @FindBy(xpath = "//*[text()='Real People, Real Feedback']")
     public WebElement testimonialsSectionText;
+
+    @FindBy(xpath = "//h5[.='%s']/..//a")
+    public WebElement allHypnoTherapyst;
 
     @FindBy(css = "div.swiper-button-next")
     public  WebElement nextButton;

@@ -1,10 +1,8 @@
-@UI
 Feature:Testimonials section
 
-Background:
-  When User goes to "https://test.hypnotes.net"
-  Then User should be able to see 'Real People, Real Feedback'
-  @UI
+  Background:
+    When User goes to "https://test.hypnotes.net"
+    Then User should be able to see 'Real People, Real Feedback'
 
   Scenario:
     When User should see next button
@@ -19,7 +17,26 @@ Background:
     And User clicks on prev button
     Then assert testimonials has changed by prev button
 
-  Scenario:
+  Scenario Outline:
+    When theraphyst SC accounts should be unique
+    Examples:
+      | tName           |
+      | Merve Yalcin    |
+      | Jane Nash       |
+      | Emily Hylan     |
+      | Amy Oviatt      |
+      | Gene Pennington |
+
+  Scenario Outline:
+    When User should see the Hypnotherapist's name <tName>
+    Examples:
+      | tName           |
+      | Merve Yalcin    |
+      | Jane Nash       |
+      | Emily Hylan     |
+      | Amy Oviatt      |
+      | Gene Pennington |
+
 
 
 
