@@ -53,10 +53,9 @@ public class US_017_ClientRgstr_Apple extends CommonPage {
     }
     @And("the user clicks on the continue button")
     public void the_User_Clicks_On_The_Continue_Button() {
-        ReusableMethods.waitFor(2);
         getRegisterPage().continueButton.click();
-    }
 
+    }
 
     @Then("user verifies related page")
     public void user_verifies_related_page() {
