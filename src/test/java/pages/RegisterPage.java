@@ -117,4 +117,6 @@ public class RegisterPage extends CommonPage {
     public WebElement next_button;
    @FindBy(xpath ="//button[@type='button'][1]")
     public WebElement continueButton;
+   @FindBy(css=".ac-localnav-title")
+    public WebElement alertPage;
 }
