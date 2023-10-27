@@ -51,25 +51,23 @@ public class US008_StepDef extends CommonPage {
 
     @Then("assert testimonials has changed by next button")
     public void assertTestimonialsHasChangedByNextButton() {
+        JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
 
-        JS_utilities.scrollIntoViewJS(getHomePage().bulletPoints.get(0));
-
-        Assert.assertEquals("rgba(127, 127, 127,1)", getHomePage().bulletPoints.get(0).getCssValue("background-color"));
+        Assert.assertEquals("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0).getCssValue("background-color"));
 
         ReusableMethods.clickWithTimeOut(getHomePage().nextButton, 3);
-
 
         Assert.assertEquals("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0).getCssValue("background-color"));
     }
 
     @Then("assert testimonials has changed by prev button")
     public void assertTestimonialsHasChangedByPrevButton() {
-        JS_utilities.scrollIntoViewJS(getHomePage().bulletPoints.get(1));
 
-        Assert.assertEquals("rgba(127, 127, 127,1)", getHomePage().bulletPoints.get(1).getCssValue("background-color"));
+        JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
+
+        Assert.assertEquals("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0).getCssValue("background-color"));
 
         ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 3);
-
 
         Assert.assertEquals("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(1).getCssValue("background-color"));
     }
