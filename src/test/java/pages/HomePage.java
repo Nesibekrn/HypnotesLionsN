@@ -25,9 +25,6 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//*[text()='Real People, Real Feedback']")
     public WebElement testimonialsSectionText;
 
-    @FindBy(xpath = "//h5[.='%s']/..//a")
-    public WebElement allHypnoTherapyst;
-
     @FindBy(css = "div.swiper-button-next")
     public  WebElement nextButton;
 
@@ -79,7 +76,6 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//div[contains(text(),'Dashboard & Reporting')]")
     public WebElement DashboardReporting;
 
-
     @FindBy(xpath = "//div[contains(text(),'Client Portal')]")
     public WebElement ClientPortal;
 
@@ -93,11 +89,8 @@ public class HomePage extends CommonPage {
     public WebElement thirdrdPartyIntegration;
     @FindBy(xpath = "//div[contains(text(),'Industry Required Client Notes')]")
     public WebElement IndustryRequiredClientNotes;
-
-
     @FindBy(xpath = "//span[contains(text(),'Newsletter')]")
     public WebElement scrollElement;
-
     @FindBy(xpath = "//body/div[@id='__next']/div[1]/div[2]/div[2]")
     public List<WebElement> feature1;
     @FindBy(xpath = "//body/div[@id='__next']/div[1]/div[2]/div[3]")
