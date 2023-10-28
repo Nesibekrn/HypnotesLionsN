@@ -28,9 +28,30 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath = "//input[@name=\"Passwd\"]")
     public WebElement passwordGoogle;
 
-
     @FindBy(xpath = "//header/div[1]/div[2]/div[6]/a[1]/span[1]/span[1]")
     public WebElement nameAvatar;
+
+    @FindBy(xpath = "//a[.='I am a Client']")
+    public WebElement ButtonIAmAClient;
+
+    @FindBy(xpath = "//a[.='Already have an account?']")
+    public WebElement ButtonAlreadyHaveAnAccount;
+
+    @FindBy(xpath = "//a[.='Therapist Login']")
+    public WebElement ButtonTherapistLogin;
+
+    @FindBy(xpath = "//input[@name='fullname']")
+    public WebElement InputFullName;
+
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement InputEmail;
+
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement InputPassword;
+
+    @FindBy(xpath = "//button[@data-test-id='registerPage_signup_button']")
+    public WebElement ButtonSignUp;
+
 
 
     @FindBy(css = "[data-test-id='registerAsClientPage_name']")
