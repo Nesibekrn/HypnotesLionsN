@@ -9,7 +9,7 @@ import pages.CommonPage;
 
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.clickWithTimeOut;
-import static utilities.ReusableMethods.waitForClickablility;
+import static utilities.ReusableMethods.waitForClickability;
 
 public class US_015 extends CommonPage {
 
