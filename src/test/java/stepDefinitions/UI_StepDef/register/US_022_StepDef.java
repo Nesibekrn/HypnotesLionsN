@@ -1,9 +1,11 @@
-package stepDefinitions.UI_StepDef.homePage;
+package stepDefinitions.UI_StepDef.register;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.CommonPage;
+import utilities.ReusableMethods;
+
 import static utilities.ReusableMethods.waitForVisibility;
 
 public class US_022_StepDef extends CommonPage {
@@ -13,10 +15,6 @@ public class US_022_StepDef extends CommonPage {
         getRegisterPage().signUpFreeButton.click();
     }
 
-    @And("User clicks I am Client underneath the Sign up button.")
-    public void userClicksIAmClientUnderneathTheSignUpButton() {
-        getRegisterPage().iAmClient.click();
-    }
 
     @And("User enters valid credentials,then clicks Sign up button.")
     public void userEntersValidCredentialsThenClicksSignUpButton() {
@@ -36,11 +34,14 @@ public class US_022_StepDef extends CommonPage {
     @And("User verifies Send again button is clickable.")
     public void userVerifiesSendAgainButtonIsClickable() {
         getRegisterPage().sendAgain.click();
+        ReusableMethods.waitFor(1);
     }
 
     @And("User verifies that warning message is pops up after clicking Send again button.")
     public void userVerifiesThatWarningMessageIsPopsUpAfterClickingSendAgainButton() {
-        waitForVisibility(getRegisterPage().popUpMessage,1000);
+
+        waitForVisibility(getRegisterPage().popUpMessage,2000);
         assert getRegisterPage().popUpMessage.isDisplayed();
+        System.out.println(getRegisterPage().popUpMessage.getText());
     }
 }
