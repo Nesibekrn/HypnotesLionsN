@@ -205,6 +205,10 @@ public class ReusableMethods {
         }
         return element;
     }
+
+    public static void waitForClickability(WebElement signUpButton, int i) {
+    }
+
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
         try {
