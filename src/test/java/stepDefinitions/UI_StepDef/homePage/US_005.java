@@ -10,7 +10,7 @@ import utilities.ReusableMethods;
 import static org.junit.Assert.assertEquals;
 import static utilities.JS_utilities.scrollAndClickWithJS;
 
-public class US_05_LanguageChanging extends CommonPage {
+public class US_005 extends CommonPage {
     @When("The user clicks usa flag language button")
     public void theUserClicksUsaFlagLanguageButton() {
         getHomePage().languageButton.click();

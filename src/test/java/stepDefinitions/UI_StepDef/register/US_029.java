@@ -7,12 +7,11 @@ import io.cucumber.java.en.When;
 
 
 import pages.CommonPage;
-import pages.RegisterPage;
 import utilities.ReusableMethods;
 
 import static org.junit.Assert.*;
 
-public class US_029_StepDef extends CommonPage {
+public class US_029 extends CommonPage {
     Faker faker=new Faker();
     String enteredFullName=faker.name().fullName();
     @When("user enters valid full name.")

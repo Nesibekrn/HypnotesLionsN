@@ -7,13 +7,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CommonPage;
-import utilities.ReusableMethods;
 
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 
 
-public class US_019_StepDef extends CommonPage {
+public class US_019 extends CommonPage {
 
     Faker faker = new Faker();
 

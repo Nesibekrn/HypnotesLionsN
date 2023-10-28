@@ -2,23 +2,13 @@ package stepDefinitions.UI_StepDef.register;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
-import javax.swing.*;
-import javax.swing.plaf.basic.BasicSliderUI;
-
-import java.awt.event.ActionEvent;
-
 import static stepDefinitions.Hooks.driver;
 
-public class US_017_ClientRgstr_Apple extends CommonPage {
+public class US_017 extends CommonPage {
     String currentUrl="";
 
     @Given("the user goes to hypnotes web page")

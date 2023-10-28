@@ -1,6 +1,5 @@
 package stepDefinitions.UI_StepDef.register;
 
-import com.google.protobuf.CodedOutputStream;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,7 +8,7 @@ import pages.CommonPage;
 
 import static utilities.ReusableMethods.waitFor;
 
-public class US_021_StepDef extends CommonPage {
+public class US_021 extends CommonPage {
     @When("user clicks password field")
     public void userClicksPasswordField() {
         getRegisterPage().inputPassword.click();
