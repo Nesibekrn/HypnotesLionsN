@@ -8,6 +8,7 @@ import io.cucumber.java.en.When;
 
 import pages.CommonPage;
 import pages.RegisterPage;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.*;
 
@@ -58,6 +59,7 @@ public class US_029_StepDef extends CommonPage {
 
     @Then("The full name field should display a message as {string}")
     public void theFullNameFieldShouldDisplayAMessageAs(String expectedWarningMessage) {
+        ReusableMethods.waitFor(3);
         assertEquals(expectedWarningMessage,getRegisterPage().input_fullName.getAttribute("validationMessage"));
         
     }
