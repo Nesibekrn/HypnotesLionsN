@@ -66,6 +66,7 @@ public class LoginPage extends CommonPage{
     @FindBy(xpath="//button[@id='loginbutton']")
     public WebElement loginButtonFacebook;
 
-
+    @FindBy(xpath="//button[@data-test-id=\"loginAsClientPage_loginButton\"]")
+    public WebElement ClientloginButton;
 
 }
