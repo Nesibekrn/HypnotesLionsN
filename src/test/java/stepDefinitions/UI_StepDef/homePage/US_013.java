@@ -10,7 +10,7 @@ import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
-public class US_013_StepDefs extends CommonPage {
+public class US_013 extends CommonPage {
     @When("user enters valid email in the Newsletter section")
     public void userEntersValidEmailInTheNewsletterSection() {
 

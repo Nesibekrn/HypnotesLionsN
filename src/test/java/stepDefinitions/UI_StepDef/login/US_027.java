@@ -6,12 +6,10 @@ import pages.LoginPage;
 
 
 import static org.junit.Assert.*;
-import static stepDefinitions.Hooks.commonPage;
 import static stepDefinitions.Hooks.driver;
-import static utilities.JS_utilities.clickElementByJS;
 import static utilities.ReusableMethods.waitFor;
 
-public class US27_TC001 {
+public class US_027 {
 
     LoginPage loginPage = new LoginPage();
 

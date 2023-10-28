@@ -13,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static stepDefinitions.Hooks.driver;
 
-public class US_020_StepDef extends CommonPage {
+public class US_020 extends CommonPage {
     Faker faker=new Faker();
     @Then("User lands on register page")
     public void userLandsOnRegisterPage() {

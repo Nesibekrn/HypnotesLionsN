@@ -8,7 +8,7 @@ import utilities.ReusableMethods;
 
 import static utilities.ReusableMethods.waitForVisibility;
 
-public class US_022_StepDef extends CommonPage {
+public class US_022 extends CommonPage {
 
     @Then("User clicks Sign in button on nav-bar.")
     public void UserclicksSigninbuttononnavbar() {

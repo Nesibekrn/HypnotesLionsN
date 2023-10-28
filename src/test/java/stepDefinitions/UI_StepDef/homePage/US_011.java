@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.CommonPage;
 
-public class US_011_StepDef extends CommonPage {
+public class US_011 extends CommonPage {
 
     @Then("User navigates to the Footer Section")
     public void UsernavigatestotheFooterSection() {
