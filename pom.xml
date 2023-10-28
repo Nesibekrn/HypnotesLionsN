@@ -13,7 +13,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- set latest manifold version here -->
-        <manifold.version>2023.1.27</manifold.version>
+        <manifold.version>2023.1.29</manifold.version>
     </properties>
 
     <dependencies>
