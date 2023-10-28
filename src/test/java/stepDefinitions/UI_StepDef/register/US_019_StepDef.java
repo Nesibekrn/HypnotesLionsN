@@ -42,7 +42,7 @@ public class US_019_StepDef extends CommonPage {
     @When("the user clicks the Sign Up button")
     public void the_user_clicks_the_sign_up_button() {
         getRegisterPage().signUpButton.click();
-        ReusableMethods.waitForClickability(getRegisterPage().signUpButton,3);
+       // ReusableMethods.waitForClickability(getRegisterPage().signUpButton,3);
     }
     @Then("user is on the Verify Email page")
     public void userIsOnTheVerifyEmailPage() {

@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -119,4 +120,15 @@ public class RegisterPage extends CommonPage {
     public WebElement continueButton;
    @FindBy(css=".ac-localnav-title")
     public WebElement alertPage;
+
+   //Webelemnts for US_020
+    @FindBy(xpath="//a[text()='I am a Client']")
+    private WebElement amAclient_Link;
+    public void verifyIamAclientLink(String expectedLinkName){
+        Assert.assertEquals(expectedLinkName,amAclient_Link.getText());
+        Assert.assertTrue(amAclient_Link.isEnabled() && amAclient_Link.isDisplayed());
+
+    }
+    @FindBy(css = "[data-test-id='register_as_a_client']")
+    public WebElement registerAsAClientText;
 }
