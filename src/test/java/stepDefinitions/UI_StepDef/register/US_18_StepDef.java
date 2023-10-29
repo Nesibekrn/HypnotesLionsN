@@ -11,7 +11,6 @@ import static org.junit.Assert.assertTrue;
 public class US_18_StepDef extends CommonPage {
 
 
-
     @Then("User clicks I am Client underneath the Sign up button.")
     public void user_clicks_i_am_client_underneath_the_sign_up_button() {
         getRegisterPage().iAmClientButton.click();
