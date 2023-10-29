@@ -1,10 +1,13 @@
+
 package utilities;
+import static stepDefinitions.Hooks.driver;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
@@ -19,8 +22,6 @@ import java.util.Random;
 import java.util.function.Function;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static stepDefinitions.Hooks.driver;
-
 public class ReusableMethods {
 
     public static WebDriverWait wait;
@@ -204,6 +205,10 @@ public class ReusableMethods {
         }
         return element;
     }
+
+    public static void waitForClickability(WebElement signUpButton, int i) {
+    }
+
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
         try {
@@ -212,12 +217,10 @@ public class ReusableMethods {
         }
         return element;
     }
-
     public static void switchToWindow(int windowNumber) {
         List<String> list = new ArrayList<>(Driver.getDriver().getWindowHandles());
         Driver.getDriver().switchTo().window(list.get(windowNumber));
     }
-
     public static void uploadFilePath(String filePath) {
         try {
             ReusableMethods.waitFor(3);
@@ -281,5 +284,4 @@ public class ReusableMethods {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
     }
-
 }

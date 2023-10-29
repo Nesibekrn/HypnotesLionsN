@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 
 import static stepDefinitions.Hooks.commonPage;
 
-public class US_002_StepDef {
+public class US_002 {
 
 
     @Then("assert Features, Pricing, Resources  ,Contact Us ,Language,Login, Sign Up for Free headings should be visible")

@@ -3,10 +3,10 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.CommonPage;
 import utilities.ReusableMethods;
-import static stepDefinitions.Hooks.actions;
+
 import static utilities.JS_utilities.scrollAndClickWithJS;
 
-public class US_04_Language extends CommonPage {
+public class US_004 extends CommonPage {
     @Then("The user clicks the language button")
     public void the_user_clicks_the_language_button() {
         getHomePage().languageButton.click();
