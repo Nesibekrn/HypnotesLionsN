@@ -74,11 +74,13 @@ public class LoginPage extends CommonPage{
 
     @FindBy(xpath="//button[@type='submit']")
     public WebElement signInWithLinkedIn;
-    @FindBy(xpath="//div[@id='error-for-password']")
+    @FindBy(xpath="//span[@class='form__label--error--link unify_join_error_no_account']")
     public WebElement errorMessage_LinkIn;
 
     @FindBy(xpath="//a[@class='ant-dropdown-trigger ant-dropdown-open']")
     public WebElement profileDDM;
+    @FindBy(xpath="//h2[@id=\"alertInfo\"]")
+    public WebElement errorMessage_Apple;
 
 
 
