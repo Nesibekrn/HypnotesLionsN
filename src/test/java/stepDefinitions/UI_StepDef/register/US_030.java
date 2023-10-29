@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 
-public class US_30Stepdefs extends CommonPage {
+public class US_030 extends CommonPage {
     Faker faker = new Faker();
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 

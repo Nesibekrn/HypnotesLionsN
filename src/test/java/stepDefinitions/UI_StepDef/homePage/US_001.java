@@ -3,13 +3,11 @@ package stepDefinitions.UI_StepDef.homePage;
 import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import pages.CommonPage;
-import pages.HomePage;
 
 
-import static stepDefinitions.Hooks.commonPage;
 import static stepDefinitions.Hooks.driver;
 
-public class US_001_stepDef extends CommonPage {
+public class US_001 extends CommonPage {
 
 
     String currentUrl="";
