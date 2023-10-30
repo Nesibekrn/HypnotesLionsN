@@ -88,8 +88,7 @@ public class RegisterPage extends CommonPage {
 
     @FindBy(xpath = "//p[normalize-space()='A number']")
     public WebElement numberValidation;
-    @FindBy(xpath = "(//p[@class='RegisterForm_validationText__h8UUu'])[5]")
-    public WebElement specialCharacterValidation;
+
 
     @FindBy(xpath="//a[@data-test-id='registerPage_I_am_a_client']")
     public WebElement iAmClient;
