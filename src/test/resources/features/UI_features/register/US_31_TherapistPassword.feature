@@ -1,21 +1,24 @@
-Feature:Therapist Register(Sign Up)
+
 #As a user, I should be able to check valid and invalid passwords.	When appropriate expressions are entered in the 'Password must contain the following' section, there should be a color change (red-green)
 #	It should not be possible to register with invalid passwords.
 #	Password must contain the following: 8-50 characters, A lowercase letter, A capital (uppercase) letter, A number, A special character
-  Background:
-    Given user goes to therapist register page
-    When user submits a valid name to the Full Name section
-    And user submits a valid email to the Email section
+Feature: As a user, I should be able to check valid and invalid passwords
 
-   @UI @US_31
-   Scenario: TC_001 user can check the valid password
-     When user enters a password that meets these five criteria
-     And the expression characters size returns green
-     And the expression A lowercase letter returns green
-     And the expression A capital uppercase letter returns green
-     And the expression A number  returns green
-     And the expression A special characterA lowercase letter returns green
-     Then user clicks on Sign Up button
+  Scenario Outline: TC_001 Appropriate expressions entered in the Password section should change the color (red to green)
+    Given user goes to therapist register page
+    Then user clicks on Sign Up button
+    When user clicks password field
+    Then Verify that the color of messages for "<Chars>" and "<LowerCase>" and "<UpperCase>" and "<Number>" and "<Special>"
+    Then Verify that the sign up button for Password is clickable for only "<Val>" is True
+
+    Examples:
+      | Val | Chars                                               | LowerCase | UpperCase | Number | Special |
+      | F   | 1234567                                             |           |           |        |         |
+      | F   | 123456789012345678901234567890123456789012345678901 |           |           |        |         |
+      | F   | 1234567890                                          | a         |           |        |         |
+      | F   | 1234567890                                          | a         | B         |        |         |
+      | F   | 1234567890                                          | a         | B         | 3      |         |
+      | T   | 1234567890                                          | a         | B         | 3      | @       |
 
 
 
