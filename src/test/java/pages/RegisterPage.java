@@ -179,6 +179,23 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath = " //button[@id='oauth__auth-form__submit-btn']")
     public WebElement allowButton;
 
+
+    //VerifyEmail Locators
+
+    @FindBy(xpath = "//input[@id='login']")
+    public WebElement yopmailEmail;
+    @FindBy(xpath = "//i[contains(text(),'\uE5C8')]")
+    public WebElement yopmailEmailInbox;
+
+    @FindBy(xpath="//a[contains(text(),\"VERIFY EMAIL\")]")
+    public WebElement verifyEmailYopmailInbox;
+
+
+    @FindBy(xpath="//iframe[@id=\"ifmail\"]")
+    public WebElement verifyEmailFrame;
+
+
+
    @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
     public WebElement signInWithApple;
    @FindBy(css="#account_name_text_field ")
