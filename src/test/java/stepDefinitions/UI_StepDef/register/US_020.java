@@ -17,6 +17,7 @@ public class US_020 extends CommonPage {
     Faker faker=new Faker();
     @Then("User lands on register page")
     public void userLandsOnRegisterPage() {
+        ReusableMethods.waitForPageToLoad(2);
         assertEquals("User is not on the register page","https://test.hypnotes.net/register",driver.getCurrentUrl());
     }
 
