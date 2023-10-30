@@ -58,7 +58,7 @@ public class US_027 {
 
    @Then("verify the error message")
     public void verify_the_error_message() {
-        assertTrue(loginPage.alertMessage.isDisplayed());
+        assertTrue(loginPage.errorMessage_Apple.isDisplayed());
 
     }
 

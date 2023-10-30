@@ -36,7 +36,7 @@ public class LoginPage extends CommonPage{
     public WebElement continuerButton;
 
     @FindBy(xpath = "//button[@id='unlock-account-1698098954911-9']")
-    public WebElement alertMessage;
+    public WebElement alertMessageK;
 
 
     @FindBy(xpath = "//a[@href='/login/client']")
@@ -65,6 +65,23 @@ public class LoginPage extends CommonPage{
 
     @FindBy(xpath="//button[@id='loginbutton']")
     public WebElement loginButtonFacebook;
+
+    @FindBy(xpath="//input[@id='username']")
+    public WebElement emailLinkedIn;
+
+    @FindBy(xpath="//input[@id='password']")
+    public WebElement passwordLinkedIn;
+
+    @FindBy(xpath="//button[@type='submit']")
+    public WebElement signInWithLinkedIn;
+    @FindBy(xpath="//span[@class='form__label--error--link unify_join_error_no_account']")
+    public WebElement errorMessage_LinkIn;
+
+    @FindBy(xpath="//a[@class='ant-dropdown-trigger ant-dropdown-open']")
+    public WebElement profileDDM;
+    @FindBy(xpath="//h2[@id=\"alertInfo\"]")
+    public WebElement errorMessage_Apple;
+
 
 
     @FindBy(xpath="//button[@data-test-id=\"loginAsClientPage_loginButton\"]")
