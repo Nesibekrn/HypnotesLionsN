@@ -179,20 +179,37 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath = " //button[@id='oauth__auth-form__submit-btn']")
     public WebElement allowButton;
 
-   @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
+
+    //VerifyEmail Locators
+
+    @FindBy(xpath = "//input[@id='login']")
+    public WebElement yopmailEmail;
+    @FindBy(xpath = "//i[contains(text(),'\uE5C8')]")
+    public WebElement yopmailEmailInbox;
+
+    @FindBy(xpath="//a[contains(text(),\"VERIFY EMAIL\")]")
+    public WebElement verifyEmailYopmailInbox;
+
+
+    @FindBy(xpath="//iframe[@id=\"ifmail\"]")
+    public WebElement verifyEmailFrame;
+
+
+
+    @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
     public WebElement signInWithApple;
-   @FindBy(css="#account_name_text_field ")
+    @FindBy(css="#account_name_text_field ")
     public WebElement inputMail;
-   @FindBy(css="#password_text_field")
+    @FindBy(css="#password_text_field")
     public WebElement enterPassword;
-   @FindBy(xpath="//i[@class='shared-icon icon_sign_in']")
+    @FindBy(xpath="//i[@class='shared-icon icon_sign_in']")
     public WebElement next_button;
-   @FindBy(xpath ="//button[@type='button'][1]")
+    @FindBy(xpath ="//button[@type='button'][1]")
     public WebElement continueButton;
-   @FindBy(css=".ac-localnav-title")
+    @FindBy(css=".ac-localnav-title")
     public WebElement alertPage;
 
-   //Webelemnts for US_020
+    //Webelemnts for US_020
     @FindBy(xpath="//a[text()='I am a Client']")
     private WebElement amAclient_Link;
     public void verifyIamAclientLink(String expectedLinkName){
@@ -203,3 +220,12 @@ public class RegisterPage extends CommonPage {
     @FindBy(css = "[data-test-id='register_as_a_client']")
     public WebElement registerAsAClientText;
 }
+
+
+
+
+
+
+
+
+

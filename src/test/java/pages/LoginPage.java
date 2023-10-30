@@ -84,6 +84,10 @@ public class LoginPage extends CommonPage{
 
 
 
+    @FindBy(xpath="//button[@data-test-id=\"loginAsClientPage_loginButton\"]")
+    public WebElement ClientloginButton;
+
+
     // @FindBy(xpath="span[@data-test-id='loginScreen_logIn']")
    // public WebElement login button;
 
@@ -95,6 +99,7 @@ public class LoginPage extends CommonPage{
 
    // @FindBy(xpath = "//button[@data-test-id='loginAsClientPage_loginButton']")
    // public WebElement Login_button;
+
 
 
 
