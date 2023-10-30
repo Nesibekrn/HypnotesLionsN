@@ -373,7 +373,7 @@ public class HomePage extends CommonPage {
     public List<WebElement> listPricing07;
 
     //  //a[text()='Get Started Now']
-    @FindBy(xpath = "//th//button")
+    @FindBy(css= "div.style_body__qweHx div.style_pricingPage__sFRSc.mt-4.d-flex.flex-column.align-items-center div.style_pricingWeb__u6I09:nth-child(5) div.table-responsive:nth-child(3) table.table.text-center.table-lg:nth-child(1) thead.thead:nth-child(1) div.col div.card.mb-4.rounded-3.shadow-sm div.card-body button.w-100.btn.btn-sm.btn-outline-primary.style_btn__CLS8d > a.style_registerLink__4acEw")
     public List<WebElement> listPricingGetStartedNow07;
     @FindBy(xpath = "//div[text()='Product Demo']")//us09
     public WebElement productDemo;
@@ -399,5 +399,11 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//span[@data-test-id='loginScreen_pricing']")
     public WebElement pricing07;//07
 
+   @FindBy(xpath = "//span[text()='E']")
+    public WebElement hesapE;//07
+
+////a[@data-test-id='logout_link_profilMenuDropDown']
+@FindBy(xpath = "//a[@data-test-id='logout_link_profilMenuDropDown']")
+public WebElement hesapLogout;//07
 
 }
