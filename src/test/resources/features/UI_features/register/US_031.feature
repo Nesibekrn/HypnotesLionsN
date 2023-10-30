@@ -7,7 +7,6 @@ Feature: As a user, I should be able to check valid and invalid passwords
   @US31
   Scenario Outline: TC_001 Appropriate expressions entered in the Password section should change the color (red to green)
     Given user goes to therapist register page
-    #Then user clicks on Sign Up button
     When user clicks password field
     Then Verify that the color of messages for "<Chars>" and "<LowerCase>" and "<UpperCase>" and "<Number>" and "<Special>"
     Then Verify that the sign up button for Password is clickable for only "<Val>" is True
