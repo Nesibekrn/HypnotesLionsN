@@ -3,14 +3,12 @@ package stepDefinitions.UI_StepDef.homePage;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
-public class US_012_StepDefs extends CommonPage {
+public class US_012 extends CommonPage {
     Faker faker = new Faker();
 
     @When("user clicks on Contact Us button")
