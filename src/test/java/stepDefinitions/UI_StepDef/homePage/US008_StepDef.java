@@ -60,18 +60,19 @@ public class US008_StepDef extends CommonPage {
     @Then("assert testimonials has changed by next button")
     public void assertTestimonialsHasChangedByNextButton() {
         JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
-        ReusableMethods.assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
+        getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
+        ReusableMethods.waitForVisibility(getHomePage().nextButton,5);
         ReusableMethods.clickWithTimeOut(getHomePage().nextButton, 3);
-        ReusableMethods.assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+        getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
     }
 
     @Then("assert testimonials has changed by prev button")
     public void assertTestimonialsHasChangedByPrevButton() {
         JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
-        ReusableMethods.assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
+        getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
         ReusableMethods.waitForVisibility(getHomePage().prevButton, 5);
-        ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 5);
-        ReusableMethods.assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+        ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 7);
+        getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
     }
 
     @When("User should see the Hypnotherapist's {string} {int}")
@@ -97,5 +98,4 @@ public class US008_StepDef extends CommonPage {
         System.out.println("scmElements = " + scmElements);
         Assert.assertEquals(scmExpectedList.size(), scmActualLinks.size());
     }
-
 }

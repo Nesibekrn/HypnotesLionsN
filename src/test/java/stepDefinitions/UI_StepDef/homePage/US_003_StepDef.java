@@ -5,6 +5,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.http.util.Asserts;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utilities.Driver;
@@ -21,27 +23,27 @@ public class US_003_StepDef extends CommonPage {
     @Then("User should see the Facebook icon")
     public void userShouldSeeTheFacebookIcon() {
 
-       // ReusableMethods.waitForVisibility(getHomePage().facebookIcon, 5);
+       ReusableMethods.waitForVisibility(getHomePage().facebookIcon, 5);
         ReusableMethods.verifyElementDisplayed(getHomePage().facebookIcon);
 
     }
 
     @And("User see LinkedIn icon")
     public void userSeeLinkedInIcon() {
-        //ReusableMethods.waitForVisibility(getHomePage().linkedinIcon, 5);
+        ReusableMethods.waitForVisibility(getHomePage().linkedinIcon, 5);
         ReusableMethods.verifyElementDisplayed(getHomePage().linkedinIcon);
 
     }
 
-    @And("User should see the X icon")
+    @And("User should see the instagram icon")
     public void userShouldSeeTheXIcon() {
-       // ReusableMethods.waitForVisibility(getHomePage().twitterIcon, 5);
+        ReusableMethods.waitForVisibility(getHomePage().twitterIcon, 5);
         ReusableMethods.verifyElementDisplayed(getHomePage().twitterIcon);
     }
 
     @And("User should see the Instagram icon")
     public void userShouldSeeTheInstagramIcon() {
-        //ReusableMethods.waitForVisibility(getHomePage().instagramIcon, 5);
+        ReusableMethods.waitForVisibility(getHomePage().instagramIcon, 5);
         ReusableMethods.verifyElementDisplayed(getHomePage().instagramIcon);
     }
 
@@ -59,6 +61,7 @@ public class US_003_StepDef extends CommonPage {
     @Then("twitter icon should be clickable")
     public void twitterIconShouldBeClickable() {
         ReusableMethods.waitForClickablility(getHomePage().twitterIcon,5);
+      // ReusableMethods.waitForClickablility(By.xpath("//img[@data-test-id='twitterLink_footerLogo']"),3);
         Assert.assertTrue("Facebook icon is clickable",getHomePage().twitterIcon.isEnabled());
     }
 
@@ -70,6 +73,7 @@ public class US_003_StepDef extends CommonPage {
     @Then("linkedin icon should be clickable")
     public void linkedinIconShouldBeClickable() {
         ReusableMethods.waitForClickablility(getHomePage().linkedinIcon,5);
+       // ReusableMethods.waitForClickablility(By.xpath("//img[@data-test-id='linkedinLink_footerLogo']"),3);
         Assert.assertTrue("Linkedin icon is clickable",getHomePage().linkedinIcon.isEnabled());
 
     }
@@ -82,6 +86,7 @@ public class US_003_StepDef extends CommonPage {
     @Then("instagram icon should be clickable")
     public void instagramIconShouldBeClickable() {
         ReusableMethods.waitForClickablility(getHomePage().instagramIcon,5);
+       // ReusableMethods.waitForClickablility(By.xpath("//img[@data-test-id='instagramLink_footerLogo']"),3);
         Assert.assertTrue("Instagram icon is clickable",getHomePage().instagramIcon.isEnabled());
     }
 
@@ -94,8 +99,5 @@ public class US_003_StepDef extends CommonPage {
     public void userShouldBeTakenToTheCompanyRelated(String PageUrl) {
         String actualUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(PageUrl, actualUrl);
-
     }
-
-
 }
