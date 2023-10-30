@@ -1,18 +1,34 @@
 package stepDefinitions.UI_StepDef.register;
-import com.github.javafaker.Faker;
-import io.cucumber.java.en.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.CommonPage;
-import utilities.ReusableMethods;
 
-import java.time.Duration;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.When;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static stepDefinitions.Hooks.driver;
+public class US_031 {
+    @When("user enters a password that meets these five criteria")
+    public void userEntersAPasswordThatMeetsTheseFiveCriteria() {
+    }
 
+    @And("the expression characters size returns green")
+    public void theExpressionCharactersSizeReturnsGreen() {
+    }
 
-public class US_031 extends CommonPage {
+    @And("the expression A lowercase letter returns green")
+    public void theExpressionALowercaseLetterReturnsGreen() {
+    }
 
+    @And("the expression A capital uppercase letter returns green")
+    public void theExpressionACapitalUppercaseLetterReturnsGreen() {
+    }
+
+    @And("the expression A number returns green")
+    public void theExpressionANumberReturnsGreen() {
+    }
+
+    @And("the expression A number letter returns green")
+    public void theExpressionANumberLetterReturnsGreen() {
+    }
+
+    @And("the expression A special characterA lowercase letter returns green")
+    public void theExpressionASpecialCharacterALowercaseLetterReturnsGreen() {
+    }
 }
