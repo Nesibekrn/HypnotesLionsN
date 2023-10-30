@@ -22,6 +22,7 @@ import java.util.Random;
 import java.util.function.Function;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
 public class ReusableMethods {
 
     public static WebDriverWait wait;
@@ -94,11 +95,11 @@ public class ReusableMethods {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-   /* public static WebElement waitForClickablility() {
+    public static WebElement waitForClickablility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
-    }*/
-    public static WebElement waitForClickablility(WebElement locator, int timeout) {
+    }
+    public static WebElement waitForClickablility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
@@ -217,10 +218,12 @@ public class ReusableMethods {
         }
         return element;
     }
+
     public static void switchToWindow(int windowNumber) {
         List<String> list = new ArrayList<>(Driver.getDriver().getWindowHandles());
         Driver.getDriver().switchTo().window(list.get(windowNumber));
     }
+
     public static void uploadFilePath(String filePath) {
         try {
             ReusableMethods.waitFor(3);
