@@ -338,8 +338,7 @@ public class HomePage extends CommonPage {
         driver.get(url);
         testElements(companyContactUs,"contact-us");
     }
-    // @FindBy(xpath = "//span[text()='Pricing']")
-    // public WebElement pricing07;
+
 
     @FindBy(xpath = "//p[text()='Essentials']")
     public WebElement essential07;
@@ -374,7 +373,7 @@ public class HomePage extends CommonPage {
     public List<WebElement> listPricing07;
 
     //  //a[text()='Get Started Now']
-    @FindBy(xpath = "//a[text()='Get Started Now']")
+    @FindBy(xpath = "//th//button")
     public List<WebElement> listPricingGetStartedNow07;
     @FindBy(xpath = "//div[text()='Product Demo']")//us09
     public WebElement productDemo;
@@ -390,8 +389,15 @@ public class HomePage extends CommonPage {
 
     @FindBy(xpath = "//div[text()='Reviews/Testimonials']")
     public WebElement reviewsTestimonials;
+
     @FindBy(xpath = "//div[text()='Get Started For Free']")
     public WebElement getStarted;//us09
+
     @FindBy(xpath = "//*[@id=\"__next\"]/div/div[2]/div[1]/div[1]")
     public WebElement ourPlatform;//09
+
+    @FindBy(xpath = "//span[@data-test-id='loginScreen_pricing']")
+    public WebElement pricing07;//07
+
+
 }
