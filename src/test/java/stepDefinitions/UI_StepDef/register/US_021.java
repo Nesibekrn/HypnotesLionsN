@@ -1,6 +1,5 @@
 package stepDefinitions.UI_StepDef.register;
 
-import com.google.protobuf.CodedOutputStream;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,7 +8,7 @@ import pages.CommonPage;
 
 import static utilities.ReusableMethods.waitFor;
 
-public class US_021_StepDef extends CommonPage {
+public class US_021 extends CommonPage {
     @When("user clicks password field")
     public void userClicksPasswordField() {
         getRegisterPage().inputPassword.click();
@@ -53,7 +52,7 @@ public class US_021_StepDef extends CommonPage {
     @When("the user enters a password that meets the criteria.")
     public void the_user_enters_a_password_that_meets_the_criteria() {
         getRegisterPage().inputPassword.sendKeys("Merhaba123!");
-        waitFor(5);
+
     }
 
     @Then("the color in the characters section should be green")
@@ -131,10 +130,6 @@ public class US_021_StepDef extends CommonPage {
         Assert.assertFalse(invalidPassword.matches(".\\d."));
         waitFor(5);
 
-    }
-
-    @And("the registration should not proceed")
-    public void theRegistrationShouldNotProceed() {
     }
 
     @When("the user enters a password that meets all the criteria except it does not contain a special character")

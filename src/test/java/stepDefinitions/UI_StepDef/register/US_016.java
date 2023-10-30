@@ -7,7 +7,7 @@ import pages.CommonPage;
 import utilities.ReusableMethods;
 import static stepDefinitions.Hooks.driver;
 
-public class US_016_ClientRgstr_Facebook extends CommonPage {
+public class US_016 extends CommonPage {
     String currentUrl="";
     @Given("the user navigates hypnotes web page")
     public void the_user_navigates_hypnotes_web_page() {
