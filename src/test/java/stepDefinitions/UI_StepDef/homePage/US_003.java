@@ -3,17 +3,13 @@ package stepDefinitions.UI_StepDef.homePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.http.util.Asserts;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.CommonPage;
-import pages.HomePage;
 import utilities.Driver;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
-public class US_003_StepDef extends CommonPage {
+public class US_003 extends CommonPage {
 
     @Then("User navigates to the bottom of the page")
     public void userNavigatesToTheBottomOfThePage() {
