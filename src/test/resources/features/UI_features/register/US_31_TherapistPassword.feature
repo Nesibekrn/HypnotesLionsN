@@ -13,8 +13,7 @@ Feature:Therapist Register(Sign Up)
      And the expression characters size returns green
      And the expression A lowercase letter returns green
      And the expression A capital uppercase letter returns green
-     And the expression A number returns green
-     And the expression A number letter returns green
+     And the expression A number  returns green
      And the expression A special characterA lowercase letter returns green
      Then user clicks on Sign Up button
 
