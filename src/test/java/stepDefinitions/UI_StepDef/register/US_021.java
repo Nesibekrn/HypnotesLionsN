@@ -6,12 +6,15 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CommonPage;
 
+import static utilities.ReusableMethods.wait;
 import static utilities.ReusableMethods.waitFor;
 
 public class US_021 extends CommonPage {
     @When("user clicks password field")
     public void userClicksPasswordField() {
+        waitFor(3);
         getRegisterPage().inputPassword.click();
+        waitFor(3);
     }
 
     @Then("the color in the characters section should be red")
