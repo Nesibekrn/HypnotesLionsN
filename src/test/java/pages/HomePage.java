@@ -393,12 +393,18 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//div[text()='Get Started For Free']")
     public WebElement getStarted;//us09
 
-    @FindBy(xpath = "//*[@id=\"__next\"]/div/div[2]/div[1]/div[1]")
-    public WebElement ourPlatform;//09
+    @FindBy(xpath = "//span[text()='Newsletter']")
+    public WebElement newsLetterText;//09
 
     @FindBy(xpath = "//span[@data-test-id='loginScreen_pricing']")
     public WebElement pricing07;//07
-
+    @FindBy(xpath = "//div[text()='Features']")
+    public WebElement button_FooterFeatures;
+/*
+public static void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+ */
    @FindBy(xpath = "//span[text()='E']")
     public WebElement hesapE;//07
 
@@ -406,4 +412,8 @@ public class HomePage extends CommonPage {
 @FindBy(xpath = "//a[@data-test-id='logout_link_profilMenuDropDown']")
 public WebElement hesapLogout;//07
 
+    @FindBy(xpath = "//div[text()='Get Started For Free']")
+    public WebElement getStartedScroll;
+
+    ////div[text()='Get Started For Free']
 }
