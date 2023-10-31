@@ -6,13 +6,12 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WindowType;
 import pages.CommonPage;
-import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.switchToWindow;
 import static utilities.ReusableMethods.waitFor;
 
-public class US_23_StepDef extends CommonPage {
+public class US_023 extends CommonPage {
     @And("user enters a valid email")
     public void userEntersAValidEmail() {
         getRegisterPage().inputEmail.sendKeys("zeyno1234@yopmail.com");

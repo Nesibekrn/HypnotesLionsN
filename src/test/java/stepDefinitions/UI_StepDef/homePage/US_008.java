@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 import static stepDefinitions.Hooks.driver;
 
-public class US008_StepDef extends CommonPage {
+public class US_008 extends CommonPage {
 
     @Then("User should be able to see {string}")
     public void userShouldBeAbleToSee(String webElementText) {
