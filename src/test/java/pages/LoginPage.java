@@ -36,7 +36,7 @@ public class LoginPage extends CommonPage{
     public WebElement continuerButton;
 
     @FindBy(xpath = "//button[@id='unlock-account-1698098954911-9']")
-    public WebElement alertMessage;
+    public WebElement alertMessageK;
 
 
     @FindBy(xpath = "//a[@href='/login/client']")
@@ -47,6 +47,59 @@ public class LoginPage extends CommonPage{
     public WebElement needAnAccount_link;
     @FindBy(xpath = "//span[@class='ant-btn-icon']")
     public WebElement showPassword_icon;
+
+    @FindBy(xpath = "//div[@class='LoginForm_formTitle__yLRNe']")
+    public WebElement therapistLogin;
+
+    @FindBy(xpath = "//div[@class='RegisterForm_formTitle__aW1LG']")
+    public WebElement registerAsATherapist;
+
+    @FindBy(xpath="//div[@class='LoginForm_fontSmall__y0l1R'][normalize-space()='Sign in with Facebook']")
+    public WebElement signInWithFacebook;
+
+    @FindBy(xpath="//input[@id='email']")
+    public WebElement input_emailFacebook;
+
+    @FindBy(xpath=" //input[@id='pass']")
+    public WebElement input_PassFacebook;
+
+    @FindBy(xpath="//button[@id='loginbutton']")
+    public WebElement loginButtonFacebook;
+
+    @FindBy(xpath="//input[@id='username']")
+    public WebElement emailLinkedIn;
+
+    @FindBy(xpath="//input[@id='password']")
+    public WebElement passwordLinkedIn;
+
+    @FindBy(xpath="//button[@type='submit']")
+    public WebElement signInWithLinkedIn;
+    @FindBy(xpath="//span[@class='form__label--error--link unify_join_error_no_account']")
+    public WebElement errorMessage_LinkIn;
+
+    @FindBy(xpath="//a[@class='ant-dropdown-trigger ant-dropdown-open']")
+    public WebElement profileDDM;
+    @FindBy(xpath="//h2[@id=\"alertInfo\"]")
+    public WebElement errorMessage_Apple;
+
+
+
+    @FindBy(xpath="//button[@data-test-id=\"loginAsClientPage_loginButton\"]")
+    public WebElement ClientloginButton;
+
+
+    // @FindBy(xpath="span[@data-test-id='loginScreen_logIn']")
+   // public WebElement login button;
+
+   // @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
+    //public WebElement email_login;
+
+  //  @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_password']")
+    //public WebElement password_login;
+
+   // @FindBy(xpath = "//button[@data-test-id='loginAsClientPage_loginButton']")
+   // public WebElement Login_button;
+
 
 
 

@@ -8,7 +8,7 @@ import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
-public class US_034_TherapistLogin extends CommonPage {
+public class US_034 extends CommonPage {
     Faker faker = new Faker();
 
     @Then("user verify Login button is clickable")

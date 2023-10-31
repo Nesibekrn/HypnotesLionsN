@@ -3,13 +3,12 @@ package stepDefinitions.UI_StepDef.homePage;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
-public class US_012_StepDefs extends CommonPage {
+public class US_012 extends CommonPage {
     Faker faker = new Faker();
 
     @When("user clicks on Contact Us button")
@@ -22,32 +21,6 @@ public class US_012_StepDefs extends CommonPage {
     public void user_can_see_contact_us_page() {
         Assert.assertEquals("https://test.hypnotes.net/contact-us", driver.getCurrentUrl());
     }
-
-    @When("user types Full Name section {string}")
-    public void user_types_full_name_section(String fullName) {
-        getHomePage().fullName_input.sendKeys(fullName);
-    }
-
-    @When("user types email section {string}")
-    public void user_types_email_section(String email) {
-        getHomePage().email_input.sendKeys(email);
-    }
-
-    @When("user types Phone Number section {string}")
-    public void user_types_phone_number_section(String phoneNumber) {
-        getHomePage().phoneNumber_input.sendKeys(phoneNumber);
-    }
-
-    @When("user types Best Time section {string}")
-    public void user_types_best_time_section(String bestTime) {
-        getHomePage().bestTimeToReach_dropDown.click();
-    }
-
-    @When("user types Message section {string}")
-    public void user_types_message_section(String message) {
-        getHomePage().messagesContent_textarea.sendKeys(message);
-    }
-
     @When("user clicks Send Message button")
     public void user_clicks_send_message_button() {
      ReusableMethods.scrollAndClickWithJS(getHomePage().sendMessage_button);
@@ -58,12 +31,6 @@ public class US_012_StepDefs extends CommonPage {
     public void user_can_see_message() {
         Assert.assertTrue(getHomePage().messageSentSuccessfully_message.isDisplayed());
     }
-
-    @And("user types subject section {string}")
-    public void userTypesSubjectSection(String subject) {
-        getHomePage().subject_input.sendKeys(subject);
-    }
-
     @And("user types subject section subject")
     public void userTypesSubjectSectionSubject() {
         getHomePage().subject_input.sendKeys("Hypnotherapist Booking");
@@ -84,22 +51,13 @@ public class US_012_StepDefs extends CommonPage {
         getHomePage().phoneNumber_input.sendKeys(faker.phoneNumber().phoneNumber());
     }
 
-    @When("user types {string} at the Best Time section")
-    public void user_types_at_the_best_time_section(String bestTime) {
-        Select select = new Select(getHomePage().bestTimeToReach_dropDown);
-        switch (bestTime) {
-            case "Morning":
-                select.selectByVisibleText(bestTime);
-                break;
-            case "Afternoon":
-                select.selectByVisibleText("Afternoon");
-                break;
-        }
-    }
-
     @When("user types Message section message")
     public void user_types_message_section_message() {
         getHomePage().messagesContent_textarea.sendKeys(faker.lorem().paragraph());
+    }
+    @When("user types {string} at the Best Time section")
+    public void user_types_at_the_best_time_section(String bestTime) {
+        getHomePage().bestTimeDropDown(bestTime,getHomePage().bestTimeToReach_dropDown);
     }
 
 }
