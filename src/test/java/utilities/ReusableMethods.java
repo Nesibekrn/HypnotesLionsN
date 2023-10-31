@@ -1,3 +1,4 @@
+
 package utilities;
 import static stepDefinitions.Hooks.driver;
 import org.apache.commons.io.FileUtils;
@@ -6,6 +7,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
@@ -23,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
 
-    private static WebDriverWait wait;
+    public static WebDriverWait wait;
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -204,6 +206,10 @@ public class ReusableMethods {
         }
         return element;
     }
+
+    public static void waitForClickability(WebElement signUpButton, int i) {
+    }
+
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
         try {
@@ -270,5 +276,15 @@ public class ReusableMethods {
         }
         return flag;
     }
-
+    public static void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    public static void scrollToBottom() {
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,document.body.scrollHeight)");
+        waitFor(2);
+    }
+    public static void scrollAndClickWithJS(WebElement webElement) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
+    }
 }
