@@ -21,11 +21,11 @@ public class US27_38 {
 
     LoginPage loginPage = new LoginPage();
 
-    @When("clicks the login button")
-    public void clicks_the_login_button() throws InterruptedException {
-        loginPage.loginButton.click();
-        Thread.sleep(2000);
-    }
+  @When("clicks the login button")
+   public void clicks_the_login_button() throws InterruptedException {
+      loginPage.loginButton.click();
+       Thread.sleep(2000);
+   }
 
     @When("clicks to Sign in with apple")
     public void clicks_to_sign_in_with_apple() {
