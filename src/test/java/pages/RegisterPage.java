@@ -225,6 +225,21 @@ public class RegisterPage extends CommonPage {
     public List<WebElement> greenPasswordRulesList;
 
 
+
+    @FindBy(xpath = "//a[@id='social-media-login-logo-g'][1]")
+    public WebElement loginWithGoogle;
+    @FindBy(xpath ="//input[@id='identifierId']")
+    public WebElement emailGoogle;
+    @FindBy(xpath = "//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")
+    public WebElement nextGoogle;
+    @FindBy(xpath = "//div[@class='rFrNMe ze9ebf YKooDc wIXLub zKHdkd sdJrJc']")
+    public WebElement passwordGooglee;
+  //  @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
+    ////                 span[@data-test-id='loginScreen_logIn']
+    // public WebElement registerloginButton;
+
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElement registerloginButton;
 }
 
 

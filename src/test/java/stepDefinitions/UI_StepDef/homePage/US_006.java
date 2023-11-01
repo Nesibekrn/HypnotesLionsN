@@ -31,7 +31,8 @@ public class US_006 {
         //2nd Way enum
         COLOR.WHITE_TEXT.assertTextColor(commonPage.getHomePage().listHeader.get(0));
         //3. Way extention
-        commonPage.getHomePage().listHeader.get(0).assertTextColor(COLOR.WHITE_TEXT.getRGBA());
+       commonPage.getHomePage().listHeader.get(0).assertTextColor(COLOR.WHITE_TEXT.getRGBA());
+
 
 
     }
@@ -41,7 +42,7 @@ public class US_006 {
         // enum
         COLOR.TEXT_GREEN_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(0));
         //2. way ==> extention class
-        commonPage.getHomePage().listHeader.get(0).assertBackroundColor(COLOR.TEXT_GREEN_BACKROUND.getRGBA());
+       commonPage.getHomePage().listHeader.get(0).assertBackroundColor(COLOR.TEXT_GREEN_BACKROUND.getRGBA());
 
     }
 
@@ -58,7 +59,8 @@ public class US_006 {
         JS_utilities.scrollIntoViewJS(commonPage.getHomePage().listHeader.get(0));
         ReusableMethods.waitForVisibility(commonPage.getHomePage().listHeader.get(1), 10);
         waitFor(2);
-        commonPage.getHomePage().listHeader.get(1).hoverWebElement();
+      commonPage.getHomePage().listHeader.get(1).hoverWebElement();
+
         //actions.moveToElement(commonPage.getHomePage().listHeader.get(1)).build().perform();
 
         waitFor(2);
@@ -105,7 +107,8 @@ public class US_006 {
         JS_utilities.scrollIntoViewJS(commonPage.getHomePage().listHeader.get(no - 2));
         ReusableMethods.waitForVisibility(commonPage.getHomePage().listHeader.get(no - 1), 10);
         waitFor(2);
-        commonPage.getHomePage().listHeader.get(no - 1).hoverWebElement();
+       commonPage.getHomePage().listHeader.get(no - 1).hoverWebElement();
+
 
 
         waitFor(2);
