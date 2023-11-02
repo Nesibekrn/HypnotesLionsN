@@ -6,7 +6,7 @@ import org.junit.Assert;
 import pages.CommonPage;
 import utilities.Driver;
 
-public class US_36_StepDef extends CommonPage {
+public class US_036 extends CommonPage {
     @Then("The user clicks on the login button")
     public void the_user_clicks_on_the_button() {
         getLoginPage().loginButton.click();

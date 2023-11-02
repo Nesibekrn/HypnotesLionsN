@@ -8,8 +8,7 @@ import utilities.Driver;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
-public class US_18_StepDef extends CommonPage {
-
+public class US_018 extends CommonPage {
 
 
     @Then("User clicks I am Client underneath the Sign up button.")

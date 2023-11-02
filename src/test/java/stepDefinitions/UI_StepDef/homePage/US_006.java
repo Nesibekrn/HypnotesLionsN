@@ -3,22 +3,18 @@ package stepDefinitions.UI_StepDef.homePage;
 import enums.COLOR;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.ConfigurationReader;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
 
-import java.time.Duration;
 import java.util.List;
 
 import static stepDefinitions.Hooks.*;
 import static utilities.ReusableMethods.waitFor;
 
-public class US_006_StepDef {
+public class US_006 {
 
     @Given("user goes to home page")
     public void user_goes_to_home_page() {
@@ -35,7 +31,8 @@ public class US_006_StepDef {
         //2nd Way enum
         COLOR.WHITE_TEXT.assertTextColor(commonPage.getHomePage().listHeader.get(0));
         //3. Way extention
-        commonPage.getHomePage().listHeader.get(0).assertTextColor(COLOR.WHITE_TEXT.getRGBA());
+       commonPage.getHomePage().listHeader.get(0).assertTextColor(COLOR.WHITE_TEXT.getRGBA());
+
 
 
     }
@@ -45,7 +42,7 @@ public class US_006_StepDef {
         // enum
         COLOR.TEXT_GREEN_BACKROUND.assertBackroundColor(commonPage.getHomePage().listHeader.get(0));
         //2. way ==> extention class
-        commonPage.getHomePage().listHeader.get(0).assertBackroundColor(COLOR.TEXT_GREEN_BACKROUND.getRGBA());
+       commonPage.getHomePage().listHeader.get(0).assertBackroundColor(COLOR.TEXT_GREEN_BACKROUND.getRGBA());
 
     }
 
@@ -62,7 +59,8 @@ public class US_006_StepDef {
         JS_utilities.scrollIntoViewJS(commonPage.getHomePage().listHeader.get(0));
         ReusableMethods.waitForVisibility(commonPage.getHomePage().listHeader.get(1), 10);
         waitFor(2);
-        commonPage.getHomePage().listHeader.get(1).hoverWebElement();
+      commonPage.getHomePage().listHeader.get(1).hoverWebElement();
+
         //actions.moveToElement(commonPage.getHomePage().listHeader.get(1)).build().perform();
 
         waitFor(2);
@@ -109,7 +107,8 @@ public class US_006_StepDef {
         JS_utilities.scrollIntoViewJS(commonPage.getHomePage().listHeader.get(no - 2));
         ReusableMethods.waitForVisibility(commonPage.getHomePage().listHeader.get(no - 1), 10);
         waitFor(2);
-        commonPage.getHomePage().listHeader.get(no - 1).hoverWebElement();
+       commonPage.getHomePage().listHeader.get(no - 1).hoverWebElement();
+
 
 
         waitFor(2);
