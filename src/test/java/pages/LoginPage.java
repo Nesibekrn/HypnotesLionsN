@@ -228,6 +228,7 @@ public class LoginPage extends CommonPage {
         driver.get("https://test.hypnotes.net/login");
         email_login.sendKeys(userEmail);
         password_Login.sendKeys(userPassword);
+        waitFor(1);
         login_button.click();
 waitForPageToLoad(2);
 
