@@ -69,4 +69,6 @@ String expectedSurname=faker.name().firstName();
         getRegisterPage().inputEmail.clear();
         getRegisterPage().inputEmail.sendKeys(invalidEmail);
     }
+
+
 }
