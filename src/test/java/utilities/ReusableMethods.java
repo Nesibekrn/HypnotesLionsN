@@ -1,3 +1,4 @@
+
 package utilities;
 import static stepDefinitions.Hooks.driver;
 
@@ -9,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import pages.LoginPage;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
@@ -46,6 +48,7 @@ public class ReusableMethods {
 
     private static WebDriverWait wait;
 
+    public static WebDriverWait wait;
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -226,6 +229,10 @@ public class ReusableMethods {
         }
         return element;
     }
+
+    public static void waitForClickability(WebElement signUpButton, int i) {
+    }
+
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
         try {
@@ -303,5 +310,4 @@ public class ReusableMethods {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
     }
-
 }

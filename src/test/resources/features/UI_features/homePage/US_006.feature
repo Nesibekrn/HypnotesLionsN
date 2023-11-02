@@ -3,7 +3,7 @@ Feature: US_006
 
   Background:Connect_homepage
     Given user goes to home page
-  Scenario: TC_01_first and second header check
+  Scenario: TC_01_first and second header and images check
 
     Then  assert first header color should be white
     And assert first header background color is green
@@ -53,7 +53,7 @@ Feature: US_006
     And assert 8. header background color is green
     And assert "Biofeedback-Emotion Recognition" title_8 is visible
     And assert image8 is visible
-@3
+
     Scenario: TC_03_All buttons in the Automate Your Workflow, Improve Your Life section should be clickable
       Then assert headers are clickable
 
