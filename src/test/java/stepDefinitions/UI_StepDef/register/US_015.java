@@ -42,7 +42,7 @@ public class US_015 extends CommonPage {
     @Given("the user enter an email address")
     public void the_user_enter_an_email_address() {
         clickWithTimeOut(getRegisterPage().emailOrPhone,6);
-        getRegisterPage().emailOrPhone.sendKeys("yavuztest88@gmail.com");
+        getRegisterPage().emailOrPhone.sendKeys("yavuztest94@gmail.com");
 
     }
     @Given("the user clicks on next button")
@@ -51,20 +51,20 @@ public class US_015 extends CommonPage {
     }
     @Given("the user enter an password")
     public void the_user_enter_an_password() throws InterruptedException {
-        getRegisterPage().passwordGoogle.sendKeys("Ingolstadt2023,.");
+        getRegisterPage().passwordGoogle.sendKeys("Ingolstadt49,");
         Thread.sleep(2000);
     }
 
     @When("the user clicks on next button for password")
     public void the_user_clicks_on_next_button_for_password() throws InterruptedException {
         getRegisterPage().nextButton.click();
-        Thread.sleep(2000);
+        Thread.sleep(454000);
     }
 
     @Then("User is registered successfully")
     public void User_is_registered_successfully() throws InterruptedException {
         Thread.sleep(2000);
-        String clientDasboardUrl="https://test.hypnotes.net/client-dashboard";
+        String clientDasboardUrl="https://test.hypnotes.net/dashboard/calendar";
         Assert.assertEquals(driver.getCurrentUrl(),clientDasboardUrl);
     }
 

@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static stepDefinitions.Hooks.driver;
+
 public class LoginPage extends CommonPage{
     @FindBy(xpath = "//input[@name='username']")
     public WebElement email_login;
@@ -100,7 +102,12 @@ public class LoginPage extends CommonPage{
    // @FindBy(xpath = "//button[@data-test-id='loginAsClientPage_loginButton']")
    // public WebElement Login_button;
 
-
+    public void ThrerapistLogIn(String userEmail,String userPassword){
+        driver.get("https://test.hypnotes.net/login");
+        email_login.sendKeys(userEmail);
+        password_Login.sendKeys(userPassword);
+        login_button.click();
+    }
 
 
 }

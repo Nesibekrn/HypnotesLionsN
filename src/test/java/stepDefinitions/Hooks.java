@@ -59,7 +59,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-      Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 
@@ -87,11 +87,19 @@ public class Hooks {
     }
 
     @After("@user1")
-    public void denemeLogout(){
+    public void denemeLogout() {
         System.out.println("log out");
     }
 
 
+
+    @Before("@TherapistLogin")
+public void ThrerapistLogIn(){
+    commonPage.getLoginPage().ThrerapistLogIn(
+            ConfigurationReader.getProperty("therapistEmail"),
+            ConfigurationReader.getProperty("therapistPassword")
+    );
+}
 
 
 

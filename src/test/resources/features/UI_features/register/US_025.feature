@@ -8,5 +8,5 @@ Feature: US025
     And the user clicks on next button
     And the user enter an password
     When the user clicks on next button
-    Then  User is on the calender page
+    Then  User is on the calender pages
 
