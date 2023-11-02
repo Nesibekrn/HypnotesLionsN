@@ -14,7 +14,6 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static stepDefinitions.Hooks.driver;
-import static utilities.ReusableMethods.wait;
 import static utilities.ReusableMethods.waitFor;
 
 public class US27_38 {
