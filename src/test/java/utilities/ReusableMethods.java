@@ -1,11 +1,14 @@
 
 package utilities;
 import static stepDefinitions.Hooks.driver;
+
+import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import pages.LoginPage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,6 +27,26 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
+
+        public static String rasgeleIsimOlustur() {
+            Faker faker = new Faker();
+
+
+            return faker.name().firstName();
+            /*
+            Faker kütüphanesi kullanarak isim oluşturduğunuzda, faker.name().fullName() metodu genellikle
+            ad ve soyadı ayrı ayrı üretip birleştirdiği için iki ayrı isim dönebilir. Eğer sadece tek bir isim
+             ya da bitişik bir isim elde etmek istiyorsanız, faker.name().firstName() veya
+            faker.name().lastName() gibi metotları kullanarak adı ya da soyadı ayrı ayrı alabilir
+             ve ardından bu değerleri birleştirebilirsiniz.
+             */
+        }
+
+
+
+
+
+    private static WebDriverWait wait;
 
     public static WebDriverWait wait;
     public static String getScreenshot() throws IOException {
