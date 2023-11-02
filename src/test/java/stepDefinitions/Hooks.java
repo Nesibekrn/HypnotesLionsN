@@ -93,16 +93,16 @@ public class Hooks {
 
 
 
-//    @Before("@TherapistLoginUSA")
-//    public void ThrerapistLogIn(){
-//        commonPage.getLoginPage().ThrerapistLogIn(
-//                ConfigurationReader.getProperty("therapistEmailUSA"),
-//                ConfigurationReader.getProperty("therapistPasswordUSA")
-//        );
-//    }
+    @Before("@TherapistLoginUSA")
+    public void ThrerapistLogInUSA(){
+        commonPage.getLoginPage().ThrerapistLogIn(
+                ConfigurationReader.getProperty("therapistEmailUSA"),
+                ConfigurationReader.getProperty("therapistPasswordUSA")
+        );
+    }
 
     @Before("@Therapist")
-    public void ThrerapistLogInEUROPE(){
+    public void ThrerapistLogIn(){
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("therapistEmail"),
                 ConfigurationReader.getProperty("therapistPassword")
@@ -110,10 +110,10 @@ public class Hooks {
     }
 
     @Before("@Client")
-    public void ClientLogInEUROPE(){
+    public void ClientLogInUSA(){
         commonPage.getLoginPage().ThrerapistLogIn(
-                ConfigurationReader.getProperty("clientEmail"),
-                ConfigurationReader.getProperty("clientPassword")
+                ConfigurationReader.getProperty("clientEmailUSA"),
+                ConfigurationReader.getProperty("clientPasswordUSA")
         );
     }
 }
