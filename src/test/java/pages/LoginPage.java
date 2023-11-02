@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
+import static stepDefinitions.Hooks.driver;
+
 public class LoginPage extends CommonPage {
 
     public LoginPage() {
@@ -217,7 +219,12 @@ public class LoginPage extends CommonPage {
    // @FindBy(xpath = "//button[@data-test-id='loginAsClientPage_loginButton']")
    // public WebElement Login_button;
 
-
+    public void ThrerapistLogIn(String userEmail,String userPassword){
+        driver.get("https://test.hypnotes.net/login");
+        email_login.sendKeys(userEmail);
+        password_Login.sendKeys(userPassword);
+        login_button.click();
+    }
 
 
 }
