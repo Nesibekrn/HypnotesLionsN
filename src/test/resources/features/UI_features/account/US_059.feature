@@ -2,18 +2,18 @@ Feature: As a user (Therapist), I should be able to perform various actions in t
   Background:
     And the user clicks on the account logo
     And the user clicks on the profile
-  @UI @US_059 @TherapistLogin
+  @UI @US_059 @Therapist
   Scenario: Verify that user is able to view /clicks on the your company title when the user is on the user  profile
     Then the user view and clicks on the your Company title
 
 
 
-  @UI @US_059 @TherapistLogin
+  @UI @US_059 @Therapist
   Scenario: Verify that the user is able to view and click on the Add New Your Company button
     When the user clicks on the your Company title
     Then the user is able to view and click on the Add New Company button
 
-  @UI @US_059 @TherapistLogin
+  @UI @US_059 @Therapist
   Scenario: Verify that Your Logo, Your Company, Company's Address,City, State, Zip, Country, Company's URL, Company's Phone Number fields should be appeared when the user clicks to  Add New Company button
     And the user clicks on the your Company title
     When the user clicks on the Add New Company button
@@ -27,14 +27,14 @@ Feature: As a user (Therapist), I should be able to perform various actions in t
       | Company Email   |
     Then Your Country dd filed is displayed
 
-  @UI @US_059 @TherapistLogin
+  @UI @US_059 @Therapist
   Scenario: Verify that user is able to add a valid logo successfully
     And the user clicks on the your Company title
     And the user clicks on the Add New Company button
     And the user adds a logo on the Your Logo button
     Then  a valid logo is displayed successfully
 
-  @UI @US_059 @TherapistLogin
+  @UI @US_059 @Therapist
   Scenario: Verify that the user is able to enter valid values on the multiple fields
     And the user clicks on the your Company title
     When the user clicks on the Add New Company button

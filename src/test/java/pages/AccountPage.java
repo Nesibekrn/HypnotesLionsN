@@ -7,9 +7,11 @@ import java.util.List;
 
 public class AccountPage extends CommonPage{
 
-    @FindBy(xpath="//span[@class=\"ant-avatar ant-avatar-circle css-aqx16b\"]")
-    public WebElement accountLogo;
+//    @FindBy(xpath="//span[@class=\"ant-avatar ant-avatar-circle css-aqx16b\"]")
+//    public WebElement accountLogo;
 
+    @FindBy(xpath="//span[@class='anticon anticon-caret-down']")
+    public WebElement accountLogo;
 
     @FindBy(linkText="Profile")
     public WebElement profile;

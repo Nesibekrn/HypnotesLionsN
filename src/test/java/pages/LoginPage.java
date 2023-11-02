@@ -8,6 +8,7 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 
 import static stepDefinitions.Hooks.driver;
+import static utilities.ReusableMethods.waitFor;
 
 public class LoginPage extends CommonPage {
 
@@ -219,12 +220,22 @@ public class LoginPage extends CommonPage {
    // @FindBy(xpath = "//button[@data-test-id='loginAsClientPage_loginButton']")
    // public WebElement Login_button;
 
+
     public void ThrerapistLogIn(String userEmail,String userPassword){
         driver.get("https://test.hypnotes.net/login");
         email_login.sendKeys(userEmail);
         password_Login.sendKeys(userPassword);
         login_button.click();
+
+
     }
 
+    public void clientLogIn(String userEmail,String userPassword){
+        driver.get("https://test.hypnotes.net/login/client");
+        email_login.sendKeys(userEmail);
+        password_Login.sendKeys(userPassword);
+        login_button.click();
 
+
+    }
 }

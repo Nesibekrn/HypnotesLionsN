@@ -93,14 +93,27 @@ public class Hooks {
 
 
 
-    @Before("@TherapistLogin")
-    public void ThrerapistLogIn(){
+//    @Before("@TherapistLoginUSA")
+//    public void ThrerapistLogIn(){
+//        commonPage.getLoginPage().ThrerapistLogIn(
+//                ConfigurationReader.getProperty("therapistEmailUSA"),
+//                ConfigurationReader.getProperty("therapistPasswordUSA")
+//        );
+//    }
+
+    @Before("@Therapist")
+    public void ThrerapistLogInEUROPE(){
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("therapistEmail"),
                 ConfigurationReader.getProperty("therapistPassword")
         );
     }
 
-
-
+    @Before("@Client")
+    public void ClientLogInEUROPE(){
+        commonPage.getLoginPage().ThrerapistLogIn(
+                ConfigurationReader.getProperty("clientEmail"),
+                ConfigurationReader.getProperty("clientPassword")
+        );
+    }
 }
