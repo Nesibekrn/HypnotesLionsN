@@ -12,6 +12,20 @@ public class LoginPage extends CommonPage {
     public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);//bu sayfaya gel driver'da bu locate i bul page factory sayesinde
     }
+    //fatih
+    @FindBy(xpath = "//span[@class='ant-typography style_signUpBtn__JTRJm css-15rg2km']")
+    public WebElement SignUpForFree;
+    @FindBy(xpath = "//input[@data-test-id=' registerPage_fullname']")
+    public WebElement FullNameButtonForSignUpForFree;
+    @FindBy(xpath = "//input[@data-test-id=' registerPage_email']")
+    public WebElement EmailButtonForSignUpForFree;
+    @FindBy(xpath = "//input[@data-test-id=' registerPage_password']")
+    public WebElement PasswordButtonForSignUpForFree;
+    @FindBy(xpath = "//button[@data-test-id='registerPage_signup_button']")
+    public WebElement SignUpButtonForSignUpForFree;
+    @FindBy(xpath = "//a[contains(text(),'VERIFY EMAIL')]")
+    public WebElement ButtonVERIFYeMAIL;
+
 
     @FindBy(xpath = "//span[@class='ant-typography style_logInBtn__PV10a css-15rg2km' and @data-test-id='loginScreen_logIn']")
     public WebElement Login;
@@ -39,6 +53,25 @@ public class LoginPage extends CommonPage {
 
     @FindBy(xpath = "//input[@placeholder='Saisissez une adresse ici']")
     public WebElement MailSaissirAdresse;
+    @FindBy(xpath = "//i[@class='material-icons-outlined f36']")
+    public WebElement MailSaissirAdresseClick;
+    @FindBy(xpath = "//button[@id='refresh']")
+    public WebElement MailSaissirRefresh;
+
+    @FindBy(xpath = "//div[@class='bname']")
+    public WebElement YopmailMailAdress;
+
+    @FindBy(xpath = "(//p[@class='RegisterForm_differentAccount__riHel'])[1]")
+    public WebElement VerifyMailmesajVerificationforYopmail;
+
+
+    @FindBy(xpath = "//iframe[@id='ifmail']")
+    public WebElement IframeYopmail;
+
+    @FindBy(xpath = "//a[contains(text(),'PASSWORD RESET')]")
+    public WebElement PasswordResetButton;
+
+
 
 
     @FindBy(xpath = "//input[@data-test-id=' newPassword_yourMailAddress']")
@@ -51,15 +84,38 @@ public class LoginPage extends CommonPage {
     @FindBy(xpath = "//input[@data-test-id='newwPassword_confirmPassword']")
     public WebElement ComfirmPassword;
 
-
     @FindBy(xpath = "//button[@data-test-id='newPassword_submitButton']")
     public WebElement Submitbutton;
 
-    @FindBy(xpath = "//iframe[@id='ifmail']")
-    public WebElement IframeYopmail;
 
-    @FindBy(xpath = "//a[contains(text(),'PASSWORD RESET')]")
-    public WebElement PasswordResetButton;
+
+    @FindBy(xpath = "//p[contains(text(),'Password has been updated')]")
+    public WebElement MessagePasswordHasBeenUpdated;
+
+    @FindBy(xpath = "//span[contains(text(),'Go to the Login Page')]")
+    public WebElement ButtonGoToLoginPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //FATIH YILMAZ UST
+
+
+
+
 
 
 

@@ -2,15 +2,13 @@
 Feature: As a user Forgot your password? and I should be able to check the new password creation process
 
 
-
   Background:
-    Given User is on the home page
-    When Click Login
-
+    Given user take an valid Email and Create An Account
 
   @UI
   Scenario: The user sould be able to successfully create a new password
 
+    Then Click Login
     Then User click Forgot Your Password
     * Forgot Password window should be functional
     * User enters a valid email

@@ -3,28 +3,39 @@ package stepDefinitions.UI_StepDef.login;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.*;
-import pages.CommonPage;
-import pages.HomePage;
 import pages.LoginPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
-import static stepDefinitions.Hooks.actions;
+import java.util.ArrayList;
+import java.util.Set;
+
 import static stepDefinitions.Hooks.driver;
+
 
 public class US_040_StepDef {
 
-    LoginPage loginPage = new LoginPage ();
+    LoginPage loginPage = new LoginPage();
+    US_040_Mail_And_CreateAnAccount Us040_Mail=new US_040_Mail_And_CreateAnAccount();
+
+
+
+    @Given("user take an valid Email and Create An Account")
+    public void userTakeAnValidEmailAndCreateAnAccount() {
+        Us040_Mail.takeValidEmail();//burda yeni bir mail hesabi ve ardindan hypnotes de yeni bir account olusturduk
+        ReusableMethods.waitFor(5);
+    }
+
+
 
 
     @Given("User is on the home page")
     public void user_is_on_the_home_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("hypnotes"));
-        // String hypnotesWindowHandleDegeri= driver.getWindowHandle(); bunu kullanmam gerekebilir
+
+        driver.switchTo().newWindow(WindowType.WINDOW);
+        driver.get(ConfigurationReader.getProperty("hypnotes"));
         ReusableMethods.waitFor(5);
 
 
@@ -40,7 +51,7 @@ public class US_040_StepDef {
     @Then("User click Forgot Your Password")
     public void userClickForgotYourPassword() {
         loginPage.ForgotYourPassword.click();
-        ReusableMethods.waitFor(10);
+        ReusableMethods.waitFor(5);
 
     }
 
@@ -52,8 +63,8 @@ public class US_040_StepDef {
 
     @Then("User enters a valid email")
     public void user_enters_a_valid_email() {
-        loginPage.ButtonEmail.sendKeys(ConfigurationReader.getProperty("validEmail"));
-        ReusableMethods.waitFor(1);
+        loginPage.ButtonEmail.sendKeys(Us040_Mail.randomNameyeni+"@yopmail.com");
+        ReusableMethods.waitFor(5);
 
     }
 
@@ -68,50 +79,52 @@ public class US_040_StepDef {
     public void user_should_receive_a_successful_reset_message() {
         loginPage.Alert.isDisplayed();
         ReusableMethods.waitFor(2);
-        //Driver.closeDriver();
+
 
     }
 
     @Then("User receives email reset request in the mailbox")
     public void user_receives_email_reset_request_in_the_mailbox() {
-        // actions.sendKeys(Keys.chord(Keys.CONTROL,"t")).perform();bunu kullanmadim
 
-        driver.switchTo().newWindow(WindowType.WINDOW);
-        driver.get("https://yopmail.com/fr/");
+        //2.YOL
+        ReusableMethods.switchToWindow(0);//2.YOL
+        ReusableMethods.waitFor(5);
+        loginPage.MailSaissirRefresh.click();
         ReusableMethods.waitFor(1);
-                //ReusableMethods.switchToWindow(1);//burayi kapatip birdaha dene
 
-        loginPage.MailCookies.click();
-        ReusableMethods.waitFor(1);
-        loginPage.MailSaissirAdresse.sendKeys("testhypnotes",Keys.ENTER);
-        ReusableMethods.waitFor(3);
+     /*sayfalar arasi gecis icin
 
-        /* ((JavascriptExecutor) driver).executeScript("window.open('', '_blank');");
-        driver.get("https://yopmail.com/fr/");
-        burdan itibaren yeni bir tab yaptik tab acildi ve handle yapmam lazim ibrahim hoca ile */
+      1.YOL
+      Set<String> windowHandels = Driver.getDriver().getWindowHandles();
+        String HypnotesEmailUrl = Driver.getDriver().getWindowHandle();
+        for (String tab : windowHandels) {
+            if (!tab.equals(HypnotesEmailUrl)) {
+                Driver.getDriver().switchTo().window(tab);
+                break;
+            }
+        }
+
+      */
+
+
     }
 
     @Then("New Password  screen should appear")
     public void new_password_screen_should_appear() {
         driver.switchTo().frame(loginPage.IframeYopmail);
         loginPage.PasswordResetButton.click();
-
-        //ReusableMethods.switchToWindow("https://test.hypnotes.net/reset-password/update-password?token=");
-        //driver.switchTo().parentFrame();
-        ReusableMethods.waitFor(5);
-
-
-
+        ReusableMethods.waitFor(2);
     }
+
     //yeni sayfaya gectik
     @Then("User enter valid email for New Password")
     public void user_enter_valid_email_for_new_password() {
-        loginPage.EmailAddressForNewPassword.click();
-        loginPage.EmailAddressForNewPassword.sendKeys(ConfigurationReader.getProperty("validEmail"));
+        ReusableMethods.switchToWindow(2);//bu satir 'da onemli tekrar sayfa gecisi yaptik
         ReusableMethods.waitFor(3);
-
-
+        loginPage.EmailAddressForNewPassword.sendKeys(Us040_Mail.randomNameyeni+"@yopmail.com");
+        ReusableMethods.waitFor(3);
     }
+
     @Then("User enter new Password")
     public void user_enter_new_password() {
         loginPage.NewPasswordforRESET.click();
@@ -129,33 +142,37 @@ public class US_040_StepDef {
 
 
     }
+
     @Then("Click button Submit")
     public void click_button_submit() {
         loginPage.Submitbutton.click();
     }
 
 
-
     @Then("user should be able to see Password has been updated")
     public void user_should_be_able_to_see() {
+        loginPage.MessagePasswordHasBeenUpdated.isDisplayed();
+        ReusableMethods.waitFor(1);
+
+
 
     }
+
     @Then("Click Go to Login Page")
     public void click_go_to_login_page() {
-        // Write code here that turns the phrase above into concrete actions
+        loginPage.ButtonGoToLoginPage.click();
+
 
     }
+
     @Then("Therapist Login  should be seen")
     public void therapist_login_should_be_seen() {
-        // Write code here that turns the phrase above into concrete actions
+        ReusableMethods.waitFor(2);
+        loginPage.Login.isDisplayed();
+
+
 
     }
-
-
-
-
-
-
 
 
 
