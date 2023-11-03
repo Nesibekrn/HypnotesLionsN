@@ -5,7 +5,7 @@
 #	Send again! button should be functional
 #	When the user clicks on the Send again! button, the user should see the “A verification email has been sent” popup message
 @UI @US32
-Feature: Therapist Sign Up Feature
+Feature: As a user I should be able to successfully complete the register after entering valid information
 
   Background: user_goes_to_therapist_register_page
     Given user goes to therapist register page
