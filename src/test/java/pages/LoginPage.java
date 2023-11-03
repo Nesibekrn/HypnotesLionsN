@@ -231,7 +231,7 @@ public class LoginPage extends CommonPage {
         password_Login.sendKeys(userPassword);
         waitFor(1);
         login_button.click();
-waitForPageToLoad(2);
+       waitForPageToLoad(2);
 
 
     }
