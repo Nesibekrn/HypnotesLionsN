@@ -7,6 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
+import static stepDefinitions.Hooks.driver;
+import static utilities.ReusableMethods.waitFor;
+import static utilities.ReusableMethods.waitForPageToLoad;
+
 public class LoginPage extends CommonPage {
 
     public LoginPage() {
@@ -218,6 +222,26 @@ public class LoginPage extends CommonPage {
    // public WebElement Login_button;
 
 
+//button[@class="ant-btn css-15rg2km ant-btn-round ant-btn-primary ant-btn-sm ant-btn-background-ghost"]
+
+    public void ThrerapistLogIn(String userEmail,String userPassword){
+        driver.get("https://test.hypnotes.net/login");
+        email_login.sendKeys(userEmail);
+        password_Login.sendKeys(userPassword);
+        waitFor(1);
+        login_button.click();
+waitForPageToLoad(2);
 
 
+    }
+
+    public void clientLogIn(String userEmail,String userPassword){
+        driver.get("https://test.hypnotes.net/login/client");
+        email_login.sendKeys(userEmail);
+        password_Login.sendKeys(userPassword);
+        login_button.click();
+        waitForPageToLoad(5);
+
+
+    }
 }
