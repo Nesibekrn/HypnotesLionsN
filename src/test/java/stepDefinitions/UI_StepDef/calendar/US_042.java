@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.CommonPage;
+import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
@@ -16,7 +17,7 @@ public class US_042 extends CommonPage {
 
     }
 
-    @Given("the user verifies that Calendar button is clickable")
+    @And("the user verifies that Calendar button is clickable")
     public void theUserVerifiesThatCalendarButtonIsClickable() {
         Assert.assertTrue(getCalendarPage().calendar_buton.isEnabled());
 
@@ -31,4 +32,5 @@ public class US_042 extends CommonPage {
     public void theUserVerifiesCalendarPage() {
         Assert.assertEquals( "https://test.hypnotes.net/dashboard/calendar",driver.getCurrentUrl());
     }
+
 }
