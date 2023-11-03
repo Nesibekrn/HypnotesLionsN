@@ -96,6 +96,14 @@ public class LoginPage extends CommonPage {
     public WebElement ButtonGoToLoginPage;
 
 
+    @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_password']")
+    public WebElement PasswordButton;
+    @FindBy(xpath = "//button[@data-test-id='loginAsClientPage_loginButton']")
+    public WebElement LoginButtonforSignIn;
+
+    @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
+    public WebElement ButtonEMAILFORLOGIN;
+
 
 
 

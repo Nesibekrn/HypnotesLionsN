@@ -46,7 +46,7 @@ public class ReusableMethods {
 
 
 
-    private static WebDriverWait wait;
+
 
     public static WebDriverWait wait;
     public static String getScreenshot() throws IOException {
