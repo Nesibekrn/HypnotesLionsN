@@ -6,5 +6,5 @@ import org.openqa.selenium.support.FindBy;
 public class CalendarPage extends CommonPage{
 
     @FindBy(xpath="//a[@href='/dashboard/calendar']")
-    public WebElement calendarButon;
+    public WebElement calendar_buton;
 }

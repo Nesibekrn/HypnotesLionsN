@@ -1,4 +1,4 @@
-package stepDefinitions.UI_StepDef.clients;
+package stepDefinitions.UI_StepDef.calendar;
 
 import enums.USER_INFO;
 import io.cucumber.java.en.And;
@@ -18,13 +18,13 @@ public class US_042 extends CommonPage {
 
     @Given("the user verifies that Calendar button is clickable")
     public void theUserVerifiesThatCalendarButtonIsClickable() {
-        Assert.assertTrue(getCalendarPage().calendarButon.isEnabled());
+        Assert.assertTrue(getCalendarPage().calendar_buton.isEnabled());
 
     }
 
     @And("the user clicks on Calendar button")
     public void theUserClicksOnCalendarButton() {
-        getCalendarPage().calendarButon.click();
+        getCalendarPage().calendar_buton.click();
     }
 
     @Then("the user verifies Calendar page")
