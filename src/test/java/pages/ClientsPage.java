@@ -69,5 +69,9 @@ public class ClientsPage extends CommonPage{
 
     @FindBy(xpath = "//input[@placeholder='Phone']")
     public WebElement inputPhone;
+    @FindBy(xpath = "//span[text()='Cancel']")
+    public WebElement cancelButtonForUpgradeNow;
+
+
 
 }

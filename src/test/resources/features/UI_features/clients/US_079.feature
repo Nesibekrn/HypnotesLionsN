@@ -1,13 +1,13 @@
 Feature:  Import clients functionality
 
 
-  @UI @US_059 @TherapistLoginUSA
+  @UI @US_079 @TherapistLoginUSA
   Scenario: Verify that  the Import Client button should be clickable and the relevant page should be seen
     Given the user clicks on client title on the left menu
     Then Import Client button is displayed
     Then the user is able to open to the relavant page once clicked on the import client button
 
-  @UI @US_059 @TherapistLoginUSA
+  @UI @US_079 @TherapistLoginUSA
     Scenario: Verify that user is able to import a clint successfully
       Given the user clicks on client title on the left menu
       And the user clicks on the import client button
