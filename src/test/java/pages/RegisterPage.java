@@ -224,6 +224,10 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath ="//div[@class='RegisterForm_valid__sQYgm']")
     public List<WebElement> greenPasswordRulesList;
 
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm ml-5']")
+    public WebElement SendAgainButton;
+
+
 
 
     @FindBy(xpath = "//a[@id='social-media-login-logo-g'][1]")

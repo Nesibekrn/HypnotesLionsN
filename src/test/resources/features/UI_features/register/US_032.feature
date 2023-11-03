@@ -4,3 +4,21 @@
 #	"If you are not able to verify this email, try to signup with different email." the text must be seen
 #	Send again! button should be functional
 #	When the user clicks on the Send again! button, the user should see the “A verification email has been sent” popup message
+@UI @US32
+Feature: Therapist Sign Up Feature
+
+  Background: user_goes_to_therapist_register_page
+    Given user goes to therapist register page
+
+  @UI @US32
+  Scenario: User must be able to sign up with valid full name, email and password (Positive)
+    When user submits a valid name to the Full Name section
+    And user submits a valid email to the Email section
+    And user submits a valid passowrd to the Password section
+    Then user clicks on Sign Up button
+    And user verifies 'Verify Email' header is displayed
+    And User verifies all warning texts are visible on Verify Email section.
+    And  User verifies Send again button is clickable.
+    And User verifies that warning message is pops up after clicking Send again button.
+
+
