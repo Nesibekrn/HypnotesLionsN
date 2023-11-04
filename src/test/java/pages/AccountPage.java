@@ -65,4 +65,53 @@ public class AccountPage extends CommonPage{
     @FindBy(xpath="//select[@class=\"invoice_select__WnoPF   false\"]")
     public WebElement contryDropDownl;
 
+    @FindBy(xpath="//span[text()='Add New Education']")
+    public WebElement addNewEducation;
+
+
+    @FindBy(xpath = "//div[@class='ant-row ant-form-item-row css-aqx16b']")
+    public List<WebElement>titles;
+
+    @FindBy(xpath = "//span[text()='Cancel']")
+    public WebElement cancel_buton;
+
+    @FindBy(xpath="//div[@class='ant-form-item-control-input-content']")
+    public List<WebElement>selections;
+
+    @FindBy(xpath = "//input[@data-test-id='profileMenu_addNewEducationDrawer_schoolNameInput']")
+    public WebElement schoolNameField;
+    @FindBy(xpath = "//input[@data-test-id='profileMenu_addNewEducationDrawer_departmentInput']")
+    public WebElement departmentField;
+    @FindBy(xpath = "//input[@data-test-id='profileMenu_addNewEducationDrawer_startDatePicker']")
+    public WebElement startDateField;
+    @FindBy(xpath = "//input[@data-test-id='profileMenu_addNewEducationDrawer_endDatePicker']")
+    public WebElement endDateField;
+    @FindBy(xpath = "//textarea[@data-test-id='profileMenu_addNewEducationDrawer_descriptionInput']")
+    public WebElement descriptionField;
+    @FindBy(xpath = "//span[text()='Save']")
+    public WebElement saveButon;
+    @FindBy(xpath = "//span[text()='Education has been added']")
+    public WebElement addedPopUpMessage;
+    @FindBy(xpath = "//span[@aria-label='edit']")
+    public WebElement editButon;
+    @FindBy(xpath = "//span[text()='Education has been updated']")
+    public WebElement updatedMessage;
+    @FindBy(xpath = "//span[@aria-label='delete']")
+    public WebElement deleteButon;
+    @FindBy(xpath = "//div[text()='Are you sure you wish to delete this item?']")
+    public WebElement deletePopUpMessage;
+    @FindBy(xpath = "//span[text()='OK']")
+    public WebElement ok_buton;
+    @FindBy(xpath = "//span[text()='Education has been deleted']")
+    public WebElement hasBeenDeletePopUp;
+
+
+
+
+
+
+
+
+
+
 }
