@@ -2,19 +2,19 @@ package stepDefinitions.UI_StepDef.login;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.CommonPage;
+import org.junit.Assert;
 
-public class US_045 extends CommonPage {
-    @When("user verifies the Documents button is clickable")
-    public void user_verifies_the_documents_button_is_clickable() {
-
+public class US_045 {
+    @When("user moves to the Documents button with the mouse")
+    public void userMovesToTheDocumentsButtonWithTheMouse() {
     }
+
     @Then("user clicks the Documents button")
-    public void user_clicks_the_documents_button() {
+    public void userClicksTheDocumentsButton() {
 
     }
-    @Then("user verifies the Documents page")
-    public void user_verifies_the_documents_page() {
 
+    @Then("user verifies the Documents page")
+    public void userVerifiesTheDocumentsPage() {
     }
 }

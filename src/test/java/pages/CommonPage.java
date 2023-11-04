@@ -1,8 +1,7 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.Calendar;
 
 import static stepDefinitions.Hooks.driver;
 
@@ -68,7 +67,7 @@ public abstract class CommonPage {
         }
         return dashboardPage;
     }
-    public DocumentsPage getDocumentsPage(){
+    public WebElement getDocumentsPage(){
         if(documentsPage==null){
             documentsPage=new DocumentsPage();
         }
