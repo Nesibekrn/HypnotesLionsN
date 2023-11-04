@@ -67,7 +67,7 @@ public abstract class CommonPage {
         }
         return dashboardPage;
     }
-    public WebElement getDocumentsPage(){
+    public DocumentsPage getDocumentsPage(){
         if(documentsPage==null){
             documentsPage=new DocumentsPage();
         }
