@@ -65,6 +65,9 @@ public class AccountPage extends CommonPage{
     @FindBy(xpath="//select[@class=\"invoice_select__WnoPF   false\"]")
     public WebElement contryDropDownl;
 
+    @FindBy(xpath = "//span[text()='Yes']")
+    public WebElement timeZoneYes;
+
     @FindBy(xpath="//span[text()='Add New Education']")
     public WebElement addNewEducation;
 

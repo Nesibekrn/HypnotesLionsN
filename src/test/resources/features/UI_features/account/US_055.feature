@@ -1,10 +1,11 @@
 Feature:Profile(Educations) section must perform with various actions
   Background:
+    #And the user clicks Yes on the current timezone
     And the user clicks on the account logo
     And the user clicks on the profile
 
   @UI @US_055 @Therapist
-  Scenario: Verify that the user is able to view and click on the Add New Your Company button
+  Scenario: Verify that the user is able to view and click on the Add New Your Company button and page
     When the user is able to view and click on the Add New Education button
 
   @UI @US_055 @Therapist

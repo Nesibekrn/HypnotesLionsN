@@ -16,21 +16,27 @@ import static utilities.ReusableMethods.waitFor;
 
 public class US_055 extends CommonPage {
 
+  //  @And("the user clicks Yes on the current timezone")
+   // public void theUserClicksYesOnTheCurrentTimezone() {
+    //    getAccountPage().timeZoneYes.click();
+    //    waitFor(1);
+   // }
+
 
     @Then("the user is able to view and click on the Add New Education button")
     public void theUserIsAbleToViewAndClickOnTheAddNewEducationButton() {
         Assert.assertTrue(getAccountPage().addNewEducation.isDisplayed());
-        waitFor(2);
+        waitFor(1);
         Assert.assertTrue(getAccountPage().addNewEducation.isEnabled());
-        waitFor(2);
+        waitFor(1);
         ReusableMethods.scrollAndClickWithJS(getAccountPage().addNewEducation);
-        waitFor(2);
+        waitFor(1);
 
     }
     @When("the user clicks on the Add New Education button")
     public void theUserClicksOnTheAddNewEducationButton() {
         ReusableMethods.scrollAndClickWithJS( getAccountPage().addNewEducation);
-        waitFor(2);
+        waitFor(1);
     }
 
 
@@ -39,7 +45,7 @@ public class US_055 extends CommonPage {
         List<String>fields=Ffields.asList();
         for (int i = 0; i <= fields.size() - 1; i++) {
             Assert.assertTrue(getAccountPage().titles.get(i).isDisplayed());
-            waitFor(2);
+            waitFor(1);
 
         }
     }
@@ -53,7 +59,7 @@ public class US_055 extends CommonPage {
         List<String> formFields = values.asList();
         for (int i = 0; i <= formFields.size() - 1; i++) {
             getAccountPage().selections.get(i).sendKeys(formFields.get(i));
-            waitFor(2);
+            waitFor(1);
 
         }
     }
@@ -91,7 +97,7 @@ public class US_055 extends CommonPage {
     @And("the user clicks on the save button")
     public void theUserClicksOnTheSaveButton() {
         getAccountPage().saveButon.click();
-        waitFor(2);
+        waitFor(1);
     }
 
     @Then("the user verifies the added message")
@@ -110,7 +116,7 @@ public class US_055 extends CommonPage {
         getAccountPage().descriptionField.clear();
         waitFor(1);
         getAccountPage().saveButon.click();
-        waitFor(2);
+        waitFor(1);
 
     }
     @Then("the user verifies updated message is visible")
@@ -122,7 +128,7 @@ public class US_055 extends CommonPage {
     @Then("the user clicks on delete buton")
     public void the_user_clicks_on_delete_buton() {
         ReusableMethods.scrollAndClickWithJS(getAccountPage().deleteButon);
-        waitFor(2);
+        waitFor(1);
 
     }
     @Then("the user verifies delete message is visible")
@@ -142,6 +148,7 @@ public class US_055 extends CommonPage {
         waitFor(2);
 
     }
+
 
 
 }
