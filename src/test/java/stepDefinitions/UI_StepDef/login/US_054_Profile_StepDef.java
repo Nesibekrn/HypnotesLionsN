@@ -4,15 +4,26 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.CommonPage;
+import utilities.ConfigurationReader;
 import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
-public class US_054_Profile_StepDef {
+public class US_054_Profile_StepDef extends CommonPage {
+
+    // Web list for dongusu //li[@class='ant-dropdown-menu-item']
+    // List 2 //div[@class='ant-tabs-tab']
 
 
     @Given("User Login on the Profile Page")
     public void userLoginOnTheProfilePage() {
+        driver.get(ConfigurationReader.getProperty("login_url"));
+        getLoginPage().email_login.sendKeys(ConfigurationReader.getProperty("loginEmail"));
+        getLoginPage().password_Login.sendKeys(ConfigurationReader.getProperty("loginPassword"));
+        getLoginPage().login_button.click();
+
+
     }
 
     @When("Clicks on the profile icon.")

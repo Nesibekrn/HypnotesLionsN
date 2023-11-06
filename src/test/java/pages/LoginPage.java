@@ -108,6 +108,7 @@ public class LoginPage extends CommonPage {
     @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
     public WebElement ButtonEMAILFORLOGIN;
 
+    //US054
 
 
 
@@ -123,7 +124,9 @@ public class LoginPage extends CommonPage {
 
 
 
-    //FATIH YILMAZ UST
+
+
+
 
 
 
