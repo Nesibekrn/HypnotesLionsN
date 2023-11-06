@@ -8,6 +8,8 @@ import org.junit.Assert;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
+import static org.junit.Assert.assertEquals;
+
 public class US_57 extends CommonPage {
     @Given("User verify name button is enabled")
     public void userVerifyNameButtonIsEnabled() {
@@ -97,6 +99,8 @@ public class US_57 extends CommonPage {
     public void userClicksXButton() {
         getDashboardPage().xButton.click();
 
+
+
     }
 
     @Then("User remove some specialities from the list")
@@ -116,6 +120,10 @@ public class US_57 extends CommonPage {
 
     @And("User verify if Specialities section is updated")
     public void userVerifyIfSpecialitiesSectionIsUpdated() {
+        String anger = "Anger";
+        String specialtyText = getDashboardPage().totalSpecialties.toString();
+        Assert.assertEquals(anger, specialtyText);
+
         
     }
 }

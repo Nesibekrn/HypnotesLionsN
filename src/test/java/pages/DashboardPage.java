@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class DashboardPage extends CommonPage{
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div[2]/div/div/div[2]/button[2]")
     public WebElement timeZoneYesButton;
@@ -56,9 +58,6 @@ public class DashboardPage extends CommonPage{
     @FindBy(xpath = "//button[@class='ant-modal-close']")
     public WebElement xButton;
 
-    @FindBy(xpath = "//span[@class='anticon anticon-delete ant-popover-open']")
-    public WebElement delete1;
-
     @FindBy(xpath = "//span[@class='anticon anticon-delete']")
     public WebElement delete2;
 
@@ -67,6 +66,9 @@ public class DashboardPage extends CommonPage{
 
     @FindBy(xpath = "//li[@data-menu-id=\"rc-menu-uuid-23236-1-/dashboard/clients\"]")
     public WebElement clients;
+
+    @FindBy(xpath = "//div[@class=\"ant-col css-aqx16b\"]")
+    public List<WebElement > totalSpecialties;
 
 
 
