@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +30,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
+
+    private Instant wait;
 
     public static String rasgeleIsimOlustur() {
         Faker faker = new Faker();
@@ -44,7 +47,7 @@ public class ReusableMethods {
              */
     }
 
-    private static WebDriverWait wait;
+
 
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
@@ -242,6 +245,7 @@ public class ReusableMethods {
     protected static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
         try {
+            Instant wait = null;
             element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (Exception e) {
         }
