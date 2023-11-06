@@ -9,10 +9,10 @@ import utilities.ReusableMethods;
 import static stepDefinitions.Hooks.driver;
 
 public class US_045 extends CommonPage {
-//   @When("user moves to the Documents button with the mouse")
-//   public void userMovesToTheDocumentsButtonWithTheMouse() {
-//        ReusableMethods.verifyElementDisplayed(getDocumentsPage().documents_button);
-//   }
+   @When("user moves to the Documents button with the mouse")
+   public void userMovesToTheDocumentsButtonWithTheMouse() {
+        ReusableMethods.verifyElementDisplayed(getDocumentsPage().documents_button);
+   }
     @Then("user clicks the Documents button")
     public void userClicksTheDocumentsButton() {
     getDocumentsPage().documents_button.click();
