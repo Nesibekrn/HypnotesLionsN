@@ -9,4 +9,10 @@ public class DashboardPage extends CommonPage{
     public WebElement DashboardButton;
 
 
+    @FindBy(css = "span.ant-menu-title-content>[href$='/email-sms']")
+    public WebElement email_smsLink_therapistDashboard;
+
+    @FindBy(xpath = "//*[text()='Yes']")
+    public WebElement timeZonePopUp_yesButton;
+
 }
