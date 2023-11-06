@@ -31,7 +31,7 @@ import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
 
-    private Instant wait;
+    private static WebDriverWait wait;
 
     public static String rasgeleIsimOlustur() {
         Faker faker = new Faker();
@@ -241,25 +241,24 @@ public class ReusableMethods {
             Assert.fail("Element not found: " + element);
         }
     }
-
     protected static WebElement waitClickableByOfElement(WebElement webElement) {
-        long element = null;
-        try {
-            Instant wait = null;
-            element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
-        } catch (Exception e) {
+     WebElement element = null;
+      try {
+
+          element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
+   } catch (Exception e) {
         }
-        return element;
-    }
+       return element;
+   }
 
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
-        try {
-            element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        } catch (Exception e) {
+       try {
+           element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+      } catch (Exception e) {
         }
-        return element;
-    }
+       return element;
+   }
 
     public static void switchToWindow(int windowNumber) {
         List<String> list = new ArrayList<>(Driver.getDriver().getWindowHandles());

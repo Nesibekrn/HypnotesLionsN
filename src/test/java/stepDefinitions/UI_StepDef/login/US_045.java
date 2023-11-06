@@ -1,5 +1,6 @@
 package stepDefinitions.UI_StepDef.login;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -9,19 +10,26 @@ import utilities.ReusableMethods;
 import static stepDefinitions.Hooks.driver;
 
 public class US_045 extends CommonPage {
-   @When("user moves to the Documents button with the mouse")
-   public void userMovesToTheDocumentsButtonWithTheMouse() {
-        ReusableMethods.verifyElementDisplayed(getDocumentsPage().documents_button);
-   }
-    @Then("user clicks the Documents button")
-    public void userClicksTheDocumentsButton() {
-    getDocumentsPage().documents_button.click();
-    ReusableMethods.waitFor(6);
-   }
 
-    @Then("user verifies the Documents page")
-    public void userVerifiesTheDocumentsPage() {
-        Assert.assertEquals("https://test.hypnotes.net/dashboard/documents",driver.getCurrentUrl());
+    @Then("user verifies the Documents button is clickable")
+    public void userVerifiesTheDocumentsButtonIsClickable() {
+        Assert.assertTrue(getDocumentsPage().documents_button.isEnabled());
+        ReusableMethods.waitFor(1);
 
     }
+
+
+    @When("user clicks on Documents button")
+    public void userClicksOnDocumentsButton() {
+        getDocumentsPage().documents_button.click();
+        ReusableMethods.waitFor(1);
+
+    }
+
+    @Then("user sees the Documents page")
+    public void userSeesTheDocumentsPage() {
+        Assert.assertEquals("https://test.hypnotes.net/dashboard/documents",driver.getCurrentUrl());
+        ReusableMethods.waitFor(1);
+    }
 }
+
