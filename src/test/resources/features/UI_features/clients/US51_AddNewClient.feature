@@ -1,12 +1,22 @@
 Feature: As a user (therapist) I should be able to add new client
 
+  Background:Home Page
+    Given User Navigates to "https://test.hypnotes.net/login"
+
   Scenario: TC  01 -Emergency buttons must be active
-    When The Emergency Contact Phone menu must be functional.
-    Then The correct code should appear when you click on the country flags in the Emergency Contact Phone. Valid number must be added
-    Then Emergency Contact Relationship should be added
-    Then Primary Physician/Family Doctor Name must be added
-    Then The Primary Physician/Family Doctor Phone menu must be functional.
-    Then The correct code should appear when you click on the country flags in the Primary Physician/ Family Doctor Phone. Valid number must be added
-    Then Primary Physician/ Family Doctor Email must be added
-    Then Client should be added after entering other necessary data.
-     And The added client should appear at the top of the "Clients" page in the left panel.
+    When User logs in as therapist
+    Then The user clicks on the client button.
+    Then The user clicks on the add new client button.
+    Then The user enters data into the FirstName, LastName, Email, Gender, Phone, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.
+
+  Scenario: TC  02 -User clicks the Show Extra Fields button and fills in the opened fields
+    When User clicks the Show Extra Fields field
+    Then User enters a phone number in the Emergency Contact Phone field
+    Then User enters data in the Emergency Contact Relationship field
+    Then User enters email in the Primary Physician Family Doctor Name field
+    Then User enters data in the Guardian Name field
+    Then User enters phone number in the Guardian Phone field
+    Then User enters email address in the Guardian Email field
+    Then User selects an image for the Profile image field
+    Then User clicks the save button
+    Then The user should be able to see the customer he added
