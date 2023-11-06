@@ -1,5 +1,6 @@
 package stepDefinitions.UI_StepDef.register;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,9 +10,14 @@ import pages.CommonPage;
 import static utilities.ReusableMethods.waitFor;
 
 public class US_021 extends CommonPage {
+
+    Faker faker = new Faker();
+
     @When("user clicks password field")
     public void userClicksPasswordField() {
+        waitFor(3);
         getRegisterPage().inputPassword.click();
+        waitFor(3);
     }
 
     @Then("the color in the characters section should be red")
@@ -51,7 +57,7 @@ public class US_021 extends CommonPage {
 
     @When("the user enters a password that meets the criteria.")
     public void the_user_enters_a_password_that_meets_the_criteria() {
-        getRegisterPage().inputPassword.sendKeys("Merhaba123!");
+        getRegisterPage().inputPassword.sendKeys(faker.internet().password(8, 50, true, true, true));
 
     }
 

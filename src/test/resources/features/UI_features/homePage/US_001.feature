@@ -1,4 +1,3 @@
-
 Feature: User goes to homepage
   @US_001
   @UI

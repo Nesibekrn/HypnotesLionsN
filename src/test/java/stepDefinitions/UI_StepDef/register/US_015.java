@@ -42,7 +42,7 @@ public class US_015 extends CommonPage {
     @Given("the user enter an email address")
     public void the_user_enter_an_email_address() {
         clickWithTimeOut(getRegisterPage().emailOrPhone,6);
-        getRegisterPage().emailOrPhone.sendKeys("testdsd398@gmail.com");
+        getRegisterPage().emailOrPhone.sendKeys("yavuztest88@gmail.com");
 
     }
     @Given("the user clicks on next button")
@@ -51,7 +51,7 @@ public class US_015 extends CommonPage {
     }
     @Given("the user enter an password")
     public void the_user_enter_an_password() throws InterruptedException {
-        getRegisterPage().passwordGoogle.sendKeys("Test123.");
+        getRegisterPage().passwordGoogle.sendKeys("Ingolstadt2023,.");
         Thread.sleep(2000);
     }
 

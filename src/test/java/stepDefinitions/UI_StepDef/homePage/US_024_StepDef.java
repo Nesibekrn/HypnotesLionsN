@@ -8,13 +8,8 @@ import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
 
-public class US_024 extends CommonPage {
-    @When("the user clicks on the Sign Up for Free button")
-    public void theUserClicksOnTheSignUpForFreeButton() {
-        getRegisterPage().signupFreeButton.click();
+public class US_024_StepDef extends CommonPage {
 
-
-    }
 
     @Then("the Sign Up for Free button should be clickable")
     public void theButtonShouldBeClickable() {

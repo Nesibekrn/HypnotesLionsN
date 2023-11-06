@@ -196,20 +196,20 @@ public class RegisterPage extends CommonPage {
 
 
 
-   @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
+    @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
     public WebElement signInWithApple;
-   @FindBy(css="#account_name_text_field ")
+    @FindBy(css="#account_name_text_field ")
     public WebElement inputMail;
-   @FindBy(css="#password_text_field")
+    @FindBy(css="#password_text_field")
     public WebElement enterPassword;
-   @FindBy(xpath="//i[@class='shared-icon icon_sign_in']")
+    @FindBy(xpath="//i[@class='shared-icon icon_sign_in']")
     public WebElement next_button;
-   @FindBy(xpath ="//button[@type='button'][1]")
+    @FindBy(xpath ="//button[@type='button'][1]")
     public WebElement continueButton;
-   @FindBy(css=".ac-localnav-title")
+    @FindBy(css=".ac-localnav-title")
     public WebElement alertPage;
 
-   //Webelemnts for US_020
+    //Webelemnts for US_020
     @FindBy(xpath="//a[text()='I am a Client']")
     private WebElement amAclient_Link;
     public void verifyIamAclientLink(String expectedLinkName){
@@ -219,6 +219,21 @@ public class RegisterPage extends CommonPage {
     }
     @FindBy(css = "[data-test-id='register_as_a_client']")
     public WebElement registerAsAClientText;
+
+    @FindBy(xpath = "//a[@id='social-media-login-logo-g'][1]")
+    public WebElement loginWithGoogle;
+    @FindBy(xpath ="//input[@id='identifierId']")
+    public WebElement emailGoogle;
+    @FindBy(xpath = "//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")
+    public WebElement nextGoogle;
+    @FindBy(xpath = "//div[@class='rFrNMe ze9ebf YKooDc wIXLub zKHdkd sdJrJc']")
+    public WebElement passwordGooglee;
+  //  @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
+    ////                 span[@data-test-id='loginScreen_logIn']
+    // public WebElement registerloginButton;
+
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElement registerloginButton;
 
     @FindBy(xpath = "(//div[@class='RegisterForm_fontSmall__p6mzi'])[3]")
     public WebElement signInWithLinkedin;
@@ -238,4 +253,3 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath = "//h1[starts-with(text(),'Let')]")
     public WebElement linkedInEnglishVerificationMessage;
 }
-
