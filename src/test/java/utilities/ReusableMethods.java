@@ -243,7 +243,7 @@ public class ReusableMethods {
     }
 
     protected static WebElement waitClickableByOfElement(WebElement webElement) {
-        WebElement element = null;
+        long element = null;
         try {
             Instant wait = null;
             element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
