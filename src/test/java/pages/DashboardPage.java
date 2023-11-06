@@ -4,13 +4,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DashboardPage extends CommonPage{
-    @FindBy(xpath = "//button[@class='ant-btn css-15rg2km ant-btn-round ant-btn-primary ant-btn-sm ant-btn-background-ghost']")
+    @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div[2]/div/div/div[2]/button[2]")
     public WebElement timeZoneYesButton;
 
     @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle css-aqx16b']")
     public WebElement sectionButton;
 
-    @FindBy(xpath = "//li[@data-menu-id='rc-menu-uuid-86985-8-1']")
+    @FindBy(xpath = "//a[@data-test-id='profile_link_profilMenuDropDown']")
     public WebElement profileButton;
 
     @FindBy(xpath = "//div[@id='rc-tabs-0-tab-3']")
@@ -46,8 +46,12 @@ public class DashboardPage extends CommonPage{
     @FindBy(xpath = "//div[@title='Attitude Adjustment']")
     public WebElement attiduteAdjustment;
 
-    @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-primary'])[2]")
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary']")
+    ////button[@class='ant-btn css-aqx16b ant-btn-primary']
     public WebElement specialitySaveButton;
+
+    @FindBy(xpath = "//div[@class='ant-message-notice-content']")
+    public WebElement messageSpeciality;
 
     @FindBy(xpath = "//button[@class='ant-modal-close']")
     public WebElement xButton;
@@ -60,6 +64,9 @@ public class DashboardPage extends CommonPage{
 
     @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-sm']")
     public WebElement deleteOk;
+
+    @FindBy(xpath = "//li[@data-menu-id=\"rc-menu-uuid-23236-1-/dashboard/clients\"]")
+    public WebElement clients;
 
 
 

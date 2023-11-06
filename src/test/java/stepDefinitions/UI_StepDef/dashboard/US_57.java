@@ -11,16 +11,31 @@ import utilities.ReusableMethods;
 public class US_57 extends CommonPage {
     @Given("User verify name button is enabled")
     public void userVerifyNameButtonIsEnabled() {
+        ReusableMethods.waitForPageToLoad(3);
+       // ReusableMethods.waitForClickability(getDashboardPage().timeZoneYesButton,1);
+        try {
+            getDashboardPage().timeZoneYesButton.click();
+        } catch (Exception e) {
+            // Hata yakalandığında buraya gelinir
+            e.printStackTrace(); // Hata bilgisini konsola yazdırabilirsiniz
+        } finally {
+            getDashboardPage().sectionButton.click();
+            // Her durumda çalışmasını istediğiniz kodları buraya ekleyebilirsiniz
+            // Örneğin, kaynakları temizleme veya işlem sonrası belirli adımları gerçekleştirme gibi işlemleri burada yapabilirsiniz.
+        }
+        ReusableMethods.waitForVisibility(getDashboardPage().sectionButton,2);
         Assert.assertTrue(getDashboardPage().sectionButton.isEnabled());
     }
 
     @When("User clicks name button")
     public void userClicksNameButton() {
+        ReusableMethods.waitForClickability(getDashboardPage().sectionButton,3);
         getDashboardPage().sectionButton.click();
     }
 
     @Then("User clicks profile button")
     public void userClicksProfileButton() {
+
         ReusableMethods.scrollAndClickWithJS(getDashboardPage().profileButton);
     }
 
@@ -31,6 +46,9 @@ public class US_57 extends CommonPage {
 
     @Then("User clicks specialties button")
     public void userClicksSpecialtiesButton() {
+        //ReusableMethods.waitForClickability(getDashboardPage().specialtiesButton,10);
+        ReusableMethods.scrollToBottom();
+        ReusableMethods.waitFor(3);
         getDashboardPage().specialtiesButton.click();
     }
 
@@ -48,6 +66,8 @@ public class US_57 extends CommonPage {
 
     @And("User verify all specialities are clickable")
     public void userVerifyAllSpecialitiesAreClickable() {
+        ReusableMethods.waitFor(3);
+        Assert.assertTrue(getDashboardPage().specialityDropdownMenu.isEnabled());
         getDashboardPage().specialityDropdownMenu.click();
         Assert.assertTrue(getDashboardPage().abondonment.isEnabled());
         Assert.assertTrue(getDashboardPage().addictions.isEnabled());
@@ -63,6 +83,7 @@ public class US_57 extends CommonPage {
     @Then("User clicks and save some specialities")
     public void userClicksAndSaveSomeSpecialities() {
         ReusableMethods.scrollAndClickWithJS(getDashboardPage().abondonment);
+        //Assert.assertTrue(getDashboardPage().messageSpeciality.isDisplayed());
         getDashboardPage().specialitySaveButton.click();
         ReusableMethods.scrollAndClickWithJS(getDashboardPage().addictions);
         getDashboardPage().specialitySaveButton.click();
@@ -80,11 +101,16 @@ public class US_57 extends CommonPage {
 
     @Then("User remove some specialities from the list")
     public void userRemoveSomeSpecialitiesFromTheList() {
-        getDashboardPage().delete1.click();
+        ReusableMethods.waitFor(2);
+        ReusableMethods.scrollToBottom();
+        getDashboardPage().delete2.click();
+        ReusableMethods.waitFor(1);
         getDashboardPage().deleteOk.click();
-        getDashboardPage().delete1.click();
+        getDashboardPage().delete2.click();
         getDashboardPage().deleteOk.click();
-        getDashboardPage().delete1.click();
+        ReusableMethods.waitFor(2);
+        getDashboardPage().delete2.click();
+        ReusableMethods.waitFor(1);
         getDashboardPage().deleteOk.click();
     }
 
