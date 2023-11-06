@@ -29,7 +29,7 @@ public class US_048 extends CommonPage {
     }
     @Then("user should be able navigate relavent page")
     public void user_should_be_able_navigate_relavent_page() {
-        ReusableMethods.waitForPageToLoad(3);
+        ReusableMethods.waitForPageToLoad(4);
         assertEquals("https://test.hypnotes.net/dashboard/email-sms",driver.getCurrentUrl());
        // assertTrue(driver.getCurrentUrl().contains("dashboard/email-sms"));
 
