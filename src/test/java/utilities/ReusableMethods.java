@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +30,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
+
 
     public static String rasgeleIsimOlustur() {
         Faker faker = new Faker();
@@ -43,6 +45,7 @@ public class ReusableMethods {
              ve ardından bu değerleri birleştirebilirsiniz.
              */
     }
+    private static WebDriverWait wait;
 
 
 
