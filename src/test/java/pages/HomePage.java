@@ -1,16 +1,18 @@
 package pages;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
-
 import utilities.Driver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +36,9 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//img[@data-test-id='instagramLink_footerLogo']")
     public WebElement instagramIcon;
 
-    public static void assertBackgroundColour(String color, WebElement webElement) {
-        Assert.assertEquals(color, webElement.getCssValue("background-color"));
-    }
+    //  public static void assertBackgroundColour(MysqlxDatatypes.Scalar.String color, WebElement webElement) {
+    //      Assert.assertEquals(color, webElement.getCssValue("background-color"));
+    //  }
 
     @FindBy(xpath = "//*[text()='Real People, Real Feedback']")
     public WebElement testimonialsSectionText;
@@ -47,14 +49,14 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//div[@class='swiper-button-prev']")
     public WebElement prevButton;
 
-    @FindBy(css = "span.swiper-pagination-bullet")
-    public List<WebElement> bulletPoints;
+    // @FindBy(css = "span.swiper-pagination-bullet")
+    // public List<WebElement> bulletPoints;
 
-    @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
-    public List<WebElement> listTitles;
+    // @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
+    // public List<WebElement> listTitles;
 
-    @FindBy(xpath = "//a[@class='ant-btn css-15rg2km ant-btn-link features-btn']")
-    public List<WebElement> listHeader;
+    // @FindBy(xpath = "//a[@class='ant-btn css-15rg2km ant-btn-link features-btn']")
+    // public List<WebElement> listHeader;
 
     @FindBy(xpath = "//span[text()='Payment Service']")
     public WebElement secondHeader;
@@ -79,7 +81,7 @@ public class HomePage extends CommonPage {
     public WebElement ressourcesText;
     @FindBy(xpath = "//p[@class='ContactForm_formTitle__JMH9d']")
     public WebElement contactUsText;
-    @FindBy(xpath = "//img[@style='border-radius: 20px; width: 93%; padding: 10px; justify-content: center;']")
+     @FindBy(xpath = "//img[@style='border-radius: 20px; width: 93%; padding: 10px; justify-content: center;']")
     public List<WebElement> images;
 
 
@@ -215,9 +217,7 @@ public class HomePage extends CommonPage {
         switch (bestTime) {
             case "Morning":
                 select.selectByVisibleText(bestTime);
-                break;
-            case "Afternoon":
-                select.selectByVisibleText("Afternoon");
+                break; case "Afternoon": select.selectByVisibleText("Afternoon");
                 break;
         }
     }
@@ -236,11 +236,6 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//div[@class='style_titleContainer__eG2fC']")
     public WebElement howCanWeHelp;
 
-//    @FindBy(xpath="//span[@class='ant-typography style_signUpBtn__JTRJm css-15rg2km']")
-//    public WebElement signUpButton;
-
-    @FindBy(xpath = "//div[normalize-space()='Help & Support']")
-    public WebElement helpSupportHeader;
 
     @FindBy(xpath = "//div[normalize-space()='Help Center']")
     public WebElement helpSupportHelpCenter;
@@ -272,100 +267,71 @@ public class HomePage extends CommonPage {
     @FindBy(xpath = "//div[normalize-space()='Contact Us']")
     public WebElement companyContactUs;
 
-    @FindBy(xpath = "(//div[@class='ant-col ant-col-xs-24 ant-col-xl-12 css-15rg2km'])[2]")
-    public List<WebElement> allCompany;
+     @FindBy(xpath = "(//div[@class='ant-col ant-col-xs-24 ant-col-xl-12 css-15rg2km'])[2]")
+     public List<WebElement> allCompany;
 
-    public void testElements(WebElement element, String exp) {
-        waitFor(2);
-        goAllTheWayDown();
-        element.click();
-        waitFor(2);
-        String expectedResult = exp;
-        String actualResult = Driver.getDriver().getCurrentUrl();
-        try {
-            Assert.assertTrue(actualResult.contains(expectedResult));
-        } catch (AssertionError e) {
-            System.out.println("Irrelevant page opened for " + expectedResult + "!!");
-        }
-    }
+     public void testElements(WebElement element, String exp) {
+         waitFor(2);
+         goAllTheWayDown();
+         element.click();waitFor(2);String expectedResult = exp;String actualResult = Driver.getDriver().getCurrentUrl();try {Assert.assertTrue(actualResult.contains(expectedResult));} catch (AssertionError e) {System.out.println("Irrelevant page opened for " + expectedResult + "!!");}}
+
 
     public void goAllTheWayDown() {
-        Actions actions = new Actions(driver);
-        for (int i = 1; i <= 6; i++) {
-            waitFor(1);
-            actions.sendKeys(Keys.PAGE_DOWN).perform();
-        }
-    }
+         Actions actions = new Actions(driver);
+         for (int i = 1; i <= 6; i++) {
+
+             waitFor(1);
+
+             actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+         }
+     }
 
     public void helpSupportElementsClick() {
-
-        String url = "https://test.hypnotes.net/";
-        helpSupportHelpCenter.click();
-        waitFor(2);
-        String expectedResult = "help-center";
-        String actualResult = Driver.getDriver().getCurrentUrl();
-        try {
-            Assert.assertTrue(actualResult.contains(expectedResult));
-        } catch (AssertionError e) {
-            System.out.println("Irrelevant page opened for " + expectedResult + "!!");
-        }
-        driver.get(url);
-        testElements(helpSupportFaqs, "faq");
+         String url = "https://test.hypnotes.net/";helpSupportHelpCenter.click();waitFor(2);String expectedResult = "help-center";String actualResult = Driver.getDriver().getCurrentUrl();try {Assert.assertTrue(actualResult.contains(expectedResult));} catch (AssertionError e) {System.out.println("Irrelevant page opened for " + expectedResult + "!!");}
+        driver.get(url);testElements(helpSupportFaqs, "faq");
 
         driver.get(url);
         //Driver.getDriver().navigate().back();
         testElements(helpSupportBlog, "blog");
 
-        driver.get(url);
-        //Driver.getDriver().navigate().back();
-        testElements(helpSupportFindATherapist, "therapist-directory");
+    driver.get(url);
+     Driver.getDriver().navigate().back();
+     testElements(helpSupportFindATherapist, "therapist-directory");
+}
+
+public void companyAndItemsAreVisible(DataTable elements) {
+
+    goAllTheWayDown();
+    //Feature da yazdigimiz basliklarin geldigi expected data
+    List<String> items = new ArrayList<>();
+    for (String each : elements.asList()) {
+        items.add(each);
     }
-
-    public void companyAndItemsAreVisible(DataTable elements) {
-
-        goAllTheWayDown();
-        //Feature da yazdigimiz basliklarin geldigi expected data
-        List<String> items = new ArrayList<>();
-        for (String each : elements.asList()) {
-            items.add(each);
-        }
-        //Website dan gelen basliklar actual data.
-        for (int i = 1; i <= allCompany.size() - 1; i++) {
-            // WebElement company = allCompany.get(i);
-            String expectedResult = items.get(i);
-            String actualResult = allCompany.get(i).getText();
-            Assert.assertEquals(expectedResult, actualResult);
-        }
+    //Website dan gelen basliklar actual data.
+    for (int i = 1; i <= allCompany.size() - 1; i++) {
+        // WebElement company = allCompany.get(i);
+        String expectedResult = items.get(i);
+        String actualResult = allCompany.get(i).getText();
+        Assert.assertEquals(expectedResult, actualResult);
     }
+}
 
-    public void companyElementsClick() {
-        String url = "https://test.hypnotes.net/";
-
-        testElements(companyAboutUs, "about-us");
-
-        driver.get(url);
-        testElements(companyMissionStatement, "mission-statement");
-
-        driver.get(url);
-        testElements(companyPrivacyPolicy, "privacy-policy");
-
-        driver.get(url);
-        testElements(companyTermsOfService, "terms-of-service");
-
-        driver.get(url);
-        testElements(companyCareers, "careers");
-
-        driver.get(url);
-        testElements(companyContactUs, "contact-us");
-
-    }
+public void companyElementsClick() {String url = "https://test.hypnotes.net/";
+         testElements(companyAboutUs, "about-us");
+         driver.get(url);testElements(companyMissionStatement, "mission-statement");
+         driver.get(url);testElements(companyPrivacyPolicy, "privacy-policy");
+         driver.get(url);testElements(companyTermsOfService, "terms-of-service");
+         driver.get(url);testElements(companyCareers, "careers");
+         driver.get(url);testElements(companyContactUs, "contact-us");
+     }
 
 
-//    @FindBy(xpath="//span[@class='ant-typography style_signUpBtn__JTRJm css-15rg2km']")
-//    public WebElement signUpButton;
+   @FindBy(xpath="//span[@class='ant-typography style_signUpBtn__JTRJm css-15rg2km']")
+   public WebElement signUpButton;
 
-   // @FindBy(xpath = "//div[normalize-space()='Help & Support']")
-   // public WebElement helpSupportHeader;
+    @FindBy(xpath = "//div[normalize-space()='Help & Support']")
+    public WebElement helpSupportHeader;
 
     @FindBy(xpath = "//p[text()='Essentials']")
     public WebElement essential07;
@@ -396,11 +362,11 @@ public class HomePage extends CommonPage {
     public WebElement loginPourEntrerLeSite07;
 
 
-    @FindBy(xpath = "//th//p")
-    public List<WebElement> listPricing07;
-
-    //  //a[text()='Get Started Now']
-    @FindBy(css = "div.style_body__qweHx div.style_pricingPage__sFRSc.mt-4.d-flex.flex-column.align-items-center div.style_pricingWeb__u6I09:nth-child(5) div.table-responsive:nth-child(3) table.table.text-center.table-lg:nth-child(1) thead.thead:nth-child(1) div.col div.card.mb-4.rounded-3.shadow-sm div.card-body button.w-100.btn.btn-sm.btn-outline-primary.style_btn__CLS8d > a.style_registerLink__4acEw")
+   // @FindBy(xpath = "//th//p")
+   // public List<WebElement> listPricing07;
+//
+   // //  //a[text()='Get Started Now']
+    @FindBy(css = "//thead/tr[1]/th/div[1]/div[1]/div/button[1]")
     public List<WebElement> listPricingGetStartedNow07;
     @FindBy(xpath = "//div[text()='Product Demo']")//us09
     public WebElement productDemo;
@@ -427,11 +393,11 @@ public class HomePage extends CommonPage {
     public WebElement pricing07;//07
     @FindBy(xpath = "//div[text()='Features']")
     public WebElement button_FooterFeatures;
-    /*
+
     public static void scrollToElement(WebElement element) {
             ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
-        }
-     */
+    }
+
     @FindBy(xpath = "//span[text()='E']")
     public WebElement hesapE;//07
 

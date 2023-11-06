@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import com.github.javafaker.Faker;
 import org.junit.Assert;
 import java.util.List;
+
 import static utilities.ReusableMethods.waitFor;
 
 public class RegisterPage extends CommonPage {
@@ -111,33 +112,21 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath="//h3[normalize-space()='Verify Email']")
     public WebElement verifyEmailText;
 
-    @FindBy(xpath="//div[@class='register_col__zTnRz']")
-    public List<WebElement> verifyEmailWindow;
+   @FindBy(xpath="//div[@class='register_col__zTnRz']")
+   public List<WebElement> verifyEmailWindow;
 
     @FindBy(xpath="//button[@type='submit']")
     public WebElement sendAgain;
 
     @FindBy(xpath="//div[@class='ant-message-notice-content']")
     public WebElement popUpMessage;
-
-    public void creatingValidCredentials(){
-        Faker faker = new Faker();
-        clientName.sendKeys(faker.name().firstName());
-        clientSurname.sendKeys(faker.name().lastName());
-        clientEmail.sendKeys(faker.internet().emailAddress());
-        clientPassword.sendKeys("Aa1!aaaa");
+    public void creatingValidCredentials(){Faker faker = new Faker();clientName.sendKeys(faker.name().firstName());clientSurname.sendKeys(faker.name().lastName());clientEmail.sendKeys(faker.internet().emailAddress());clientPassword.sendKeys("Aa1!aaaa");waitFor(1);signUpButton.click();waitFor(3);}
+    public void verifyEmailAllTexts(){for (int i = 0; i < verifyEmailWindow.size(); i++) {
+        WebElement element = verifyEmailWindow.get(i);
         waitFor(1);
-        signUpButton.click();
-        waitFor(3);
+        Assert.assertTrue(element.isDisplayed());
+        waitFor(1);
     }
-
-    public void verifyEmailAllTexts(){
-        for (int i = 0; i < verifyEmailWindow.size(); i++) {
-            WebElement element = verifyEmailWindow.get(i);
-            waitFor(1);
-            Assert.assertTrue(element.isDisplayed());
-            waitFor(1);
-        }
     }
 
     @FindBy(xpath = "//p[normalize-space()='A special character']")
@@ -216,6 +205,7 @@ public class RegisterPage extends CommonPage {
         Assert.assertEquals(expectedLinkName,amAclient_Link.getText());
         Assert.assertTrue(amAclient_Link.isEnabled() && amAclient_Link.isDisplayed());
 
+
     }
     @FindBy(css = "[data-test-id='register_as_a_client']")
     public WebElement registerAsAClientText;
@@ -228,12 +218,12 @@ public class RegisterPage extends CommonPage {
     public WebElement nextGoogle;
     @FindBy(xpath = "//div[@class='rFrNMe ze9ebf YKooDc wIXLub zKHdkd sdJrJc']")
     public WebElement passwordGooglee;
-  //  @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
-    ////                 span[@data-test-id='loginScreen_logIn']
-    // public WebElement registerloginButton;
+    @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
+    ////  span[@data-test-id='loginScreen_logIn']
+     public WebElement registerloginButton;
 
     @FindBy(xpath = "//span[text()='Login']")
-    public WebElement registerloginButton;
+    public WebElement registerloginButton2;
 }
 
 
