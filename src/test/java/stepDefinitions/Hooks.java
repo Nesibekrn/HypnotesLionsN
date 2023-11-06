@@ -107,6 +107,7 @@ public class Hooks {
                 ConfigurationReader.getProperty("therapistEmail"),
                 ConfigurationReader.getProperty("therapistPassword")
         );
+
     }
 
     @Before("@Client")

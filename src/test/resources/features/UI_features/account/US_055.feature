@@ -1,6 +1,5 @@
 Feature:Profile(Educations) section must perform with various actions
   Background:
-    #And the user clicks Yes on the current timezone
     And the user clicks on the account logo
     And the user clicks on the profile
 

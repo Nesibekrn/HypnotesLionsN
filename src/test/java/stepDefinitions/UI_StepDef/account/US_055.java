@@ -16,13 +16,6 @@ import static utilities.ReusableMethods.waitFor;
 
 public class US_055 extends CommonPage {
 
-  //  @And("the user clicks Yes on the current timezone")
-   // public void theUserClicksYesOnTheCurrentTimezone() {
-    //    getAccountPage().timeZoneYes.click();
-    //    waitFor(1);
-   // }
-
-
     @Then("the user is able to view and click on the Add New Education button")
     public void theUserIsAbleToViewAndClickOnTheAddNewEducationButton() {
         Assert.assertTrue(getAccountPage().addNewEducation.isDisplayed());
