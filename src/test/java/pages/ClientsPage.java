@@ -14,7 +14,7 @@ public class ClientsPage extends CommonPage{
     @FindBy(xpath = "//div[text()='Choose Import Method']")
     public WebElement chooseImportMethodWindow;
 
-    @FindBy(xpath = "//body/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/button[4]")
+    @FindBy(xpath = "//span[contains(text(),'EasyPractice')]")
     public WebElement easyPracticeMethod;
 
     @FindBy(xpath = "//input[@class=\"custom-file-input\"]")
@@ -24,7 +24,7 @@ public class ClientsPage extends CommonPage{
     public WebElement uploadButtonForEasyPractice;
 
 
-    @FindBy(xpath = "//h5[contains(text(),\"Zeynep butterfly\")]")
+    @FindBy(xpath = "//h5[contains(text(),\"John Moon\")]")
     public WebElement importedClient;
 
 
