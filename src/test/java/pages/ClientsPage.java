@@ -28,7 +28,8 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//h5[contains(text(),\"John Moon\")]")
     public WebElement importedClient;
 
-
+    @FindBy(xpath = "//span[text()='Cancel']")
+    public WebElement cancelPopUpButton;
     @FindBy(xpath = "//span[contains(text(),'View Details')]")
     public WebElement viewDetailsButton;
 
@@ -50,11 +51,11 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[@data-test-id='dashboard_clients_invoices']")
     public WebElement invoicesButton;
 
-    @FindBy(xpath = "//button[normalize-space()='Your Logo']")
-    public WebElement yourLogoButton;
+    @FindBy(xpath = "//input[@tabindex='-1']")
+    public WebElement inputYourLogoButton;
 
     @FindBy(xpath = "//textarea[@placeholder='Your Company']")
-    public WebElement yourCompanyButton;
+    public WebElement inputYourCompanyButton;
 
     @FindBy(xpath = "//input[@placeholder='Name']")
     public WebElement inputTherapistName;
@@ -65,8 +66,14 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "(//input[@placeholder='City,State,Zip'])[1]")
     public WebElement inputCityStateZip;
 
+    @FindBy(xpath = "//select[@class='invoice_select__WnoPF   false']")
+    public WebElement dropDownCountrySelect;
+
     @FindBy(xpath = "(//input[@class='invoice_input__75vJN  '])[1]")
-    public WebElement dropDownCountry;
+    public WebElement dropDownCountryWithoutSelect;
+
+    @FindBy(xpath = "//input[@value='Australia']")
+    public WebElement selectCountry;
 
     @FindBy(xpath = "//input[@placeholder='Phone']")
     public WebElement inputPhone;
