@@ -6,6 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class DashboardPage extends CommonPage{
+
+    @FindBy(xpath = "//a[@href='/dashboard']")
+    public WebElement DashboardButton;
+
+
+    @FindBy(css = "span.ant-menu-title-content>[href$='/email-sms']")
+    public WebElement email_smsLink_therapistDashboard;
+
+    @FindBy(xpath = "//*[text()='Yes']")
+    public WebElement timeZonePopUp_yesButton;
+
     @FindBy(xpath = "/html/body/div[2]/div/div[2]/div/div[2]/div/div/div[2]/button[2]")
     public WebElement timeZoneYesButton;
 
