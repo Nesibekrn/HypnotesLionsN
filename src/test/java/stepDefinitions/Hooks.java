@@ -109,6 +109,8 @@ public class Hooks {
 //               ConfigurationReader.getProperty("therapistEmail"),
 //               ConfigurationReader.getProperty("therapistPassword")
 //       );
+        driver.manage().deleteAllCookies();
+        driver.navigate().refresh();
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
 
         try{

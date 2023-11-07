@@ -25,11 +25,12 @@ public class US_048 extends CommonPage {
     public void user_clicks_on_email_sms_links() {
         ReusableMethods.waitForClickability(getDashboardPage().email_smsLink_therapistDashboard,3);
         getDashboardPage().email_smsLink_therapistDashboard.click();
+        driver.navigate().refresh();
 
     }
     @Then("user should be able navigate relavent page")
     public void user_should_be_able_navigate_relavent_page() {
-        ReusableMethods.waitForPageToLoad(4);
+        ReusableMethods.waitForPageToLoad(10);
         assertEquals("https://test.hypnotes.net/dashboard/email-sms",driver.getCurrentUrl());
        // assertTrue(driver.getCurrentUrl().contains("dashboard/email-sms"));
 
