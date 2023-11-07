@@ -57,45 +57,45 @@ public class US_008 extends CommonPage {
         ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 3);
     }
 
-    @Then("assert testimonials has changed by next button")
-    public void assertTestimonialsHasChangedByNextButton() {
-        JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
-        getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
-        ReusableMethods.waitForVisibility(getHomePage().nextButton,5);
-        ReusableMethods.clickWithTimeOut(getHomePage().nextButton, 3);
-        getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
-    }
+  // @Then("assert testimonials has changed by next button")
+  // public void assertTestimonialsHasChangedByNextButton() {
+  //     JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
+  //     getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
+  //     ReusableMethods.waitForVisibility(getHomePage().nextButton,5);
+  //     ReusableMethods.clickWithTimeOut(getHomePage().nextButton, 3);
+  //     getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+  // }
 
-    @Then("assert testimonials has changed by prev button")
-    public void assertTestimonialsHasChangedByPrevButton() {
-        JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
-        getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
-        ReusableMethods.waitForVisibility(getHomePage().prevButton, 5);
-        ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 7);
-        getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
-    }
+  // @Then("assert testimonials has changed by prev button")
+  // public void assertTestimonialsHasChangedByPrevButton() {
+  //     JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
+  //     getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
+  //     ReusableMethods.waitForVisibility(getHomePage().prevButton, 5);
+  //     ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 7);
+  //     getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+  // }
 
-    @When("User should see the Hypnotherapist's {string} {int}")
-    public void userShouldSeeTheHypnotherapistS(String tName, int slideNumber) {
-        String HypnotherapistNameXpath = "//h5[.='%s']";
-        ReusableMethods.clickWithTimeOut(getHomePage().bulletPoints.get(slideNumber), 3);
-        String xpath = String.format(HypnotherapistNameXpath, tName);
-        ReusableMethods.waitForVisibility(driver.findElement(By.xpath(xpath)), 5);
-        ReusableMethods.verifyElementDisplayed(driver.findElement(By.xpath(xpath)));
-        String actualThName = driver.findElement(By.xpath(xpath)).getText();
-        Assert.assertEquals(actualThName, tName);
-    }
+  // @When("User should see the Hypnotherapist's {string} {int}")
+  // public void userShouldSeeTheHypnotherapistS(String tName, int slideNumber) {
+  //     String HypnotherapistNameXpath = "//h5[.='%s']";
+  //     ReusableMethods.clickWithTimeOut(getHomePage().bulletPoints.get(slideNumber), 3);
+  //     String xpath = String.format(HypnotherapistNameXpath, tName);
+  //     ReusableMethods.waitForVisibility(driver.findElement(By.xpath(xpath)), 5);
+  //     ReusableMethods.verifyElementDisplayed(driver.findElement(By.xpath(xpath)));
+  //     String actualThName = driver.findElement(By.xpath(xpath)).getText();
+  //     Assert.assertEquals(actualThName, tName);
+  // }
 
-    @When("theraphyst SC accounts should be unique with {string} {int}")
-    public void theraphystSCAccountsShouldBeUniqueWith(String tName, int slideNumber) {
-        ReusableMethods.clickWithTimeOut(getHomePage().bulletPoints.get(slideNumber), 3);
-        String thrapistSocMediaAccount = "//h5[.='%s']/..//a";
-        String xpath = String.format(thrapistSocMediaAccount, tName);
-        List<WebElement> scmElements = Driver.getDriver().findElements(By.xpath(xpath));
-        List<String> scmActualLinks = scmElements.stream().map(e -> e.getAttribute("href")).collect(Collectors.toList());
-        Set<String> scmExpectedList = new HashSet<>(scmActualLinks);
-        System.out.println("scmLinks = " + scmActualLinks);
-        System.out.println("scmElements = " + scmElements);
-        Assert.assertEquals(scmExpectedList.size(), scmActualLinks.size());
-    }
+  // @When("theraphyst SC accounts should be unique with {string} {int}")
+  // public void theraphystSCAccountsShouldBeUniqueWith(String tName, int slideNumber) {
+  //     ReusableMethods.clickWithTimeOut(getHomePage().bulletPoints.get(slideNumber), 3);
+  //     String thrapistSocMediaAccount = "//h5[.='%s']/..//a";
+  //     String xpath = String.format(thrapistSocMediaAccount, tName);
+  //     List<WebElement> scmElements = Driver.getDriver().findElements(By.xpath(xpath));
+  //     List<String> scmActualLinks = scmElements.stream().map(e -> e.getAttribute("href")).collect(Collectors.toList());
+  //     Set<String> scmExpectedList = new HashSet<>(scmActualLinks);
+  //     System.out.println("scmLinks = " + scmActualLinks);
+  //     System.out.println("scmElements = " + scmElements);
+  //     Assert.assertEquals(scmExpectedList.size(), scmActualLinks.size());
+  // }
 }

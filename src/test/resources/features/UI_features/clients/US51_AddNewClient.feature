@@ -1,14 +1,27 @@
+@Therapist
+@UI
 Feature: As a user (therapist) I should be able to add new client
 
-  Background:Home Page
-    Given User Navigates to "https://test.hypnotes.net/login"
-
+  @UI
+  @Therapist
   Scenario: TC  01 -Emergency buttons must be active
-    When User logs in as therapist
     Then The user clicks on the client button.
     Then The user clicks on the add new client button.
-    Then The user enters data into the FirstName, LastName, Email, Gender, Phone, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.
-
+    Then The user enters data into the FirstName, LastName, Email, Gender, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.
+      | FirstName  |
+      | LastName   |
+      | Email      |
+      | Gender     |
+      | Phone      |
+      | Occupation |
+      | Zip code   |
+      | Country    |
+      | State      |
+      | City       |
+      | address    |
+      | Timezone   |
+  @Therapist
+  @UI
   Scenario: TC  02 -User clicks the Show Extra Fields button and fills in the opened fields
     When User clicks the Show Extra Fields field
     Then User enters a phone number in the Emergency Contact Phone field

@@ -347,6 +347,8 @@ public void companyElementsClick() {String url = "https://test.hypnotes.net/";
     public WebElement premium07;
     @FindBy(xpath = "(//a[text()='Get Started Now'])[3]")
     public WebElement premiuGetStarted07;
+    @FindBy(xpath = "//th//p")
+    public List<WebElement> listPricing07;
 
     @FindBy(xpath = "//p[text()='Premium+']")
     public WebElement premiumPlus07;

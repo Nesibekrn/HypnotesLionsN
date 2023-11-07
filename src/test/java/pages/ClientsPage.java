@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
     public WebElement loginEmail07;
@@ -11,8 +13,8 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "(//span[text()='Login'])[2]")
     public WebElement loginPourEntrerLeSite07;
-  @FindBy(xpath = "//span[text()='Yes']")
-    public WebElement timeZoneYes;
+  @FindBy(xpath = "//input[@id='register_guardianName']")
+    public WebElement guardienName51;
 
     @FindBy(xpath = "//a[text()='Clients']")
     public WebElement dashboardClients51;
@@ -36,8 +38,8 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//input[@id='register_occupation']")
     public WebElement addOccupation51;
 
-    @FindBy(xpath = "//input[@type='tel']")
-    public WebElement addPhone51;
+    @FindBy(xpath = "//input[@class='form-control false']")
+    public List<WebElement> phoneList51;
 
     @FindBy(xpath = "//input[@list='countryData']")
     public WebElement addCountry51;
