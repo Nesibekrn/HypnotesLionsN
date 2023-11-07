@@ -64,9 +64,6 @@ public class DashboardPage extends CommonPage{
     @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-sm']")
     public WebElement deleteOk;
 
-    @FindBy(xpath = "//li[@data-menu-id=\"rc-menu-uuid-23236-1-/dashboard/clients\"]")
-    public WebElement clients;
-
     @FindBy(xpath = "//div[@class=\"ant-col css-aqx16b\"]")
     public List<WebElement > totalSpecialties;
 
