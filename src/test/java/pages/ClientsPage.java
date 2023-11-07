@@ -8,6 +8,12 @@ public class ClientsPage extends CommonPage{
    @FindBy(xpath = "//a[@href='/dashboard/clients']")
    public WebElement clients_button;
 
-   //@FindBy(xpath = "//*[@id=\"__next\"]/div/div/section/aside/div[1]/div[2]/ul/li[4]/span[2]/a")
-    //public WebElement clients_button;
+  @FindBy(xpath ="//span[@class='ant-typography ant-typography-success css-aqx16b']" )
+   public WebElement viewDetailsButton;
+
+    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
+    public WebElement sessionsButton;
+
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary']")
+    public WebElement addNewSessionButton;
 }
