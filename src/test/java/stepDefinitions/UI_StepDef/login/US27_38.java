@@ -65,12 +65,12 @@ public class US27_38 {
 
     }
 
-   @Then("verify the error message")
+    @Then("verify the error message")
     public void verify_the_error_message() {
         waitFor(2);
-       assertTrue(loginPage.errorMessage_Apple.isDisplayed());
-       ReusableMethods.waitFor(1);
-       assertEquals("This Apple ID has been locked for security reasons.",loginPage.errorMessage_Apple.getText());
+        assertTrue(loginPage.errorMessage_Apple.isDisplayed());
+        ReusableMethods.waitFor(1);
+        assertEquals("This Apple ID has been locked for security reasons.",loginPage.errorMessage_Apple.getText());
 
     }
 
@@ -105,7 +105,7 @@ public class US27_38 {
         waitFor(2);
         //assertTrue(loginPage.errorMessage_LinkIn.isDisplayed());
 
-    }
+}
 
 
 
