@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CommonPage;
 import stepDefinitions.Hooks;
+import utilities.ReusableMethods;
 
 public class US_074_StepDef extends CommonPage {
     @And("the user is on the Clients page")
@@ -15,6 +16,8 @@ public class US_074_StepDef extends CommonPage {
 
     @When("the user clicks on the View Details button")
     public void theUserClicksOnTheViewDetailsButton() {
+        getClientsPage().viewDetailsButton.click();
+        ReusableMethods.waitFor(2);
     }
 
     @And("the user clicks on the Invoices button")

@@ -72,6 +72,23 @@ public class ClientsPage extends CommonPage{
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
 
+    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
+    public WebElement sessionsButton;
+    @FindBy(xpath = "//span[text()='Delete Session']")
+    public WebElement deleteSessionButton;
+    @FindBy(xpath ="//div[@class='ant-popconfirm-buttons']")
+    public WebElement yesNo_buttons;
+    @FindBy(xpath = "//span[text()='Yes']")
+    public WebElement yesButton;
+    @FindBy(xpath = "//a[text()='Clients']")
+    public WebElement clientsButton;
+    @FindBy(xpath = "//span[text()='Session has been deleted']")
+    public WebElement deletedPOPUPMessage;
+    @FindBy(xpath = "//div[@class='ant-popconfirm-message-title']")
+    public WebElement deletedMessage;
+    @FindBy(xpath = "//span[text()='Add New Session']")
+    public WebElement addNewSession;
+
 
 
 }

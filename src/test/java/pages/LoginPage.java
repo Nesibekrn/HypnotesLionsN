@@ -241,7 +241,6 @@ public class LoginPage extends CommonPage {
         login_button.click();
        waitForPageToLoad(5);
 
-
     }
 
     public void clientLogIn(String userEmail,String userPassword){
