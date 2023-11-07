@@ -160,6 +160,10 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//a/span[.='View Details']")
     public List<WebElement> viewDetailsBtns;
+    @FindBy(xpath = "//span[text()='Client Info']")
+    public List<WebElement> clientInfoSectionBtn;
 
+    @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
+    public WebElement hypnotesSchedulerSection;
 
 }
