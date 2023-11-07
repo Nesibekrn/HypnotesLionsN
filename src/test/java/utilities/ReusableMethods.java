@@ -30,7 +30,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
-    private static WebDriverWait wait;
+
 
 
     public static String rasgeleIsimOlustur() {
@@ -47,6 +47,7 @@ public class ReusableMethods {
              */
     }
     private static WebDriverWait wait;
+
 
 
 
