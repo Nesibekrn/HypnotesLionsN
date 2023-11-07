@@ -31,10 +31,6 @@ public class HomePage extends CommonPage{
     @FindBy(xpath = "//img[@data-test-id='instagramLink_footerLogo']")
     public WebElement instagramIcon;
 
-    public static void assertBackgroundColour(String color,WebElement webElement) {
-        Assert.assertEquals(color, webElement.getCssValue("background-color"));
-    }
-
     @FindBy(xpath = "//*[text()='Real People, Real Feedback']")
     public WebElement testimonialsSectionText;
 
