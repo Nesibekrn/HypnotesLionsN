@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ClientsPage extends CommonPage{
 
     @FindBy(xpath = "//a[@href='/dashboard/clients']")
@@ -88,7 +90,7 @@ public class ClientsPage extends CommonPage{
     public WebElement gender_dropDown;
     @FindBy(css = "div.selected-flag")
     public WebElement phoneCode_dropDown;
-    @FindBy(css = "div.form-control false")
+    @FindBy(xpath = "//input[@class='form-control false']")
     public WebElement phone_input;
     @FindBy(xpath = "//input[@id='register_occupation']")
     public WebElement occupation_input;
@@ -112,4 +114,10 @@ public class ClientsPage extends CommonPage{
     public WebElement cancel_button;
     @FindBy(xpath = "//input[@class='ant-checkbox-input']")
     public WebElement showExtraFields_checkbox;
+    @FindBy(xpath = "//div[@class='ant-form-item-explain-error']")
+    public WebElement errorMessage;
+    @FindBy(xpath = "//li[@class='country']")
+    public List<WebElement> phoneFlag_Dropdown;
+    @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
+    public List<WebElement> phoneDialCode;
 }
