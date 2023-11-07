@@ -217,6 +217,7 @@ public class LoginPage extends CommonPage {
     public WebElement ClientloginButton;
 
 
+
     // @FindBy(xpath="span[@data-test-id='loginScreen_logIn']")
    // public WebElement login button;
 
@@ -238,7 +239,7 @@ public class LoginPage extends CommonPage {
         password_Login.sendKeys(userPassword);
         waitFor(1);
         login_button.click();
-waitForPageToLoad(2);
+       waitForPageToLoad(5);
 
 
     }

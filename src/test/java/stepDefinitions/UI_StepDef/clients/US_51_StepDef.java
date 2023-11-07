@@ -18,8 +18,8 @@ import java.util.Map;
 
 public class US_51_StepDef extends CommonPage {
     Faker faker = new Faker();
-
-
+    String name;
+    String lastName;
 
     @Then("The user clicks on the client button.")
     public void theUserClicksOnTheClientButton() {
@@ -33,19 +33,38 @@ public class US_51_StepDef extends CommonPage {
         ReusableMethods.waitFor(2);
     }
 
-    @Then("The user enters data into the FirstName, LastName, Email, Gender, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.")
+    @Then("The user enters data into the FirstName, LastName, Email")
+    public void theUserEntersDataIntoTheFirstNameLastNameEmail() {
+         name=faker.name().firstName();
+        getClientsPage().addFirstName51.sendKeys(name);
+
+        ReusableMethods.waitFor(1);
+        getClientsPage().lastName51.sendKeys(faker.name().firstName());
+        ReusableMethods.waitFor(1);
+        getClientsPage().addEmail51.sendKeys(faker.name().firstName());
+        ReusableMethods.waitFor(1);
+
+
+    }
+
+    @Then("The user enters data into the Gender, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.")
     public void theUserEntersDataIntoTheFirstNameLastNameEmailGenderPhoneOccupationZipCodeCountryStateCityAddressTimezoneFields(DataTable dataTable) {
-        List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+       List<String> dataAddNew=dataTable.column(1);
 
-      String isim=data.get(0).get("FirstName");
+        getClientsPage().addGender51.click();
+        getClientsPage().addGenderMale51.click();
 
-        data.get(0).get("LastName");
-        data.get(0).get("Email");
-        data.get(0).get("Gender");
-        faker.name().firstName();
-        faker.name().lastName();
-        faker.internet().emailAddress();
-        faker.demographic().sex();
+        getClientsPage().phoneList51.get(1).sendKeys(dataAddNew.get(0));
+        getClientsPage().addOccupation51.sendKeys("QA",Keys.ENTER);
+        getClientsPage().addZipCode51.sendKeys("13013",Keys.ENTER);
+
+        getClientsPage().addCountry51.sendKeys("France",Keys.ENTER);
+
+        getClientsPage().addState51.sendKeys("Bouche Du Rhone",Keys.ENTER);
+        getClientsPage().addCity51.sendKeys("Marseille",Keys.ENTER);
+        getClientsPage().addAdress51.sendKeys("Marseille Batiment c32",Keys.ENTER);
+        getClientsPage().timeZone51.click();
+
         ReusableMethods.waitFor(2);
 
 
@@ -109,7 +128,7 @@ public class US_51_StepDef extends CommonPage {
     @Then("The user should be able to see the customer he added")
     public void theUserShouldBeAbleToSeeTheCustomerHeAdded() {
 
- WebDriver driver = null; // Web sürücüsünü tanımlayın (Web sayfasını kontrol etmek için)
+        WebDriver driver = null; // Web sürücüsünü tanımlayın (Web sayfasını kontrol etmek için)
 
 
         // Müşteri adını veya benzersiz kimlik bilgisini aldığınızı varsayalım (örneğin, müşteri adı "John Smith")
@@ -125,7 +144,6 @@ public class US_51_StepDef extends CommonPage {
         } else {
             System.out.println("Müşteri " + customerName + " listeye eklenmemiştir.");
         }
-    
 
 
     }

@@ -32,37 +32,37 @@ public class US_07OurPricing extends CommonPage {
         driver.get(hypnotes);
         waitFor(3);
     }
-    @When("User should see our pricing button")
-    public void userShouldSeeOurPricingButton() {
-        getHomePage().pricing07.click();
-        waitFor(2);
-    }
-    @Then("User should see the following price packages are displayed:")
-    public void userShouldSeeTheFollowingPricePackages(DataTable packages) {
-        List<String> list = packages.asList();
-        for (int i = 0; i <= list.size() - 1; i++) {
-            Assert.assertEquals(getHomePage().listPricing07.get(i).getText(), list.get(i));
-            waitFor(1);
-            System.out.println(getHomePage().listPricing07.get(i).getText());
-            getHomePage().listPricingGetStartedNow07.get(i).click();
-           getHomePage().loginButton.click();
-            waitFor(2);
-            getHomePage().loginEmail07.sendKeys("esracagan85@gmail.com");
-            waitFor(2);
-            getHomePage().loginPassword07.sendKeys("Esra123*");
-            waitFor(4);
-            getHomePage().loginPourEntrerLeSite07.click();
-            waitFor(2);
-            getHomePage().hesapE.click();
-            waitFor(2);
-            getHomePage().hesapLogout.click();
-            waitFor(2);
+   @When("User should see our pricing button")
+   public void userShouldSeeOurPricingButton() {
+       getHomePage().pricing07.click();
+       waitFor(2);
+   }
+   @Then("User should see the following price packages are displayed:")
+   public void userShouldSeeTheFollowingPricePackages(DataTable packages) {
+       List<String> list = packages.asList();
+       for (int i = 0; i <= list.size() - 1; i++) {
+           Assert.assertEquals(getHomePage().listPricing07.get(i).getText(), list.get(i));
+           waitFor(1);
+           System.out.println(getHomePage().listPricing07.get(i).getText());
+           getHomePage().listPricingGetStartedNow07.get(i).click();
+        getHomePage().loginButton.click();
+         waitFor(2);
+         getHomePage().loginEmail07.sendKeys("esracagan85@gmail.com");
+         waitFor(2);
+         getHomePage().loginPassword07.sendKeys("Esra123*");
+         waitFor(4);
+         getHomePage().loginPourEntrerLeSite07.click();
+         waitFor(2);
+         getHomePage().hesapE.click();
+         waitFor(2);
+         getHomePage().hesapLogout.click();
+         waitFor(2);
 
-            //Assert.assertTrue(getHomePage().getStartedNow.get(i).isEnabled());
-            driver.navigate().to("https://test.hypnotes.net/pricing");
-        }
+          //Assert.assertTrue(getHomePage().getStartedNow.get(i).isEnabled());
+          driver.navigate().to("https://test.hypnotes.net/pricing");
+      }
 
-    }
+  }
 
 
 }

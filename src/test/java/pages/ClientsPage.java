@@ -2,10 +2,12 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
-
+import java.util.*;
 public class ClientsPage extends CommonPage {
+
+
+
     @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
     public WebElement loginEmail07;
     @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_password']")
@@ -25,11 +27,15 @@ public class ClientsPage extends CommonPage {
     public WebElement addFirstName51;
     @FindBy(xpath = "//input[@id='register_middleName']")
     public WebElement addMiddleName51;
+ @FindBy(xpath = "//input[@id='register_lastName']")
+    public WebElement lastName51;
 
     @FindBy(xpath = "//input[@id='register_email']")
     public WebElement addEmail51;
 
-    @FindBy(xpath = "//input[@id='register_gender']")
+    @FindBy(xpath = "//div[text()='Male']")
+    public WebElement addGenderMale51;
+ @FindBy(xpath = "//input[@id='register_gender']")
     public WebElement addGender51;
 
     @FindBy(xpath = "//input[@id='register_zipCode']")
@@ -66,6 +72,8 @@ public class ClientsPage extends CommonPage {
 
 @FindBy(xpath = "//input[@class='search-box']")
     public WebElement flagOpenSearch51;
+@FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
+    public WebElement timeZone51;
 
 @FindBy(xpath = "//input[@id='register_guardianEmail']")
     public WebElement guardianEmail51;
@@ -141,6 +149,17 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
 
+    @FindBy(xpath = "//a[text()='Clients']")
+    public WebElement clientSectionBtn;
+
+    @FindBy(xpath = "//span[text()='Schedule an Appointment']")
+    public List<WebElement> scheduleAnAppointment;
+
+    @FindBy(xpath = "//a/h5")
+    public List<WebElement> clientsNames;
+
+    @FindBy(xpath = "//a/span[.='View Details']")
+    public List<WebElement> viewDetailsBtns;
 
 
 }

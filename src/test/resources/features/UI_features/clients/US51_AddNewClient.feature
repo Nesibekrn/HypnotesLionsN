@@ -7,19 +7,17 @@ Feature: As a user (therapist) I should be able to add new client
   Scenario: TC  01 -Emergency buttons must be active
     Then The user clicks on the client button.
     Then The user clicks on the add new client button.
-    Then The user enters data into the FirstName, LastName, Email, Gender, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.
-      | FirstName  |
-      | LastName   |
-      | Email      |
-      | Gender     |
-      | Phone      |
-      | Occupation |
-      | Zip code   |
-      | Country    |
-      | State      |
-      | City       |
-      | address    |
-      | Timezone   |
+    Then The user enters data into the FirstName, LastName, Email
+    Then The user enters data into the Gender, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.
+      | Phone      | +33                    |
+      | Occupation | QA                     |
+      | Zip code   | 13013                  |
+      | Country    | France                 |
+      | State      | Bouche Du Rhone        |
+      | City       | Marseille              |
+      | address    | Marseille Batiment c32 |
+
+
   @Therapist
   @UI
   Scenario: TC  02 -User clicks the Show Extra Fields button and fills in the opened fields
