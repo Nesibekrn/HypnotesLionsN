@@ -334,4 +334,8 @@ public class ReusableMethods {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
     }
+
+    public static void assertBackgroundColor(String color,WebElement webElement) {
+        Assert.assertEquals(color, webElement.getCssValue("background-color"));
+    }
 }
