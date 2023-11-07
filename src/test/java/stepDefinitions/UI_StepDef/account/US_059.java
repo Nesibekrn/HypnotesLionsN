@@ -64,7 +64,8 @@ public class US_059 extends CommonPage {
             System.out.println(getAccountPage().fields.get(i).getAttribute("placeholder"));
             Assert.assertEquals(getAccountPage().fields.get(i).getAttribute("placeholder"),ffields.get(i));
 
-        }}
+        }
+    }
 
     @Then("your logo button is displayed")
     public void your_logo_button_is_displayed() {
