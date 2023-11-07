@@ -21,7 +21,7 @@ public class US_044 extends CommonPage {
     @When("user clicks on Client button")
     public void userClicksOnClientButton() {
         getClientsPage().clients_button.click();
-        ReusableMethods.waitFor(5);
+        ReusableMethods.waitFor(2);
     }
 
     @Then("user sees the Client page")
