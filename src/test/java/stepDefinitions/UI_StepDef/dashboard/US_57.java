@@ -121,7 +121,7 @@ public class US_57 extends CommonPage {
     @And("User verify if Specialities section is updated")
     public void userVerifyIfSpecialitiesSectionIsUpdated() {
         String anger = "Anger";
-        String specialtyText = getDashboardPage().totalSpecialties.toString();
+        String specialtyText = String.valueOf(getDashboardPage().totalSpecialties.contains("Anger"));
         Assert.assertEquals(anger, specialtyText);
 
         
