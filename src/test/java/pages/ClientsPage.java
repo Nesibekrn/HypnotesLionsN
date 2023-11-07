@@ -3,7 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ClientsPage extends CommonPage{
+import java.util.*;
+public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//a[@href='/dashboard/clients']")
     public WebElement clients_button;
@@ -14,7 +15,7 @@ public class ClientsPage extends CommonPage{
     @FindBy(xpath = "//div[text()='Choose Import Method']")
     public WebElement chooseImportMethodWindow;
 
-    @FindBy(xpath = "//body/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/button[4]")
+    @FindBy(xpath = "//span[contains(text(),'EasyPractice')]")
     public WebElement easyPracticeMethod;
 
     @FindBy(xpath = "//input[@class=\"custom-file-input\"]")
@@ -89,6 +90,22 @@ public class ClientsPage extends CommonPage{
     @FindBy(xpath = "//span[text()='Add New Session']")
     public WebElement addNewSession;
 
+    @FindBy(xpath = "//a[text()='Clients']")
+    public WebElement clientSectionBtn;
 
+    @FindBy(xpath = "//span[text()='Schedule an Appointment']")
+    public List<WebElement> scheduleAnAppointment;
+
+    @FindBy(xpath = "//a/h5")
+    public List<WebElement> clientsNames;
+
+    @FindBy(xpath = "//a/span[.='View Details']")
+    public List<WebElement> viewDetailsBtns;
+
+    @FindBy(xpath = "//span[text()='Client Info']")
+    public List<WebElement> clientInfoSectionBtn;
+
+    @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
+    public WebElement hypnotesSchedulerSection;
 
 }
