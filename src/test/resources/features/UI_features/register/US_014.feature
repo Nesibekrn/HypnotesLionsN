@@ -1,4 +1,4 @@
-@UI
+@UI @smoke
 @US_014
 Feature: Client Register Feature
   Scenario: Sign Up as a Client
