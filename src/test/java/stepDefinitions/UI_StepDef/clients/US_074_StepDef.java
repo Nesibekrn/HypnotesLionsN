@@ -7,6 +7,8 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
+import stepDefinitions.Hooks;
+import utilities.ReusableMethods;
 import utilities.ReusableMethods;
 import java.io.File;
 import static org.junit.Assert.assertEquals;
@@ -34,9 +36,9 @@ public class US_074_StepDef extends CommonPage {
 
     @When("the user clicks on the View Details button")
     public void theUserClicksOnTheViewDetailsButton() {
-        ReusableMethods.waitFor(3);
-
         getClientsPage().viewDetailsButton.click();
+        ReusableMethods.waitFor(2);
+
     }
 
     @And("the user clicks on the Invoices button")
