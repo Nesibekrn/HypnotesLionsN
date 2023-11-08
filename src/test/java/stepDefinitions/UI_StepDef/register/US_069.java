@@ -11,14 +11,9 @@ import pages.CommonPage;
 import java.util.List;
 
 import static stepDefinitions.Hooks.driver;
+import static utilities.ReusableMethods.waitFor;
 
 public class US_069 extends CommonPage {
-    @When("the user clicks on the View Details button")
-    public void the_user_clicks_on_the_view_details_button() {
-        getClientsPage().viewDetailsButton.click();
-    }
-
-
 
 
 
@@ -44,16 +39,23 @@ public class US_069 extends CommonPage {
     }
 
     @Then("the following headings should be visible:")
-    public void theFollowingHeadingsShouldBeVisible(DataTable dataTable) {
+    public void theFollowingHeadingsShouldBeVisible(DataTable dataTable) throws InterruptedException {
         List<String> headings=dataTable.column(0);
+        waitFor(1);
 
-        Assert.assertEquals(getClientsPage().dateButton.getText(),headings.get(1));
-        Assert.assertEquals(getClientsPage().associatedIssues.getText(),headings.get(1));
-        Assert.assertEquals(getClientsPage().keyPoint.getText(),headings.get(2));
-        Assert.assertEquals(getClientsPage().afterThought.getText(),headings.get(3));
-        Assert.assertEquals(getClientsPage().applicationsSuggestions.getText(),headings.get(4));
-        Assert.assertEquals(getClientsPage().attachments.getText(),headings.get(5));
-        Assert.assertEquals(getClientsPage().voiceNotes.getText(),headings.get(6));
+        Assert.assertEquals(headings.get(0),getClientsPage().dateButton.getText());
+        waitFor(1);
+        Assert.assertEquals(headings.get(1),getClientsPage().associatedIssues.getText());
+        waitFor(1);
+        Assert.assertEquals(headings.get(2),getClientsPage().keyPoint.getText());
+        waitFor(1);
+        Assert.assertEquals(headings.get(3),getClientsPage().afterThought.getText());
+        waitFor(1);
+        Assert.assertEquals(headings.get(4),getClientsPage().applicationsSuggestions.getText());
+        waitFor(1);
+        Assert.assertEquals(headings.get(5),getClientsPage().attachments.getText());
+        waitFor(1);
+        Assert.assertEquals(headings.get(6),getClientsPage().voiceNotes.getText());
 
         // Assert.assertTrue(getClientsPage().session1button.isDisplayed());
 //        Assert.assertTrue(getClientsPage().associatedIssues.isDisplayed());
