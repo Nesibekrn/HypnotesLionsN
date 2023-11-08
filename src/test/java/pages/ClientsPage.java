@@ -81,7 +81,7 @@ public class ClientsPage extends CommonPage {
     public WebElement cancelButtonForUpgradeNow;
 
     @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
-    public WebElement sessionsButton;
+      public WebElement sessionButon;
     @FindBy(xpath = "//span[text()='Delete Session']")
     public WebElement deleteSessionButton;
     @FindBy(xpath ="//div[@class='ant-popconfirm-buttons']")
@@ -161,5 +161,13 @@ public class ClientsPage extends CommonPage {
     public List<WebElement> phoneDialCode;
     @FindBy(css="div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
+    @FindBy(xpath= "//div[text()='Session  1']")
+    public WebElement sessionOne;
+    @FindBy(xpath= "//div[text()='Session  2']")
+    public WebElement sessionTwo;
+    @FindBy(xpath= "(//div[@class='ant-tabs-nav-list'])[2]//div[@role='tab']")
+    public List<WebElement> sessionHeadings;
+
+
 
 }

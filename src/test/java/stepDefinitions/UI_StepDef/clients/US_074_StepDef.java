@@ -38,9 +38,7 @@ public class US_074_StepDef extends CommonPage {
     public void theUserClicksOnTheViewDetailsButton() {
         getClientsPage().viewDetailsButton.click();
         ReusableMethods.waitFor(2);
-        ReusableMethods.waitFor(3);
 
-        getClientsPage().viewDetailsButton.click();
     }
 
     @And("the user clicks on the Invoices button")
