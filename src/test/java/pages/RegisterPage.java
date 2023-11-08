@@ -234,13 +234,22 @@ public class RegisterPage extends CommonPage {
 
     @FindBy(xpath = "//span[text()='Login']")
     public WebElement registerloginButton;
+
+    @FindBy(xpath = "(//div[@class='RegisterForm_fontSmall__p6mzi'])[3]")
+    public WebElement signInWithLinkedin;
+
+    @FindBy(id="username")
+    public WebElement linkedInUserName;
+
+    @FindBy(id="password")
+    public WebElement linkedInPassword;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement linkedInSignInButton;
+
+    @FindBy(xpath = "//h1[starts-with(text(),'Hızlıca')]")
+    public WebElement linkedInTurkceDogrulamaMesaji;
+
+    @FindBy(xpath = "//h1[starts-with(text(),'Let')]")
+    public WebElement linkedInEnglishVerificationMessage;
 }
-
-
-
-
-
-
-
-
-
