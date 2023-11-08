@@ -52,8 +52,6 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath = "//button[@data-test-id='registerPage_signup_button']")
     public WebElement ButtonSignUp;
 
-
-
     @FindBy(css = "[data-test-id='registerAsClientPage_name']")
     public WebElement inputName;
 

@@ -19,7 +19,7 @@ public class Hooks {
     public static Actions actions;
 
     public static boolean isHeadless = false;
-    public static String browserType = "chrome";
+    public static String browserType = "edge";
 
     public static boolean isFullScreen = true;
     public static int width;
@@ -59,7 +59,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-        Driver.closeDriver();
+       Driver.closeDriver();
 
     }
 
