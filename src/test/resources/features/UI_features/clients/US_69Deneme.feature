@@ -1,6 +1,6 @@
 
 @UI
-
+  @US_069
 Feature: Feature: As a user(therapist), I should be able to see the various headings when I click Sessions button
 
 
@@ -14,7 +14,7 @@ Then user verifies the Client button is clickable
 When user clicks on Client button
 Then user sees the Client page
 
-  @UI
+
   Scenario: .
 Given the user clicks on Client Log in
 When the user clicks on the "View Details" button
