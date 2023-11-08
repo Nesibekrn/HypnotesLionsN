@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class US_57 extends CommonPage {
     @Given("User verify name button is enabled")
     public void userVerifyNameButtonIsEnabled() {
-        ReusableMethods.waitForPageToLoad(3);
+        /*ReusableMethods.waitForPageToLoad(3);
        // ReusableMethods.waitForClickability(getDashboardPage().timeZoneYesButton,1);
         try {
             getDashboardPage().timeZoneYesButton.click();
@@ -24,14 +24,13 @@ public class US_57 extends CommonPage {
             getDashboardPage().sectionButton.click();
             // Her durumda çalışmasını istediğiniz kodları buraya ekleyebilirsiniz
             // Örneğin, kaynakları temizleme veya işlem sonrası belirli adımları gerçekleştirme gibi işlemleri burada yapabilirsiniz.
-        }
+        }*/
         ReusableMethods.waitForVisibility(getDashboardPage().sectionButton,2);
         Assert.assertTrue(getDashboardPage().sectionButton.isEnabled());
     }
 
     @When("User clicks name button")
     public void userClicksNameButton() {
-        ReusableMethods.waitForClickability(getDashboardPage().sectionButton,3);
         getDashboardPage().sectionButton.click();
     }
 
@@ -48,9 +47,8 @@ public class US_57 extends CommonPage {
 
     @Then("User clicks specialties button")
     public void userClicksSpecialtiesButton() {
-        //ReusableMethods.waitForClickability(getDashboardPage().specialtiesButton,10);
         ReusableMethods.scrollToBottom();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitForClickability(getDashboardPage().specialtiesButton,3);
         getDashboardPage().specialtiesButton.click();
     }
 
@@ -84,15 +82,21 @@ public class US_57 extends CommonPage {
 
     @Then("User clicks and save some specialities")
     public void userClicksAndSaveSomeSpecialities() {
+        ReusableMethods.scrollToBottom();
         ReusableMethods.scrollAndClickWithJS(getDashboardPage().abondonment);
         //Assert.assertTrue(getDashboardPage().messageSpeciality.isDisplayed());
         getDashboardPage().specialitySaveButton.click();
+        ReusableMethods.waitFor(1);
+        getDashboardPage().specialityDropdownMenu.click();
         ReusableMethods.scrollAndClickWithJS(getDashboardPage().addictions);
         getDashboardPage().specialitySaveButton.click();
+        ReusableMethods.waitFor(1);
+        getDashboardPage().specialityDropdownMenu.click();
         ReusableMethods.scrollAndClickWithJS(getDashboardPage().aggression);
         getDashboardPage().specialitySaveButton.click();
-        ReusableMethods.scrollAndClickWithJS(getDashboardPage().anger);
-        getDashboardPage().specialitySaveButton.click();
+        //getDashboardPage().specialityDropdownMenu.click();
+        //ReusableMethods.scrollAndClickWithJS(getDashboardPage().anger);
+       // getDashboardPage().specialitySaveButton.click();
     }
 
     @And("User clicks X button")
@@ -105,23 +109,22 @@ public class US_57 extends CommonPage {
 
     @Then("User remove some specialities from the list")
     public void userRemoveSomeSpecialitiesFromTheList() {
-        ReusableMethods.waitFor(2);
         ReusableMethods.scrollToBottom();
-        getDashboardPage().delete2.click();
-        ReusableMethods.waitFor(1);
-        getDashboardPage().deleteOk.click();
-        getDashboardPage().delete2.click();
-        getDashboardPage().deleteOk.click();
-        ReusableMethods.waitFor(2);
-        getDashboardPage().delete2.click();
-        ReusableMethods.waitFor(1);
-        getDashboardPage().deleteOk.click();
+        int index = getDashboardPage().delete.size();
+        for (int i = 0; i < index-1 ; i++) {
+            getDashboardPage().delete.get(1).click();
+            getDashboardPage().deleteOk.click();
+            ReusableMethods.waitFor(1);
+
+        }
+
+
     }
 
     @And("User verify if Specialities section is updated")
     public void userVerifyIfSpecialitiesSectionIsUpdated() {
         String anger = "Anger";
-        String specialtyText = String.valueOf(getDashboardPage().totalSpecialties.contains("Anger"));
+        String specialtyText = getDashboardPage().totalSpecialties.getText();
         Assert.assertEquals(anger, specialtyText);
 
         

@@ -91,11 +91,13 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
     public WebElement hypnotesSchedulerSection;
 
-    @FindBy(xpath = "//div[@class='ant-card ant-card-bordered css-aqx16b']")
-    public List<WebElement> allClients;
+    @FindBy(xpath = "//a[@href=\"/dashboard/clients/2749\"]")
+    public WebElement firstClient;
+
 
     @FindBy(xpath = "//span[@data-test-id=\"dashboard_clients_invoices\"]")
     public WebElement invoices;
+
 
     @FindBy(xpath = "(//div[@class='view invoices_w60__nfXh_'])[1]")
     public WebElement invoiceNo;
@@ -103,9 +105,15 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "(//div[@class='view invoices_w60__nfXh_'])[2]")
     public WebElement invoiceDate;
 
+
+    @FindBy(xpath = "//*[@title='2023-11-21']")
+    public WebElement invoiceDate1;
+
     @FindBy(xpath = "(//div[@class='view invoices_w60__nfXh_'])[3]")
     public WebElement dueDate;
 
+    @FindBy(xpath = "//*[@title='2023-12-25']")
+    public WebElement dueDate1;
 
 
 }

@@ -1,4 +1,4 @@
-@UI @TherapistLoginUSA
+@UI  @TherapistLoginUSA
 Feature: US_57 User performs various actions in the profile section.
 
   Scenario: TC_01
