@@ -4,6 +4,8 @@ import pages.CommonPage;
 import utilities.ConfigurationReader;
 import utilities.ReusableMethods;
 import java.io.File;
+import java.util.Set;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
@@ -71,6 +73,7 @@ public class US_053 extends CommonPage {
 
     @Then("user verify that payment url copied to clipboard message")
     public void userVerifyThatPaymentUrlCopiedToClipboardMessage() {
+        ReusableMethods.waitForVisibility(getClientsPage().paymentURLMessage,2);
         assertTrue("Message is display", getClientsPage().paymentURLMessage.isDisplayed());
         System.out.println(getClientsPage().paymentURLMessage.getText());
     }
@@ -90,15 +93,15 @@ public class US_053 extends CommonPage {
 
     @Then("user verifies that  email sent message")
     public void userVerifiesThatEmailSentMessage() {
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
         assertTrue(getClientsPage().emailSentMessage.isDisplayed());
     }
 
     @Then("user verifies that start meeting should be clickable")
     public void user_verifies_that_start_meeting_should_be_clickable() {
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitForVisibility(getClientsPage().startMeetingButton,2);
         getClientsPage().startMeetingButton.click();
-        ReusableMethods.switchToWindow(2);
+        ReusableMethods.switchToWindow(1);
 
     }
 
@@ -132,7 +135,7 @@ public class US_053 extends CommonPage {
     }
     @Then("user verifies that relevant page should be visible")
     public void userVerifiesThatRelevantPageShouldBeVisible() {
-        ReusableMethods.waitFor(1);
+       ReusableMethods.waitFor(2);
         assertEquals("https://test.hypnotes.net/dashboard/account-activity",driver.getCurrentUrl());
     }
 

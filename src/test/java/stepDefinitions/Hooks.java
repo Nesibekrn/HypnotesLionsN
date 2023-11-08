@@ -21,7 +21,7 @@ public class Hooks {
     public static Actions actions;
 
     public static boolean isHeadless = false;
-    public static String browserType = "edge";
+    public static String browserType = "chrome";
 
     public static boolean isFullScreen = true;
     public static int width;

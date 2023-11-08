@@ -22,16 +22,16 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = " //button[@class='ant-btn css-aqx16b ant-btn-default ant-btn-icon-only']")
     public WebElement copiedReferenceURL;
 
-    @FindBy(xpath = "  //span[text()='Payment url  copied to clipboard.']")
+    @FindBy(xpath = "//div[@class='ant-message-notice ant-message-notice-success css-15rg2km']")
     public WebElement paymentURLMessage;
 
     @FindBy(xpath = "//input[@placeholder='Email']")
     public WebElement email_input;
     @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-primary'])[2]")
     public WebElement sendInvitationButton;
-    @FindBy(xpath = "//span[text()='Email sent.']")
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
     public WebElement emailSentMessage;
-    @FindBy(xpath = " //a[@href='https://meet.hypnotes.net/']")
+    @FindBy(xpath = "//div[@data-test-id='start_meeting_button']")
     public WebElement startMeetingButton;
 
     @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only'])[3]")
