@@ -28,7 +28,8 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//h5[contains(text(),\"Zeynep butterfly\")]")
     public WebElement importedClient;
 
-
+    @FindBy(xpath = "//span[text()='Cancel']")
+    public WebElement cancelPopUpButton;
     @FindBy(xpath = "//span[contains(text(),'View Details')]")
     public WebElement viewDetailsButton;
 
@@ -50,11 +51,11 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[@data-test-id='dashboard_clients_invoices']")
     public WebElement invoicesButton;
 
-    @FindBy(xpath = "//button[normalize-space()='Your Logo']")
-    public WebElement yourLogoButton;
+    @FindBy(xpath = "//input[@tabindex='-1']")
+    public WebElement inputYourLogoButton;
 
     @FindBy(xpath = "//textarea[@placeholder='Your Company']")
-    public WebElement yourCompanyButton;
+    public WebElement inputYourCompanyButton;
 
     @FindBy(xpath = "//input[@placeholder='Name']")
     public WebElement inputTherapistName;
@@ -65,8 +66,14 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "(//input[@placeholder='City,State,Zip'])[1]")
     public WebElement inputCityStateZip;
 
+    @FindBy(xpath = "//select[@class='invoice_select__WnoPF   false']")
+    public WebElement dropDownCountrySelect;
+
     @FindBy(xpath = "(//input[@class='invoice_input__75vJN  '])[1]")
-    public WebElement dropDownCountry;
+    public WebElement dropDownCountryWithoutSelect;
+
+    @FindBy(xpath = "//input[@value='Australia']")
+    public WebElement selectCountry;
 
     @FindBy(xpath = "//input[@placeholder='Phone']")
     public WebElement inputPhone;
@@ -107,5 +114,52 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
     public WebElement hypnotesSchedulerSection;
+
+    @FindBy(xpath = "//a[@href='/dashboard/add-client']")
+    public WebElement addNewClient_button;
+    @FindBy(xpath = "//input[@id='register_firstName']")
+    public WebElement firstName_input;
+    @FindBy(xpath = "//input[@id='register_middleName']")
+    public WebElement middleName_input;
+    @FindBy(xpath = "//input[@id='register_lastName']")
+    public WebElement lastName_input;
+    @FindBy(xpath = "//input[@id='register_email']")
+    public WebElement email_input;
+    @FindBy(xpath = "//input[@id='register_gender']")
+    public WebElement gender_dropDown;
+    @FindBy(css = "div.selected-flag")
+    public WebElement phoneCode_dropDown;
+    @FindBy(xpath = "//input[@class='form-control false']")
+    public WebElement phone_input;
+    @FindBy(xpath = "//input[@id='register_occupation']")
+    public WebElement occupation_input;
+    @FindBy(xpath = "//input[@id='register_zipCode']")
+    public WebElement zipCode_input;
+    @FindBy(xpath = "//input[@name='country']")
+    public WebElement country_input;
+    @FindBy(xpath = "//input[@name='state']")
+    public WebElement state_input;
+    @FindBy(xpath = "//input[@name='city']")
+    public WebElement city_input;
+    @FindBy(xpath = "//input[@id='register_address']")
+    public WebElement address_input;
+    @FindBy(xpath = "//input[@id='register_timezone']")
+    public WebElement timezone_dropDown;
+    @FindBy(xpath = "//input[@type='file']")
+    public WebElement uploadProfileImage_input;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary']")
+    public WebElement save_button;
+    @FindBy(xpath = "//a[@class='ant-btn css-aqx16b ant-btn-default ant-btn-dangerous']")
+    public WebElement cancel_button;
+    @FindBy(xpath = "//input[@class='ant-checkbox-input']")
+    public WebElement showExtraFields_checkbox;
+    @FindBy(xpath = "//div[@class='ant-form-item-explain-error']")
+    public WebElement errorMessage;
+    @FindBy(xpath = "//li[@class='country']")
+    public List<WebElement> phoneFlag_Dropdown;
+    @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
+    public List<WebElement> phoneDialCode;
+    @FindBy(css="div.ant-select-item ant-select-item-option")
+    public List<WebElement> countryList;
 
 }
