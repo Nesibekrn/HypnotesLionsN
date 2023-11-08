@@ -47,8 +47,6 @@ public class ReusableMethods {
     }
     private static WebDriverWait wait;
 
-
-
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());

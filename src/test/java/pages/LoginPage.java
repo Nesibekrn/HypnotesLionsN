@@ -254,3 +254,4 @@ public class LoginPage extends CommonPage {
 
     }
 }
+
