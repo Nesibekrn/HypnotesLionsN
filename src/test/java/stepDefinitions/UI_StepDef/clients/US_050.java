@@ -137,7 +137,75 @@ public class US_050 extends CommonPage {
 
     @Then("user verify the correct code should appear in the phone menu")
     public void user_verify_the_correct_code_should_appear_in_the_phone_menu() {
-        String dialCodeX= getClientsPage().phone_input.getAttribute("value");
-        Assert.assertEquals(phoneCode,dialCodeX);
+        String dialCodeX = getClientsPage().phone_input.getAttribute("value");
+        Assert.assertEquals(phoneCode, dialCodeX);
+    }
+
+    @Given("user types occupation in the occupation section")
+    public void user_types_occupation_in_the_occupation_section(DataTable dataTable) {
+        List<String> occupation = dataTable.column(0);
+        List<String> expectedMessage = dataTable.column(1);
+        ReusableMethods.waitFor(2);
+        for (int i = 0; i < expectedMessage.size(); i++) {
+            getClientsPage().occupation_input.sendKeys(occupation.get(i) + Keys.TAB);
+            ReusableMethods.waitForVisibility(getClientsPage().errorMessage, 2);
+            Assert.assertEquals(expectedMessage.get(i), getClientsPage().errorMessage.getText());
+            ReusableMethods.waitFor(1);
+            getClientsPage().occupation_input.sendKeys(Keys.BACK_SPACE);
+            //  driver.navigate().refresh();
+        }
+    }
+
+    @Given("user types zip code in the zip code inbox")
+    public void user_types_zip_code_in_the_zip_code_inbox(DataTable dataTable) {
+        List<String> zipCode = dataTable.column(0);
+        List<String> expectedMessage = dataTable.column(1);
+        ReusableMethods.waitFor(2);
+        for (int i = 0; i < expectedMessage.size(); i++) {
+            getClientsPage().zipCode_input.sendKeys(zipCode.get(i) + Keys.TAB);
+            ReusableMethods.waitForVisibility(getClientsPage().errorMessage, 2);
+            Assert.assertEquals(expectedMessage.get(i), getClientsPage().errorMessage.getText());
+            ReusableMethods.waitFor(1);
+            getClientsPage().zipCode_input.sendKeys(Keys.BACK_SPACE);
+        }
+    }
+
+    @Given("user types {string}, {string}, {string} in the relevant section")
+    public void user_types_in_the_relevant_section(String country, String state, String city) {
+        getClientsPage().country_input.sendKeys(country);
+        getClientsPage().state_input.sendKeys(state);
+        getClientsPage().city_input.sendKeys(city);
+    }
+
+    @Then("user sees {string}, {string}, {string} written")
+    public void user_sees_country_state_and_city_written(String country, String state, String city) {
+        ReusableMethods.waitFor(2);
+        System.out.println("getClientsPage().country_input.getText() = " + getClientsPage().country_input.getText());
+        //     Assert.assertEquals(country,getClientsPage().country_input.getText());
+        ReusableMethods.waitFor(2);
+        //    Assert.assertEquals(state,getClientsPage().state_input.getText());
+        ReusableMethods.waitFor(2);
+        //     Assert.assertEquals(city,getClientsPage().city_input.getText());
+    }
+
+    @Given("user types {string} in the address section")
+    public void user_types_in_the_address_section(String address) {
+        getClientsPage().address_input.sendKeys(address);
+    }
+
+    @Then("user can see {string} in the address section")
+    public void user_can_see_repton_road_in_the_address_section(String address) {
+        ReusableMethods.waitFor(2);
+        Assert.assertEquals(address, getClientsPage().address_input.getText());
+    }
+
+    @When("user clicks on Upload Profile Image menu")
+    public void user_clicks_on_upload_profile_image_menu() {
+
+    }
+
+    @Then("user should be able to upload profile image")
+    public void user_should_be_able_to_upload_profile_image() {
+
     }
 }

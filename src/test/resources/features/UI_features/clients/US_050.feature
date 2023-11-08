@@ -44,13 +44,36 @@ Feature: As a user (therapist) I should be able to add new client
     When user select country flag in the menu
     Then user verify the correct code should appear in the phone menu
 
-  Scenario: TC007-Occupation menu must be functional. Client occupation nmust be written.This field cannot include numbers or special characters.
+  @TC007
+  Scenario: TC007-Occupation menu must be functional. Client occupation must be written.This field cannot include numbers or special characters.
+    Given user types occupation in the occupation section
+      | 1 | This field cannot include numbers or special characters. |
+      | ? | This field cannot include numbers or special characters. |
 
-  Scenario: TC008-Country, state, city menu must be functional. Client country, state, city  is selectable
+  @TC008
+  Scenario: TC008-Zip Code menu must be functional. Zip Code must be written.This field cannot contain letters or special characters.
+    When user types zip code in the zip code inbox
+      | a | This field cannot include letters or special characters. |
+      | ? | This field cannot include letters or special characters. |
 
-  Scenario: TC009-Address menu must be functional. Address must be written.
+  @TC009
+  Scenario Outline: TC009-Country, state, city menu must be functional. Client country, state, city  is selectable
+    When user types "<country>", "<state>", "<city>" in the relevant section
+    Then user sees "<country>", "<state>", "<city>" written
+    Examples:
+      | country        | state          | city      |
+      | United Kingdom | Leicestershire | Leicester |
 
-  Scenario: TC010-Upload Profile Image menu must be functional.When the Upload Profile Image button is clicked, the image should be uploaded. The image should be visible after uploading
+
+  Scenario: TC010-Address menu must be functional. Address must be written.
+    When user types "80 Repton Road" in the address section
+    Then user can see "80 Repton Road" in the address section
+    Scenario: TC011-Time Zone menu must be functional. Client time is selectable
+
+  Scenario: TC012-Upload Profile Image menu must be functional.When the Upload Profile Image button is clicked, the image should be uploaded. The image should be visible after uploading
+  When user clicks on Upload Profile Image menu
+  Then user should be able to upload profile image
+
   #When you click the Save button warning message should appear:
  # To ensure appointments are scheduled in the proper Time Zone, please confirm the client Time Zone you have selected. Europe/Istanbul
 #No/Yes seçenekleri işlevsel olmalıdır. Her iki buton da doğru sonuç vermelidir.

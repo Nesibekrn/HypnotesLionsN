@@ -135,4 +135,7 @@ public class ClientsPage extends CommonPage {
     public List<WebElement> phoneFlag_Dropdown;
     @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
     public List<WebElement> phoneDialCode;
+    @FindBy(css="div.ant-select-item ant-select-item-option")
+    public List<WebElement> countryList;
+
 }
