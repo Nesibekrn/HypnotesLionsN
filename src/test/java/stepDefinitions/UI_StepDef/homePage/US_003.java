@@ -3,17 +3,13 @@ package stepDefinitions.UI_StepDef.homePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.http.util.Asserts;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import pages.CommonPage;
-import pages.HomePage;
 import utilities.Driver;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
-public class US_003_StepDef extends CommonPage {
+public class US_003 extends CommonPage {
 
     @Then("User navigates to the bottom of the page")
     public void userNavigatesToTheBottomOfThePage() {
@@ -49,7 +45,7 @@ public class US_003_StepDef extends CommonPage {
 
     @Then("facebook icon should be clickable")
     public void facebookIconShouldBeClickable() {
-        ReusableMethods.waitForClickablility(getHomePage().facebookIcon, 5);
+        ReusableMethods.waitForClickability(getHomePage().facebookIcon, 5);
         Assert.assertTrue("Facebook icon is clickable",getHomePage().facebookIcon.isEnabled());
     }
 
@@ -60,7 +56,7 @@ public class US_003_StepDef extends CommonPage {
 
     @Then("twitter icon should be clickable")
     public void twitterIconShouldBeClickable() {
-        ReusableMethods.waitForClickablility(getHomePage().twitterIcon,5);
+        ReusableMethods.waitForClickability(getHomePage().twitterIcon,5);
       // ReusableMethods.waitForClickablility(By.xpath("//img[@data-test-id='twitterLink_footerLogo']"),3);
         Assert.assertTrue("Facebook icon is clickable",getHomePage().twitterIcon.isEnabled());
     }
@@ -72,7 +68,7 @@ public class US_003_StepDef extends CommonPage {
 
     @Then("linkedin icon should be clickable")
     public void linkedinIconShouldBeClickable() {
-        ReusableMethods.waitForClickablility(getHomePage().linkedinIcon,5);
+        ReusableMethods.waitForClickability(getHomePage().linkedinIcon,5);
        // ReusableMethods.waitForClickablility(By.xpath("//img[@data-test-id='linkedinLink_footerLogo']"),3);
         Assert.assertTrue("Linkedin icon is clickable",getHomePage().linkedinIcon.isEnabled());
 
@@ -85,7 +81,7 @@ public class US_003_StepDef extends CommonPage {
 
     @Then("instagram icon should be clickable")
     public void instagramIconShouldBeClickable() {
-        ReusableMethods.waitForClickablility(getHomePage().instagramIcon,5);
+        ReusableMethods.waitForClickability(getHomePage().instagramIcon,5);
        // ReusableMethods.waitForClickablility(By.xpath("//img[@data-test-id='instagramLink_footerLogo']"),3);
         Assert.assertTrue("Instagram icon is clickable",getHomePage().instagramIcon.isEnabled());
     }
