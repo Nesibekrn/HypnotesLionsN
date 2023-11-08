@@ -110,8 +110,10 @@ public class US_059 extends CommonPage {
         getAccountPage().countryDD.click();
         Select ss=new Select(getAccountPage().contryDropDownl);
         ss.selectByVisibleText("Turkey");
-        waitFor(5);
+        waitFor(6);
+        System.out.println("*********************"+getAccountPage().selectedDDvalueforCountry.getAttribute("value"));
 
+Assert.assertTrue(getAccountPage().selectedDDvalueforCountry.getAttribute("value").contains("Turkey"));
     }
 
 }
