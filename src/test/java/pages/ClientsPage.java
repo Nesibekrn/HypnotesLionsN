@@ -94,4 +94,7 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
     public WebElement hypnotesSchedulerSection;
 
+    @FindBy(xpath = "//a[@href='/dashboard/settings']")
+    public WebElement settings_button;
+
 }
