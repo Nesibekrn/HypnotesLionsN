@@ -14,7 +14,6 @@ import static utilities.ReusableMethods.waitFor;
 
 public class ClientsPage extends CommonPage {
 
-<<<<<<< HEAD
    @FindBy(xpath = "//a[@href='/dashboard/clients']")
    public WebElement clients_button;
 
@@ -61,11 +60,7 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//label[normalize-space()='Voice Notes:']")
     public WebElement voiceNotes;
-=======
 
-
-    @FindBy(xpath = "//a[@href='/dashboard/clients']")
-    public WebElement clients_button;
     @FindBy(xpath = "//span[normalize-space()='Add New Client']")
     public WebElement addNewClientButton;
     @FindBy(xpath = "//span[normalize-space()='Export Client']")
@@ -119,7 +114,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
 }
 
->>>>>>> main
+
 
     @FindBy(xpath = "//span[text()='Import Client']")
     public WebElement importClientsButton;
