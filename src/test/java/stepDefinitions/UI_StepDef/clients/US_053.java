@@ -1,4 +1,5 @@
 package stepDefinitions.UI_StepDef.clients;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
@@ -81,7 +82,7 @@ public class US_053 extends CommonPage {
     @Then("user enter the valid email")
     public void userEnterTheValidEmail() {
         ReusableMethods.waitFor(1);
-        getClientsPage().email_input.sendKeys(ConfigurationReader.getProperty("therapistEmail"));
+        getClientsPage().input_email.sendKeys(ConfigurationReader.getProperty("therapistEmail"));
 
     }
 
@@ -142,12 +143,14 @@ public class US_053 extends CommonPage {
 
     @Then("user click the account icon")
     public void userClickTheAccountIcon() {
-        getClientsPage().accountIcon.click();
+       // getClientsPage().accountIcon.click();
 
     }
 
-    @Then("Verify the content of the account-related page.")
-    public void verifyTheContentOfTheAccountRelatedPage() {
-     assertTrue("All dropdown menus are as follows:",getClientsPage().accountDropDown.isDisplayed());
+
+    @Then("Verify that the content of the account-related page is displayed.")
+    public void verifyThatTheContentOfTheAccountRelatedPageIsDisplayed(DataTable items) {
+        getClientsPage().companyAndItemsAreVisible(items);
+
     }
 }

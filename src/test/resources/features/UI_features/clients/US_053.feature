@@ -1,4 +1,4 @@
-@UI @US_053 @TherapistLoginUSA
+@UI  @TherapistLoginUSA
 Feature: US_53 As a user (Therapist), I should be able to perform various operations on the Client Info page
 
   Scenario: TC_001 Therapist Can Perform Various Operations on Client Info Page
@@ -21,7 +21,7 @@ Feature: US_53 As a user (Therapist), I should be able to perform various operat
       Then user enter the valid email
       Then user click the send invitation
       Then user verifies that  email sent message
-  @US_053
+
   Scenario: TC_004 Verify Clickable "Start Meeting" Button Functionality
       Then user click the client form the side menu
       Then user verifies that start meeting should be clickable
@@ -34,14 +34,20 @@ Feature: US_53 As a user (Therapist), I should be able to perform various operat
     Then user click mark as read button
     Then user click see all account activity
     Then user verifies that relevant page should be visible
-
-
-  Scenario: TC_006 Verify Clickable Account Icon Functionality
-
-    Then user click the client form the side menu
-    Then user click the account icon
-    Then Verify the content of the account-related page.
-
-
+  @US_053
+Scenario:TC_006 Verify Clickable Account Icon Functionality
+  Then user click the client form the side menu
+  Then user click the account icon
+  Then Verify that the content of the account-related page is displayed.
+      | threapistlions@yopmail.com  |
+      | Profile          |
+      | Account Statement |
+      | Subscription    |
+      | Security  |
+      | Settings|
+      | Integrations        |
+      | Dark Mode|
+      | Help|
+      | Logout|
 
 

@@ -1,7 +1,10 @@
 package pages;
 
+import io.cucumber.datatable.DataTable;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.ReusableMethods;
 
 import java.util.*;
 public class ClientsPage extends CommonPage {
@@ -26,7 +29,7 @@ public class ClientsPage extends CommonPage {
     public WebElement paymentURLMessage;
 
     @FindBy(xpath = "//input[@placeholder='Email']")
-    public WebElement email_input;
+    public WebElement input_email;
     @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-primary'])[2]")
     public WebElement sendInvitationButton;
     @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
@@ -43,11 +46,34 @@ public class ClientsPage extends CommonPage {
     public WebElement seeAllAccountActivity;
     @FindBy(xpath = "//span[text()='Yes']")
     public WebElement confirmYesButton;
-    @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle css-aqx16b']")
-    public WebElement accountIcon;
+//    @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle css-aqx16b']")
+//    public WebElement accountIcon;
 
-    @FindBy(xpath = "//ul[@class='ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-aqx16b']")
-    public WebElement accountDropDown;
+    @FindBy(xpath="//span[@class='ant-avatar-string']")
+    public WebElement accountIcon;
+    @FindBy(xpath="//ul[@class='ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-aqx16b']")
+    public List<WebElement> accountIconDropdown;
+
+    public void companyAndItemsAreVisible(DataTable elements){
+        accountIcon.click();
+        //Feature da yazdigimiz basliklarin geldigi expected data
+        ReusableMethods.waitFor(5);
+        List<String> items = new ArrayList<>();
+        for (String each : elements.asList()) {
+            items.add(each);
+        }
+            ReusableMethods.waitFor(5);
+        //Website dan gelen basliklar actual data.
+        for (int i = 1; i <= accountIconDropdown.size()-1; i++) {
+            String expectedResult = items.get(i);
+            ReusableMethods.waitFor(5);
+            String actualResult = accountIconDropdown.get(i).getText();
+            ReusableMethods.waitFor(5);
+            System.out.println(actualResult);
+            ReusableMethods.waitFor(5);
+            Assert.assertEquals(expectedResult,actualResult);
+        }
+    }
 
 
 
