@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.*;
+
 public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//a[@href='/dashboard/clients']")
@@ -80,11 +81,11 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
 
-    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
-      public WebElement sessionButon;
+    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_sessions']")
+    public WebElement sessionButon;
     @FindBy(xpath = "//span[text()='Delete Session']")
     public WebElement deleteSessionButton;
-    @FindBy(xpath ="//div[@class='ant-popconfirm-buttons']")
+    @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']")
     public WebElement yesNo_buttons;
     @FindBy(xpath = "//span[text()='Yes']")
     public WebElement yesButton;
@@ -184,14 +185,24 @@ public class ClientsPage extends CommonPage {
     public List<WebElement> phoneFlag_Dropdown;
     @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
     public List<WebElement> phoneDialCode;
-    @FindBy(css="div.ant-select-item ant-select-item-option")
+    @FindBy(css = "div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
-    @FindBy(xpath= "//div[text()='Session  1']")
+    @FindBy(xpath = "//div[text()='Session  1']")
     public WebElement sessionOne;
-    @FindBy(xpath= "//div[text()='Session  2']")
+    @FindBy(xpath = "//div[text()='Session  2']")
     public WebElement sessionTwo;
-    @FindBy(xpath= "(//div[@class='ant-tabs-nav-list'])[2]//div[@role='tab']")
+    @FindBy(xpath = "(//div[@class='ant-tabs-nav-list'])[2]//div[@role='tab']")
     public List<WebElement> sessionHeadings;
+
+    @FindBy(id = "record-icon1787")
+    public WebElement microphone;
+    @FindBy(xpath = "//span[text()='Stop Recording']")
+    public WebElement stopRecording;
+    @FindBy(xpath = "//audio[@class='react-audio-player ']")
+    public List<WebElement> audioList;
+    @FindBy(xpath = "//span[text()='Recording added.']")
+    public WebElement messageRecordingAdd;
+
 
 
 

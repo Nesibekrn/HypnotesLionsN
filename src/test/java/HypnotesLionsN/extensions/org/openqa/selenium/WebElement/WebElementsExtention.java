@@ -31,5 +31,9 @@ public class WebElementsExtention {
   public static void hoverWebElement(@This WebElement element ){
     actions.moveToElement(element).build().perform();
   }
+  public static Double getCurrentTime (@This WebElement w){
+    String time=w.getAttribute("currentTime");
+    return Double.parseDouble(time);
+  }
 
 }
