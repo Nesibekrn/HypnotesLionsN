@@ -4,7 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class US_065_StepDef {
+public class US_065 {
     @Given("As a Therapist user clicks on Appointments")
     public void asATherapistUserClicksOnAppointments() {
     }
