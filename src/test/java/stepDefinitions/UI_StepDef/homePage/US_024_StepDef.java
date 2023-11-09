@@ -15,7 +15,8 @@ public class US_024_StepDef extends CommonPage {
     public void theButtonShouldBeClickable() {
         Assert.assertTrue(getRegisterPage().signupFreeButton.isEnabled());
 
-        }
+
+    }
 
 
 
@@ -25,6 +26,7 @@ public class US_024_StepDef extends CommonPage {
         ReusableMethods.waitFor(2);
        Assert.assertEquals("https://test.hypnotes.net/register",driver.getCurrentUrl());
     }
+
 
 
 }

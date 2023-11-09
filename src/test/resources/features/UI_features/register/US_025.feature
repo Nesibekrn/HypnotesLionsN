@@ -1,5 +1,5 @@
 Feature: US025
-  @UI
+  @UI @smoke
   Scenario: US25_TC_001 Positive scenario for Login with Google account
     Given user goes to home page
     And  the user clicks on the Sign Up for Free button

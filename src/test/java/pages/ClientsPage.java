@@ -1,13 +1,125 @@
 package pages;
 
+import io.cucumber.datatable.DataTable;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.util.*;
+
+import static utilities.ReusableMethods.waitFor;
+
 public class ClientsPage extends CommonPage {
+
+<<<<<<< HEAD
+   @FindBy(xpath = "//a[@href='/dashboard/clients']")
+   public WebElement clients_button;
+
+ // @FindBy(xpath ="//span[@class='ant-typography ant-typography-success css-aqx16b']" )
+   //public WebElement viewDetailsButton;
+
+   // @FindBy(xpath ="(//span[@class='ant-typography ant-typography-success css-aqx16b'])[1]")
+    //public WebElement viewDetailsButton;
+
+    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
+    public WebElement sessionsButton;
+
+    @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-primary'])[1]")
+    public WebElement addNewSessionButton;
+
+
+
+    @FindBy(xpath = "(//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 10px;'])[1]")
+    public WebElement dateButton;
+
+    @FindBy(xpath = "//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px;']")
+    public WebElement associatedIssues;
+
+
+    @FindBy(xpath = "//label[normalize-space()='Key Points:']")
+    public WebElement keyPoint;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='After Thoughts:']")
+    public WebElement afterThought;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Applications & Suggestions:']")
+    public WebElement applicationsSuggestions;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Attachments:']")
+    public WebElement attachments;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Voice Notes:']")
+    public WebElement voiceNotes;
+=======
+
 
     @FindBy(xpath = "//a[@href='/dashboard/clients']")
     public WebElement clients_button;
+    @FindBy(xpath = "//span[normalize-space()='Add New Client']")
+    public WebElement addNewClientButton;
+    @FindBy(xpath = "//span[normalize-space()='Export Client']")
+    public WebElement importClientButton;
+    @FindBy(xpath = "//span[@data-test-id='dashboard_referAFriend_button']")
+    public WebElement referAFriendButton;
+    @FindBy(xpath = "//div[text()='Get 100% referral bonus *']")
+    public WebElement referAFriendPageTitle;
+
+    @FindBy(xpath = " //button[@class='ant-btn css-aqx16b ant-btn-default ant-btn-icon-only']")
+    public WebElement copiedReferenceURL;
+
+    @FindBy(xpath = "//div[@class='ant-message-notice ant-message-notice-success css-15rg2km']")
+    public WebElement paymentURLMessage;
+
+    @FindBy(xpath = "//input[@placeholder='Email']")
+    public WebElement input_email;
+    @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-primary'])[2]")
+    public WebElement sendInvitationButton;
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    public WebElement emailSentMessage;
+    @FindBy(xpath = "//div[@data-test-id='start_meeting_button']")
+    public WebElement startMeetingButton;
+
+    @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only'])[3]")
+    public WebElement accountActivityButton;
+    @FindBy(xpath = "//span[text()='Mark all as read']")
+    public WebElement markAllRead;
+
+    @FindBy(xpath = "//span[text()='See all Account Activity']")
+    public WebElement seeAllAccountActivity;
+    @FindBy(xpath = "//span[text()='Yes']")
+    public WebElement confirmYesButton;
+    @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle css-aqx16b']")
+    public WebElement accountIcon;
+    @FindBy(xpath="(//div[@class='ant-dropdown css-aqx16b ant-dropdown-placement-bottomRight'])[1]")
+    public List<WebElement> accountIconDropdown;
+
+public void companyAndItemsAreVisible(DataTable elements) {
+    List<String> title = elements.asList();
+    for (String e : title) {
+        System.out.println(e);
+    }
+    for (int i = 1; i <= accountIconDropdown.size() - 1; i++) {
+        System.out.println(accountIconDropdown.get(i).getText());
+
+        Assert.assertEquals(accountIconDropdown.get(i).getText(), title.get(i));
+    }
+
+    waitFor(5);
+
+}
+
+>>>>>>> main
 
     @FindBy(xpath = "//span[text()='Import Client']")
     public WebElement importClientsButton;
@@ -25,7 +137,7 @@ public class ClientsPage extends CommonPage {
     public WebElement uploadButtonForEasyPractice;
 
 
-    @FindBy(xpath = "//h5[contains(text(),\"John Moon\")]")
+    @FindBy(xpath = "//h5[contains(text(),\"Zeynep butterfly\")]")
     public WebElement importedClient;
 
     @FindBy(xpath = "//span[text()='Cancel']")
@@ -80,6 +192,23 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
 
+    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
+      public WebElement sessionButon;
+    @FindBy(xpath = "//span[text()='Delete Session']")
+    public WebElement deleteSessionButton;
+    @FindBy(xpath ="//div[@class='ant-popconfirm-buttons']")
+    public WebElement yesNo_buttons;
+    @FindBy(xpath = "//span[text()='Yes']")
+    public WebElement yesButton;
+    @FindBy(xpath = "//a[text()='Clients']")
+    public WebElement clientsButton;
+    @FindBy(xpath = "//span[text()='Session has been deleted']")
+    public WebElement deletedPOPUPMessage;
+    @FindBy(xpath = "//div[@class='ant-popconfirm-message-title']")
+    public WebElement deletedMessage;
+    @FindBy(xpath = "//span[text()='Add New Session']")
+    public WebElement addNewSession;
+
     @FindBy(xpath = "//a[text()='Clients']")
     public WebElement clientSectionBtn;
 
@@ -91,12 +220,43 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//a/span[.='View Details']")
     public List<WebElement> viewDetailsBtns;
+    @FindBy(xpath = "//a[@href='/dashboard/services']")
+    public WebElement services_button;
+
 
     @FindBy(xpath = "//span[text()='Client Info']")
     public List<WebElement> clientInfoSectionBtn;
 
     @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
     public WebElement hypnotesSchedulerSection;
+
+    @FindBy(xpath = "//a[@href='/dashboard/settings']")
+    public WebElement settings_button;
+
+    @FindBy(xpath = "//a[@href=\"/dashboard/clients/2749\"]")
+    public WebElement firstClient;
+
+
+    @FindBy(xpath = "//span[@data-test-id=\"dashboard_clients_invoices\"]")
+    public WebElement invoices;
+
+
+    @FindBy(xpath = "(//div[@class='view invoices_w60__nfXh_'])[1]")
+    public WebElement invoiceNo;
+
+    @FindBy(xpath = "(//div[@class='view invoices_w60__nfXh_'])[2]")
+    public WebElement invoiceDate;
+
+
+    @FindBy(xpath = "//*[@title='2023-11-21']")
+    public WebElement invoiceDate1;
+
+    @FindBy(xpath = "(//div[@class='view invoices_w60__nfXh_'])[3]")
+    public WebElement dueDate;
+
+    @FindBy(xpath = "//*[@title='2023-12-25']")
+    public WebElement dueDate1;
+
 
     @FindBy(xpath = "//a[@href='/dashboard/add-client']")
     public WebElement addNewClient_button;
@@ -144,6 +304,14 @@ public class ClientsPage extends CommonPage {
     public List<WebElement> phoneDialCode;
     @FindBy(css="div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
+    @FindBy(xpath= "//div[text()='Session  1']")
+    public WebElement sessionOne;
+    @FindBy(xpath= "//div[text()='Session  2']")
+    public WebElement sessionTwo;
+    @FindBy(xpath= "(//div[@class='ant-tabs-nav-list'])[2]//div[@role='tab']")
+    public List<WebElement> sessionHeadings;
+
+
 
 
     @FindBy(xpath="//div[@class=\"view invoices_w55__ZZ_5p\"]/input")
