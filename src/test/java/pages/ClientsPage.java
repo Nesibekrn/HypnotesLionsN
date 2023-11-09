@@ -137,5 +137,10 @@ public class ClientsPage extends CommonPage {
     public List<WebElement> phoneDialCode;
     @FindBy(css="div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
+    @FindBy(xpath = "//img[@alt='avatar']")
+    public WebElement uploadedImage;
+    //@FindBy(xpath = "//div[@class='ant-select-item ant-select-item-option']")
+    @FindBy(css="div.ant-select-item ant-select-item-option")
+    public List<WebElement> timeZone_List;
 
 }

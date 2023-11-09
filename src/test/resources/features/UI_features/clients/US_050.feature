@@ -9,22 +9,17 @@ Feature: As a user (therapist) I should be able to add new client
     Given user types name in the First Name section
       | f  | This field cannot include numbers or special characters. |
       | 12 | This field cannot include numbers or special characters. |
-     # |    | Please enter First Name                                  |
-     # | fatma |
   @TC002
   Scenario: TC002-
     Given user types name in the first name section
     And user types middle name in the middle name section
       | 1  | This field cannot include numbers or special characters. |
       | ?, | This field cannot include numbers or special characters. |
-    #  | serra |                                                          |
   Scenario: TC003-
     Given user types name in the first name section
     * user types last name in the Last Name section
       | c  | This field cannot include numbers or special characters. |
       | 12 | This field cannot include numbers or special characters. |
-    #  |       | Please enter Last Name                                   |
-     # | cekim |                                                          |
   Scenario: TC004-
     Given user types name in the first name section
     And user types last name in the last name section
@@ -32,7 +27,6 @@ Feature: As a user (therapist) I should be able to add new client
       | f            | Invalid input detected, please review and correct. |
       | fatma@gmail  | Invalid input detected, please review and correct. |
       | fatma@gmail. | Invalid input detected, please review and correct. |
-    #  | fatma@gmail.com |                                                    |
   Scenario: TC005-Gender menu must be functional. Client gender is selectable
     Then user verify gender menu is functional
     When user select "Female" in the gender section
