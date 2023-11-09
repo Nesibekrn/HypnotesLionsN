@@ -10,12 +10,9 @@ import utilities.ReusableMethods;
 
 import java.util.*;
 
-
 import static utilities.ReusableMethods.waitFor;
 
-
 public class ClientsPage extends CommonPage {
-
 
    @FindBy(xpath = "//a[@href='/dashboard/clients']")
    public WebElement clients_button;
@@ -63,9 +60,6 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//label[normalize-space()='Voice Notes:']")
     public WebElement voiceNotes;
-
-
-
 
     @FindBy(xpath = "//span[normalize-space()='Add New Client']")
     public WebElement addNewClientButton;
@@ -193,11 +187,11 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
 
-    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_sessions']")
-    public WebElement sessionButon;
+    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
+      public WebElement sessionButon;
     @FindBy(xpath = "//span[text()='Delete Session']")
     public WebElement deleteSessionButton;
-    @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']")
+    @FindBy(xpath ="//div[@class='ant-popconfirm-buttons']")
     public WebElement yesNo_buttons;
     @FindBy(xpath = "//span[text()='Yes']")
     public WebElement yesButton;
@@ -303,13 +297,13 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public List<WebElement> phoneFlag_Dropdown;
     @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
     public List<WebElement> phoneDialCode;
-    @FindBy(css = "div.ant-select-item ant-select-item-option")
+    @FindBy(css="div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
-    @FindBy(xpath = "//div[text()='Session  1']")
+    @FindBy(xpath= "//div[text()='Session  1']")
     public WebElement sessionOne;
-    @FindBy(xpath = "//div[text()='Session  2']")
+    @FindBy(xpath= "//div[text()='Session  2']")
     public WebElement sessionTwo;
-    @FindBy(xpath = "(//div[@class='ant-tabs-nav-list'])[2]//div[@role='tab']")
+    @FindBy(xpath= "(//div[@class='ant-tabs-nav-list'])[2]//div[@role='tab']")
     public List<WebElement> sessionHeadings;
 
     @FindBy(id = "record-icon1787")
