@@ -220,12 +220,18 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "//a/span[.='View Details']")
     public List<WebElement> viewDetailsBtns;
+    @FindBy(xpath = "//a[@href='/dashboard/services']")
+    public WebElement services_button;
+
 
     @FindBy(xpath = "//span[text()='Client Info']")
     public List<WebElement> clientInfoSectionBtn;
 
     @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
     public WebElement hypnotesSchedulerSection;
+
+    @FindBy(xpath = "//a[@href='/dashboard/settings']")
+    public WebElement settings_button;
 
     @FindBy(xpath = "//a[@href=\"/dashboard/clients/2749\"]")
     public WebElement firstClient;
