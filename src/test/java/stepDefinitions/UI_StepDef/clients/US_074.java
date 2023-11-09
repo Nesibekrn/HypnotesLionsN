@@ -6,18 +6,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
-import stepDefinitions.Hooks;
-import utilities.JS_utilities;
 import utilities.ReusableMethods;
-import utilities.ReusableMethods;
-
-import javax.swing.*;
 import java.io.File;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 
@@ -79,7 +72,6 @@ public class US_074 extends CommonPage {
         ReusableMethods.verifyElementDisplayed(getClientsPage().inputYourLogoButton);
         assertTrue("Your Logo input field should be displayed", getClientsPage().inputYourLogoButton.isDisplayed());
 
-        ReusableMethods.waitFor(3);
     }
 
     @And("a valid company name is entered in the Your Company field")
@@ -135,23 +127,21 @@ public class US_074 extends CommonPage {
 
     @And("the user selects a country from the Country drop-down menu")
     public void theUserSelectsACountryFromTheCountryDropDownMenu() {
-         Assert.assertTrue("Expected City State Zip and actual City State Zip should be equal.", getClientsPage().dropDownCountrySelect.getAttribute("value").contains("Australia"));
 
-        // Click the dropdown element to open the options
+        Assert.assertTrue(getClientsPage().dropDownCountryWithoutSelect.isEnabled());
+        ReusableMethods.waitForClickability(getClientsPage().dropDownCountryWithoutSelect, 5);
+
         getClientsPage().dropDownCountryWithoutSelect.click();
 
-        ReusableMethods.waitFor(2);
+        Assert.assertTrue("Unable to locate element: {//select[@class='invoice_select__WnoPF   false']}", getClientsPage().dropDownCountrySelect.isEnabled());
+        Select select = new Select(getClientsPage().dropDownCountrySelect);
 
-        // Find the option element and select "Australia" using JavaScript
-        String expectedCountry = "Australia";
-        String script = "document.querySelector(\"select[class='invoice_select__WnoPF   false'] option[value='" + expectedCountry + "']\").selected = true;";
-        ((JavascriptExecutor) driver).executeScript(script);
+        ReusableMethods.waitForVisibility(getClientsPage().dropDownCountrySelect,5);
+        Assert.assertTrue(getClientsPage().dropDownCountrySelect.isEnabled());
+        select.selectByVisibleText("Australia");
 
-        ReusableMethods.waitFor(5);
-
-        String actualSelectOption = getClientsPage().dropDownCountrySelect.getAttribute("value");
-
-        Assert.assertEquals("Expected selected country: Australia", expectedCountry, actualSelectOption);
+        ReusableMethods.waitForVisibility(getClientsPage().dropDownCountrySelect, 5);
+        Assert.assertTrue("Expected City State Zip and actual City State Zip should be equal.", getClientsPage().dropDownCountrySelect.getAttribute("value").contains("Australia"));
 
     }
 }
