@@ -1,8 +1,10 @@
 @UI
 @Therapist
+
 Feature: As a user(therapist), I should be able to see Sessions button
 
   @US_069
+    @HL-335
 
   Scenario: US_069
     Given user clicks on Client button
