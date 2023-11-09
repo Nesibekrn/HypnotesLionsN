@@ -1,5 +1,6 @@
 
 package utilities;
+
 import static stepDefinitions.Hooks.driver;
 
 import com.github.javafaker.Faker;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,7 +50,7 @@ public class ReusableMethods {
 
     private static WebDriverWait wait;
 
-    //public static WebDriverWait wait;
+    public static WebDriverWait wait;
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
