@@ -9,17 +9,25 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
+import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
+import javax.swing.*;
 import java.security.Key;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+
+import static stepDefinitions.Hooks.driver;
 
 public class US_51_StepDef extends CommonPage {
     Faker faker = new Faker();
     String name;
     String lastName;
+    String email;
+    Action actions;
 
     @Then("The user clicks on the client button.")
     public void theUserClicksOnTheClientButton() {
@@ -35,50 +43,105 @@ public class US_51_StepDef extends CommonPage {
 
     @Then("The user enters data into the FirstName, LastName, Email")
     public void theUserEntersDataIntoTheFirstNameLastNameEmail() {
-         name=faker.name().firstName();
+        name = faker.name().firstName();
         getClientsPage().addFirstName51.sendKeys(name);
-
         ReusableMethods.waitFor(1);
-        getClientsPage().lastName51.sendKeys(faker.name().firstName());
+        lastName = faker.name().lastName();
+        getClientsPage().lastName51.sendKeys(lastName);
         ReusableMethods.waitFor(1);
-        getClientsPage().addEmail51.sendKeys(faker.name().firstName());
+        email = faker.internet().emailAddress();
+        getClientsPage().addEmail51.sendKeys(email);
+        ReusableMethods.waitFor(3);
+        getClientsPage().genderSec51.click();
         ReusableMethods.waitFor(1);
+        getClientsPage().addGenderMale51.click();
+        ReusableMethods.waitFor(3);
 
 
     }
 
-    @Then("The user enters data into the Gender, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.")
-    public void theUserEntersDataIntoTheFirstNameLastNameEmailGenderPhoneOccupationZipCodeCountryStateCityAddressTimezoneFields(DataTable dataTable) {
-       List<String> dataAddNew=dataTable.column(1);
+    //  @Then("The user enters data into the Gender, Phone, Occupation, Zip code, Country, State, City, address, Timezone fields.")
+    //  public void theUserEntersDataIntoTheFirstNameLastNameEmailGenderPhoneOccupationZipCodeCountryStateCityAddressTimezoneFields(DataTable dataTable) {
 
-        getClientsPage().addGender51.click();
-        getClientsPage().addGenderMale51.click();
 
-        getClientsPage().phoneList51.get(1).sendKeys(dataAddNew.get(0));
-        getClientsPage().addOccupation51.sendKeys("QA",Keys.ENTER);
-        getClientsPage().addZipCode51.sendKeys("13013",Keys.ENTER);
-
-        getClientsPage().addCountry51.sendKeys("France",Keys.ENTER);
-
-        getClientsPage().addState51.sendKeys("Bouche Du Rhone",Keys.ENTER);
-        getClientsPage().addCity51.sendKeys("Marseille",Keys.ENTER);
-        getClientsPage().addAdress51.sendKeys("Marseille Batiment c32",Keys.ENTER);
-        getClientsPage().timeZone51.click();
-
+    @When("The user enters data into the Gender, Phone, Occupation, Zip code, Country, State, City, address.")
+    public void theUserEntersDataIntoFields(DataTable dataTable) {
+        List<String> data = dataTable.column(1);
+        ReusableMethods.waitFor(1);
+        getClientsPage().phoneList51.click();
+        ReusableMethods.scrollToElement(getClientsPage().phoneList51);
+        ReusableMethods.waitFor(2);
+        String phone = data.get(0);
+        getClientsPage().phoneList51.clear();
+        ReusableMethods.waitFor(2);
+        getClientsPage().phoneList51.sendKeys(phone);
+        ReusableMethods.waitFor(3);
+        String occupation = data.get(1);
+        getClientsPage().addOccupation51.sendKeys(occupation);
+        ReusableMethods.waitFor(1);
+        String zipCode = data.get(2);
+        getClientsPage().addZipCode51.sendKeys(zipCode);
+        ReusableMethods.waitFor(1);
+        String country = data.get(3);
+        getClientsPage().addCountry51.sendKeys(country);
+        ReusableMethods.waitFor(1);
+        String state = data.get(4);
+        getClientsPage().addState51.sendKeys(state);
+        ReusableMethods.waitFor(1);
+        String city = data.get(5);
+        getClientsPage().addCity51.sendKeys(city);
+        ReusableMethods.waitFor(2);
+        String address = data.get(6);
+        getClientsPage().addAdress51.sendKeys(address);
         ReusableMethods.waitFor(2);
 
+        getClientsPage().timeZone51.click();
+        ReusableMethods.waitFor(2);
+        getClientsPage().timeZone51.click();
+        ReusableMethods.waitFor(5);
 
     }
 
+
+    /*
+          List<String> dataAddNew=dataTable.column(1);
+          getClientsPage().phoneList51.get(1).sendKeys(dataAddNew.get(0));
+          getClientsPage().addOccupation51.get(0).sendKeys(dataAddNew.get(1));
+          getClientsPage().phoneList51.get(1).sendKeys(dataAddNew.get(2));
+          getClientsPage().phoneList51.get(1).sendKeys(dataAddNew.get(3));
+          getClientsPage().addOccupation51.sendKeys("QA",Keys.ENTER);
+          getClientsPage().addZipCode51.sendKeys("13013",Keys.ENTER);
+
+          getClientsPage().addCountry51.sendKeys("France",Keys.ENTER);
+
+          getClientsPage().addState51.sendKeys("Bouche Du Rhone",Keys.ENTER);
+          getClientsPage().addCity51.sendKeys("Marseille",Keys.ENTER);
+          getClientsPage().addAdress51.sendKeys("Marseille Batiment c32",Keys.ENTER);
+          getClientsPage().timeZone51.click();
+
+          ReusableMethods.waitFor(2);
+
+
+      }
+
+
+     */
     @When("User clicks the Show Extra Fields field")
     public void userClicksTheShowExtraFieldsField() {
-        getClientsPage().addShowExtra51.click();
+        JS_utilities.scrollToBottom();
         ReusableMethods.waitFor(2);
+        ReusableMethods.scrollToElement(getClientsPage().addShowExtra51);
+        ReusableMethods.waitFor(3);
+        getClientsPage().addShowExtra51.click();
+        ReusableMethods.waitFor(3);
     }
 
     @Then("User enters a phone number in the Emergency Contact Phone field")
     public void userEntersAPhoneNumberInTheEmergencyContactPhoneField() {
-        getClientsPage().phoneList51.get(1).sendKeys("+33", Keys.ENTER);
+
+        getClientsPage().pho.click();
+        Random random=new Random();
+        int flagIndex=random.nextInt(getClientsPage().phoneFlagUlkeler51.indexOf(5))
         ReusableMethods.waitFor(2);
         getClientsPage().flagOpenSearch51.sendKeys("+33", Keys.ENTER);
     }
@@ -86,38 +149,35 @@ public class US_51_StepDef extends CommonPage {
     @Then("User enters data in the Emergency Contact Relationship field")
     public void userEntersDataInTheEmergencyContactRelationshipField() {
         getClientsPage().addRelationShip51.sendKeys("Kardesi", Keys.ENTER);
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
     }
 
     @Then("User enters email in the Primary Physician Family Doctor Name field")
     public void userEntersEmailInThePrimaryPhysicianFamilyDoctorNameField() {
         getClientsPage().primaryDoctorName51.sendKeys("Alfred Halffrod", Keys.ENTER);
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
     }
 
     @Then("User enters data in the Guardian Name field")
     public void userEntersDataInTheGuardianNameField() {
         getClientsPage().guardienName51.sendKeys("Alfred Halffrod", Keys.ENTER);
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(2);
     }
 
     @Then("User enters phone number in the Guardian Phone field")
     public void userEntersPhoneNumberInTheGuardianPhoneField() {
-        getClientsPage().phoneList51.get(4).sendKeys("Alfred Halffrod", Keys.ENTER);
-        ReusableMethods.waitFor(1);
+        getClientsPage().phoneList51.sendKeys("Alfred Halffrod", Keys.ENTER);
+        ReusableMethods.waitFor(2);
     }
 
     @Then("User enters email address in the Guardian Email field")
     public void userEntersEmailAddressInTheGuardianEmailField() {
-        faker.internet().emailAddress();
-        ReusableMethods.waitFor(1);
+        String emailGuardien = faker.internet().emailAddress();
+        getClientsPage().guardienEmail.sendKeys(emailGuardien);
+
+        ReusableMethods.waitFor(2);
     }
 
-    @Then("User selects an image for the Profile image field")
-    public void userSelectsAnImageForTheProfileImageField() {
-        faker.internet().image();
-        ReusableMethods.waitFor(3);
-    }
 
     @Then("User clicks the save button")
     public void userClicksTheSaveButton() {

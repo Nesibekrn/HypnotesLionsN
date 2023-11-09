@@ -2,10 +2,11 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import java.util.List;
 import java.util.*;
-public class ClientsPage extends CommonPage {
 
+public class ClientsPage extends CommonPage {
 
 
     @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
@@ -15,9 +16,11 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "(//span[text()='Login'])[2]")
     public WebElement loginPourEntrerLeSite07;
-  @FindBy(xpath = "//input[@id='register_guardianName']")
-    public WebElement guardienName51;
+    @FindBy(xpath = "//input[@id='register_guardianEmail']")
+    public WebElement guardienEmail;
 
+    @FindBy(xpath = "//input[@id='register_guardianName']")
+    public WebElement guardienName51;
     @FindBy(xpath = "//a[text()='Clients']")
     public WebElement dashboardClients51;
 
@@ -27,7 +30,7 @@ public class ClientsPage extends CommonPage {
     public WebElement addFirstName51;
     @FindBy(xpath = "//input[@id='register_middleName']")
     public WebElement addMiddleName51;
- @FindBy(xpath = "//input[@id='register_lastName']")
+    @FindBy(xpath = "//input[@id='register_lastName']")
     public WebElement lastName51;
 
     @FindBy(xpath = "//input[@id='register_email']")
@@ -35,7 +38,7 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//div[text()='Male']")
     public WebElement addGenderMale51;
- @FindBy(xpath = "//input[@id='register_gender']")
+    @FindBy(xpath = "//input[@id='register_gender']")
     public WebElement addGender51;
 
     @FindBy(xpath = "//input[@id='register_zipCode']")
@@ -45,7 +48,7 @@ public class ClientsPage extends CommonPage {
     public WebElement addOccupation51;
 
     @FindBy(xpath = "//input[@class='form-control false']")
-    public List<WebElement> phoneList51;
+    public WebElement phoneList51;
 
     @FindBy(xpath = "//input[@list='countryData']")
     public WebElement addCountry51;
@@ -56,10 +59,11 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//input[@name='city']")
     public WebElement addCity51;
 
-    @FindBy(xpath = "//*[@id=\"register\"]/div[12]/div/div[1]/label")
+    @FindBy(xpath = "//*[@id='register_address']")
     public WebElement addAdress51;
 
-    @FindBy(xpath = "//input[@type='checkbox']")
+    //@FindBy(xpath = "//input[@type='checkbox']")
+    @FindBy(xpath = "//input[@class='ant-checkbox-input']")
     public WebElement addShowExtra51;
     @FindBy(xpath = "(//input[@class='form-control false'])[2]']")
     public WebElement addEmergencyContacPhonet51;
@@ -67,18 +71,23 @@ public class ClientsPage extends CommonPage {
     public WebElement addRelationShip51;
     @FindBy(xpath = "//input[@id='register_doctorName']")
     public WebElement primaryDoctorName51;
-    @FindBy(xpath = "//*[@class='selected-flag open']")
-    public WebElement flagOpen51;
+    @FindBy(xpath = "//div[@class='selected-flag open']")
+    public WebElement flagOpens51;
 
-@FindBy(xpath = "//input[@class='search-box']")
+    @FindBy(xpath = "//input[@class='search-box']")
     public WebElement flagOpenSearch51;
-@FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
+
+    @FindBy(css = "div.selected_flag")
+    public WebElement phoneCode51;
+    @FindBy(xpath = "//li[@class='country']//span")
+    public List<WebElement> phoneFlagUlkeler51;
+    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
     public WebElement timeZone51;
 
-@FindBy(xpath = "//input[@id='register_guardianEmail']")
+    @FindBy(xpath = "//input[@id='register_guardianEmail']")
     public WebElement guardianEmail51;
 
-@FindBy(xpath = "//span[text()='Save']")
+    @FindBy(xpath = "//span[text()='Save']")
     public WebElement save51;
 
 
@@ -165,5 +174,8 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
     public WebElement hypnotesSchedulerSection;
+
+    @FindBy(xpath = "//input[@id='register_gender']")
+    public WebElement genderSec51;
 
 }
