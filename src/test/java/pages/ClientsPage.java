@@ -2,11 +2,16 @@ package pages;
 
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.util.*;
+
+import static utilities.ReusableMethods.waitFor;
+
 public class ClientsPage extends CommonPage {
 
 
@@ -46,36 +51,25 @@ public class ClientsPage extends CommonPage {
     public WebElement seeAllAccountActivity;
     @FindBy(xpath = "//span[text()='Yes']")
     public WebElement confirmYesButton;
-//    @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle css-aqx16b']")
-//    public WebElement accountIcon;
-
-    @FindBy(xpath="//span[@class='ant-avatar-string']")
+    @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-circle css-aqx16b']")
     public WebElement accountIcon;
-    @FindBy(xpath="//ul[@class='ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-aqx16b']")
+    @FindBy(xpath="(//div[@class='ant-dropdown css-aqx16b ant-dropdown-placement-bottomRight'])[1]")
     public List<WebElement> accountIconDropdown;
 
-    public void companyAndItemsAreVisible(DataTable elements){
-        accountIcon.click();
-        //Feature da yazdigimiz basliklarin geldigi expected data
-        ReusableMethods.waitFor(5);
-        List<String> items = new ArrayList<>();
-        for (String each : elements.asList()) {
-            items.add(each);
-        }
-            ReusableMethods.waitFor(5);
-        //Website dan gelen basliklar actual data.
-        for (int i = 1; i <= accountIconDropdown.size()-1; i++) {
-            String expectedResult = items.get(i);
-            ReusableMethods.waitFor(5);
-            String actualResult = accountIconDropdown.get(i).getText();
-            ReusableMethods.waitFor(5);
-            System.out.println(actualResult);
-            ReusableMethods.waitFor(5);
-            Assert.assertEquals(expectedResult,actualResult);
-        }
+public void companyAndItemsAreVisible(DataTable elements) {
+    List<String> title = elements.asList();
+    for (String e : title) {
+        System.out.println(e);
+    }
+    for (int i = 1; i <= accountIconDropdown.size() - 1; i++) {
+        System.out.println(accountIconDropdown.get(i).getText());
+
+        Assert.assertEquals(accountIconDropdown.get(i).getText(), title.get(i));
     }
 
+    waitFor(5);
 
+}
 
 
     @FindBy(xpath = "//span[text()='Import Client']")

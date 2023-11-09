@@ -1,4 +1,4 @@
-@UI  @TherapistLoginUSA
+@UI  @TherapistLoginUSA   @US_053
 Feature: US_53 As a user (Therapist), I should be able to perform various operations on the Client Info page
 
   Scenario: TC_001 Therapist Can Perform Various Operations on Client Info Page
@@ -34,7 +34,7 @@ Feature: US_53 As a user (Therapist), I should be able to perform various operat
     Then user click mark as read button
     Then user click see all account activity
     Then user verifies that relevant page should be visible
-  @US_053
+
 Scenario:TC_006 Verify Clickable Account Icon Functionality
   Then user click the client form the side menu
   Then user click the account icon

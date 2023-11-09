@@ -143,7 +143,7 @@ public class US_053 extends CommonPage {
 
     @Then("user click the account icon")
     public void userClickTheAccountIcon() {
-       // getClientsPage().accountIcon.click();
+        getClientsPage().accountIcon.click();
 
     }
 
@@ -151,6 +151,7 @@ public class US_053 extends CommonPage {
     @Then("Verify that the content of the account-related page is displayed.")
     public void verifyThatTheContentOfTheAccountRelatedPageIsDisplayed(DataTable items) {
         getClientsPage().companyAndItemsAreVisible(items);
+
 
     }
 }
