@@ -14,6 +14,54 @@ import static utilities.ReusableMethods.waitFor;
 
 public class ClientsPage extends CommonPage {
 
+<<<<<<< HEAD
+   @FindBy(xpath = "//a[@href='/dashboard/clients']")
+   public WebElement clients_button;
+
+ // @FindBy(xpath ="//span[@class='ant-typography ant-typography-success css-aqx16b']" )
+   //public WebElement viewDetailsButton;
+
+   // @FindBy(xpath ="(//span[@class='ant-typography ant-typography-success css-aqx16b'])[1]")
+    //public WebElement viewDetailsButton;
+
+    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
+    public WebElement sessionsButton;
+
+    @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-primary'])[1]")
+    public WebElement addNewSessionButton;
+
+
+
+    @FindBy(xpath = "(//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 10px;'])[1]")
+    public WebElement dateButton;
+
+    @FindBy(xpath = "//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px;']")
+    public WebElement associatedIssues;
+
+
+    @FindBy(xpath = "//label[normalize-space()='Key Points:']")
+    public WebElement keyPoint;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='After Thoughts:']")
+    public WebElement afterThought;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Applications & Suggestions:']")
+    public WebElement applicationsSuggestions;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Attachments:']")
+    public WebElement attachments;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Voice Notes:']")
+    public WebElement voiceNotes;
+=======
 
 
     @FindBy(xpath = "//a[@href='/dashboard/clients']")
@@ -71,6 +119,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
 }
 
+>>>>>>> main
 
     @FindBy(xpath = "//span[text()='Import Client']")
     public WebElement importClientsButton;
