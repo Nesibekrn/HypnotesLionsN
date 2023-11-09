@@ -32,4 +32,16 @@ public class WebElementsExtention {
     actions.moveToElement(element).build().perform();
   }
 
+  /**
+   * This method is used to find the play or stop moment of a video or audio.
+   * @param w Web element:a play button (for video or audio).
+   * @return Double
+   * @author gul yalcin
+   * @since 09.11.2023
+   */
+  public static Double getCurrentTime (@This WebElement w){
+    String time=w.getAttribute("currentTime");
+    return Double.parseDouble(time);
+  }
+
 }
