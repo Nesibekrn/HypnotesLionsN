@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import com.github.javafaker.Faker;
@@ -27,9 +28,30 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath = "//input[@name=\"Passwd\"]")
     public WebElement passwordGoogle;
 
-
     @FindBy(xpath = "//header/div[1]/div[2]/div[6]/a[1]/span[1]/span[1]")
     public WebElement nameAvatar;
+
+    @FindBy(xpath = "//a[.='I am a Client']")
+    public WebElement ButtonIAmAClient;
+
+    @FindBy(xpath = "//a[.='Already have an account?']")
+    public WebElement ButtonAlreadyHaveAnAccount;
+
+    @FindBy(xpath = "//a[.='Therapist Login']")
+    public WebElement ButtonTherapistLogin;
+
+    @FindBy(xpath = "//input[@name='fullname']")
+    public WebElement InputFullName;
+
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement InputEmail;
+
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement InputPassword;
+
+    @FindBy(xpath = "//button[@data-test-id='registerPage_signup_button']")
+    public WebElement ButtonSignUp;
+
 
 
     @FindBy(css = "[data-test-id='registerAsClientPage_name']")
@@ -157,16 +179,77 @@ public class RegisterPage extends CommonPage {
     @FindBy(xpath = " //button[@id='oauth__auth-form__submit-btn']")
     public WebElement allowButton;
 
-   @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
+
+    //VerifyEmail Locators
+
+    @FindBy(xpath = "//input[@id='login']")
+    public WebElement yopmailEmail;
+    @FindBy(xpath = "//i[contains(text(),'\uE5C8')]")
+    public WebElement yopmailEmailInbox;
+
+    @FindBy(xpath="//a[contains(text(),\"VERIFY EMAIL\")]")
+    public WebElement verifyEmailYopmailInbox;
+
+
+    @FindBy(xpath="//iframe[@id=\"ifmail\"]")
+    public WebElement verifyEmailFrame;
+
+
+
+    @FindBy(xpath="(//div[@class='RegisterForm_socRowCont__fpaxX'])[4]")
     public WebElement signInWithApple;
-   @FindBy(css="#account_name_text_field ")
+    @FindBy(css="#account_name_text_field ")
     public WebElement inputMail;
-   @FindBy(css="#password_text_field")
+    @FindBy(css="#password_text_field")
     public WebElement enterPassword;
-   @FindBy(xpath="//i[@class='shared-icon icon_sign_in']")
+    @FindBy(xpath="//i[@class='shared-icon icon_sign_in']")
     public WebElement next_button;
-   @FindBy(xpath ="//button[@type='button'][1]")
+    @FindBy(xpath ="//button[@type='button'][1]")
     public WebElement continueButton;
-   @FindBy(css=".ac-localnav-title")
+    @FindBy(css=".ac-localnav-title")
     public WebElement alertPage;
+
+    //Webelemnts for US_020
+    @FindBy(xpath="//a[text()='I am a Client']")
+    private WebElement amAclient_Link;
+    public void verifyIamAclientLink(String expectedLinkName){
+        Assert.assertEquals(expectedLinkName,amAclient_Link.getText());
+        Assert.assertTrue(amAclient_Link.isEnabled() && amAclient_Link.isDisplayed());
+
+    }
+    @FindBy(css = "[data-test-id='register_as_a_client']")
+    public WebElement registerAsAClientText;
+
+    @FindBy(xpath = "//a[@id='social-media-login-logo-g'][1]")
+    public WebElement loginWithGoogle;
+    @FindBy(xpath ="//input[@id='identifierId']")
+    public WebElement emailGoogle;
+    @FindBy(xpath = "//button[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc LQeN7 qIypjc TrZEUc lw1w4b']")
+    public WebElement nextGoogle;
+    @FindBy(xpath = "//div[@class='rFrNMe ze9ebf YKooDc wIXLub zKHdkd sdJrJc']")
+    public WebElement passwordGooglee;
+  //  @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
+    ////                 span[@data-test-id='loginScreen_logIn']
+    // public WebElement registerloginButton;
+
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElement registerloginButton;
+
+    @FindBy(xpath = "(//div[@class='RegisterForm_fontSmall__p6mzi'])[3]")
+    public WebElement signInWithLinkedin;
+
+    @FindBy(id="username")
+    public WebElement linkedInUserName;
+
+    @FindBy(id="password")
+    public WebElement linkedInPassword;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement linkedInSignInButton;
+
+    @FindBy(xpath = "//h1[starts-with(text(),'Hızlıca')]")
+    public WebElement linkedInTurkceDogrulamaMesaji;
+
+    @FindBy(xpath = "//h1[starts-with(text(),'Let')]")
+    public WebElement linkedInEnglishVerificationMessage;
 }

@@ -1,4 +1,4 @@
-@UI
+@UI @smoke
 Feature: User goes to home page.
 
   @US_024

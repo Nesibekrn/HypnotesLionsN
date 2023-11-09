@@ -16,13 +16,37 @@ import java.util.List;
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
 
-public class HomePage extends CommonPage {
-
-
+public class HomePage extends CommonPage{
     @FindBy(xpath="//*[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
+
+    @FindBy(xpath = "//img[@data-test-id='facebookLink_footerLogo']")
+    public WebElement facebookIcon;
+
+    @FindBy(xpath= "//img[@data-test-id='linkedinLink_footerLogo']")
+    public WebElement linkedinIcon;
+
+    @FindBy(xpath = "//img[@data-test-id='twitterLink_footerLogo']")
+    public WebElement twitterIcon;
+
+    @FindBy(xpath = "//img[@data-test-id='instagramLink_footerLogo']")
+    public WebElement instagramIcon;
+
+    @FindBy(xpath = "//*[text()='Real People, Real Feedback']")
+    public WebElement testimonialsSectionText;
+
+    @FindBy(css = "div.swiper-button-next")
+    public  WebElement nextButton;
+
+    @FindBy(xpath = "//div[@class='swiper-button-prev']")
+    public  WebElement prevButton;
+
+    @FindBy(css = "span.swiper-pagination-bullet")
+    public List<WebElement> bulletPoints;
+
     @FindBy(css = "h5[style='font-size: 25px; font-weight: 600; padding: 10px;']")
     public List<WebElement> listTitles;
+
     @FindBy(xpath = "//a[@class='ant-btn css-15rg2km ant-btn-link features-btn']")
     public List<WebElement> listHeader;
 
@@ -57,12 +81,10 @@ public class HomePage extends CommonPage {
 
     @FindBy(xpath = "(//img[@alt='logo'])[2]")
     public WebElement faceBookIcon;
-    @FindBy(xpath = "(//img[@alt='logo'])[3]")
-    public WebElement linkedinIcon;
+
     @FindBy(xpath = "(//img[@alt='logo'])[4]")
     public WebElement xIcon;
-    @FindBy(xpath = "(//img[@alt='logo'])[5]")
-    public WebElement instagramIcon;
+
     @FindBy(xpath = "//input[@data-test-id='mainPage_enterYourEmailAddress_input']")
     public WebElement inputEmailFooter;
     @FindBy(xpath = "//button[@data-test-id='mainPage_SignUpButton']")
@@ -94,8 +116,9 @@ public class HomePage extends CommonPage {
     public WebElement sendMessage_button;
     @FindBy(xpath = "//span[text()='Message sent successfully ']")
     public WebElement messageSentSuccessfully_message;
-    @FindBy(xpath ="//div[text()='Calendar']")
 
+
+    @FindBy(xpath = "//div[text()='Calendar']")
     public WebElement calendar;
     @FindBy(xpath = "//div[@class='ant-select css-15rg2km ant-select-single']")
     //div[@class='ant-select css-15rg2km ant-select-single ant-select-open']
