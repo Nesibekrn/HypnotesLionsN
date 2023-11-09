@@ -12,6 +12,7 @@ import java.util.List;
 import utilities.Driver;
 import java.util.ArrayList;
 import java.util.List;
+
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
 
@@ -339,5 +340,4 @@ public class HomePage extends CommonPage {
         testElements(companyContactUs,"contact-us");
 
     }
-
 }
