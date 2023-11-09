@@ -18,6 +18,12 @@ public class ClientsPage extends CommonPage {
     public WebElement loginPourEntrerLeSite07;
     @FindBy(xpath = "//input[@id='register_guardianEmail']")
     public WebElement guardienEmail;
+    @FindBy(css = "div.selected-flag")
+    public WebElement phoneCode_dropDown;
+    @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
+    public List<WebElement> phoneDialCode;
+ @FindBy(xpath = "//li[@class='country']")
+    public List<WebElement> phoneFlag_Dropdown;
 
     @FindBy(xpath = "//input[@id='register_guardianName']")
     public WebElement guardienName51;
@@ -35,6 +41,9 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//input[@id='register_email']")
     public WebElement addEmail51;
+
+    @FindBy(xpath = "//h2[@class='ant-typography css-aqx16b']")
+    public WebElement clientName51;
 
     @FindBy(xpath = "//div[text()='Male']")
     public WebElement addGenderMale51;

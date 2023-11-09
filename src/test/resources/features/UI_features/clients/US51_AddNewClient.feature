@@ -10,7 +10,7 @@ Background:
   @Therapist
   Scenario: TC  01 -Emergency buttons must be active
     Then The user enters data into the Gender, Phone, Occupation, Zip code, Country, State, City, address.
-      | Phone      | +33                    |
+      | Phone      | 3354666561                    |
       | Occupation | QA                     |
       | Zip code   | 13013                  |
       | Country    | France                 |
