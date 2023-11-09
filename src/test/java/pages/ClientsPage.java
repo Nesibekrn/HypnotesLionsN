@@ -325,5 +325,10 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public List<WebElement> copytextList;
     @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
     public WebElement messageSucces;
+    @FindBy(xpath = "//img[@alt='avatar']")
+    public WebElement uploadedImage;
+    //@FindBy(xpath = "//div[@class='ant-select-item ant-select-item-option']")
+    @FindBy(css="div.ant-select-item ant-select-item-option")
+    public List<WebElement> timeZone_List;
 
 }
