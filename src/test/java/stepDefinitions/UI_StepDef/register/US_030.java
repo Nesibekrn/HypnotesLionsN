@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //package stepDefinitions.UI_StepDef.register;
 //
 //import com.github.javafaker.Faker;
@@ -77,7 +77,7 @@
 //
 //    }
 //}
-=======
+
 package stepDefinitions.UI_StepDef.register;
 
 import com.github.javafaker.Faker;
@@ -159,4 +159,4 @@ public class US_030 extends CommonPage {
 
      */
 }
->>>>>>> main
+

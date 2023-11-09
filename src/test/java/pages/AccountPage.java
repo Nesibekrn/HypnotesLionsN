@@ -44,7 +44,7 @@ public class AccountPage extends CommonPage{
     @FindBy(xpath="//input[@placeholder='City,State,Zip']")
     public WebElement cityStateZip;
     @FindBy(xpath="//input[@placeholder='Company URL']")
-    public WebElement country;
+    public WebElement companyURL;
 
     // @FindBy(xpath="//div[@data-test-id='profil_addNewCompanyPage_companyCountry_dropDown_input']/input")
     // public WebElement country;
