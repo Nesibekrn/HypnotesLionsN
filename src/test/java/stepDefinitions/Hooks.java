@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 
+import enums.Enum_Fy;
 import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -125,5 +126,14 @@ public class Hooks {
                 ConfigurationReader.getProperty("clientEmailUSA"),
                 ConfigurationReader.getProperty("clientPasswordUSA")
         );
+    }
+    @Before("@Profile")
+    public void therapisteLogin(){
+        driver.get(ConfigurationReader.getProperty("hypnotes"));
+        commonPage.getLoginPage().Login.click();
+        commonPage. getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPIST.getUsername());
+        commonPage.getLoginPage().PasswordButton.sendKeys(Enum_Fy.THERAPIST.getPassword());
+        commonPage.getLoginPage().LoginButtonforSignIn.click();
+
     }
 }
