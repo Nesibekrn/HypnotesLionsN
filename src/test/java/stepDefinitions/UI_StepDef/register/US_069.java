@@ -57,13 +57,10 @@ public class US_069 extends CommonPage {
         waitFor(1);
         Assert.assertEquals(headings.get(6),getClientsPage().voiceNotes.getText());
 
-        // Assert.assertTrue(getClientsPage().session1button.isDisplayed());
-//        Assert.assertTrue(getClientsPage().associatedIssues.isDisplayed());
+
+
 //       Assert.assertTrue(getClientsPage().keyPoint.isDisplayed());
-//        Assert.assertTrue(getClientsPage().afterThought.isDisplayed());
-//        Assert.assertTrue(getClientsPage().applicationsSuggestions.isDisplayed());
-//         Assert.assertTrue(getClientsPage().attachments.isDisplayed());
-//         Assert.assertTrue(getClientsPage().voiceNotes.isDisplayed());
+
 
 
          }
