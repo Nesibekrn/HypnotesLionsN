@@ -2,6 +2,7 @@ package stepDefinitions;
 
 
 import enums.Enum_Fy;
+import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -12,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class Hooks {
@@ -60,7 +62,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-        Driver.closeDriver();
+       Driver.closeDriver();
 
     }
 
@@ -104,10 +106,18 @@ public class Hooks {
 
     @Before("@Therapist")
     public void ThrerapistLogIn(){
-        commonPage.getLoginPage().ThrerapistLogIn(
-                ConfigurationReader.getProperty("therapistEmail"),
-                ConfigurationReader.getProperty("therapistPassword")
-        );
+//       commonPage.getLoginPage().ThrerapistLogIn(
+//               ConfigurationReader.getProperty("therapistEmail"),
+//               ConfigurationReader.getProperty("therapistPassword")
+//       );
+        commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
+
+        try{
+            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,2);
+            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+        }catch (Exception e){
+            System.out.println("Not found timezone pop up");
+        }
     }
 
     @Before("@Client")

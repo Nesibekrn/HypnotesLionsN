@@ -64,7 +64,8 @@ public class US_059 extends CommonPage {
             System.out.println(getAccountPage().fields.get(i).getAttribute("placeholder"));
             Assert.assertEquals(getAccountPage().fields.get(i).getAttribute("placeholder"),ffields.get(i));
 
-        }}
+        }
+    }
 
     @Then("your logo button is displayed")
     public void your_logo_button_is_displayed() {
@@ -109,8 +110,10 @@ public class US_059 extends CommonPage {
         getAccountPage().countryDD.click();
         Select ss=new Select(getAccountPage().contryDropDownl);
         ss.selectByVisibleText("Turkey");
-        waitFor(5);
+        waitFor(6);
+        System.out.println("*********************"+getAccountPage().selectedDDvalueforCountry.getAttribute("value"));
 
+Assert.assertTrue(getAccountPage().selectedDDvalueforCountry.getAttribute("value").contains("Turkey"));
     }
 
 }
