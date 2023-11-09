@@ -203,7 +203,15 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Recording added.']")
     public WebElement messageRecordingAdd;
 
-
-
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-default ant-btn-block']")
+    public List<WebElement> sendClientList;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-block']")
+    public List<WebElement> convertTextList;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-block ant-btn-dangerous']")
+    public List<WebElement> deleteButtonList;
+    @FindBy(xpath = "//div[@style='text-overflow: ellipsis; overflow: hidden;']")
+    public List<WebElement> copytextList;
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    public WebElement messageSucces;
 
 }

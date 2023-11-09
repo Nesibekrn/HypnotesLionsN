@@ -78,18 +78,43 @@ public class US_073_StepDef extends CommonPage {
 
     @Then("Send to client, Convert to Text, Delete Recording buttons should appear")
     public void sendToClientConvertToTextDeleteRecordingButtonsShouldAppear() {
+        getClientsPage().sendClientList.get(0).isDisplayed();
+        getClientsPage().convertTextList.get(0).isDisplayed();
+        getClientsPage().deleteButtonList.get(0).isDisplayed();
 
     }
 
     @Then("Send to client button should give valid results")
     public void sendToClientButtonShouldGiveValidResults() {
+        getClientsPage().sendClientList.get(0).click();
+        ReusableMethods.waitForVisibility(getClientsPage().messageSucces,10);
+        getClientsPage().messageSucces.isDisplayed();
+        System.out.println("getClientsPage().messageSentClient = " + getClientsPage().messageSucces.getText());
+        ReusableMethods.waitFor(1);
     }
 
     @Then("Convert to Text button should give valid results")
     public void convertToTextButtonShouldGiveValidResults() {
+        getClientsPage().convertTextList.get(1).click();
+        System.out.println("getClientsPage().copytextList.get(1).getText() = " + getClientsPage().copytextList.get(1).getText());
+        assert getClientsPage().copytextList.get(1).getText().contains("How are you?");
+        ReusableMethods.waitFor(1);
+
+
     }
 
     @Then("Delete Recording button should give valid results")
     public void deleteRecordingButtonShouldGiveValidResults() {
+        getClientsPage().deleteButtonList.get(0).click();
+        getClientsPage().yesButton.click();
+        ReusableMethods.waitForVisibility(getClientsPage().messageSucces,10);
+
+        getClientsPage().messageSucces.isDisplayed();
+        ReusableMethods.waitFor(1);
+        getClientsPage().messageSucces.getText().contains("Voice is succesfully deleted.");
+        System.out.println("getClientsPage().messageSucces.getText() = " + getClientsPage().messageSucces.getText());
+
+
+
     }
 }
