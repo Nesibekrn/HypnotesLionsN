@@ -44,9 +44,8 @@ public class ReusableMethods {
              ve ardından bu değerleri birleştirebilirsiniz.
              */
     }
+
     private static WebDriverWait wait;
-
-
 
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
@@ -241,7 +240,7 @@ public class ReusableMethods {
         }
     }
 
-    protected static WebElement waitClickableByOfElement(WebElement webElement) {
+    public static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
         try {
          //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));

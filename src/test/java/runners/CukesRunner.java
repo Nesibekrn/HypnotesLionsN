@@ -15,7 +15,15 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "stepDefinitions",
-        tags = "@US_079",
+
+
+
+
+        tags = " ",
+
+
+
+
 
         dryRun = false
 )

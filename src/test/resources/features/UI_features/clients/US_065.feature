@@ -1,12 +1,11 @@
 @UI @US_065
-  @TherapistLoginUSA
 Feature: Appointments Section for Therapists
 
   Background:
-    Given a Therapist User is logged in
+    Given a Therapist User is logged
     And the user is on the Clients page
     When the user clicks on the View Details button
-
+  @UI @US_065
   Scenario: Managing Appointments
     Given As a Therapist user clicks on Appointments
     Then the Appointments page should open
