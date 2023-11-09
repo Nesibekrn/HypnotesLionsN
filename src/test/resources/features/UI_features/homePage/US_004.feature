@@ -1,4 +1,4 @@
-@UI @US_002
+@UI @US_002 @smoke
 Feature: The user goes to home page
   Scenario: US_004
     Given User goes to "https://test.hypnotes.net"

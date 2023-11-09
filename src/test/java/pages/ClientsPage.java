@@ -54,7 +54,7 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//input[@tabindex='-1']")
     public WebElement inputYourLogoButton;
 
-    @FindBy(xpath = "//textarea[@placeholder='Your Company']")
+    @FindBy(xpath = "//textarea[@class='ant-input css-aqx16b invoice_input__75vJN  invoices_fs20__sCIFM']")
     public WebElement inputYourCompanyButton;
 
     @FindBy(xpath = "//input[@placeholder='Name']")
@@ -145,4 +145,13 @@ public class ClientsPage extends CommonPage {
     @FindBy(css="div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
 
+
+    @FindBy(xpath="//div[@class=\"view invoices_w55__ZZ_5p\"]/input")
+    public List<WebElement> invoiceClientInfo;
+
+    @FindBy(xpath = "(//input[@class='invoice_input__75vJN  '])[1]")
+    public WebElement ddCountryWithoutSelect;
+
+    @FindBy(xpath = "//option[@value='Turkey']")
+    public WebElement selectedCountry;
 }
