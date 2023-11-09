@@ -2,7 +2,7 @@ package enums;
 
 public enum Enum_Fy {
 
-    THERAPIST("hypnotes2022tr@gmail.com","Aydinlik123/");
+    THERAPIST("fatihfrance@yopmail.com","123456789Aa@");
 
     private final String username;
     private final String password;

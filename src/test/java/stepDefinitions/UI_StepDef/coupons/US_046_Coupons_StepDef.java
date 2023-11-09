@@ -34,15 +34,16 @@ public class US_046_Coupons_StepDef extends CommonPage {
 
     @When("user verifies the Coupons button is clickable and clicks")
     public void userVerifiesTheCouponsButtonIsClickableAndClicks() {
-        Assert.assertTrue(getCouponsPage().CouponsButton.isEnabled());
+        Assert.assertTrue(getLoginPage().couponsBButton.isEnabled());
         ReusableMethods.waitFor(2);
-        getCouponsPage().CouponsButton.click();
+        getLoginPage().couponsBButton.click();
         ReusableMethods.waitFor(3);
     }
 
     @Then("user sees the Coupons page")
     public void userSeesTheCouponsPage() {
         String expectedUrl="https://test.hypnotes.net/dashboard/coupons";
+        ReusableMethods.waitFor(1);
         Assert.assertEquals(expectedUrl,driver.getCurrentUrl());
 
     }

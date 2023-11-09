@@ -35,9 +35,11 @@ public class US_041_Dashboard_StepDef extends CommonPage{
     @When("user verifies the Dashboard button is clickable and clicks")
     public void userVerifiesTheDashboardButtonIsClickableAndClicks() {
 
-        Assert.assertTrue(getDashboardPage().dashboardButton.isEnabled());
-        getDashboardPage().dashboardButton.click();
-        ReusableMethods.waitFor(5);
+        Assert.assertTrue(getLoginPage().dashboardBButton.isEnabled());
+        ReusableMethods.waitFor(2);
+        getLoginPage().dashboardBButton.click();
+        ReusableMethods.waitFor(2);
+
 
     }
 
