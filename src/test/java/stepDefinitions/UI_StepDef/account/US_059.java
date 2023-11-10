@@ -115,6 +115,8 @@ public class US_059 extends CommonPage {
         System.out.println("*********************"+getAccountPage().selectedDDvalueforCountry.getAttribute("value"));
 
 Assert.assertTrue(getAccountPage().selectedDDvalueforCountry.getAttribute("value").contains("Turkey"));
+
+
     }
 
 }
