@@ -45,13 +45,13 @@ public class US_061 extends CommonPage {
         ReusableMethods.clickWithTimeOut(getClientsPage().viewDetailsBtns.get(0), 3);
     }
 
-    @Then("User should see the Clients info page")
-    public void userShouldSeeTheClientsInfoPage() {
-        ReusableMethods.waitFor(3);
-        ReusableMethods.verifyElementDisplayed(getClientsPage().clientInfoSectionBtn.get(0));
-    }
+   @Then("User should see the Clients info page")
+   public void userShouldSeeTheClientsInfoPage() {
+       ReusableMethods.waitFor(3);
+       ReusableMethods.verifyElementDisplayed(getClientsPage().clientInfoSectionBtn.get(0));
+   }
 
-    @Given("User should see the Schedule an Appointment option")
+   @Given("User should see the Schedule an Appointment option")
     public void userShouldSeeTheScheduleAnAppointmentOption() {
         ReusableMethods.waitFor(3);
         ReusableMethods.verifyElementDisplayed(getClientsPage().scheduleAnAppointment.get(0));
@@ -69,9 +69,9 @@ public class US_061 extends CommonPage {
         ReusableMethods.clickWithTimeOut(getClientsPage().scheduleAnAppointment.get(0), 3);
     }
 
-    @Then("the relevant page should appear")
-    public void theRelevantPageShouldAppear() {
-        ReusableMethods.waitForVisibility(getClientsPage().hypnotesSchedulerSection,3);
-        ReusableMethods.verifyElementDisplayed(getClientsPage().hypnotesSchedulerSection);
-    }
+   @Then("the relevant page should appear")
+   public void theRelevantPageShouldAppear() {
+       ReusableMethods.waitForVisibility(getClientsPage().hypnotesSchedulerSection,3);
+       ReusableMethods.verifyElementDisplayed(getClientsPage().hypnotesSchedulerSection);
+   }
 }
