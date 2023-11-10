@@ -180,7 +180,6 @@ public class ClientsPage extends CommonPage {
     public WebElement accountActivityButton;
     @FindBy(xpath = "//span[text()='Mark all as read']")
     public WebElement markAllRead;
-
     @FindBy(xpath = "//span[text()='See all Account Activity']")
     public WebElement seeAllAccountActivity;
     @FindBy(xpath = "//span[text()='Yes']")
@@ -204,8 +203,6 @@ public void companyAndItemsAreVisible(DataTable elements) {
     waitFor(5);
 
 }
-
-
 
     @FindBy(xpath = "//span[text()='Import Client']")
     public WebElement importClientsButton;
