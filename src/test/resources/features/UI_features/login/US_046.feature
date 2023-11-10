@@ -1,4 +1,5 @@
 @UI
+
 Feature: After logging in as User, I should be able to see the Coupons page
 
   Background:

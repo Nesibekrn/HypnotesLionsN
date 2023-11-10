@@ -14,10 +14,53 @@ import static utilities.ReusableMethods.waitFor;
 
 public class ClientsPage extends CommonPage {
 
+   @FindBy(xpath = "//a[@href='/dashboard/clients']")
+   public WebElement clients_button;
+
+ // @FindBy(xpath ="//span[@class='ant-typography ant-typography-success css-aqx16b']" )
+   //public WebElement viewDetailsButton;
+
+   // @FindBy(xpath ="(//span[@class='ant-typography ant-typography-success css-aqx16b'])[1]")
+    //public WebElement viewDetailsButton;
+
+    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
+    public WebElement sessionsButton;
+
+    @FindBy(xpath = "(//button[@class='ant-btn css-aqx16b ant-btn-primary'])[1]")
+    public WebElement addNewSessionButton;
 
 
-    @FindBy(xpath = "//a[@href='/dashboard/clients']")
-    public WebElement clients_button;
+
+    @FindBy(xpath = "(//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 10px;'])[1]")
+    public WebElement dateButton;
+
+    @FindBy(xpath = "//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 20px; margin-bottom: 10px;']")
+    public WebElement associatedIssues;
+
+
+    @FindBy(xpath = "//label[normalize-space()='Key Points:']")
+    public WebElement keyPoint;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='After Thoughts:']")
+    public WebElement afterThought;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Applications & Suggestions:']")
+    public WebElement applicationsSuggestions;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Attachments:']")
+    public WebElement attachments;
+
+
+
+    @FindBy(xpath = "//label[normalize-space()='Voice Notes:']")
+    public WebElement voiceNotes;
+
     @FindBy(xpath = "//span[normalize-space()='Add New Client']")
     public WebElement addNewClientButton;
     @FindBy(xpath = "//span[normalize-space()='Export Client']")
@@ -69,6 +112,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
     waitFor(5);
 
 }
+
     @FindBy(xpath = "//span[text()='Import Client']")
     public WebElement importClientsButton;
 
@@ -168,12 +212,18 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "//a/span[.='View Details']")
     public List<WebElement> viewDetailsBtns;
+    @FindBy(xpath = "//a[@href='/dashboard/services']")
+    public WebElement services_button;
+
 
     @FindBy(xpath = "//span[text()='Client Info']")
     public List<WebElement> clientInfoSectionBtn;
 
     @FindBy(xpath = "//span[text()='Hypnotes Scheduler']")
     public WebElement hypnotesSchedulerSection;
+
+    @FindBy(xpath = "//a[@href='/dashboard/settings']")
+    public WebElement settings_button;
 
     @FindBy(xpath = "//a[@href=\"/dashboard/clients/2749\"]")
     public WebElement firstClient;
@@ -253,6 +303,29 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath= "(//div[@class='ant-tabs-nav-list'])[2]//div[@role='tab']")
     public List<WebElement> sessionHeadings;
 
+    @FindBy(id = "record-icon1787")
+    public WebElement microphone;
+    @FindBy(xpath = "//span[text()='Stop Recording']")
+    public WebElement stopRecording;
+    @FindBy(xpath = "//audio[@class='react-audio-player ']")
+    public List<WebElement> audioList;
+    @FindBy(xpath = "//span[text()='Recording added.']")
+    public WebElement messageRecordingAdd;
 
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-default ant-btn-block']")
+    public List<WebElement> sendClientList;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-block']")
+    public List<WebElement> convertTextList;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-block ant-btn-dangerous']")
+    public List<WebElement> deleteButtonList;
+    @FindBy(xpath = "//div[@style='text-overflow: ellipsis; overflow: hidden;']")
+    public List<WebElement> copytextList;
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    public WebElement messageSucces;
+    @FindBy(xpath = "//img[@alt='avatar']")
+    public WebElement uploadedImage;
+    //@FindBy(xpath = "//div[@class='ant-select-item ant-select-item-option']")
+    @FindBy(css="div.ant-select-item ant-select-item-option")
+    public List<WebElement> timeZone_List;
 
 }
