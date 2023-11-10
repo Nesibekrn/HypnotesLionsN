@@ -11,13 +11,7 @@ import utilities.ReusableMethods;
 import static stepDefinitions.Hooks.driver;
 
 public class US_044 extends CommonPage {
-    @Given("a Therapist User is logged in")
-    public void aTherapistUserIsLoggedIn() {
-        driver.get(ConfigurationReader.getProperty("login_url"));
-        getLoginPage().email_login.sendKeys(ConfigurationReader.getProperty("therapistEmail"));
-        getLoginPage().password_Login.sendKeys(ConfigurationReader.getProperty("therapistPassword"));
-        getLoginPage().login_button.click();
-    }
+
     @Then("user verifies the Client button is clickable")
     public void userVerifiesTheClientButtonIsClickable() {
         Assert.assertTrue(getClientsPage().clients_button.isEnabled());

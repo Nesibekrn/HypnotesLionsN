@@ -45,9 +45,8 @@ public class ReusableMethods {
              ve ardından bu değerleri birleştirebilirsiniz.
              */
     }
+
     private static WebDriverWait wait;
-
-
 
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
@@ -242,10 +241,10 @@ public class ReusableMethods {
         }
     }
 
-    protected static WebElement waitClickableByOfElement(WebElement webElement) {
+    public static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
         try {
-            element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
+         //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (Exception e) {
         }
         return element;
@@ -254,7 +253,7 @@ public class ReusableMethods {
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
         try {
-            element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+          //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {
         }
         return element;
@@ -333,5 +332,9 @@ public class ReusableMethods {
     public static void scrollAndClickWithJS(WebElement webElement) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", webElement);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
+    }
+
+    public static void assertBackgroundColor(String color,WebElement webElement) {
+        Assert.assertEquals(color, webElement.getCssValue("background-color"));
     }
 }

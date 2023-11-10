@@ -109,7 +109,8 @@ public class AccountPage extends CommonPage{
 
 
 
-
+    @FindBy(xpath = "//input[@value='Turkey']")
+    public WebElement selectedDDvalueforCountry;
 
 
 
