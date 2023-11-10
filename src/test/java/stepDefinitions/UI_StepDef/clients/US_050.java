@@ -321,4 +321,25 @@ public class US_050 extends CommonPage {
         ReusableMethods.waitFor(2);
         Assert.assertEquals("https://test.hypnotes.net/dashboard/clients",driver.getCurrentUrl());
     }
+
+    @Given("user can not write anything in the First Name section")
+    public void userCanNotWriteAnythingInTheFirstNameSection() {
+        getClientsPage().firstName_input.sendKeys("f"+Keys.BACK_SPACE);
+    }
+
+    @Then("user can see {string} warning")
+    public void userCanSeeWarning(String message) {
+        ReusableMethods.waitForVisibility(getClientsPage().errorMessage, 2);
+        Assert.assertEquals(message,getClientsPage().errorMessage.getText());
+    }
+
+    @Given("user can not write anything in the Last Name section")
+    public void userCanNotWriteAnythingInTheLastNameSection() {
+        getClientsPage().lastName_input.sendKeys("f"+Keys.BACK_SPACE);
+    }
+
+    @Given("user can not write anything in the email section")
+    public void userCanNotWriteAnythingInTheEmailSection() {
+        getClientsPage().email_input.sendKeys("f"+Keys.BACK_SPACE);
+    }
 }
