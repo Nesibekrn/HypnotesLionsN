@@ -430,4 +430,25 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelPopUpButton;
+
+    @FindBy(css = "[href=\"/dashboard/clients/2830\"]")
+    public WebElement firstClientsName;
+    @FindBy(css = "[data-test-id=\"dashboard_clients_clientInfo\"]")
+    public WebElement clientInfoText;
+    @FindBy(css = ".anticon.anticon-plus-circle")
+    public WebElement plusCircleIcon_Attachments;
+    @FindBy(xpath = "//label[text()=\"Attachments\"]")
+    public WebElement getAttachmentsText;
+    @FindBy(css = ".custom-file>label")
+    public WebElement chooseFileText;
+    @FindBy(xpath = "//input[@class='custom-file-input']")
+    public WebElement chooseFileInput;
+    @FindBy(css = ".ant-btn-dangerous span")
+    public WebElement deleteSessionBtn;
+    @FindBy(xpath = "//div[@class='ant-message-notice-content']")
+    public WebElement fileAddedMessage;
+    @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']//button[2]/span")
+    public WebElement yesButton_toDeleteSession;
+
+
 }

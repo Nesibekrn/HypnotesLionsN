@@ -1,6 +1,7 @@
 package stepDefinitions.UI_StepDef.login;
 
 import io.cucumber.java.en.*;
+
 import static org.junit.Assert.*;
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
@@ -16,6 +17,7 @@ public class US_048 extends CommonPage {
         waitFor(2);
         assertTrue(getDashboardPage().email_smsLink_therapistDashboard.isDisplayed());
         assertEquals("Email & SMS",getDashboardPage().email_smsLink_therapistDashboard.getText());
+
 
     }
     @Then("user verifies Email-sms link is clickable on the page")
