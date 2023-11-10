@@ -10,6 +10,7 @@ import pages.CommonPage;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -18,6 +19,7 @@ import static stepDefinitions.Hooks.driver;
 public class US_050 extends CommonPage {
     String phoneCode;
     Faker faker = new Faker();
+    String name, lastName, fullName;
 
     @Given("user clicks on Clients button")
     public void user_clicks_on_clients_button() {
@@ -111,12 +113,14 @@ public class US_050 extends CommonPage {
 
     @Given("user types name in the first name section")
     public void userTypesNameInTheFirstNameSection() {
-        getClientsPage().firstName_input.sendKeys(faker.name().firstName());
+        name = faker.name().firstName();
+        getClientsPage().firstName_input.sendKeys(name);
     }
 
     @And("user types last name in the last name section")
     public void userTypesLastNameInTheLastNameSection() {
-        getClientsPage().lastName_input.sendKeys(faker.name().lastName());
+        lastName = faker.name().lastName();
+        getClientsPage().lastName_input.sendKeys(lastName);
     }
 
     @Then("user verify Phone menu is functional")
@@ -223,7 +227,7 @@ public class US_050 extends CommonPage {
 
     @Given("user types zip code in the Zip Code inbox")
     public void user_types_zip_code_in_the_zip_code_inbox() {
-       // getClientsPage().zipCode_input.sendKeys(faker.address().zipCode());
+        // getClientsPage().zipCode_input.sendKeys(faker.address().zipCode());
         getClientsPage().zipCode_input.sendKeys("LE18 1GD");
     }
 
@@ -252,9 +256,52 @@ public class US_050 extends CommonPage {
     public void user_can_see_message(String message) {
         Assert.assertTrue(getClientsPage().addMessage.getText().contains(message));
     }
+
     @Given("user types {string} in the occupation sections")
     public void user_types_occupation_in_the_occupation_sections(String occupation) {
         ReusableMethods.waitFor(2);
         getClientsPage().occupation_input.sendKeys(occupation);
+    }
+
+    @Then("user can see new client is in the Clients module")
+    public void userCanSeeNewClientIsInTheClientsModule() {
+        fullName = name + " " + lastName;
+        Boolean flag=false;
+        for (int i = 0; i <getClientsPage().allClients_List.size() ; i++) {
+            if (fullName.equals(getClientsPage().allClients_List.get(i).getText())){
+                ReusableMethods.waitFor(1);
+                flag=true;
+                break;
+            }
+        }
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(flag);
+    }
+
+    @Given("user clicks delete button for last added Client")
+    public void userClicksDeleteButtonForLastAddedClient() {
+        for (int i = 0; i <getClientsPage().allClients_List.size() ; i++) {
+            if (fullName.equals(getClientsPage().allClients_List.get(i).getText())){
+                ReusableMethods.waitFor(1);
+                getClientsPage().deleteButtonClientsPage.get(i).click();
+                break;
+            }
+        }
+        ReusableMethods.waitFor(1);
+        getClientsPage().yesButton.click();
+    }
+
+    @Then("user sees that the last added client has been deleted")
+    public void userSeesThatTheLastAddedClientHasBeenDeleted() {
+        Boolean flag=false;
+        for (int i = 0; i <getClientsPage().allClients_List.size() ; i++) {
+            if (fullName.equals(getClientsPage().allClients_List.get(i).getText())){
+                ReusableMethods.waitFor(1);
+                flag=true;
+                break;
+            }
+        }
+        ReusableMethods.waitFor(2);
+        Assert.assertFalse(flag);
     }
 }

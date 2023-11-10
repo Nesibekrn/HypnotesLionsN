@@ -95,6 +95,18 @@ Feature: As a user (therapist) I should be able to add new client
     And the user clicks on the yes button
     Then user can see 'New Client is successfully added.' message
 
+  Scenario: TC014
+    Given user types name in the first name section
+    And user types last name in the last name section
+    * user types email in the email sections
+    * the user clicks on the save button
+    * the user clicks on the yes button
+    * user clicks on Clients button
+    Then user can see new client is in the Clients module
+    Given user clicks delete button for last added Client
+    Then user sees that the last added client has been deleted
+
+
 
   #When you click the Save button warning message should appear:
  # To ensure appointments are scheduled in the proper Time Zone, please confirm the client Time Zone you have selected. Europe/Istanbul

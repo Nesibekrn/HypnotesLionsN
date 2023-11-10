@@ -336,7 +336,11 @@ public class ClientsPage extends CommonPage {
     public WebElement no_Button;
     @FindBy(xpath = "//div[@class='ant-popconfirm-message-title']")
     public WebElement timeZoneWarningMessage;
-   // @FindBy(xpath = "//span[text()='New Client is successfully added.']")
+    // @FindBy(xpath = "//span[text()='New Client is successfully added.']")
     @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
     public WebElement addMessage;
+    @FindBy(xpath = "//div[@class='ant-card-head-title']/..//h5")
+    public List<WebElement> allClients_List;
+    @FindBy(css = "[data-test-id='delet_button_clientsPage']")
+    public List<WebElement> deleteButtonClientsPage;
 }
