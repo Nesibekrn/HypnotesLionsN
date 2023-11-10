@@ -77,7 +77,7 @@ Assert.assertTrue(getClientsPage().chooseImportMethodWindow.getText().contains("
 
     @Then("user is able to view imported clients on the page")
     public void user_is_able_to_view_imported_clients_on_the_page() {
-       String clientName="John Moon";
+       String clientName="Jeniffer Lopes";
        waitFor(3);
         Assert.assertEquals(clientName,getClientsPage().importedClient.getText());
     }

@@ -3,6 +3,7 @@ package stepDefinitions.UI_StepDef.homePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CommonPage;
 
@@ -36,4 +37,6 @@ public class US_011 extends CommonPage {
     public void verifyThatCompanyElementsAreClickableAndRelevantPageShouldBeDisplayed() {
         getHomePage().companyElementsClick();
     }
+
+
 }
