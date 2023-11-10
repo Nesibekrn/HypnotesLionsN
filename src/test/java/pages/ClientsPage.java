@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class ClientsPage extends CommonPage{
 
     @FindBy(xpath = "//a[@href='/dashboard/clients']")
@@ -71,6 +73,36 @@ public class ClientsPage extends CommonPage{
     public WebElement inputPhone;
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
+
+
+    @FindBy(xpath = "//h5[text()='Fatma butterfly']")
+    public WebElement clientFatma;
+
+    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_payments']")
+    public WebElement paymentsSection;
+
+    @FindBy(xpath = "//div[@aria-selected='true']")
+    public WebElement selectedPaymentSection;
+
+    @FindBy(xpath = "//th[@aria-sort='descending']")
+    public WebElement dateSortDescending;
+    @FindBy(xpath = "//div[@class='ant-switch-handle']")
+    public List<WebElement> paymentSwitchButton;
+    @FindBy(xpath = "//span[@class='ant-tag ant-tag-red css-aqx16b']")
+    public List<WebElement> paymentStatusText;
+    @FindBy(xpath = "//span[@class='ant-dropdown-trigger ant-table-filter-trigger']")
+    public List<WebElement> sortingButtons;
+
+    @FindBy(xpath = "//input[@type='checkbox']")
+    public List<WebElement> sortingCheckBox;
+    @FindBy(xpath = "//span[@class='ant-checkbox-inner']")
+    public List<WebElement> sortingServicesText;
+
+    @FindBy(xpath = "//span[text()='OK']")
+    public List<WebElement> okButton;
+    @FindBy(xpath = "//span[@class='ant-tag ant-tag-orange css-aqx16b']")
+    public WebElement serviceText;
+
 
 
 
