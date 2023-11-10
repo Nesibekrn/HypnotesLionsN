@@ -115,12 +115,14 @@ Feature: As a user (therapist) I should be able to add new client
     * user clicks Cancel button
     Then user can not add client
 
-Scenario: TC016-Please enter First Name
-  Given user can not write anything in the First Name section
-  Then user can see "Please enter First Name" warning
+  Scenario: TC016-Please enter First Name
+    Given user can not write anything in the First Name section
+    Then user can see "Please enter First Name" warning
+
   Scenario: TC017-Please enter Last Name
     Given user can not write anything in the Last Name section
     Then user can see "Please enter Last Name" warning
+
   Scenario: TC018-Please enter Email
     Given user can not write anything in the email section
     Then user can see "Please enter Email" warning
