@@ -427,4 +427,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "//option[@value='Turkey']")
     public WebElement selectedCountry;
+
+    @FindBy(xpath = "//span[text()='Cancel']")
+    public WebElement cancelPopUpButton;
 }
