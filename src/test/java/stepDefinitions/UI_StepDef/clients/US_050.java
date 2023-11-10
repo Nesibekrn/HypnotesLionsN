@@ -293,6 +293,8 @@ public class US_050 extends CommonPage {
 
     @Then("user sees that the last added client has been deleted")
     public void userSeesThatTheLastAddedClientHasBeenDeleted() {
+        ReusableMethods.waitFor(2);
+        Assert.assertEquals("Client has been deleted",getClientsPage().clientDeletedMessages.getText());
         Boolean flag=false;
         for (int i = 0; i <getClientsPage().allClients_List.size() ; i++) {
             if (fullName.equals(getClientsPage().allClients_List.get(i).getText())){
@@ -303,5 +305,20 @@ public class US_050 extends CommonPage {
         }
         ReusableMethods.waitFor(2);
         Assert.assertFalse(flag);
+    }
+    @Given("user clicks on the No button")
+    public void user_clicks_on_the_no_button() {
+        ReusableMethods.waitFor(1);
+        getClientsPage().no_Button.click();
+    }
+    @Given("user clicks Cancel button")
+    public void user_clicks_cancel_button() {
+        ReusableMethods.waitForVisibility(getClientsPage().cancelPopUpButton,2);
+        getClientsPage().cancelPopUpButton.click();
+    }
+    @Then("user can not add client")
+    public void user_can_not_add_client() {
+        ReusableMethods.waitFor(2);
+        Assert.assertEquals("https://test.hypnotes.net/dashboard/clients",driver.getCurrentUrl());
     }
 }

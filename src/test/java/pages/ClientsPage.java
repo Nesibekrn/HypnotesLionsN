@@ -343,4 +343,6 @@ public class ClientsPage extends CommonPage {
     public List<WebElement> allClients_List;
     @FindBy(css = "[data-test-id='delet_button_clientsPage']")
     public List<WebElement> deleteButtonClientsPage;
+    @FindBy(xpath = "//span[text()='Client has been deleted']")
+    public WebElement clientDeletedMessages;
 }

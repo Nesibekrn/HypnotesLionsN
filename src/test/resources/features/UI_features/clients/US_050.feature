@@ -106,6 +106,16 @@ Feature: As a user (therapist) I should be able to add new client
     Given user clicks delete button for last added Client
     Then user sees that the last added client has been deleted
 
+  Scenario: TC015
+    Given user types name in the first name section
+    And user types last name in the last name section
+    * user types email in the email sections
+    * the user clicks on the save button
+    * user clicks on the No button
+    * user clicks Cancel button
+    Then user can not add client
+
+
 
 
   #When you click the Save button warning message should appear:
