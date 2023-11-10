@@ -227,6 +227,9 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//span[contains(text(),'View Details')]")
     public WebElement viewDetailsButton;
 
+    @FindBy(xpath = "(//a[@data-test-id='view_details_button_clientsPage'])[2]")
+    public WebElement viewDetailsSecondClientButton;
+
     @FindBy(xpath = "//span[@data-test-id='dashboard_clients_appointments']")
     public WebElement appointmentsButton;
 
@@ -248,7 +251,8 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//input[@tabindex='-1']")
     public WebElement inputYourLogoButton;
 
-    @FindBy(xpath = "//textarea[@class='ant-input css-aqx16b invoice_input__75vJN  invoices_fs20__sCIFM']")
+    @FindBy(xpath = "//input[@placeholder='Your Company']")
+
     public WebElement inputYourCompanyButton;
 
     @FindBy(xpath = "//input[@placeholder='Name']")
@@ -265,6 +269,9 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "(//input[@class='invoice_input__75vJN  '])[1]")
     public WebElement dropDownCountryWithoutSelect;
+
+    @FindBy(css = "select.invoice_select__WnoPF")
+    public WebElement dropDownCountrySelectcss;
 
     @FindBy(xpath = "//input[@value='Australia']")
     public WebElement selectCountry;
