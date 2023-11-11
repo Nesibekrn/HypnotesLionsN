@@ -1,5 +1,6 @@
 package stepDefinitions.UI_StepDef.login;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,6 +9,7 @@ import pages.CommonPage;
 import utilities.ReusableMethods;
 
 public class US_062 extends CommonPage {
+    Faker faker = new Faker();
     @When("user verifies the edit button is visible")
     public void userVerifiesTheEditButtonIsVisible() {
         Assert.assertTrue(getClientsPage().editButton.isDisplayed());
@@ -32,8 +34,11 @@ public class US_062 extends CommonPage {
 
     @And("user edit middle  name of the client")
     public void userEditMiddleNameOfTheClient() {
-        getClientsPage().middleNameEdit.sendKeys("Ayse");
-
+        ReusableMethods.waitFor(1);
+        getClientsPage().middleNameEdit.clear();
+        ReusableMethods.waitFor(5);
+        getClientsPage().middleNameEdit.sendKeys(faker.name().firstName());
+        ReusableMethods.waitFor(5);
     }
 
     @Then("user verify that show other fields button is clicked")
@@ -49,7 +54,11 @@ public class US_062 extends CommonPage {
 
     @Then("user edit Guardian Email of the client")
     public void userEditGuardianEmailOfTheClient() {
-        getClientsPage().guardianEmailEdit.sendKeys("guardien@ypmail.com");
+        ReusableMethods.waitFor(2);
+        getClientsPage().guardianEmailEdit.clear();
+        ReusableMethods.waitFor(2);
+        getClientsPage().guardianEmailEdit.sendKeys(faker.internet().emailAddress());
+        ReusableMethods.waitFor(2);
     }
 
     @And("user clicks on the save button after editing various information")
