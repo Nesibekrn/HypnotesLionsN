@@ -237,17 +237,28 @@ public class RegisterPage extends CommonPage {
     public WebElement nextGoogle;
     @FindBy(xpath = "//div[@class='rFrNMe ze9ebf YKooDc wIXLub zKHdkd sdJrJc']")
     public WebElement passwordGooglee;
-  //  @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
-    ////                 span[@data-test-id='loginScreen_logIn']
-    // public WebElement registerloginButton;
+  // @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
+  // ////  span[@data-test-id='loginScreen_logIn']
+  //  public WebElement registerloginButton;
 
+    @FindBy(xpath = "//span[text()='Login']")
+    public WebElement registerloginButton;
+
+    @FindBy(xpath = "(//div[@class='RegisterForm_fontSmall__p6mzi'])[3]")
+    public WebElement signInWithLinkedin;
+
+    @FindBy(id="username")
+    public WebElement linkedInUserName;
+
+    @FindBy(id="password")
+    public WebElement linkedInPassword;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement linkedInSignInButton;
+
+    @FindBy(xpath = "//h1[starts-with(text(),'Hızlıca')]")
+    public WebElement linkedInTurkceDogrulamaMesaji;
+
+    @FindBy(xpath = "//h1[starts-with(text(),'Let')]")
+    public WebElement linkedInEnglishVerificationMessage;
 }
-
-
-
-
-
-
-
-
-
