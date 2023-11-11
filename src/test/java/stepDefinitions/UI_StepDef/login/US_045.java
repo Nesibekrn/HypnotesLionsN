@@ -22,7 +22,7 @@ public class US_045 extends CommonPage {
     @When("user clicks on Documents button")
     public void userClicksOnDocumentsButton() {
         getDocumentsPage().documents_button.click();
-        ReusableMethods.waitFor(1);
+        ReusableMethods.waitFor(5);
 
     }
 
