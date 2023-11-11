@@ -439,14 +439,18 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//input[@id='client_middleName']")
     public WebElement middleNameEdit;
     @FindBy(xpath = "//span[@class='ant-checkbox css-aqx16b ant-checkbox-checked']")
-    public WebElement showOtherFieldsCheckedEdit;
+    public WebElement showOtherFieldsClickedEdit;
+    @FindBy(xpath = "//input[@class='ant-checkbox-input']")
+    public WebElement showOtherFieldsNonClickedEdit;
+
+
     @FindBy(xpath = "//input[@id='client_guardianEmail']")
     public WebElement guardianEmailEdit;
 
     @FindBy(xpath = "//div[@class='ant-popconfirm-message-title']")
     public WebElement ConfirmMessageTitle_Edit;
     @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
-    public WebElement succesfullyUpdated_Edit;
+    public WebElement succesfullyUpdatedEdit;
 
 
 
