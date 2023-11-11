@@ -1,8 +1,7 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.Calendar;
 
 import static stepDefinitions.Hooks.driver;
 
