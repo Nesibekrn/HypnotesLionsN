@@ -1,6 +1,5 @@
 package stepDefinitions.UI_StepDef.homePage;
 
-import enums.COLOR;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

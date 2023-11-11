@@ -198,14 +198,13 @@ public class US_050 extends CommonPage {
         ReusableMethods.waitFor(2);
         Assert.assertEquals(address, getClientsPage().address_input.getText());
     }
-
     @When("user clicks on Upload Profile Image menu")
     public void user_clicks_on_upload_profile_image_menu() {
-
+        getClientsPage().uploadProfileImage_input.sendKeys(System.getProperty("user.dir") + "/src/test/resources/Upload Images/uploadImage.png");
     }
 
     @Then("user should be able to upload profile image")
     public void user_should_be_able_to_upload_profile_image() {
-
+        Assert.assertTrue(getClientsPage().uploadedImage.isDisplayed());
     }
 }
