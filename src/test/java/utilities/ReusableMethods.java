@@ -31,7 +31,6 @@ import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
 
-
     public static String rasgeleIsimOlustur() {
         Faker faker = new Faker();
 
