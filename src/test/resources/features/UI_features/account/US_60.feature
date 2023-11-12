@@ -6,7 +6,7 @@ Feature: As a user (Therapist), I should be able to perform various actions in t
     And  Clicks on the profile title.
 
   @US060
-  Scenario Outline: TC001
+  Scenario Outline: TC001-Profile(Your Company)
     When the user clicks on the your Company title
     Then the user can see the previously attached company information
     When the user clicks the Edit button
