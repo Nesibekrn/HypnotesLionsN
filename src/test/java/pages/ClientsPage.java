@@ -283,8 +283,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
       public WebElement sessionButon;
-    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_sessions']")
-    public WebElement sessionButon;
+
     @FindBy(xpath = "//span[text()='Delete Session']")
     public WebElement deleteSessionButton;
     @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']")
