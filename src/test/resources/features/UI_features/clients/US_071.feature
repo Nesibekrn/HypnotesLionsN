@@ -13,4 +13,9 @@ Feature: As a user (Therapist),I should be able to update in Session	Sessions
   @UI @Therapist @US_071
   Scenario: US_071_TC_01
     When the user clicks on the Sessions button
-    Then use
+    Then user updates the "keyPoints" field
+    And user verifies "Note Updated" message seen on the page
+    Then user updates the "afterThoughts" field
+    And user verifies "After thoughts updated" message seen on the page
+    Then user updates the "suggestions" field
+    And user verifies "Note Updated" message seen on the page
