@@ -428,6 +428,29 @@ public void companyAndItemsAreVisible(DataTable elements) {
     //@FindBy(xpath = "//div[@class='ant-select-item ant-select-item-option']")
     @FindBy(css = "div.ant-select-item ant-select-item-option")
     public List<WebElement> timeZone_List;
+    @FindBy(xpath = "//a[@href='/dashboard/clients']")
+    public WebElement clientBut;
+    @FindBy(xpath = "(//h5)[1]")
+    public WebElement listClient;
+    @FindBy(xpath = "//input[@data-test-id='search_clients_input']")
+    public WebElement searchClientButton;
+    @FindBy(xpath = "(//span[@class='ant-select-selection-item'])[2]")
+    public WebElement sortByButton;
+    @FindBy(xpath = "//label[@ for='inputGroupSelect01']")
+    public WebElement sortByButton2;
+    @FindBy(xpath = "//span[@class='text-center text-muted']")
+    public WebElement sortByDate;
+    @FindBy(xpath = "//span[@style='font-size: 12px;']")
+    public WebElement lesDates;//buda "2 hour ago" seklindeki tarih
+    @FindBy(xpath = "//div[@class='ant-tooltip-inner']")
+    public WebElement lesDates2;//bu net tarih
+
+
+
+
+
+
+
 
 
     @FindBy(xpath="//div[@class=\"view invoices_w55__ZZ_5p\"]/input")
