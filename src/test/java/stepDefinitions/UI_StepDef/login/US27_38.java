@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.LoginPage;
+import utilities.ConfigurationReader;
 import utilities.ReusableMethods;
 
 
@@ -20,7 +21,12 @@ public class US27_38 {
 
     LoginPage loginPage = new LoginPage();
 
-  @When("clicks the login button")
+    @Given("user goes to home page")
+    public void user_goes_to_home_page() {
+        driver.get(ConfigurationReader.getProperty("url"));
+    }
+
+    @When("clicks the login button")
    public void clicks_the_login_button() throws InterruptedException {
       loginPage.loginButton.click();
        Thread.sleep(2000);

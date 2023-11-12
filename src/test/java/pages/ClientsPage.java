@@ -508,6 +508,9 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public WebElement fileAddedMessage;
     @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']//button[2]/span")
     public WebElement yesButton_toDeleteSession;
+    @FindBy(xpath = "//span[@class='ant-typography ant-typography-success css-aqx16b']")
+    public WebElement view_Details;
+
 
 
 }

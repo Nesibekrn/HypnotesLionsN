@@ -24,7 +24,6 @@ import static stepDefinitions.Hooks.driver;
 
 public class US_052 extends CommonPage {
 
-
     Actions actions = new Actions(driver);
     @Given("User clicks to clients section")
     public void user_clicks_to_clients_section() throws InterruptedException {
