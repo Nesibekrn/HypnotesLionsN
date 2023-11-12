@@ -31,7 +31,7 @@ public class ClientsPage extends CommonPage {
     public WebElement phoneCode_dropDown;
     @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
     public List<WebElement> phoneDialCode;
- @FindBy(xpath = "//li[@class='country']")
+    @FindBy(xpath = "//li[@class='country']")
     public List<WebElement> phoneFlag_Dropdown;
 
     @FindBy(xpath = "//input[@id='register_guardianName']")
@@ -108,8 +108,6 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Save']")
     public WebElement save51;
 
- // @FindBy(xpath ="//span[@class='ant-typography ant-typography-success css-aqx16b']" )
-   //public WebElement viewDetailsButton;
     // @FindBy(xpath ="//span[@class='ant-typography ant-typography-success css-aqx16b']" )
     //public WebElement viewDetailsButton;
 
