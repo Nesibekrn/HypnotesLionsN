@@ -62,7 +62,6 @@ public class US_060 extends CommonPage {
 
     @Then("user can see {string}")
     public void user_can_see(String message) {
-      //  Assert.assertEquals(message,getAccountPage().messageUpdated.getText());
         ReusableMethods.waitFor(1);
         Assert.assertTrue(getAccountPage().messageUpdated.isDisplayed());
     }
@@ -74,9 +73,6 @@ public class US_060 extends CommonPage {
         Select ss=new Select(getAccountPage().contryDropDownl);
         ss.selectByVisibleText(country);
         waitFor(6);
-       // System.out.println("*********************"+getAccountPage().selectedDDvalueforCountry.getAttribute("value"));
-
-     //   Assert.assertTrue(getAccountPage().selectedDDvalueforCountry.getAttribute("value").contains(country));
     }
 
     @When("the user updates {string} in the company url section")
