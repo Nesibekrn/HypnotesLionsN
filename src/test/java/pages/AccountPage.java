@@ -172,8 +172,9 @@ public class AccountPage extends CommonPage {
     public WebElement input_CompanyAddress;
     @FindBy(xpath = "//input[@placeholder='City,State,Zip']")
     public WebElement input_CityStateZip;
-   // @FindBy(xpath = "//input[@class='invoice_input__75vJN  ']")
-    @FindBy(css="[data-test-id='profil_addNewCompanyPage_companyCountry_dropDown_input']")
+    @FindBy(xpath = "//input[@class='invoice_input__75vJN  ']")
+    public WebElement country_input;
+    @FindBy(xpath="//div[@data-test-id='profil_addNewCompanyPage_companyCountry_dropDown_input']")
     public WebElement input_Country;
     @FindBy(xpath = "//input[@placeholder='Company URL']")
     public WebElement input_CompanyURL;
@@ -183,7 +184,7 @@ public class AccountPage extends CommonPage {
     public WebElement input_CompanyEmail;
     @FindBy(xpath = "//input[@class='invoice_imageFile__dnFWA']")
     public WebElement input_Image;
-    @FindBy(xpath = "//span[@text()='Your company information has been  updated']")
+    @FindBy(xpath = "(//div[@class='ant-message-custom-content ant-message-info']//span)[2]")
     public WebElement messageUpdated;
 
 }

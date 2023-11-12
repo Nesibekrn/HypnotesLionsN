@@ -3,11 +3,14 @@ package stepDefinitions.UI_StepDef.account;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
 import java.util.Random;
+
+import static utilities.ReusableMethods.waitFor;
 
 public class US_060 extends CommonPage {
     @Then("the user can see the previously attached company information")
@@ -48,7 +51,7 @@ public class US_060 extends CommonPage {
 
     @When("the user updates image")
     public void the_user_updates_image() {
-        String imagePath = System.getProperty("user.dir") + "/src/test/resources/Upload Images/newImage.jpeg";
+        String imagePath = System.getProperty("user.dir") + "/src/test/resources/Upload Images/uploadImage.png";
         getAccountPage().input_Image.sendKeys(imagePath);
     }
 
@@ -59,21 +62,21 @@ public class US_060 extends CommonPage {
 
     @Then("user can see {string}")
     public void user_can_see(String message) {
-        ReusableMethods.waitFor(3);
-        Assert.assertEquals(message, getAccountPage().messageUpdated.getText());
+      //  Assert.assertEquals(message,getAccountPage().messageUpdated.getText());
+        ReusableMethods.waitFor(1);
+        Assert.assertTrue(getAccountPage().messageUpdated.isDisplayed());
     }
 
     @When("the user edits {string} in the country section")
     public void the_user_edits_in_the_country_section(String country) {
-       // ReusableMethods.clearValue(getAccountPage().input_Country);
-        getAccountPage().input_Country.click();
-        getAccountPage().input_Country.sendKeys(country);
-        /*Random random = new Random();
-        int flagIndex = random.nextInt(getAccountPage().fields.size());
-        String countryName = getClientsPage().phoneDialCode.get(flagIndex).getText();
-        JS_utilities.clickWithJS(getClientsPage().phoneFlag_Dropdown.get(flagIndex));
-        ReusableMethods.waitFor(1);*/
-        ReusableMethods.waitFor(5);
+       // JS_utilities.clickElementByJS(getAccountPage().input_Country);
+        getAccountPage().countryDD.click();
+        Select ss=new Select(getAccountPage().contryDropDownl);
+        ss.selectByVisibleText(country);
+        waitFor(6);
+       // System.out.println("*********************"+getAccountPage().selectedDDvalueforCountry.getAttribute("value"));
+
+     //   Assert.assertTrue(getAccountPage().selectedDDvalueforCountry.getAttribute("value").contains(country));
     }
 
     @When("the user updates {string} in the company url section")

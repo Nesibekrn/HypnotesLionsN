@@ -23,7 +23,7 @@ Feature: As a user (Therapist), I should be able to perform various actions in t
     Then user can see "Your company information has been updated"
     Examples:
       | Company Name    | Company Address | City,State,Zip | Country       | Company URL                | Company Phone Number | Company email |
-      | AFG Consultancy | 12 Repton Road  | Leicester      | United States | https://afgconsultancy.com | 078231323            | afg@gmail.com |
+      | AFG Consultancy | 56 Repton Road  | Leicester      | United States | https://afgconsultancy.com | 07823167             | afgcon@gmail.com |
     #Your Company
     #Your Company title must be clickable
     #When the user enters the page, the previously attached company information should be visible
