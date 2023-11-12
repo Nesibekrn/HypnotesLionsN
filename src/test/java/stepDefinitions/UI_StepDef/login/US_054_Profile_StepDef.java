@@ -26,7 +26,7 @@ import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 
 import static utilities.ReusableMethods.doubleClick;
-import static utilities.ReusableMethods.waitClickableByOfElement;
+//import static utilities.ReusableMethods.waitClickableByOfElement;
 
 public class US_054_Profile_StepDef extends CommonPage {
 

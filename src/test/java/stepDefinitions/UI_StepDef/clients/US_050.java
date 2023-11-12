@@ -1,5 +1,6 @@
 package stepDefinitions.UI_StepDef.clients;
 
+import com.github.javafaker.Faker;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import pages.CommonPage;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -16,11 +18,14 @@ import static stepDefinitions.Hooks.driver;
 
 public class US_050 extends CommonPage {
     String phoneCode;
+    Faker faker = new Faker();
+    String name, lastName, fullName;
 
     @Given("user clicks on Clients button")
     public void user_clicks_on_clients_button() {
         ReusableMethods.waitForVisibility(getClientsPage().clients_button, 2);
         getClientsPage().clients_button.click();
+        ReusableMethods.waitFor(2);
     }
 
     @Given("user clicks Add New Client button")
@@ -104,20 +109,18 @@ public class US_050 extends CommonPage {
     @Given("user select {string} in the gender section")
     public void user_select_in_the_gender_section(String gender) {
         getClientsPage().gender_dropDown.sendKeys(gender + Keys.ENTER);
-      /*  ReusableMethods.scrollToElement(getClientsPage().gender_dropDown);
-        Select select=new Select(getClientsPage().gender_dropDown);
-        ReusableMethods.waitFor(1);
-        select.selectByVisibleText("Female");*/
     }
 
     @Given("user types name in the first name section")
     public void userTypesNameInTheFirstNameSection() {
-        getClientsPage().firstName_input.sendKeys(ReusableMethods.rasgeleIsimOlustur());
+        name = faker.name().firstName();
+        getClientsPage().firstName_input.sendKeys(name);
     }
 
     @And("user types last name in the last name section")
     public void userTypesLastNameInTheLastNameSection() {
-        getClientsPage().lastName_input.sendKeys(ReusableMethods.rasgeleIsimOlustur());
+        lastName = faker.name().lastName();
+        getClientsPage().lastName_input.sendKeys(lastName);
     }
 
     @Then("user verify Phone menu is functional")
@@ -125,8 +128,8 @@ public class US_050 extends CommonPage {
         Assert.assertTrue(getClientsPage().phoneCode_dropDown.isDisplayed());
     }
 
-    @When("user select country flag in the menu")
-    public void user_select_country_flag_in_the_menu() {
+    @When("user select country flag in the menu and write phone number")
+    public void user_select_country_flag_in_the_menu_and_write_phone_number() {
         getClientsPage().phoneCode_dropDown.click();
         Random random = new Random();
         int flagIndex = random.nextInt(getClientsPage().phoneFlag_Dropdown.size());
@@ -152,7 +155,6 @@ public class US_050 extends CommonPage {
             Assert.assertEquals(expectedMessage.get(i), getClientsPage().errorMessage.getText());
             ReusableMethods.waitFor(1);
             getClientsPage().occupation_input.sendKeys(Keys.BACK_SPACE);
-            //  driver.navigate().refresh();
         }
     }
 
@@ -179,13 +181,12 @@ public class US_050 extends CommonPage {
 
     @Then("user sees {string}, {string}, {string} written")
     public void user_sees_country_state_and_city_written(String country, String state, String city) {
-        ReusableMethods.waitFor(2);
-        System.out.println("getClientsPage().country_input.getText() = " + getClientsPage().country_input.getText());
-        //     Assert.assertEquals(country,getClientsPage().country_input.getText());
-        ReusableMethods.waitFor(2);
-        //    Assert.assertEquals(state,getClientsPage().state_input.getText());
-        ReusableMethods.waitFor(2);
-        //     Assert.assertEquals(city,getClientsPage().city_input.getText());
+        ReusableMethods.waitFor(1);
+        Assert.assertEquals(country, getClientsPage().country_input.getAttribute("value"));
+        ReusableMethods.waitFor(1);
+        Assert.assertEquals(state, getClientsPage().state_input.getAttribute("value"));
+        ReusableMethods.waitFor(1);
+        Assert.assertEquals(city, getClientsPage().city_input.getAttribute("value"));
     }
 
     @Given("user types {string} in the address section")
@@ -195,9 +196,10 @@ public class US_050 extends CommonPage {
 
     @Then("user can see {string} in the address section")
     public void user_can_see_repton_road_in_the_address_section(String address) {
-        ReusableMethods.waitFor(2);
-        Assert.assertEquals(address, getClientsPage().address_input.getText());
+        ReusableMethods.waitFor(3);
+        Assert.assertEquals(address, getClientsPage().address_input.getAttribute("value"));
     }
+
     @When("user clicks on Upload Profile Image menu")
     public void user_clicks_on_upload_profile_image_menu() {
         getClientsPage().uploadProfileImage_input.sendKeys(System.getProperty("user.dir") + "/src/test/resources/Upload Images/uploadImage.png");
@@ -206,5 +208,138 @@ public class US_050 extends CommonPage {
     @Then("user should be able to upload profile image")
     public void user_should_be_able_to_upload_profile_image() {
         Assert.assertTrue(getClientsPage().uploadedImage.isDisplayed());
+    }
+
+    @When("user types {string} in the Time Zone section")
+    public void user_types_in_the_time_zone_section(String timeZone) {
+        getClientsPage().timezone_dropDown.sendKeys(timeZone + Keys.ENTER);
+    }
+
+    @Then("user can see {string} in the Time Zone section")
+    public void user_can_see_in_the_time_zone_section(String timeZoneAssert) {
+        Assert.assertEquals(timeZoneAssert, getClientsPage().timeZone_assert.getAttribute("title"));
+    }
+
+    @Given("user types email in the email sections")
+    public void user_types_email_in_the_email_sections() {
+        getClientsPage().email_input.sendKeys(faker.internet().emailAddress());
+    }
+
+    @Given("user types zip code in the Zip Code inbox")
+    public void user_types_zip_code_in_the_zip_code_inbox() {
+        // getClientsPage().zipCode_input.sendKeys(faker.address().zipCode());
+        getClientsPage().zipCode_input.sendKeys("LE18 1GD");
+    }
+
+    @Given("user types {string} in the country section")
+    public void user_types_in_the_country_section(String country) {
+        getClientsPage().country_input.sendKeys(country);
+    }
+
+    @Given("user types {string} in the state section")
+    public void user_types_in_the_state_section(String state) {
+        getClientsPage().state_input.sendKeys(state);
+    }
+
+    @Given("user types {string} in the city section")
+    public void user_types_in_the_city_section(String city) {
+        getClientsPage().city_input.sendKeys(city);
+    }
+
+    @Then("user can see {string} warning message")
+    public void user_can_see_warning_message(String warningMessage) {
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(getClientsPage().timeZoneWarningMessage.getText().contains(warningMessage));
+    }
+
+    @Then("user can see {string} message")
+    public void user_can_see_message(String message) {
+        Assert.assertTrue(getClientsPage().addMessage.getText().contains(message));
+    }
+
+    @Given("user types {string} in the occupation sections")
+    public void user_types_occupation_in_the_occupation_sections(String occupation) {
+        ReusableMethods.waitFor(2);
+        getClientsPage().occupation_input.sendKeys(occupation);
+    }
+
+    @Then("user can see new client is in the Clients module")
+    public void userCanSeeNewClientIsInTheClientsModule() {
+        fullName = name + " " + lastName;
+        Boolean flag=false;
+        for (int i = 0; i <getClientsPage().allClients_List.size() ; i++) {
+            if (fullName.equals(getClientsPage().allClients_List.get(i).getText())){
+                ReusableMethods.waitFor(1);
+                flag=true;
+                break;
+            }
+        }
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(flag);
+    }
+
+    @Given("user clicks delete button for last added Client")
+    public void userClicksDeleteButtonForLastAddedClient() {
+        for (int i = 0; i <getClientsPage().allClients_List.size() ; i++) {
+            if (fullName.equals(getClientsPage().allClients_List.get(i).getText())){
+                ReusableMethods.waitFor(1);
+                getClientsPage().deleteButtonClientsPage.get(i).click();
+                break;
+            }
+        }
+        ReusableMethods.waitFor(1);
+        getClientsPage().yesButton.click();
+    }
+
+    @Then("user sees that the last added client has been deleted")
+    public void userSeesThatTheLastAddedClientHasBeenDeleted() {
+        ReusableMethods.waitFor(2);
+        Assert.assertEquals("Client has been deleted",getClientsPage().clientDeletedMessages.getText());
+        Boolean flag=false;
+        for (int i = 0; i <getClientsPage().allClients_List.size() ; i++) {
+            if (fullName.equals(getClientsPage().allClients_List.get(i).getText())){
+                ReusableMethods.waitFor(1);
+                flag=true;
+                break;
+            }
+        }
+        ReusableMethods.waitFor(2);
+        Assert.assertFalse(flag);
+    }
+    @Given("user clicks on the No button")
+    public void user_clicks_on_the_no_button() {
+        ReusableMethods.waitFor(1);
+        getClientsPage().no_Button.click();
+    }
+    @Given("user clicks Cancel button")
+    public void user_clicks_cancel_button() {
+        ReusableMethods.waitForVisibility(getClientsPage().cancelPopUpButton,2);
+        getClientsPage().cancelPopUpButton.click();
+    }
+    @Then("user can not add client")
+    public void user_can_not_add_client() {
+        ReusableMethods.waitFor(2);
+        Assert.assertEquals("https://test.hypnotes.net/dashboard/clients",driver.getCurrentUrl());
+    }
+
+    @Given("user can not write anything in the First Name section")
+    public void userCanNotWriteAnythingInTheFirstNameSection() {
+        getClientsPage().firstName_input.sendKeys("f"+Keys.BACK_SPACE);
+    }
+
+    @Then("user can see {string} warning")
+    public void userCanSeeWarning(String message) {
+        ReusableMethods.waitForVisibility(getClientsPage().errorMessage, 2);
+        Assert.assertEquals(message,getClientsPage().errorMessage.getText());
+    }
+
+    @Given("user can not write anything in the Last Name section")
+    public void userCanNotWriteAnythingInTheLastNameSection() {
+        getClientsPage().lastName_input.sendKeys("f"+Keys.BACK_SPACE);
+    }
+
+    @Given("user can not write anything in the email section")
+    public void userCanNotWriteAnythingInTheEmailSection() {
+        getClientsPage().email_input.sendKeys("f"+Keys.BACK_SPACE);
     }
 }
