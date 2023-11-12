@@ -1,8 +1,10 @@
+@HL-373
 Feature: Therapist Login Functionality
 
   @UI
   @Therapist
   @US_048
+    @TEST_HL-372
   Scenario: User must log in as therapist and see Email-sms side bar
     Then user should see Email-sms side bar on the therapist page
     And user verifies Email-sms link is clickable on the page
