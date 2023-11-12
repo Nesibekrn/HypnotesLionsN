@@ -283,8 +283,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
       public WebElement sessionButon;
-    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_sessions']")
-    public WebElement sessionButon;
+
     @FindBy(xpath = "//span[text()='Delete Session']")
     public WebElement deleteSessionButton;
     @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']")
@@ -390,11 +389,11 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public WebElement showExtraFields_checkbox;
     @FindBy(xpath = "//div[@class='ant-form-item-explain-error']")
     public WebElement errorMessage;
-    @FindBy(css="div.ant-select-item ant-select-item-option")
-    @FindBy(xpath = "//li[@class='country']")
-    public List<WebElement> phoneFlag_Dropdown;
-    @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
-    public List<WebElement> phoneDialCode;
+   // @FindBy(css="div.ant-select-item ant-select-item-option")
+   // @FindBy(xpath = "//li[@class='country']")
+    //public List<WebElement> phoneFlag_Dropdown;
+    //@FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
+    //public List<WebElement> phoneDialCode;
     @FindBy(css = "div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
     @FindBy(xpath = "//div[text()='Session  1']")
@@ -538,4 +537,37 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public List<WebElement> deleteButtonClientsPage;
     @FindBy(xpath = "//span[text()='Client has been deleted']")
     public WebElement clientDeletedMessages;
+
+
+
+
+    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_presentingIssue']")
+    public WebElement presintingIssue;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary']")
+    public WebElement addNewIssue;
+    @FindBy(xpath = "//div[@class='ant-drawer-title']")
+    public WebElement addNewIssuePage;
+    @FindBy(xpath = "//textarea[@id='basic_nameOfCC']")
+    public WebElement enterName;
+    @FindBy(xpath = "//textarea[@id='basic_briefStatement']")
+    public WebElement enterStatement;
+    @FindBy(xpath = "//textarea[@id='basic_location']")
+    public WebElement enterLocatement;
+    @FindBy(xpath = "//textarea[@id='basic_currentCharacter']")
+    public WebElement enterCharecter;
+    @FindBy(xpath = "//span[@class='ant-modal-close-x']")
+    public WebElement upgradeNow;
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement submitAddNewIssue;
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    public WebElement addedMessage;//kaydedildi mesaji
+
+
+
+
+
+
+
+
+
 }

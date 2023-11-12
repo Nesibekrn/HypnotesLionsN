@@ -29,6 +29,7 @@ public class US_052 extends CommonPage {
     public void user_clicks_to_clients_section() throws InterruptedException {
         getClientsPage().clientBut.click();
         Thread.sleep(2000);
+        getClientsPage().upgradeNow.click();
     }
     @Given("sees the customer list in search client form")
     public void sees_the_customer_list_in_search_client_form() {
