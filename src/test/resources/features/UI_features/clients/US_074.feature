@@ -1,4 +1,4 @@
-@UI @US_074
+@UI @US_074 @HL-278
   @TherapistLoginUSA
 Feature: Adding Therapist Information to Invoice
 
@@ -8,7 +8,7 @@ Feature: Adding Therapist Information to Invoice
     When the user clicks on the View Details button
     And the user clicks on the Invoices button
 
-  @UI @US_074
+  @UI @US_074 @HL-278
   @TherapistLoginUSA
   Scenario: Adding Therapist Information to Invoice
     Then a valid logo is uploaded to the Your Logo field
