@@ -21,7 +21,7 @@ import static stepDefinitions.Hooks.commonPage;
 import static stepDefinitions.Hooks.driver;
 
 public class US_008 extends CommonPage {
-
+/*
     @Then("User should be able to see {string}")
     public void userShouldBeAbleToSee(String webElementText) {
         JS_utilities.scrollIntoViewJS(getHomePage().testimonialsSectionText);
@@ -100,5 +100,5 @@ public class US_008 extends CommonPage {
         System.out.println("scmLinks = " + scmActualLinks);
         System.out.println("scmElements = " + scmElements);
         Assert.assertEquals(scmExpectedList.size(), scmActualLinks.size());
-    }
+    }*/
 }

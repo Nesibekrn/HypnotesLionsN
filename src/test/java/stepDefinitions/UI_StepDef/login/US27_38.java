@@ -83,7 +83,7 @@ public class US27_38 {
     public void enters_the_linked_in_e_mail_address_and_password() {
         loginPage.emailLinkedIn.sendKeys("oiseaubleu791@gmail.com", Keys.ENTER);
         loginPage.passwordLinkedIn.sendKeys("DD.123456", Keys.ENTER);
-        //loginPage.continuerButton.click();
+
     }
 
     @Then("assert for LinkedIn that the user is logged in")
