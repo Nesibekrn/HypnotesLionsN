@@ -283,7 +283,6 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
       public WebElement sessionButon;
-
     @FindBy(xpath = "//span[text()='Delete Session']")
     public WebElement deleteSessionButton;
     @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']")
@@ -389,11 +388,9 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public WebElement showExtraFields_checkbox;
     @FindBy(xpath = "//div[@class='ant-form-item-explain-error']")
     public WebElement errorMessage;
-    @FindBy(css="div.ant-select-item ant-select-item-option")
-    @FindBy(xpath = "//li[@class='country']")
-    public List<WebElement> phoneFlag_Dropdown;
-    @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
-    public List<WebElement> phoneDialCode;
+//    @FindBy(css="div.ant-select-item ant-select-item-option")
+//    public List<WebElement> phoneFlag_Dropdown;
+
     @FindBy(css = "div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
     @FindBy(xpath = "//div[text()='Session  1']")
