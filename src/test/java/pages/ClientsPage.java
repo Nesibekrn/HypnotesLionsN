@@ -72,6 +72,9 @@ public class ClientsPage extends CommonPage{
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
 
+    @FindBy(xpath = "//span[.='Send a New Document']")
+    public WebElement sendANewDocumentButton;
+
 
 
 }

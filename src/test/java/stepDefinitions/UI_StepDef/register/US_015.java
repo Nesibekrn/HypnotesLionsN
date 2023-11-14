@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CommonPage;
+import utilities.Driver;
 
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.clickWithTimeOut;
@@ -16,7 +17,8 @@ public class US_015 extends CommonPage {
 
     @Given("the user navigates Hypnotes web page")
     public void the_user_navigates_hypnotes_web_page() {
-        driver.get("https://test.hypnotes.net/");
+       // driver.get("https://test.hypnotes.net/");
+       Driver.getDriver().get("https://test.hypnotes.net/");
     }
     @Given("the user clicks on Sign up for free  button")
     public void the_user_clicks_on_sign_up_for_free_button() {

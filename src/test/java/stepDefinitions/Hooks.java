@@ -95,20 +95,14 @@ public class Hooks {
 
 
 
-    @Before("@TherapistLoginUSA")
-    public void ThrerapistLogInUSA(){
-        commonPage.getLoginPage().ThrerapistLogIn(
-                ConfigurationReader.getProperty("therapistEmailUSA"),
-                ConfigurationReader.getProperty("therapistPasswordUSA")
-        );
-    }
+
 
     @Before("@Therapist")
     public void ThrerapistLogIn(){
-//        commonPage.getLoginPage().ThrerapistLogIn(
-//                ConfigurationReader.getProperty("therapistEmail"),
-//                ConfigurationReader.getProperty("therapistPassword")
-//        );
+       commonPage.getLoginPage().ThrerapistLogIn(
+               ConfigurationReader.getProperty("therapistEmail"),
+              ConfigurationReader.getProperty("therapistPassword")
+       );
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
 
         try{

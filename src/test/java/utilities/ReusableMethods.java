@@ -241,15 +241,17 @@ public class ReusableMethods {
 
     protected static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(30));
         try {
             element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (Exception e) {
         }
         return element;
     }
-
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(30));
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
+
         try {
             element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {

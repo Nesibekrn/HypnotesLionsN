@@ -108,6 +108,9 @@ public class LoginPage extends CommonPage {
     @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
     public WebElement ButtonEMAILFORLOGIN;
 
+    @FindBy(xpath = "//span[.='Login']")
+    public WebElement HomePageLogin;
+
 
 
 
@@ -251,6 +254,15 @@ waitForPageToLoad(2);
         waitForPageToLoad(5);
 
 
+    }
+
+    public void loginAs(String userName) {
+   HomePageLogin.click();
+        waitForPageToLoad(2);
+        email_login.sendKeys(ConfigurationReader.getProperty("therapistEmail"));
+        password_Login.sendKeys(ConfigurationReader.getProperty("therapistPassword"));
+        login_button.click();
+        waitForPageToLoad(5);
     }
 }
 
