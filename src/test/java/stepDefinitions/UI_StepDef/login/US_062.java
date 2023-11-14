@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
@@ -35,7 +36,8 @@ public class US_062 extends CommonPage {
     @And("user edit middle  name of the client")
     public void userEditMiddleNameOfTheClient() {
         ReusableMethods.waitFor(1);
-        getClientsPage().middleNameEdit.clear();
+        getClientsPage().middleNameEdit.sendKeys(Keys.chord(Keys.CONTROL,"a"),Keys.BACK_SPACE);      //aynı anda hem ctrl hem de a tuşlarına basarak metni seçiyoruz, backspace e basarak siliyoruz
+        getClientsPage().middleNameEdit.sendKeys(Keys.chord(Keys.COMMAND,"a"),Keys.BACK_SPACE);
         ReusableMethods.waitFor(5);
         getClientsPage().middleNameEdit.sendKeys(faker.name().firstName());
         ReusableMethods.waitFor(5);
@@ -55,7 +57,8 @@ public class US_062 extends CommonPage {
     @Then("user edit Guardian Email of the client")
     public void userEditGuardianEmailOfTheClient() {
         ReusableMethods.waitFor(2);
-        getClientsPage().guardianEmailEdit.clear();
+        getClientsPage().guardianEmailEdit.sendKeys(Keys.chord(Keys.CONTROL,"a"),Keys.BACK_SPACE);
+        getClientsPage().guardianEmailEdit.sendKeys(Keys.chord(Keys.COMMAND,"a"),Keys.BACK_SPACE);//aynı anda hem ctrl hem de a tuşlarına basarak metni seçiyoruz, backspace e basarak siliyoruz
         ReusableMethods.waitFor(2);
         getClientsPage().guardianEmailEdit.sendKeys(faker.internet().emailAddress());
         ReusableMethods.waitFor(2);
