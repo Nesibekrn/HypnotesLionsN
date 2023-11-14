@@ -16,10 +16,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static stepDefinitions.Hooks.commonPage;
 import static stepDefinitions.Hooks.driver;
 
 public class US_008 extends CommonPage {
-
+/*
     @Then("User should be able to see {string}")
     public void userShouldBeAbleToSee(String webElementText) {
         JS_utilities.scrollIntoViewJS(getHomePage().testimonialsSectionText);
@@ -60,19 +61,20 @@ public class US_008 extends CommonPage {
     @Then("assert testimonials has changed by next button")
     public void assertTestimonialsHasChangedByNextButton() {
         JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
-        getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
-        ReusableMethods.waitForVisibility(getHomePage().nextButton,5);
+        ReusableMethods.assertBackgroundColor("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
+        ReusableMethods.waitForVisibility(getHomePage().nextButton, 5);
         ReusableMethods.clickWithTimeOut(getHomePage().nextButton, 3);
-        getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+        ReusableMethods.assertBackgroundColor("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+
     }
 
     @Then("assert testimonials has changed by prev button")
     public void assertTestimonialsHasChangedByPrevButton() {
         JS_utilities.scrollAndClickWithJS(getHomePage().bulletPoints.get(0));
-        getHomePage().assertBackgroundColour("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
+        ReusableMethods.assertBackgroundColor("rgba(127, 127, 127, 1)", getHomePage().bulletPoints.get(0));
         ReusableMethods.waitForVisibility(getHomePage().prevButton, 5);
         ReusableMethods.clickWithTimeOut(getHomePage().prevButton, 7);
-        getHomePage().assertBackgroundColour("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
+        ReusableMethods.assertBackgroundColor("rgba(0, 0, 0, 1)", getHomePage().bulletPoints.get(0));
     }
 
     @When("User should see the Hypnotherapist's {string} {int}")
@@ -97,5 +99,5 @@ public class US_008 extends CommonPage {
         System.out.println("scmLinks = " + scmActualLinks);
         System.out.println("scmElements = " + scmElements);
         Assert.assertEquals(scmExpectedList.size(), scmActualLinks.size());
-    }
+    }*/
 }

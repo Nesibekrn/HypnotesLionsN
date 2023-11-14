@@ -8,7 +8,7 @@ Feature:  Import clients functionality
     Then the user is able to open to the relavant page once clicked on the import client button
 
   @UI @US_079 @TherapistLoginUSA
-    Scenario: Verify that user is able to import a clint successfully
+    Scenario: Verify that user is able to import a client successfully
       Given the user clicks on client title on the left menu
       And the user clicks on the import client button
       And the user clicks Easy Practice on the choose import method window

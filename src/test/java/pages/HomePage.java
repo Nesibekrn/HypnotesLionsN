@@ -1,17 +1,22 @@
 package pages;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
 import utilities.Driver;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
 
@@ -30,10 +35,6 @@ public class HomePage extends CommonPage{
 
     @FindBy(xpath = "//img[@data-test-id='instagramLink_footerLogo']")
     public WebElement instagramIcon;
-
-    public static void assertBackgroundColour(String color,WebElement webElement) {
-        Assert.assertEquals(color, webElement.getCssValue("background-color"));
-    }
 
     @FindBy(xpath = "//*[text()='Real People, Real Feedback']")
     public WebElement testimonialsSectionText;
@@ -285,6 +286,27 @@ public class HomePage extends CommonPage{
     @FindBy(xpath="(//div[@class='ant-col ant-col-xs-24 ant-col-xl-12 css-15rg2km'])[2]")
     public List<WebElement> allCompany;
 
+    @FindBy(xpath = "//span[@data-test-id='loginScreen_pricing']")
+    public WebElement pricing07;//07
+    @FindBy(xpath = "//th//p")
+    public List<WebElement> listPricing07;
+
+    @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_email']")
+    public WebElement loginEmail07;
+    @FindBy(xpath = "//input[@data-test-id='loginAsClientPage_password']")
+    public WebElement loginPassword07;
+    @FindBy(xpath = "(//span[text()='Login'])[2]")
+    public WebElement loginPourEntrerLeSite07;
+    @FindBy(xpath = "//span[text()='E']")
+    public WebElement hesapE;//07
+    @FindBy(xpath = "//a[@data-test-id='logout_link_profilMenuDropDown']")
+    public WebElement hesapLogout;//07
+
+
+    @FindBy(xpath = "//th//button")
+    //@FindBy(css= "div.style_body__qweHx div.style_pricingPage__sFRSc.mt-4.d-flex.flex-column.align-items-center div.style_pricingWeb__u6I09:nth-child(5) div.table-responsive:nth-child(3) table.table.text-center.table-lg:nth-child(1) thead.thead:nth-child(1) div.col div.card.mb-4.rounded-3.shadow-sm div.card-body button.w-100.btn.btn-sm.btn-outline-primary.style_btn__CLS8d > a.style_registerLink__4acEw")
+    public List<WebElement> listPricingGetStartedNow07;
+
     public void testElements(WebElement element, String exp){
         waitFor(2);
         goAllTheWayDown();
@@ -364,6 +386,9 @@ public class HomePage extends CommonPage{
 
         driver.get(url);
         testElements(companyContactUs,"contact-us");
+
+
+
 
     }
 

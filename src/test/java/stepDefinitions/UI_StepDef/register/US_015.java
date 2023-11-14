@@ -53,7 +53,7 @@ public class US_015 extends CommonPage {
     }
     @Given("the user enter an password")
     public void the_user_enter_an_password() throws InterruptedException {
-        getRegisterPage().passwordGoogle.sendKeys("Ingolstadt2023,.");
+        getRegisterPage().passwordGoogle.sendKeys("Ingolstadt2023,");
         Thread.sleep(2000);
     }
 

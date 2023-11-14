@@ -4,7 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class US_065_StepDef {
+public class US_065 {
+
+    //This user story has a bug. The bug has not been solved yet. This StepDef will be completed in the upcoming sprint."
     @Given("As a Therapist user clicks on Appointments")
     public void asATherapistUserClicksOnAppointments() {
     }
@@ -36,4 +38,5 @@ public class US_065_StepDef {
     @Then("the user should receive correctly sorted results in descending order")
     public void theUserShouldReceiveCorrectlySortedResultsInDescendingOrder() {
     }
+
 }
