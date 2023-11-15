@@ -6,6 +6,8 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +18,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+import static io.restassured.RestAssured.given;
 
 
 public class Hooks {
@@ -64,7 +67,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-       Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 
@@ -97,9 +100,8 @@ public class Hooks {
     }
 
 
-
     @Before("@TherapistLoginUSA")
-    public void ThrerapistLogInUSA(){
+    public void ThrerapistLogInUSA() {
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("therapistEmailUSA"),
                 ConfigurationReader.getProperty("therapistPasswordUSA")
@@ -107,7 +109,7 @@ public class Hooks {
     }
 
     @Before("@Therapist")
-    public void ThrerapistLogIn(){
+    public void ThrerapistLogIn() {
 //       commonPage.getLoginPage().ThrerapistLogIn(
 //               ConfigurationReader.getProperty("therapistEmail"),
 //               ConfigurationReader.getProperty("therapistPassword")
@@ -116,33 +118,49 @@ public class Hooks {
         driver.navigate().refresh();
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
 
-        /*try{
-            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
+        try {
+            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton, 10);
             commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Not found timezone pop up");
-        }*/
+        }
     }
 
     @Before("@Client")
-    public void ClientLogInUSA(){
+    public void ClientLogInUSA() {
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("clientEmailUSA"),
                 ConfigurationReader.getProperty("clientPasswordUSA")
         );
     }
+
     @Before("@Profile")
-    public void therapisteLogin(){
+    public void therapisteLogin() {
         driver.get(ConfigurationReader.getProperty("hypnotes"));
         commonPage.getLoginPage().Login.click();
-        commonPage. getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPIST.getUsername());
+        commonPage.getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPIST.getUsername());
         commonPage.getLoginPage().PasswordButton.sendKeys(Enum_Fy.THERAPIST.getPassword());
         commonPage.getLoginPage().LoginButtonforSignIn.click();
 
     }
-    @Before("API")
-    public void setUpToken(){
+
+  /*  @Before("@API")
+    public void apiLogin() {
+        Response response = given().
+                contentType(ContentType.JSON).
+                body("\"username\":\"ftmcglr@yopmail.com\",\"password\":\"Test123456!\"").
+                post("https://test.hypnotes.net/api/login");
+        String token = response.jsonPath().get("data[0].id");
+        System.out.println("token = " + token);
+    }*/
+
+    @Before("@API")
+    public void setUpToken() {
         hypnotesSetUpFormData();
+    }
+
+    @Before("@fatma")
+    public void fatmaSetupApi() {
 
     }
 }
