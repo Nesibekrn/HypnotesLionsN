@@ -219,6 +219,15 @@ public class RegisterPage extends CommonPage {
     }
     @FindBy(css = "[data-test-id='register_as_a_client']")
     public WebElement registerAsAClientText;
+    @FindBy(xpath ="//div[@class='RegisterForm_invalid__10sju']")
+    public List<WebElement> redPasswordRulesList;
+    @FindBy(xpath ="//div[@class='RegisterForm_valid__sQYgm']")
+    public List<WebElement> greenPasswordRulesList;
+
+
+
+
+
 
     @FindBy(xpath = "//a[@id='social-media-login-logo-g'][1]")
     public WebElement loginWithGoogle;
