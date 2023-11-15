@@ -4,7 +4,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static utilities.API_utilities.generateCsrfToken;
+import static utilities.Authentication.generateCsrfToken;
 
 public class HypnotesBaseUrl {
     public static RequestSpecification specFormData;
