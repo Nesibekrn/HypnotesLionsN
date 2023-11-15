@@ -15,6 +15,8 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+
 
 public class Hooks {
     public static WebDriver driver;
@@ -114,12 +116,12 @@ public class Hooks {
         driver.navigate().refresh();
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
 
-        try{
+        /*try{
             ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
             commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
         }catch (Exception e){
             System.out.println("Not found timezone pop up");
-        }
+        }*/
     }
 
     @Before("@Client")
@@ -136,6 +138,11 @@ public class Hooks {
         commonPage. getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPIST.getUsername());
         commonPage.getLoginPage().PasswordButton.sendKeys(Enum_Fy.THERAPIST.getPassword());
         commonPage.getLoginPage().LoginButtonforSignIn.click();
+
+    }
+    @Before("API")
+    public void setUpToken(){
+        hypnotesSetUpFormData();
 
     }
 }
