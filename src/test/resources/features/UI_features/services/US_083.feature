@@ -1,7 +1,8 @@
+@UI @US_083
+@TherapistLoginUSA
 Feature: Group Session Creation
 
-  @UI @US_083
-  @TherapistLoginUSA
+
   Background:
     Given a Therapist User is logged
     And the user clicks on the Services page
@@ -38,7 +39,6 @@ Feature: Group Session Creation
     And the Group Session has been added message should appear
 
   Scenario: Canceling Group Session Creation
-    Given the user is on the Add New Group Session page
     Then the user clicks the Edit button
     When the user clicks the Cancel button
     Then the Add New Group Session page should appear
@@ -54,5 +54,4 @@ Feature: Group Session Creation
       | Maximum Number Of Attendees        | Date Time Session             | Description            | Information                                     |
 
   Scenario: Viewing the Added Group Session
-    Given the user is on the Group Session section
     Then the added Group Session should appear in the session table
