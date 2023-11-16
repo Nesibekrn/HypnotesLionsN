@@ -31,7 +31,7 @@
       And the user verifies that Block Time button is clickable
       And the user clicks and verifies that page title is "Block Dates"
       And the user verifies that Scheduling Setting button is clickable
-      And the user clicks and verifies that related page is "https://test.hypnotes.net/dashboard/settings"
+      And the user clicks and verifies that related page is "https://test.hypnotes.net/dashboard/settings?key=14"
 
 
 

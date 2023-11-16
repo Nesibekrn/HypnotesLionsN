@@ -152,24 +152,39 @@ public class US_085 extends CommonPage {
     public void the_user_clicks_and_verifies_that_related_page_title_is(String title2) {
        getCalendarPage().addNewEvent_button.click();
        waitFor(1);
+       Assert.assertEquals(title2,getCalendarPage().addEventTitle.getText());
+       waitFor(1);
        getCalendarPage().closeButton.click();
 
     }
     @Given("the user verifies that Block Time button is clickable")
     public void the_user_verifies_that_block_time_button_is_clickable() {
+        Assert.assertTrue(getCalendarPage().blockTime_button.isEnabled());
+        waitFor(1);
 
 
     }
     @And("the user clicks and verifies that page title is {string}")
     public void theUserClicksAndVerifiesThatPageTitleIs(String title3) {
+        getCalendarPage().blockTime_button.click();
+        waitFor(1);
+        Assert.assertEquals(title3,getCalendarPage().blockDatesTitle.getText());
+        waitFor(1);
+        getCalendarPage().closeButton.click();
     }
     @Given("the user verifies that Scheduling Setting button is clickable")
     public void the_user_verifies_that_scheduling_setting_button_is_clickable() {
+        Assert.assertTrue(getCalendarPage().schedulingSetting_button.isEnabled());
+        waitFor(1);
 
 
     }
     @Given("the user clicks and verifies that related page is {string}")
     public void the_user_clicks_and_verifies_that_related_page_is(String url) {
+        getCalendarPage().schedulingSetting_button.click();
+        waitFor(1);
+        Assert.assertEquals(url,driver.getCurrentUrl());
+        waitFor(1);
 
     }
 

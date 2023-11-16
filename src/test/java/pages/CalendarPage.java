@@ -10,7 +10,7 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath="//a[@href='/dashboard/calendar']")
     public WebElement calendar_buton;
 
-    @FindBy(xpath = "//div[@class='ant-select css-aqx16b ant-select-single ant-select-show-arrow']")
+    @FindBy(xpath = "(//div[@class='ant-select-selector'])[2]")
     public WebElement scheduleButton;
 
    @FindBy(xpath="//div[@class='ant-select-item-option-content']")
@@ -46,10 +46,10 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath ="//button[@data-test-id='calenderPage_addNewEvent_Button']")
     public WebElement addNewEvent_button;
 
-    @FindBy(xpath ="//button[@calendar_actionButton_blockTimeBtn']")
+    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_blockTimeBtn']")
     public WebElement blockTime_button;
 
-    @FindBy(xpath ="//button[@calendar_actionButton_schedulingSettingsBtn']")
+    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_schedulingSettingsBtn']")
     public WebElement schedulingSetting_button;
 
     @FindBy(xpath = "//div[text()='Schedule an Appointment']")
@@ -57,6 +57,12 @@ public class CalendarPage extends CommonPage{
 
     @FindBy(xpath = "//span[@aria-label='close']")
     public WebElement closeButton;
+
+    @FindBy(xpath = "//div[text()='Add Event']")
+    public WebElement addEventTitle;
+
+    @FindBy(xpath = "//div[text()='Block Dates']")
+    public WebElement blockDatesTitle;
 
 
 
