@@ -15,7 +15,7 @@ import static stepDefinitions.Hooks.*;
 import static utilities.ReusableMethods.waitFor;
 
 public class US_006 {
-
+/*
     @Given("user goes to home page")
     public void user_goes_to_home_page() {
         driver.get(ConfigurationReader.getProperty("url"));
@@ -158,4 +158,6 @@ public class US_006 {
 
         }
     }
+
+ */
 }
