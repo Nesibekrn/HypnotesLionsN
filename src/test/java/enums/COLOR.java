@@ -8,6 +8,7 @@ public enum COLOR {
     WHITE_TEXT("#ffffff","rgb(255, 255, 255)", "rgba(255, 255, 255, 1)"),
     TEXT_GRAY_BACKROUND("#cccece", "rgb(204, 206, 206)", "rgba(204, 206, 206, 1)"),
     TEXT_GREEN_BACKROUND("#007385", "rgb(0, 115, 133)", "rgba(0, 115, 133, 1)"),
+    TEXT_Yellow_BACKROUND("#FFDC28", "rgb(255, 220, 40)", "rgba(255, 220, 40, 0.15)"),
 
 
     ;
@@ -29,6 +30,9 @@ public enum COLOR {
         return RBG;
     }
 
+
+
+
     public String getRGBA() {
         return RGBA;
     }
@@ -40,5 +44,10 @@ public enum COLOR {
     public void assertBackroundColor(WebElement w){
         String actuelBackroundColor=w.getCssValue("background-color");
         Assert.assertEquals(this.getRGBA(),actuelBackroundColor);
+    }
+
+    public Boolean assertBackroundColorByBoolean (WebElement w){
+        String actuelBackroundColor=w.getCssValue("background-color");
+        return this.getRGBA().equals(actuelBackroundColor);
     }
 }
