@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.junit.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,12 +22,12 @@ public class US_218 {
     @When("user sends Post request to update block times")
     public void userSendsPostRequestToUpdateBlockTimes() {
         //Set the URL
-        //  specFormData.pathParams("first", "api", "second", "hypnotherapist", "third", "timeoff", "fourth", "create");
+          specFormData.pathParams("first", "api", "second", "hypnotherapist", "third", "timeoff", "fourth", "create");
         // Set the expected Data
         boolean status = true;
 
         Map<String, Object> payloadCreate = new HashMap<>();
-        payloadCreate.put("specificDate", "2023-11-17");
+        payloadCreate.put("specificDate", "2023-11-20");
         payloadCreate.put("startAt", "2023-11-17 12:00");
         payloadCreate.put("finishAt", "2023-11-17 13:00");
         payloadCreate.put("isRecurring", false);
@@ -34,15 +35,16 @@ public class US_218 {
         payloadCreate.put("title", "Online");
         payloadCreate.put("isAll", false);
 
-        response = given(specFormData).formParams(payloadCreate).post("{first}/{second}/{third}/{fourth}");
-        //response= given().contentType(ContentType.JSON).body("https://test.hypnotes.net/api/hypnotherapist/timeoff/create");
+       // response = given(specFormData).formParams(payloadCreate).post("{first}/{second}/{third}/{fourth}");
+        response= given().formParams(payloadCreate).post("https://hypnotes.net/api/hypnotherapist/timeoff/create");
         response.prettyPrint();
 
-        jsonPath = response.jsonPath();
-        id = jsonPath.get("data[0].id");
+       jsonPath = response.jsonPath();
+      //  id = jsonPath.get("data[0].id");
     }
 
     @Then("user validates the response")
     public void userValidatesTheResponse() {
+        Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
     }
 }

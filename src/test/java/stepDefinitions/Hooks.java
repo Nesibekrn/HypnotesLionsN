@@ -23,6 +23,7 @@ import java.util.Map;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 import static io.restassured.RestAssured.given;
+import static utilities.Authentication.generatePhpSessid;
 
 
 public class Hooks {
@@ -148,28 +149,11 @@ public class Hooks {
 
     }
 
-    public static String csrfToken;
-
-    @Before("@API")
-    public void apiLogin() {
-        Response response = given().
-                contentType(ContentType.JSON).
-                body("\"username\":\"ftmcglr@yopmail.com\",\"password\":\"Test123456!\"").
-                post("https://test.hypnotes.net");
-        Map<String, String> cookieAsMap = new HashMap<>(response.getCookies());
-        for (Map.Entry<String, String> entry : cookieAsMap.entrySet()) {
-            csrfToken = entry.getKey() + "=" + entry.getValue();
-        }
-        // String token = response.jsonPath().get("data[0].id");
-        // System.out.println("token = " + token);
-    }
-
-    /*  @Before("@API")
+      @Before("@API")
       public void setUpToken() {
-          API_utilities.generateCsrfToken();
+        //  generatePhpSessid();
           hypnotesSetUpFormData();
       }
-  */
     @Before("@fatma")
     public void fatmaSetupApi() {
 
