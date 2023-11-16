@@ -339,7 +339,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//div[@aria-selected='true']")
     public WebElement selectedPaymentSection;
 
-    @FindBy(xpath = "//th[@aria-sort='descending']")
+    @FindBy(xpath = "//*[@class='ant-table-column-sorter-inner']")
     public WebElement dateSortDescending;
     @FindBy(xpath = "//div[@class='ant-switch-handle']")
     public List<WebElement> paymentSwitchButton;
@@ -353,10 +353,34 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//span[@class='ant-checkbox-inner']")
     public List<WebElement> sortingServicesText;
 
-    @FindBy(xpath = "//span[text()='OK']")
-    public List<WebElement> okButton;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-sm']")
+    public WebElement okButton;
     @FindBy(xpath = "//span[@class='ant-tag ant-tag-orange css-aqx16b']")
     public WebElement serviceText;
+    @FindBy(xpath = "//span[@class='ant-tag ant-tag-success css-aqx16b']")
+    public List<WebElement> appointmentDates;
+
+    @FindBy(xpath = "(//input[@type='search'])[2]")
+    public WebElement itemDescriptionField;
+    @FindBy(xpath = "//input[@class='invoice_input__75vJN invoices_boldDark__jRBno invoices_darkRight__o078y']")
+    public List<WebElement> qytRateField;
+
+    @FindBy(xpath = "//span[@class='span invoices_boldDark__jRBno']")
+    public List<WebElement> amountSubtotalSaleTax;
+    @FindBy(xpath = "//span[@class='span invoices_darkBoldRight__p5p6Q']")
+    public WebElement totalField;
+    //textarea[@class='ant-input css-aqx16b invoice_input__75vJN  w-100']
+    @FindBy(xpath = "//button[@class='invoices_link__01VJH']")
+    public WebElement addLineItem;
+    @FindBy(xpath = "//div[@class='view invoices_row__5b9py d-flex']")
+    public List<WebElement> addLineItemList;
+
+    @FindBy(xpath = "//textarea[@class='ant-input css-aqx16b invoice_input__75vJN  w-100']")
+    public List<WebElement> notesTermsTextarea;
+
+
+
+
 
 
 
