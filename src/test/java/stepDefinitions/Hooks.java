@@ -151,7 +151,7 @@ public class Hooks {
 
       @Before("@API")
       public void setUpToken() {
-        //  generatePhpSessid();
+          generatePhpSessid();
           hypnotesSetUpFormData();
       }
     @Before("@fatma")
