@@ -2,7 +2,7 @@
 Feature: After logging in as Therapist I should be able to see the Dashboard page
 
   Background:
-    Given  user Login for Dashboard
+    Given  user Login
   @UI
   Scenario: Dashboard should be clickable and relevant page should be visible
 

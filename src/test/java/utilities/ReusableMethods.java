@@ -31,7 +31,6 @@ import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
 
-
     public static String rasgeleIsimOlustur() {
         Faker faker = new Faker();
 
@@ -45,6 +44,7 @@ public class ReusableMethods {
              ve ardından bu değerleri birleştirebilirsiniz.
              */
     }
+
     private static WebDriverWait wait;
 
     public static String getScreenshot() throws IOException {
@@ -240,7 +240,7 @@ public class ReusableMethods {
         }
     }
 
-    protected static WebElement waitClickableByOfElement(WebElement webElement) {
+    public static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
         try {
          //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));

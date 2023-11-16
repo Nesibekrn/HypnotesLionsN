@@ -219,6 +219,15 @@ public class RegisterPage extends CommonPage {
     }
     @FindBy(css = "[data-test-id='register_as_a_client']")
     public WebElement registerAsAClientText;
+    @FindBy(xpath ="//div[@class='RegisterForm_invalid__10sju']")
+    public List<WebElement> redPasswordRulesList;
+    @FindBy(xpath ="//div[@class='RegisterForm_valid__sQYgm']")
+    public List<WebElement> greenPasswordRulesList;
+
+
+
+
+
 
     @FindBy(xpath = "//a[@id='social-media-login-logo-g'][1]")
     public WebElement loginWithGoogle;
@@ -228,9 +237,9 @@ public class RegisterPage extends CommonPage {
     public WebElement nextGoogle;
     @FindBy(xpath = "//div[@class='rFrNMe ze9ebf YKooDc wIXLub zKHdkd sdJrJc']")
     public WebElement passwordGooglee;
-  //  @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
-    ////                 span[@data-test-id='loginScreen_logIn']
-    // public WebElement registerloginButton;
+  // @FindBy(xpath = "//span[@data-test-id='loginScreen_signUpIt'sFree_forMobile']")
+  // ////  span[@data-test-id='loginScreen_logIn']
+  //  public WebElement registerloginButton;
 
     @FindBy(xpath = "//span[text()='Login']")
     public WebElement registerloginButton;
