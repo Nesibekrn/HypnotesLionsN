@@ -113,7 +113,7 @@ public class Hooks {
         );
     }
 
-    @Before("@Therapist")
+   /* @Before("@Therapist")
     public void ThrerapistLogIn() {
 //       commonPage.getLoginPage().ThrerapistLogIn(
 //               ConfigurationReader.getProperty("therapistEmail"),
@@ -129,7 +129,7 @@ public class Hooks {
         } catch (Exception e) {
             System.out.println("Not found timezone pop up");
         }
-    }
+    }*/
 
     @Before("@Client")
     public void ClientLogInUSA() {
