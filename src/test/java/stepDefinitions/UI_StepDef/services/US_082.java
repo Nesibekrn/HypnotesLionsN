@@ -1,5 +1,6 @@
 package stepDefinitions.UI_StepDef.services;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,7 +19,10 @@ import static utilities.ReusableMethods.waitFor;
 import static utilities.ReusableMethods.waitForVisibility;
 
 public class US_082 extends CommonPage {
+    Faker faker = new Faker();
 
+    // Generate a fake name
+    String packageName = faker.name().fullName();
     @Given("the user clicks on the  Services title on the left side menu")
     public void the_user_clicks_on_the_services_title_on_the_left_side_menu() {
         waitFor(3);
@@ -55,8 +59,8 @@ public class US_082 extends CommonPage {
     @Then("the user is able to enter valid values on the Package Name field")
     public void the_user_is_able_to_enter_valid_values_on_the_package_name_field() {
     Assert.assertTrue(getServicesPage().InputPackageName.isEnabled());
-        getServicesPage().InputPackageName.sendKeys("Deneme");
-    Assert.assertTrue(getServicesPage().InputPackageName.getText().contains("Deneme"));
+        getServicesPage().InputPackageName.sendKeys(packageName);
+    Assert.assertTrue(getServicesPage().InputPackageName.getText().contains(packageName));
         waitFor(5);
 
 
@@ -262,7 +266,10 @@ Assert.assertEquals(addedPdf,getServicesPage().selectedPdfField.getAttribute("ti
     @When("the user fills all mandatory fields with valid values")
     public void the_user_fills_all_mandatory_fields_with_valid_values(io.cucumber.datatable.DataTable validValues) {
         List<String> listValues=validValues.column(1);
-        AtomicInteger index = new AtomicInteger(0);
+
+        getServicesPage().inputFieldsList.get(0).sendKeys(packageName);
+
+        AtomicInteger index = new AtomicInteger(1);
         listValues.stream().forEach(t-> {
             getServicesPage().inputFieldsList.get(index.get()).sendKeys(t);
             index.getAndIncrement();
@@ -279,7 +286,7 @@ Assert.assertEquals(addedPdf,getServicesPage().selectedPdfField.getAttribute("ti
     }
     @Then("Added Packages should appear in the package table")
     public void added_packages_should_appear_in_the_package_table() {
-Assert.assertTrue(getServicesPage().createdPackageInTable.getText().contains("steel1"));
+Assert.assertTrue(getServicesPage().createdPackageInTable.get(getServicesPage().createdPackageInTable.size()-1).getText().contains(packageName));
     }
 
 
