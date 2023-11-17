@@ -49,15 +49,8 @@ public class US_086 extends CommonPage {
         for (WebElement day : dayElements) {
             String dayText = day.getText();
             if (dayText.equals(currentDayLocal)) {
-//                System.out.println(" Actual background-color" + day.getCssValue("background-color"));
-//                String expectedColor = "rgba(255, 220, 40, 0.15)";
-//
-//                System.out.println("expectedColor = " + expectedColor);
+                System.out.println("colour = " + day.getCssValue("background-color"));
                 Assert.assertTrue(COLOR.TEXT_Yellow_BACKROUND.assertBackroundColorByBoolean(day));
-                //Assert.assertEquals("Background color is not matched", expectedColor, day.getCssValue("background-color"));
-                // ReusableMethods.assertBackgroundColor("rgba(255,220,40,.15))",day );
-
-
             }
         }
 
@@ -73,16 +66,14 @@ public class US_086 extends CommonPage {
 
     @Then("{string} page should be appeared")
     public void pageShouldBeAppeared(String expectedTitle) {
-
-       // Assert.assertTrue("Expected title is not= " + expectedTitle, getCalendarPage().schedule_Appointment_title.isDisplayed);
-        ReusableMethods.verifyElementDisplayed(getCalendarPage().registered_Services_radioBtn);
+       String actualTitle= getCalendarPage().schedule_Appointment_title.getText();
+        System.out.println("actualTitle = " + actualTitle);
+       Assert.assertEquals("Actual title is different",expectedTitle,actualTitle);
     }
+    @And("Registered Services default should be appeared in the Select Service Type section")
+    public void registeredServicesDefaultShouldBeAppearedInTheSelectServiceTypeSection() {
 
-    @And("{string} default should be appeared in the Select Service Type section")
-    public void defaultShouldBeAppearedInTheSelectServiceTypeSection(String serviceType) {
-//        WebElement registeredServicesRadioBtn = getCalendarPage().registered_Services_radioBtn;
-//        Assert.assertTrue("Service type is not selected: " + serviceType, registeredServicesRadioBtn.isSelected());
-        Assert.assertEquals(serviceType,getCalendarPage().registered_Services_radioBtn.getText());
+        Assert.assertTrue("Radio button should be selected by default",calendarPage.registered_Services_radioBtn.isSelected());
 
     }
 }

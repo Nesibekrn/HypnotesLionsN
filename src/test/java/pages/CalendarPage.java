@@ -10,12 +10,19 @@ public class CalendarPage extends CommonPage {
 
     @FindBy(xpath = "//a[@href='/dashboard/calendar']")
     public WebElement calendar_buton;
-    @FindBy(xpath = "//div[@class='fc-daygrid-day-frame fc-scrollgrid-sync-inner']/..")
+//    @FindBy(xpath = "//div[@class='fc-daygrid-day-frame fc-scrollgrid-sync-inner']/..")
+//    public List<WebElement> currentDayElements;
+
+    @FindBy(css = ".fc-daygrid-day-number")
     public List<WebElement> currentDayElements;
-    @FindBy(xpath = "//span[@data-test-id='calendar_tooltip_scheduleApp_onCalendar']")
+
+    @FindBy(xpath = "//span[text()='Schedule an Appointment']/..")
     public WebElement schedule_Appointment_title;
 
-    @FindBy(xpath = "//input[@id='registered']/following-sibling::*")
+    @FindBy(xpath = "//input[@data-test-id='calender_schedule_customServiceButton']")
+    public WebElement custom_Services_radioBtn;
+
+    @FindBy(xpath = "//input[@data-test-id='calender_schedule_registeredButton']")
     public WebElement registered_Services_radioBtn;
 
 }

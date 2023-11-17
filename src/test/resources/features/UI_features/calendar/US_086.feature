@@ -13,7 +13,7 @@ Feature: Register Services - Register Clients options
   Scenario: Verify after user selecting any date 'Schedule an appointment' page appear
     When user select any date
     Then "Schedule an appointment" page should be appeared
-    And "Registered Services" default should be appeared in the Select Service Type section
+    And Registered Services default should be appeared in the Select Service Type section
 
 
 
