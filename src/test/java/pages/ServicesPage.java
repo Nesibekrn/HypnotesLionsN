@@ -119,7 +119,7 @@ public class ServicesPage extends CommonPage {
     @FindBy(xpath="//span[contains(text(),'Package has been added')]")
     public WebElement savePackageMessage;
 
-    @FindBy(xpath="//div[text()='steel']")
+    @FindBy(xpath="//div[text()='steel1']")
     public WebElement createdPackageInTable;
 
 

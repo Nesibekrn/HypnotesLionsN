@@ -279,7 +279,7 @@ Assert.assertEquals(addedPdf,getServicesPage().selectedPdfField.getAttribute("ti
     }
     @Then("Added Packages should appear in the package table")
     public void added_packages_should_appear_in_the_package_table() {
-Assert.assertTrue(getServicesPage().createdPackageInTable.getText().contains("steel"));
+Assert.assertTrue(getServicesPage().createdPackageInTable.getText().contains("steel1"));
     }
 
 
