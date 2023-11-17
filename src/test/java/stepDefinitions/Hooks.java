@@ -23,7 +23,7 @@ import java.util.Map;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 import static io.restassured.RestAssured.given;
-import static utilities.Authentication.generatePhpSessid;
+//import static utilities.Authentication.generatePhpSessid;
 
 
 public class Hooks {
@@ -151,7 +151,6 @@ public class Hooks {
 
       @Before("@API")
       public void setUpToken() {
-          generatePhpSessid();
           hypnotesSetUpFormData();
       }
     @Before("@fatma")
