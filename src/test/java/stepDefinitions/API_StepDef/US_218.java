@@ -18,7 +18,7 @@ import static utilities.Authentication.phpSessid;
 
 public class US_218 {
     Response response;
-    int id;
+    int idCreated;
     JsonPath jsonPath;
     String expectStartAt;
     String expectFinishAt;
@@ -72,8 +72,8 @@ public class US_218 {
 
         response = given().header("Cookie", phpSessid).formParams(payloadCreate).post("https://test.hypnotes.net/api/hypnotherapist/timeoff/create");
         jsonPath = response.jsonPath();
-        id = jsonPath.getInt("data[0].id");
-        System.out.println("id = " + id);
+        idCreated = jsonPath.getInt("data[0].id");
+        System.out.println("id = " + idCreated);
         response.prettyPrint();
         Assert.assertEquals(expectStartAt,response.jsonPath().get("data[0].startAt").toString());
 
@@ -82,7 +82,7 @@ public class US_218 {
     @When("user sends Post request to delete block times")
     public void userSendsPostRequestToDeleteBlockTimes() {
         Map<String, Object> payloadDelete = new HashMap<>();
-        payloadDelete.put("id", 1412);
+        payloadDelete.put("id", 1411);
         response = given().header("Cookie", phpSessid).formParams(payloadDelete).post("https://test.hypnotes.net/api/hypnotherapist/timeoff/delete");
         response.prettyPrint();
     }
