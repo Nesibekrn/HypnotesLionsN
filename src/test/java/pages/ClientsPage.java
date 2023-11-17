@@ -459,7 +459,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "(//input[@class='invoice_input__75vJN  '])[1]")
     public WebElement ddCountryWithoutSelect;
-    @FindBy(xpath = "//h5[text()='Melisa Cay']")
+    @FindBy(xpath = "//h5[text()='Fatma butterfly']")
     public WebElement clientFatma;
 
     @FindBy(xpath = "//span[@data-test-id='dashboard_clients_payments']")
@@ -467,7 +467,6 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "//div[@aria-selected='true']")
     public WebElement selectedPaymentSection;
-
 
     @FindBy(xpath = "//th[@aria-label='Date']/*[@class='ant-table-filter-column']")
     public WebElement dateSortDescending1;
