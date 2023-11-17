@@ -91,6 +91,7 @@ public class US_059 extends CommonPage {
     @Then("a valid logo is displayed successfully")
     public void a_valid_logo_is_displayed_successfully() {
         Assert.assertTrue(getAccountPage().changeLogo.isDisplayed());
+
     }
 
 

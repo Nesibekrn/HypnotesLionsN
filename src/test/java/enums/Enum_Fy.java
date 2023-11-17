@@ -3,7 +3,8 @@ package enums;
 public enum Enum_Fy {
 
     THERAPIST("fatihfrance@yopmail.com","123456789Aa@"),
-    NESIBE("test_trpst_basic@yopmail.com","Trpst13.");
+    NESIBE("test_trpst_basic@yopmail.com","Trpst13."),
+    THERAPISTLOGIN("ftmcglr@yopmail.com","Test123456!");
 
     private final String username;
     private final String password;
