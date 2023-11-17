@@ -1,5 +1,6 @@
 package stepDefinitions.UI_StepDef.services;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,6 +13,9 @@ import utilities.ReusableMethods;
 import static stepDefinitions.Hooks.driver;
 
 public class US_083 extends CommonPage {
+
+    Faker faker = new Faker();
+
     @And("the user clicks on the Services page")
     public void theUserClicksOnTheServicesPage() {
 
@@ -46,6 +50,7 @@ public class US_083 extends CommonPage {
 
         ReusableMethods.waitForVisibility(getServicesPage().addingGroupSessionTitle, 5);
         ReusableMethods.verifyElementDisplayed(getServicesPage().addingGroupSessionTitle);
+        Assert.assertTrue(getServicesPage().addingGroupSessionTitle.getText().contains("Adding Group Session"));
 
     }
 
@@ -55,7 +60,10 @@ public class US_083 extends CommonPage {
         ReusableMethods.verifyElementDisplayed(getServicesPage().inputFormName);
         ReusableMethods.verifyElementEnabled(getServicesPage().inputFormName);
 
-        getServicesPage().inputFormName.sendKeys("Gulseren Budayicioglu");
+        getServicesPage().inputFormName.sendKeys(faker.name().fullName());
+
+        //Assert.assertTrue(getServicesPage().inputFormName.getText().contains(????));
+        //assertion nasil yapicam?
 
     }
 
@@ -70,15 +78,17 @@ public class US_083 extends CommonPage {
 
         getServicesPage().inputPrice.sendKeys("100");
 
-        ReusableMethods.waitFor(6);
-
     }
 
     @And("activates the Show service price on the initial scheduler page button")
     public void activatesTheShowServicePriceOnTheInitialSchedulerPageButton() {
 
-        //String ariaCheckedValue = getServicesPage().inputPrice.getAttribute("aria-checked");
-        //Assert.assertEquals("Switch button is closed", "true", ariaCheckedValue);
+        ReusableMethods.verifyElementEnabled(getServicesPage().priceSwitchButton);
+        String ariaCheckedValue = getServicesPage().priceSwitchButton.getAttribute("aria-checked");
+        Assert.assertEquals("Switch button is closed", "true", ariaCheckedValue);
+
+        System.out.println(getServicesPage().priceSwitchButton.getAttribute("aria-checked"));
+        Assert.assertTrue(getServicesPage().priceSwitchButton.getAttribute("aria-checked").contains("true"));
 
     }
 
@@ -89,43 +99,69 @@ public class US_083 extends CommonPage {
         ReusableMethods.verifyElementEnabled(getServicesPage().inputDuration);
 
         getServicesPage().inputDuration.click();
+
+        ReusableMethods.waitForClickability(getServicesPage().clickDurationTime, 5);
+
         getServicesPage().clickDurationTime.click();
 
-        getServicesPage().inputDuration.clear();
-        getServicesPage().inputDuration.sendKeys("50");
+        Assert.assertTrue(getServicesPage().inputDuration.getAttribute("value").contains("90"));
 
     }
 
 
     @And("adjusts the cursors on the right of the menu for increasing and decreasing numbers")
     public void adjustsTheCursorsOnTheRightOfTheMenuForIncreasingAndDecreasingNumbers() {
+
+        ReusableMethods.waitFor(5);
+
     }
 
     @And("activates the Payment Required button")
     public void activatesThePaymentRequiredButton() {
+
+        ReusableMethods.verifyElementEnabled(getServicesPage().paymentRequiredSwitchButton);
+
+        getServicesPage().paymentRequiredSwitchButton.click();
+        String ariaCheckedValue = getServicesPage().paymentRequiredSwitchButton.getAttribute("aria-checked");
+        Assert.assertEquals("Switch button is closed", "true", ariaCheckedValue);
+
+        System.out.println(getServicesPage().paymentRequiredSwitchButton.getAttribute("aria-checked"));
+        Assert.assertTrue(getServicesPage().paymentRequiredSwitchButton.getAttribute("aria-checked").contains("true"));
+
     }
 
     @And("activates the Service Active button")
     public void activatesTheServiceActiveButton() {
+
+        ReusableMethods.verifyElementEnabled(getServicesPage().serviceActiveSwitch);
+
+        String ariaCheckedValue = getServicesPage().serviceActiveSwitch.getAttribute("aria-checked");
+        Assert.assertEquals("Switch button is closed", "true", ariaCheckedValue);
+
+        getServicesPage().serviceActiveSwitch.click();
+
+        getServicesPage().serviceActiveSwitch.click();
+
+        Assert.assertEquals("Switch button is closed", "true", ariaCheckedValue);
+
+
     }
 
     @And("selects required documents from the Required Forms and eSign Documents menu")
     public void selectsRequiredDocumentsFromTheRequiredFormsAndESignDocumentsMenu() {
 
         getServicesPage().selectDocumentSessionForm.click();
-        getServicesPage().selectDownloadFile.click();;
+        getServicesPage().selectDownloadFile.click();
 
+        Assert.assertTrue("User should select required documents from the Required Forms and eSign Documents menu..", getServicesPage().verifySelectDownloadFile.getAttribute("title").contains("download.pdf"));
+        Assert.assertEquals(true, getServicesPage().selectDownloadFile.getAttribute("title").isEmpty());
     }
 
     @And("checks the Would you like this service to be provided online? menu")
     public void checksTheWouldYouLikeThisServiceToBeProvidedOnlineMenu() {
 
         // Check if checkbox is selected
-        //Assert.assertTrue(getServicesPage().checkboxOnline.isSelected(), true);
-        //isChecked = getServicesPage().checkboxOnline.findElement(By.tagName("input")).isSelected();
-        //Assert.assertTrue(driver.findElement(By.xpath("(//input[@id='online'])[3]")).isSelected());
-        ReusableMethods.selectCheckBox(getServicesPage().checkboxOnline, true);
-        //getServicesPage().checkboxOnline.isSelected();
+        Assert.assertTrue(getServicesPage().checkboxOnline.isSelected());
 
     }
 
@@ -133,11 +169,12 @@ public class US_083 extends CommonPage {
     public void entersALocationInTheSessionLocationsField() {
 
 
-
     }
 
     @And("enters attendees in the Maximum Number Of Attendees field")
     public void entersAttendeesInTheMaximumNumberOfAttendeesField() {
+
+        getServicesPage().inputAttendeeLimitButton.sendKeys("5");
     }
 
     @And("adjusts the cursors on the right of the menus for increasing and decreasing numbers")
@@ -146,10 +183,16 @@ public class US_083 extends CommonPage {
 
     @And("selects a Date from the Date calender menu")
     public void selectsADateFromTheDateCalenderMenu() {
+
+        getServicesPage().selectSessionDate.click();
+
     }
 
     @And("selects a Time from the Time panel")
     public void selectsATimeFromTheTimePanel() {
+
+        getServicesPage().inputSessionTime.click();
+
     }
 
     @And("adds various notes to the Session Description optional section")
@@ -172,6 +215,8 @@ public class US_083 extends CommonPage {
 
     @And("the Group Session has been added message should appear")
     public void theGroupSessionHasBeenAddedMessageShouldAppear() {
+
+        Assert.assertTrue(getServicesPage().groupSessionHasBeenAddedMessage.getText().contains("Group Session has been added"));
     }
 
     @Given("the user is on the Add New Group Session page")
@@ -179,12 +224,12 @@ public class US_083 extends CommonPage {
 
         Assert.assertTrue("URL was :", driver.getCurrentUrl().contains("services"));
 
-
     }
 
     @Then("the user clicks the Edit button in Group Session page")
     public void theUserClicksTheEditButtonInGroupSessionPage() {
 
+        getServicesPage().editButtonInGroupSession.click();
 
     }
 
@@ -199,12 +244,15 @@ public class US_083 extends CommonPage {
 
         String expectedAddingGroupSessionTitle = "Adding Group Session";
 
-        Assert.assertEquals(getServicesPage().addingGroupSessionTitle, expectedAddingGroupSessionTitle);
+        Assert.assertEquals("Adding Group Session Title should be visible on the Form menu", getServicesPage().addingGroupSessionTitle, expectedAddingGroupSessionTitle);
 
     }
 
     @Given("the user is on the Adding Group Session page")
     public void theUserIsOnTheAddingGroupSessionPage() {
+
+        Assert.assertTrue("URL was :", driver.getCurrentUrl().contains("services"));
+        Assert.assertEquals("Available Group Session Button", getServicesPage().availableGroupSessionButton);
 
     }
 

@@ -35,7 +35,7 @@ public class ServicesPage extends CommonPage {
     @FindBy(xpath = "//button[@id='paymentRequired']")
     public WebElement paymentRequiredSwitch;
 
-    @FindBy(xpath = "//button[@id='bookable']")
+    @FindBy(xpath = "//button[@data-test-id='serviceActive_switch_sessionForm']")
     public WebElement serviceActiveSwitch;
 
     @FindBy(xpath = "//span[normalize-space()='Please Select Document']")
@@ -47,10 +47,13 @@ public class ServicesPage extends CommonPage {
     @FindBy(xpath = "(//div[contains(text(), 'download.pdf')])[1]")
     public WebElement selectDownloadFile;
 
+    @FindBy(xpath = "//span[@title='download.pdf']")
+    public WebElement verifySelectDownloadFile;
+
     @FindBy(xpath = "//span[normalize-space()='Would you like this service to be provided online?']")
     public WebElement providedOnlineTitle;
 
-    @FindBy(xpath = "(//input[@id='online'])[3]")
+    @FindBy(xpath = "//input[@id='online']")
     public WebElement checkboxOnline;
 
     @FindBy(xpath = "//input[@id='attendeeLimit']")
@@ -64,6 +67,7 @@ public class ServicesPage extends CommonPage {
 
     @FindBy(xpath = "//textarea[@id='description']")
     public WebElement inputDescriptionButton;
+
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement saveButton;
 
@@ -76,16 +80,29 @@ public class ServicesPage extends CommonPage {
     @FindBy(xpath = "//div[@class='ant-drawer-title']")
     public WebElement addingGroupSessionTitle;
 
+    @FindBy(xpath = "//button[@data-test-id='settings/locations/editLocationButton']")
+    public WebElement editButtonInGroupSession;
 
+    @FindBy(xpath = "//span[normalize-space()='Available Group Session']")
+    public WebElement availableGroupSessionButton;
 
+    @FindBy(xpath = "//button[@data-test-id='price_switch_sessionForm']")
+    public WebElement priceSwitchButton;
 
+    @FindBy(xpath = "//button[@data-test-id='paymentRequired_switch_sessionForm']")
+    public WebElement paymentRequiredSwitchButton;
 
+    @FindBy(xpath = "//button[@data-test-id='serviceActive_switch_packageForm']")
+    public WebElement serviceActiveSwitchButton;
 
+    @FindBy(xpath = "//div[@class='ant-message-notice-content']")
+    public WebElement groupSessionHasBeenAddedMessage;
 
+    @FindBy(xpath = "//span[normalize-space()='Select Location']")
+    public WebElement selectLocationButton;
 
-
-
-
+    @FindBy(xpath = "(//span[@class='ant-select-arrow'])[2]")
+    public WebElement selectLocationSelectArrow;
 
 
 
