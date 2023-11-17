@@ -73,9 +73,9 @@ public class US_066StepDef extends CommonPage{
                 }
         // Compare the dates and assert ascending order
 
-        getClientsPage().dateSortDescending.click();
+        getClientsPage().dateSortDescending1.click();
          ReusableMethods.waitFor(2);
-        (getClientsPage().dateSortDescending).click();
+        (getClientsPage().dateAscending).click();
 
          ReusableMethods.waitFor(5);
 
