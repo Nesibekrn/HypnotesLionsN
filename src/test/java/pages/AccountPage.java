@@ -13,79 +13,79 @@ import java.util.List;
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
 
-public class AccountPage extends CommonPage{
+public class AccountPage extends CommonPage {
 
 //    @FindBy(xpath="//span[@class=\"ant-avatar ant-avatar-circle css-aqx16b\"]")
 //    public WebElement accountLogo;
 
-    @FindBy(xpath="//span[@class='anticon anticon-caret-down']")
+    @FindBy(xpath = "//span[@class='anticon anticon-caret-down']")
     public WebElement accountLogo;
 
-    @FindBy(linkText="Profile")
+    @FindBy(linkText = "Profile")
     public WebElement profile;
 
 
-    @FindBy(xpath="//div[contains(text(),\"Your Company\")]")
+    @FindBy(xpath = "//div[contains(text(),\"Your Company\")]")
     public WebElement yourCompanyTitle;
 
-    @FindBy(xpath="//span[contains(text(),\"Add New Company\")]")
+    @FindBy(xpath = "//span[contains(text(),\"Add New Company\")]")
     public WebElement addNewCompany;
 
     //add new company form locators
-    @FindBy(xpath="//input[@class=\"invoice_input__75vJN compTab_formInputText__ujWLR\"]")
+    @FindBy(xpath = "//input[@class=\"invoice_input__75vJN compTab_formInputText__ujWLR\"]")
     public List<WebElement> fields;
 
-    @FindBy(xpath="//button[text()='Your Logo']")
+    @FindBy(xpath = "//button[text()='Your Logo']")
     public WebElement yourLogo;
-    @FindBy(xpath="//input[@class=\"invoice_imageFile__dnFWA\"]")
+    @FindBy(xpath = "//input[@class=\"invoice_imageFile__dnFWA\"]")
     public WebElement yourLogo2;
 
-    @FindBy(xpath="//input[@class=\"invoice_imageFile__dnFWA\"]")
+    @FindBy(xpath = "//input[@class=\"invoice_imageFile__dnFWA\"]")
     public WebElement changeLogo;
 
-    @FindBy(xpath="//input[@placeholder='Your Company']")
+    @FindBy(xpath = "//input[@placeholder='Your Company']")
     public WebElement yourCompany;
 
-    @FindBy(xpath="//input[@placeholder='Company Address']")
+    @FindBy(xpath = "//input[@placeholder='Company Address']")
     public WebElement companyAddress;
 
-    @FindBy(xpath="//input[@placeholder='City,State,Zip']")
+    @FindBy(xpath = "//input[@placeholder='City,State,Zip']")
     public WebElement cityStateZip;
-    @FindBy(xpath="//input[@placeholder='Company URL']")
+    @FindBy(xpath = "//input[@placeholder='Company URL']")
     public WebElement companyURL;
 
     // @FindBy(xpath="//div[@data-test-id='profil_addNewCompanyPage_companyCountry_dropDown_input']/input")
     // public WebElement country;
 
 
-    @FindBy(xpath="//div[@data-test-id='profil_addNewCompanyPage_companyCountry_dropDown_input']")
+    @FindBy(xpath = "//div[@data-test-id='profil_addNewCompanyPage_companyCountry_dropDown_input']")
     public WebElement countryDD;
-    @FindBy(xpath="//input[@placeholder='Company URL']")
+    @FindBy(xpath = "//input[@placeholder='Company URL']")
     public WebElement companyUrl;
 
-    @FindBy(xpath="//input[@placeholder='Company Phone']")
+    @FindBy(xpath = "//input[@placeholder='Company Phone']")
     public WebElement companyPhone;
 
-    @FindBy(xpath="//input[@placeholder='Company Email']")
+    @FindBy(xpath = "//input[@placeholder='Company Email']")
     public WebElement companyEmail;
 
 
-    @FindBy(xpath="//select[@class=\"invoice_select__WnoPF   false\"]")
+    @FindBy(xpath = "//select[@class=\"invoice_select__WnoPF   false\"]")
     public WebElement contryDropDownl;
 
 
-    @FindBy(xpath="//span[text()='Add New Education']")
+    @FindBy(xpath = "//span[text()='Add New Education']")
     public WebElement addNewEducation;
 
 
     @FindBy(xpath = "//div[@class='ant-row ant-form-item-row css-aqx16b']")
-    public List<WebElement>titles;
+    public List<WebElement> titles;
 
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancel_buton;
 
-    @FindBy(xpath="//div[@class='ant-form-item-control-input-content']")
-    public List<WebElement>selections;
+    @FindBy(xpath = "//div[@class='ant-form-item-control-input-content']")
+    public List<WebElement> selections;
 
     @FindBy(xpath = "//input[@data-test-id='profileMenu_addNewEducationDrawer_schoolNameInput']")
     public WebElement schoolNameField;
@@ -117,47 +117,74 @@ public class AccountPage extends CommonPage{
     public WebElement selectedDDvalueforCountry;
     @FindBy(xpath = "(//div[@class='ant-tabs-tab'])[3]")
     public WebElement certificationButton;
-    @FindBy (xpath="//button[@class='ant-btn css-aqx16b ant-btn-primary tab_certf__LJZfW']")
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary tab_certf__LJZfW']")
     public WebElement addNewCertificateButton;
-    @FindBy (xpath="//div[text()='Remote Therapy Certificate']")
+    @FindBy(xpath = "//div[text()='Remote Therapy Certificate']")
     public WebElement remoteTherapyCertificate;
-    @FindBy (xpath="//div[@class='ant-drawer-title']")
+    @FindBy(xpath = "//div[@class='ant-drawer-title']")
     public WebElement addLicenseOrCertificate;
-    @FindBy (xpath="//div[@class='ant-form-item-control-input']")
+    @FindBy(xpath = "//div[@class='ant-form-item-control-input']")
     public WebElement addLicenseOrCertificateInputTitles;
-    @FindBy (xpath="//input[@id='title']")
+    @FindBy(xpath = "//input[@id='title']")
     public WebElement titleTextBox;
-    @FindBy (xpath="//input[@id='organization']")
+    @FindBy(xpath = "//input[@id='organization']")
     public WebElement issuingOrgTextBox;
-    @FindBy (id="date")
+    @FindBy(id = "date")
     public WebElement issueDateTextBox;
-    @FindBy (xpath="//div[normalize-space()='10']")
+    @FindBy(xpath = "//div[normalize-space()='10']")
     public WebElement dayArrow;
-    @FindBy (xpath="//input[@id='publicUrl']")
+    @FindBy(xpath = "//input[@id='publicUrl']")
     public WebElement credentialUrl;
-    @FindBy (xpath="//span[text()='Cancel']")
+    @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButton;
 
-    @FindBy (xpath="//span[text()='Save']")
+    @FindBy(xpath = "//span[text()='Save']")
     public WebElement saveButton;
-    @FindBy (xpath="//button[@type='submit']")
+    @FindBy(xpath = "//button[@type='submit']")
     public WebElement saveButtonClick;
-    @FindBy (xpath="//span[text()='Certificate has been added']")
+    @FindBy(xpath = "//span[text()='Certificate has been added']")
     public WebElement certificateAddedMessage;
 
-    public void saveAndCancelButtonClick(String button){
-        WebElement clickButtons= driver.findElement(By.xpath("//span[text()='" + button + "']"));
+    public void saveAndCancelButtonClick(String button) {
+        WebElement clickButtons = driver.findElement(By.xpath("//span[text()='" + button + "']"));
         clickButtons.isEnabled();
     }
 
-    public void setAddLicenseOrCertificateInputTitles(){
-       titleTextBox.sendKeys("Canadian Certified Counsellor");
-       issuingOrgTextBox.sendKeys("RMFT");
-       ReusableMethods.waitFor(3);
-       issueDateTextBox.click();
-       dayArrow.click();
-       credentialUrl.sendKeys("https://www.crpo.ca/");
+    public void setAddLicenseOrCertificateInputTitles() {
+        titleTextBox.sendKeys("Canadian Certified Counsellor");
+        issuingOrgTextBox.sendKeys("RMFT");
+        ReusableMethods.waitFor(3);
+        issueDateTextBox.click();
+        dayArrow.click();
+        credentialUrl.sendKeys("https://www.crpo.ca/");
     }
 
+    //@FindBy(css="div.ant-card ant-card-bordered ant-card-hoverable mt-5 p-2 css-aqx16b")
+    @FindBy(xpath = "//div[@class='ant-card-head']")
+    public WebElement card_companyInformation;
+    @FindBy(xpath = "//li[@style='width: 100%;']")
+    public WebElement button_edit;
+    @FindBy(xpath = "//div[text()='Edit your company information.']")
+    public WebElement title_editYourCompany;
+    @FindBy(xpath = "//input[@placeholder='Your Company']")
+    public WebElement input_CompanyName;
+    @FindBy(xpath = "//input[@placeholder='Company Address']")
+    public WebElement input_CompanyAddress;
+    @FindBy(xpath = "//input[@placeholder='City,State,Zip']")
+    public WebElement input_CityStateZip;
+    @FindBy(xpath = "//input[@class='invoice_input__75vJN  ']")
+    public WebElement country_input;
+    @FindBy(xpath="//div[@data-test-id='profil_addNewCompanyPage_companyCountry_dropDown_input']")
+    public WebElement input_Country;
+    @FindBy(xpath = "//input[@placeholder='Company URL']")
+    public WebElement input_CompanyURL;
+    @FindBy(xpath = "//input[@placeholder='Company Phone']")
+    public WebElement input_CompanyPhone;
+    @FindBy(xpath = "//input[@placeholder='Company Email']")
+    public WebElement input_CompanyEmail;
+    @FindBy(xpath = "//input[@class='invoice_imageFile__dnFWA']")
+    public WebElement input_Image;
+    @FindBy(xpath = "(//div[@class='ant-message-custom-content ant-message-info']//span)[2]")
+    public WebElement messageUpdated;
 
 }
