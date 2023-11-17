@@ -11,11 +11,11 @@ Feature: As a user, I should be able to update  block times that was created bef
 
   Scenario: User needs to be delete block times into post response through API
     When user sends Post request to delete block times
-    Then user validates the response
+    Then user validates the response for delete
 
   Scenario: User needs to be all block times into post response through API
     When user sends Post request to all block times
-    Then user validates the response
+    Then user validates the response for all block times
     #Dashboard - therapist - calendar- block time - Specific Date & Time
     #User needs to be logged in to get response.
     #https://test.hypnotes.net/api/hypnotherapist/timeoff/update

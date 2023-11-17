@@ -11,9 +11,7 @@ public class HypnotesBaseUrl {
 
     public static void hypnotesSetUpFormData() {
         specFormData = new RequestSpecBuilder().
-                setContentType(ContentType.JSON).
                 addHeader("Cookie", generatePhpSessid()).
-                //  addHeader("Cookie", generateCookie()).
                         setBaseUri("https://test.hypnotes.net/").
                 build();
     }
