@@ -113,14 +113,14 @@ public class Hooks {
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
-
-        try{
-            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
-            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
-        }catch (Exception e){
-            System.out.println("Not found timezone pop up");
-        }
-    }
+//
+//        try{
+//            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
+//            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+//        }catch (Exception e){
+//            System.out.println("Not found timezone pop up");
+//        }
+   }
 
     @Before("@Client")
     public void ClientLogInUSA(){
