@@ -10,10 +10,14 @@ Feature: Register Services - Register Clients options
     Then the current day should be visible with a different colour
 
   @UI @Therapist
-  Scenario: Verify after user selecting any date 'Schedule an appointment' page appear
+  Scenario: Verify after user selecting any date 'Schedule an Appointment' page appear
     When user select any date
-    Then "Schedule an appointment" page should be appeared
+    Then "Schedule an Appointment" page should be appeared
     And Registered Services default should be appeared in the Select Service Type section
+    When user see the Service menu
+    Then user clicks on Service menu button
+    And user should see the services
+
 
 
 
