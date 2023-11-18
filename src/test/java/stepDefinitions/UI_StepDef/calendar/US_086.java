@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CalendarPage;
 import pages.CommonPage;
@@ -68,12 +69,32 @@ public class US_086 extends CommonPage {
     public void pageShouldBeAppeared(String expectedTitle) {
        String actualTitle= getCalendarPage().schedule_Appointment_title.getText();
         System.out.println("actualTitle = " + actualTitle);
+        ReusableMethods.waitForVisibility(getCalendarPage().schedule_Appointment_title,3);
        Assert.assertEquals("Actual title is different",expectedTitle,actualTitle);
     }
     @And("Registered Services default should be appeared in the Select Service Type section")
     public void registeredServicesDefaultShouldBeAppearedInTheSelectServiceTypeSection() {
 
         Assert.assertTrue("Radio button should be selected by default",calendarPage.registered_Services_radioBtn.isSelected());
+
+    }
+
+    @When("user see the Service menu")
+    public void userSeeTheServiceMenu() {
+
+        ReusableMethods.verifyElementDisplayed(getCalendarPage().appointment_service_radioBtn);
+    }
+
+    @Then("user clicks on Service menu button")
+    public void userClicksOnServiceMenuButton() {
+        ReusableMethods.clickWithTimeOut(getCalendarPage().appointment_service_radioBtn,3);
+    }
+
+    @And("user should see the services")
+    public void userShouldSeeTheServices() {
+        for(WebElement session:getCalendarPage().indv_session_And_Package){
+            ReusableMethods.verifyElementDisplayed(session);
+        }
 
     }
 }
