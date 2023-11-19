@@ -9,6 +9,7 @@ public enum COLOR {
     TEXT_GRAY_BACKROUND("#cccece", "rgb(204, 206, 206)", "rgba(204, 206, 206, 1)"),
     TEXT_GREEN_BACKROUND("#007385", "rgb(0, 115, 133)", "rgba(0, 115, 133, 1)"),
 
+    BLOCK_TIME_COLOR("#000000","rgb(0, 0, 0)","rgba(0, 0, 0, 0.04)")
 
     ;
     private String HEX;
