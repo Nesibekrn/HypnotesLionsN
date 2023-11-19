@@ -60,7 +60,7 @@ public class US_217 {
     @Then("user see {int} status code and response body contains status as true")
     public void user_see_status_code_and_response_body_contains_status_as_true(int statusCode) {
       Assert.assertEquals(statusCode,response.getStatusCode());
-        System.out.println(jsonPath.getBoolean("status"));
+        //System.out.println(jsonPath.getBoolean("status"));
       Assert.assertTrue(jsonPath.getBoolean("status"));
 
       //      Assert.assertEquals(expectedData.status,jsonPath.getBoolean("status"));

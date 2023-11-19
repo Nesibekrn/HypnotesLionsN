@@ -65,5 +65,6 @@ public class CalendarPage extends CommonPage{
     public WebElement blockDatesTitle;
 
 
-
+ @FindBy(xpath = "//span[text()='Email sent.']")
+ public WebElement emailSentForInvitation;
 }

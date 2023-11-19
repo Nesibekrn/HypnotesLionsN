@@ -1,5 +1,5 @@
 @API @US_217
-Feature: Hypnotes-API functionality
+Feature: Hypnotes-API api/hypnotherapist/timeoff/all functionality
   Scenario: As a user, I should be able to get all block times with using API endpoints
     When user sends POST request to get all blocked times
     Then user see 200 status code and response body contains status as true
