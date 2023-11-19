@@ -25,7 +25,8 @@ public class CalendarPage extends CommonPage {
     @FindBy(xpath = "//input[@data-test-id='calender_schedule_registeredButton']")
     public WebElement registered_Services_radioBtn;
 
-    @FindBy(xpath = "//div[@aria-label='Default select example']//span[@class='ant-select-arrow']")
+    @FindBy(xpath = "//div[@aria-label='Default select example']/span[@class='ant-select-arrow']/..")
+//    @FindBy(css="#service")
     public WebElement appointment_service_radioBtn;
 
     @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
@@ -34,5 +35,7 @@ public class CalendarPage extends CommonPage {
     @FindBy(xpath = "//div[@class='ant-select-item ant-select-item-group']//strong")
     public List<WebElement> indv_session_And_Package;
 
-//    @FindBy(xpath = "//div[@class='ant-select-item ant-select-item-group']//strong")
+//    @FindBy(xpath = "//div[starts-with(@class,'ant-select-item')]")
+    @FindBy(css = ".ant-select-item-option-content")
+    public List<WebElement> sessions;
 }

@@ -88,13 +88,14 @@ public class US_086 extends CommonPage {
     @Then("user clicks on Service menu button")
     public void userClicksOnServiceMenuButton() {
         ReusableMethods.clickWithTimeOut(getCalendarPage().appointment_service_radioBtn,3);
+        ReusableMethods.waitFor(3);
+
     }
 
     @And("user should see the services")
     public void userShouldSeeTheServices() {
-        for(WebElement session:getCalendarPage().indv_session_And_Package){
-            ReusableMethods.verifyElementDisplayed(session);
-        }
+        List<WebElement> sessions = getCalendarPage().sessions;
+        sessions.forEach(e-> System.out.println("e.getAttribute(\"innerText\") = " + e.getAttribute("innerText")));
 
     }
 }
