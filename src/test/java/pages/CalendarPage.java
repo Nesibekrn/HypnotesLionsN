@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.Random;
 
 public class CalendarPage extends CommonPage {
 
@@ -13,8 +12,9 @@ public class CalendarPage extends CommonPage {
 //    @FindBy(xpath = "//div[@class='fc-daygrid-day-frame fc-scrollgrid-sync-inner']/..")
 //    public List<WebElement> currentDayElements;
 
-    @FindBy(css = ".fc-daygrid-day-number")
-    public List<WebElement> currentDayElements;
+//    @FindBy(css = ".fc-daygrid-day-top")
+    @FindBy(css = ".fc-daygrid-day-number[aria-label]")
+    public List<WebElement> calenderAllDays;
 
     @FindBy(xpath = "//span[text()='Schedule an Appointment']")
     public WebElement schedule_Appointment_title;

@@ -6,62 +6,74 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import pages.CalendarPage;
 import pages.CommonPage;
-import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
-import java.time.Duration;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
 
-import static stepDefinitions.Hooks.driver;
+import static utilities.ReusableMethods.*;
 
 public class US_086 extends CommonPage {
+    @When("user should see the current day0")
+    public void userShouldSeeTheCurrentDay0() {
+//        LocalDate currentDate = LocalDate.now();
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d");
+//        String currentDayLocal = currentDate.format(formatter);
+//        List<WebElement> dayElements = getCalendarPage().currentDayElements;
+//        boolean isCurrentDayDisplayed = dayElements.stream().map(WebElement::getText)
+//                .anyMatch(text -> text.equals(currentDayLocal));
+//        Assert.assertTrue("Current day is displayed on the calender.", isCurrentDayDisplayed);
+
+//        List<WebElement> dayElements = getCalendarPage().calenderAllDays;
+
+//        private Date parseDateFromAriaLabel(String ariaLabel){
+//            try{
+//                SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+//                return
+//            }catch (ParseException e){
+//                try {
+//                    e.printStackTrace();
+//                } catch (Exception ex) {
+//                    throw new RuntimeException(ex);
+//                }
+//                return null;
+//            }
+//        }
+//        for (WebElement dayElement:dayElements) {
+//            String ariaLabelValue = dayElement.getAttribute("aria-label");
+//
+
+//        }
+
+    }
+
     @When("user should see the current day")
-    public void userShouldSeeTheCurrentDay() {
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d");
-        String currentDayLocal = currentDate.format(formatter);
-        List<WebElement> dayElements = getCalendarPage().currentDayElements;
-        boolean isCurrentDayDisplayed = dayElements.stream().map(WebElement::getText)
-                .anyMatch(text -> text.equals(currentDayLocal));
-        Assert.assertTrue("Current day is displayed on the calender.", isCurrentDayDisplayed);
+    public void userShouldSeeTheCurrentDay1() {
+
+        WebElement currentDay = getCurrentDay(getCalendarPage().calenderAllDays);
+        Assert.assertTrue(currentDay.isDisplayed());
 
     }
 
 
     @Then("the current day should be visible with a different colour")
     public void theCurrentDayShouldBeVisibleWithADifferentColour() {
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d");
-        String currentDayLocal = currentDate.format(formatter);
-        List<WebElement> dayElements = getCalendarPage().currentDayElements;
-        boolean isCurrentDayDisplayed = dayElements.stream().map(WebElement::getText)
-                .anyMatch(text -> text.equals(currentDayLocal));
-        Assert.assertTrue("Current day is displayed on the calender.", isCurrentDayDisplayed);
-        System.out.println(currentDayLocal);
-
-        for (WebElement day : dayElements) {
-            String dayText = day.getText();
-            if (dayText.equals(currentDayLocal)) {
-                System.out.println("colour = " + day.getCssValue("background-color"));
-                Assert.assertTrue(COLOR.TEXT_Yellow_BACKROUND.assertBackroundColorByBoolean(day));
-            }
-        }
-
+        WebElement currentDay = getCurrentDay(getCalendarPage().calenderAllDays);
+        System.out.println("currentDay.getAttribute(\"aria-label\") = " + currentDay.getAttribute("aria-label"));
+        Assert.assertEquals(COLOR.TEXT_Yellow_BACKROUND.getRGBA(),currentDay.getCssValue("background-color"));
     }
 
     @When("user select any date")
     public void userSelectAnyDate() {
         Random random = new Random();
-        int randomIndex = random.nextInt(getCalendarPage().currentDayElements.size());
-        WebElement randomElement = getCalendarPage().currentDayElements.get(randomIndex);
+        int randomIndex = random.nextInt(getCalendarPage().calenderAllDays.size());
+        WebElement randomElement = getCalendarPage().calenderAllDays.get(randomIndex);
         randomElement.click();
     }
 
@@ -69,7 +81,7 @@ public class US_086 extends CommonPage {
     public void pageShouldBeAppeared(String expectedTitle) {
        String actualTitle= getCalendarPage().schedule_Appointment_title.getText();
         System.out.println("actualTitle = " + actualTitle);
-        ReusableMethods.waitForVisibility(getCalendarPage().schedule_Appointment_title,3);
+        waitForVisibility(getCalendarPage().schedule_Appointment_title,3);
        Assert.assertEquals("Actual title is different",expectedTitle,actualTitle);
     }
     @And("Registered Services default should be appeared in the Select Service Type section")
@@ -82,13 +94,13 @@ public class US_086 extends CommonPage {
     @When("user see the Service menu")
     public void userSeeTheServiceMenu() {
 
-        ReusableMethods.verifyElementDisplayed(getCalendarPage().appointment_service_radioBtn);
+        verifyElementDisplayed(getCalendarPage().appointment_service_radioBtn);
     }
 
     @Then("user clicks on Service menu button")
     public void userClicksOnServiceMenuButton() {
-        ReusableMethods.clickWithTimeOut(getCalendarPage().appointment_service_radioBtn,3);
-        ReusableMethods.waitFor(3);
+        clickWithTimeOut(getCalendarPage().appointment_service_radioBtn,3);
+        waitFor(3);
 
     }
 
