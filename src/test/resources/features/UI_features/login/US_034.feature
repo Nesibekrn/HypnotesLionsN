@@ -7,7 +7,7 @@
 Feature: US_034 As a User (Therapist) I should be able to log in to the home page
 
   Background:
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
 
   @UI @US_034_TC-01
   Scenario: TC-01 The login button must be clickable

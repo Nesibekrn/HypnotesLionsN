@@ -2,7 +2,7 @@
 Feature: US_006
 
   Background:Connect_homepage
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
   Scenario: TC_01_first and second header and images check
 
     Then  assert first header color should be white

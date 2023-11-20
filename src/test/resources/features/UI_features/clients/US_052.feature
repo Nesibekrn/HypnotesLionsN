@@ -2,7 +2,7 @@
 Feature:US-52 The user should be able to see the customers added to the customer search page.
 
   Background:
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
     When clicks the login button
     And clicks to Sign in with linkedIn
     When enters the LinkedIn e-mail address and password

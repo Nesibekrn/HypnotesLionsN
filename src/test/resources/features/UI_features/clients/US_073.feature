@@ -3,7 +3,7 @@ Feature:Voice Notes Section
   @UI
   @US_73
   Scenario: TC_01_Files can be added to the Voice Notes section
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
     When user login as therapistt
     And user clicks on Clients button
     And user clicks on  client name

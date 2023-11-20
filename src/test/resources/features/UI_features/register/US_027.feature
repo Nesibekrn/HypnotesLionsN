@@ -1,7 +1,7 @@
 @UI @US27
 Feature:US27
   Scenario: US27_TC001 Positive scenario for Login with Apple account
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
     When  clicks the login button
     And clicks to Sign in with apple
     When enters the e-mail address and password
@@ -9,7 +9,7 @@ Feature:US27
 
     @US27_TC2
   Scenario Outline: US27_TC002 Negative scenario for Login with Apple account
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
     When  clicks the login button
     And clicks to Sign in with apple
     When enters a incorrect <"email"> and <"password">
@@ -22,7 +22,7 @@ Feature:US27
 
       @US27_TC3
   Scenario: US27_TC003 Negative scenario for Login with Apple account
-      Given user goes to home page
+      Given User goes to "https://test.hypnotes.net"
       When  clicks the login button
       And clicks to Sign in with apple
       When enters a incorrect "kk" and "123456"

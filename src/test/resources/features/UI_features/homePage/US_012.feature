@@ -5,7 +5,7 @@
 Feature:When I enter the home page as a user, I should be able to see various titles and perform various controls.
 
   Background:
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
 
   @TC-01
   Scenario: TC-01-After clicking the Contact Us button, the Contact Us menu should appear.

@@ -2,7 +2,7 @@ Feature: User Login
 
 
     Background:
-    Given user goes to home page
+    Given User goes to "https://test.hypnotes.net"
   @US_039
 @UI
   Scenario: Successful login with valid email and password
