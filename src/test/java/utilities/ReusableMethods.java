@@ -249,16 +249,16 @@ public class ReusableMethods {
         }
         return element;
     }
-//    WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(30));
-//    protected WebElement waitVisibleByLocator(By locator) {
-//        WebElement element = null;
-//
-//        try {
-//          //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-//        } catch (Exception e) {
-//        }
-//        return element;
-//    }
+
+    protected WebElement waitVisibleByLocator(By locator) {
+        WebElement element = null;
+
+        try {
+          //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        } catch (Exception e) {
+        }
+        return element;
+    }
 
     public static void switchToWindow(int windowNumber) {
         List<String> list = new ArrayList<>(Driver.getDriver().getWindowHandles());
