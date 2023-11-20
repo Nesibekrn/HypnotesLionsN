@@ -22,6 +22,8 @@ Feature: Register Services - Register Clients options
 
 
 
+
+
   #As a user, I should be able to perform various actions to create an appointment with the Register Services - Register Clients options
     #Registered Service-Registered Clients-Part 1
     #The current day should be visible with a different color
