@@ -65,13 +65,23 @@ public class US_84 extends CommonPage {
 
     @Then("User verifies The Max appointments button is fonctional and can enter number on the screen")
     public void userVerifiesTheMaxAppointmentsButtonIsFonctionalAndCanEnterNumberOnTheScreen() {
-        ReusableMethods.waitFor(3);
-        for (int i = 0; i < getSettingsPage().maxAppointments.size(); i++) {
+        ReusableMethods.waitFor(1);
+       /* for (int i = 0; i < getSettingsPage().maxAppointments.size(); i++) {
             if (!getSettingsPage().maxAppointments.get(i).isSelected()) {
-                getSettingsPage().maxAppointments.get(1).click();
+                ReusableMethods.waitFor(1);
+                getSettingsPage().maxAppointments.get(i).click();
 
             }
-        }
+        }*/
+
+        getSettingsPage().maxAppointments.forEach(t->{
+            if (!t.isSelected()) {
+                ReusableMethods.scrollToElement(t);
+                JS_utilities.scrollAndClickWithJS(t);
+
+            }
+        });
+
         ReusableMethods.clickWithTimeOut(getSettingsPage().maxAppointmentNumber,1);
         getSettingsPage().maxAppointmentNumber.sendKeys("10");
         getSettingsPage().maxAppointmentNumber.sendKeys(Keys.ENTER);

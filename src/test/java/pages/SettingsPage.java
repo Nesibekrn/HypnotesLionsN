@@ -36,7 +36,7 @@ public class SettingsPage extends CommonPage{
    @FindBy(xpath = "//button[@data-test-id='settings_recurringBlockTmeModal_addButton']")
    public WebElement addButton;
 
-   @FindBy(xpath = "//span[@class='ant-modal-close-x']")
+   @FindBy(xpath = "//button[@aria-label='Close']")
    public WebElement xButton;
 
    @FindBy(xpath = "//div[@class='ant-picker ant-picker-range css-aqx16b ant-picker-disabled']")
