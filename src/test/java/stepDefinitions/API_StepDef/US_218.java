@@ -34,7 +34,7 @@ public class US_218 {
         expectStartAt = "2023-11-18 16:40";
         expectFinishAt = "2023-11-18 16:45";
         Map<String, Object> payloadCreate = new HashMap<>();
-        payloadCreate.put("specificDate", "2023-11-18");
+        payloadCreate.put("specificDate","2023-11-18 ");
         payloadCreate.put("startAt", expectStartAt);
         payloadCreate.put("finishAt", expectFinishAt);
         payloadCreate.put("isRecurring", false);

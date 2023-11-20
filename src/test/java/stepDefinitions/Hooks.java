@@ -155,8 +155,8 @@ public class Hooks {
       public void setUpToken() {
           hypnotesSetUpFormData();
       }
-    @Before("@fatma")
-    public void fatmaSetupApi() {
+     @Before("@fatma")
+     public void fatmaSetupApi() {
 
     }
 }
