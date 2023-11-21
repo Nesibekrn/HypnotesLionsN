@@ -5,14 +5,15 @@
 #Details on the swagger document."
 
 
+@API @US_205   # api tag ile her defasinda login olacak ve spec objemizi dolduracak
+Feature: US_205 API
 
-  Feature: US_205 API
-    Scenario: add new client
+  Scenario: add new client
 
-      Given  endpoint
-      When add new client POST API
-      Then assert response statuscode
-      Then assert responseBody
+    Given kullanici API istegi gonderir create client
+    Then response alir
+    Then status cod assert edilir
+
 
 
 

@@ -15,6 +15,8 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import static baseUrl.baseUrl.hypnotesSetUp;
+
 
 public class Hooks {
     public static WebDriver driver;
@@ -27,6 +29,13 @@ public class Hooks {
     public static boolean isFullScreen = true;
     public static int width;
     public static int height;
+
+
+
+
+
+
+
 
     @Before(value = "@headless", order = 0)
     public void setIsHeadless() {
@@ -137,5 +146,9 @@ public class Hooks {
         commonPage.getLoginPage().PasswordButton.sendKeys(Enum_Fy.THERAPIST.getPassword());
         commonPage.getLoginPage().LoginButtonforSignIn.click();
 
+    }
+    @Before(value = "@API")//API tag'ina sahip feature file'larda bu methodu (hypnotesSetUp) calistir
+    public  void setUpAPI(){
+        hypnotesSetUp();//cagirdigimiz methodu import ettik
     }
 }
