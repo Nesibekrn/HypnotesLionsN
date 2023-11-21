@@ -85,7 +85,8 @@ public class US_217 {
     @Then("the response returns empty array")
     public void the_response_returns_empty_array() {
       //  System.out.println("size"+response.path("data[].size"));
-        //Assert.assertTrue(response.path("data[].size"));
+        System.out.println(jsonPath.getList("data.id").toString());
+        //Assert.assertTrue(jsonPath.getList("data.size"));
     }
 
 }

@@ -8,6 +8,7 @@ Feature: Hypnotes-API api/hypnotherapist/timeoff/all functionality
     When user sends POST request to get all blocked times
     Then the response body contains specificDate as "2023-11-20T00:00:00+00:00"
     And the response contains startAt and finishAt values
+
     Scenario: Verify that when the user has no blocked time the response body return with an empty data array list
       When user sends POST request to get all blocked times
       Then the response returns empty array
