@@ -277,6 +277,9 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
 
+    @FindBy(xpath = "//span[.='Send a New Document']")
+    public WebElement sendANewDocumentButton;
+
     @FindBy(css = "[data-icon=\"plus-circle\"]")
     public WebElement attachments_plusCircleIcon;
 
