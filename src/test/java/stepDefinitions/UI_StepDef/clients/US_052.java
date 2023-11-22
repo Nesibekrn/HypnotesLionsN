@@ -9,11 +9,16 @@ import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertTrue;
+import static java.lang.Character.isAlphabetic;
+import static org.apache.commons.lang3.ArrayUtils.isSorted;
+import static org.junit.Assert.*;
 import static stepDefinitions.Hooks.driver;
 
 public class US_052 extends CommonPage {
@@ -100,11 +105,11 @@ public class US_052 extends CommonPage {
         actions.moveToElement(getClientsPage().lesDates).build().perform();//bekletmek icin
 
         // Belirli bir süre beklemek için
-      /*  try {
+        try {
             TimeUnit.SECONDS.sleep(2); // 2 saniye beklemek için
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
         ReusableMethods.waitFor(2);
         System.out.println(getClientsPage().lesDates2.getText());//YUKARDAKI KISIM TAM TARIHI ALMAK ICIN
 
