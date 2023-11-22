@@ -11,7 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static enums.Enum_Fy.NESIBE;
-import static enums.Enum_Fy.THERAPIST;
 import static io.restassured.RestAssured.given;
 
 public class loginStepDef {
