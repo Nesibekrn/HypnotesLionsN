@@ -64,6 +64,9 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath = "//div[text()='Block Dates']")
     public WebElement blockDatesTitle;
 
+    @FindBy(xpath = "//span[@class='ant-typography text-capitalize  css-aqx16b']")
+    public WebElement location;
+
 
 
 }

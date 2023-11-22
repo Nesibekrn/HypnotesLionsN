@@ -74,7 +74,6 @@ public class SettingsPage extends CommonPage{
    @FindBy(xpath = "//span[@data-test-id='settings_scheduling&Calender_schedulerUrl']")
    public WebElement schedulerUrl;
 
-   //td[@class='ant-descriptions-item-content']
 
    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-background-ghost']")
    public WebElement customizeUrl;
@@ -84,6 +83,34 @@ public class SettingsPage extends CommonPage{
 
    @FindBy(xpath = "//button[@id='schedulerButton']")
    public WebElement changeSchedularLink;
+
+   @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+   public WebElement successMessage;
+
+   @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_packagesColorButton']")
+   public WebElement packagesColor;
+
+   @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_individualSessionsColorButton']")
+   public WebElement individualSessions;
+
+   @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_groupSessionsColorButton']")
+   public WebElement groupSessions;
+
+   @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_hypnotesEventsColorButton']")
+   public WebElement hypnotesEvents;
+
+   @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_googleEventsColorButton']")
+   public WebElement googleEvents;
+
+   @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_canceledMeetingsColorButton']")
+   public WebElement canceledMeetings;
+
+
+
+
+
+
+
 
 
 

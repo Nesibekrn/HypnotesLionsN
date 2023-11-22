@@ -96,7 +96,9 @@ public class US_84 extends CommonPage {
     @Then("User verifies color changes on the calendar display section")
     public void userVerifiesColorChangesOnTheCalendarDisplaySection() {
        //ReusableMethods.scrollToElement(getSettingsPage().calendarDisplay);
+        //getSettingsPage().settingsButton.click();
        ReusableMethods.clickWithTimeOut(getSettingsPage().calendarDisplay,1);
+       //getSettingsPage().individualSessions.getCssValue("color");
 
     }
 
@@ -112,20 +114,28 @@ public class US_84 extends CommonPage {
         }
         //ReusableMethods.scrollAndClickWithJS(getSettingsPage().newyorkTime);
 
+        ReusableMethods.clickWithTimeOut(getDashboardPage().calendar,2);
+        Assert.assertTrue(getCalendarPage().location.getText().contains("New_York"));
+
     }
 
     @Then("User verifies if the url changes and changed url is appeared on the page")
     public void userVerifiesIfTheUrlChangesAndChangedUrlIsAppearedOnThePage() {
+        ReusableMethods.clickWithTimeOut(getSettingsPage().settingsButton,1);
         ReusableMethods.clickWithTimeOut(getSettingsPage().schedulerUrl,1);
         getSettingsPage().customizeUrl.click();
         ReusableMethods.waitFor(1);
+        getSettingsPage().changeUrl.clear();
         getSettingsPage().changeUrl.sendKeys("duygu");
         ReusableMethods.waitFor(1);
         getSettingsPage().changeSchedularLink.click();
+        String message = "Scheduler URL has been updated";
+        Assert.assertEquals(message,getSettingsPage().successMessage.getText());
 
     }
 
     @And("User verifies if Schedular url has been updated message appeared in the page")
     public void userVerifiesIfSchedularUrlHasBeenUpdatedMessageAppearedInThePage() {
+
     }
 }
