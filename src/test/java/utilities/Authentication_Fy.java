@@ -1,4 +1,4 @@
-package stepDefinitions.API_StepDef;
+package utilities;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -10,9 +10,11 @@ import static io.restassured.RestAssured.given;
 
 public class Authentication_Fy {
     public static String cookie;
-    public static String
-    generateCookie() {//cookie donduren bir method
+    public static String generateCookie(){
+
+        //cookie donduren bir method
         //Payload olusturalim
+
         Map<String, Object> body = new HashMap<String, Object>();//login icin
         String endPoint = "https://test.hypnotes.net/api/login";
         body.put("username", "fatihfrance@gmail.com");
@@ -23,8 +25,8 @@ public class Authentication_Fy {
 
         Map<String, String> cookiesASMap = new HashMap<>(response.getCookies());//response'un icindeki cookies leri al ve bir map'in icine koy
         for (Map.Entry<String, String> entry : cookiesASMap.entrySet()) {
-            if (entry.getKey().equals("PHPSESID")) {
-                cookie = entry.getKey() + "=" + entry.getValue();
+            if (entry.getKey().equals("PHPSESID")) {//normale if olusturmamiza gerek yoktu fakat biz if koyduk cunku site bize iki adet token veriyor bizim ihtiyacimiz olan PHPSESID
+                cookie = entry.getKey() + "=" + entry.getValue();//key=PHPSESID value=aa...  VE Bunu cookiye koy
             }
              /*
              olusturdugumuz map'i bir Entry 'e ceviriyoruz,mapKey methodlarinda sadece value'yu handle edebildigimiz icin,
@@ -33,6 +35,7 @@ public class Authentication_Fy {
               */
         }
         return cookie;
+
 
     }
 }

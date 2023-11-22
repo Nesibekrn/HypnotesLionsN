@@ -2,7 +2,6 @@ package stepDefinitions;
 
 
 import enums.Enum_Fy;
-import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -13,9 +12,8 @@ import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
-import static baseUrl.baseUrl.hypnotesSetUp;
+import static baseUrl.baseUrl_fy.hypnotesSetUp;
 
 
 public class Hooks {
