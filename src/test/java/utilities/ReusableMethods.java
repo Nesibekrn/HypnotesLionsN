@@ -244,7 +244,7 @@ public class ReusableMethods {
     public static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
         try {
-         //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
+            //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (Exception e) {
         }
         return element;
@@ -253,7 +253,7 @@ public class ReusableMethods {
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
         try {
-          //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {
         }
         return element;
@@ -334,7 +334,7 @@ public class ReusableMethods {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click()", webElement);
     }
 
-    public static void assertBackgroundColor(String color,WebElement webElement) {
+    public static void assertBackgroundColor(String color, WebElement webElement) {
         Assert.assertEquals(color, webElement.getCssValue("background-color"));
     }
 
@@ -344,24 +344,15 @@ public class ReusableMethods {
         return localDate.format(formatter);
     }
 
-    public static String getCurrentDayAsString(String format) {
-        LocalDate localDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
-        return localDate.format(formatter);
-    }
 
-
-    public static WebElement getCurrentDay(List<WebElement> dates){
+    public static WebElement getCurrentDay(List<WebElement> dates) {
         System.out.println("dates.size() = " + dates.size());
-        dates.stream().forEach(e-> System.out.println(e.getAttribute("aria-label")));
+        dates.stream().forEach(e -> System.out.println(e.getAttribute("aria-label")));
         // Get today's date as a string
         String currentDateAsString = getCurrentDayAsString();
-
-        // Use Optional to handle potential absence of the desired date
         return dates.stream()
                 .filter(d -> currentDateAsString.equals(d.getAttribute("aria-label")))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Current day element not found in the list."));
-
     }
 }
