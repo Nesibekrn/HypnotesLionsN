@@ -69,7 +69,7 @@ public class US_055 extends CommonPage {
 
     @And("the user enter Start Date")
     public void theUserEnterStartDate() {
-        getAccountPage().startDateField.sendKeys("11/03/2023");
+      getAccountPage().startDateField.sendKeys("11/03/2023");
         waitFor(1);
 
     }
