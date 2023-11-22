@@ -249,7 +249,7 @@ public class ReusableMethods {
         }
         return element;
     }
-    
+
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
 
