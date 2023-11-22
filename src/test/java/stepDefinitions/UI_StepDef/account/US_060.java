@@ -1,14 +1,11 @@
 package stepDefinitions.UI_StepDef.account;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
-import utilities.JS_utilities;
 import utilities.ReusableMethods;
-
-import java.util.Random;
 
 import static utilities.ReusableMethods.waitFor;
 

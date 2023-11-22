@@ -2,6 +2,7 @@ package stepDefinitions.UI_StepDef.calendar;
 
 import enums.COLOR;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -17,10 +18,14 @@ import static utilities.ReusableMethods.*;
 
 public class US_086 extends CommonPage {
 
+    @Given("the user clicks Calendar button")
+    public void theUserClicksCalendarButton() {
+        ReusableMethods.clickWithTimeOut(getCalendarPage().calender_Btn,3);
+    }
+
     @When("user should see the current day")
     public void userShouldSeeTheCurrentDay1() {
-        WebElement currentDay = getCurrentDay(getCalendarPage().calenderAllDays);
-        Assert.assertTrue(currentDay.isDisplayed());
+        Assert.assertTrue(getCalendarPage().today.isDisplayed());
     }
 
 
@@ -34,9 +39,10 @@ public class US_086 extends CommonPage {
     public void userSelectAnyDate() {
         Random random = new Random();
         int randomIndex = random.nextInt(getCalendarPage().calenderAllDays.size());
+        System.out.println("randomIndex = " + randomIndex);
         WebElement randomElement = getCalendarPage().calenderAllDays.get(randomIndex);
         randomElement.click();
-
+        waitFor(3);
     }
 
     @Then("{string} page should be appeared")
@@ -94,8 +100,6 @@ public class US_086 extends CommonPage {
         String expectedOption = "Online";
         String actualAttributeValue = getCalendarPage().onlineLocation.getAttribute("title");
         Assert.assertEquals("Actual option is not Location", expectedOption, actualAttributeValue);
-
-
     }
 }
 

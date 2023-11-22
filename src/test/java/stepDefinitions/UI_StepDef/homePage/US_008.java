@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static stepDefinitions.Hooks.commonPage;
 import static stepDefinitions.Hooks.driver;
 
 public class US_008 extends CommonPage {
