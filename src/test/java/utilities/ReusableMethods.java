@@ -25,6 +25,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
 
 import static org.junit.Assert.assertFalse;
@@ -243,8 +244,9 @@ public class ReusableMethods {
 
     public static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(30));
         try {
-            //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
+         //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (Exception e) {
         }
         return element;
@@ -252,8 +254,9 @@ public class ReusableMethods {
 
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
+
         try {
-            //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+          //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {
         }
         return element;

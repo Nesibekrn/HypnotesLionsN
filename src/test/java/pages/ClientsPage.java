@@ -121,6 +121,7 @@ public class ClientsPage extends CommonPage {
     public WebElement addNewSessionButton;
 
 
+
     @FindBy(xpath = "(//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 10px;'])[1]")
     public WebElement dateButton;
 
@@ -132,16 +133,20 @@ public class ClientsPage extends CommonPage {
     public WebElement keyPoint;
 
 
+
     @FindBy(xpath = "//label[normalize-space()='After Thoughts:']")
     public WebElement afterThought;
+
 
 
     @FindBy(xpath = "//label[normalize-space()='Applications & Suggestions:']")
     public WebElement applicationsSuggestions;
 
 
+
     @FindBy(xpath = "//label[normalize-space()='Attachments:']")
     public WebElement attachments;
+
 
 
     @FindBy(xpath = "//label[normalize-space()='Voice Notes:']")
@@ -175,6 +180,7 @@ public class ClientsPage extends CommonPage {
     public WebElement accountActivityButton;
     @FindBy(xpath = "//span[text()='Mark all as read']")
     public WebElement markAllRead;
+
     @FindBy(xpath = "//span[text()='See all Account Activity']")
     public WebElement seeAllAccountActivity;
     @FindBy(xpath = "//span[text()='Yes']")
@@ -198,6 +204,8 @@ public void companyAndItemsAreVisible(DataTable elements) {
     waitFor(5);
 
 }
+
+
 
     @FindBy(xpath = "//span[text()='Import Client']")
     public WebElement importClientsButton;
@@ -246,8 +254,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//input[@tabindex='-1']")
     public WebElement inputYourLogoButton;
 
-    @FindBy(xpath = "//input[@placeholder='Your Company']")
-
+    @FindBy(xpath = "//textarea[@placeholder='Your Company']")
     public WebElement inputYourCompanyButton;
 
     @FindBy(xpath = "//input[@placeholder='Name']")
@@ -275,6 +282,9 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public WebElement inputPhone;
     @FindBy(xpath = "//span[text()='Cancel']")
     public WebElement cancelButtonForUpgradeNow;
+
+    @FindBy(xpath = "//span[.='Send a New Document']")
+    public WebElement sendANewDocumentButton;
 
     @FindBy(css = "[data-icon=\"plus-circle\"]")
     public WebElement attachments_plusCircleIcon;
@@ -452,6 +462,63 @@ public void companyAndItemsAreVisible(DataTable elements) {
 
     @FindBy(xpath = "(//input[@class='invoice_input__75vJN  '])[1]")
     public WebElement ddCountryWithoutSelect;
+    @FindBy(xpath = "//h5[text()='Fatma butterfly']")
+    public WebElement clientFatma;
+
+    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_payments']")
+    public WebElement paymentsSection;
+
+    @FindBy(xpath = "//div[@aria-selected='true']")
+    public WebElement selectedPaymentSection;
+
+    @FindBy(xpath = "//th[@aria-label='Date']/*[@class='ant-table-filter-column']")
+    public WebElement dateSortDescending1;
+    @FindBy(xpath = "//*[@aria-sort='ascending']")
+    public WebElement dateAscending;
+    @FindBy(xpath = "//*[@aria-sort='descending']")
+    public WebElement dateDescending;
+    @FindBy(xpath = "//div[@class='ant-switch-handle']")
+    public List<WebElement> paymentSwitchButton;
+    @FindBy(xpath = "//span[@class='ant-tag ant-tag-red css-aqx16b']")
+    public List<WebElement> paymentStatusText;
+    @FindBy(xpath = "//span[@class='ant-dropdown-trigger ant-table-filter-trigger']")
+    public List<WebElement> sortingButtons;
+
+    @FindBy(xpath = "//input[@type='checkbox']")
+    public List<WebElement> sortingCheckBox;
+    @FindBy(xpath = "//span[@class='ant-checkbox-inner']")
+    public List<WebElement> sortingServicesText;
+
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-sm']")
+    public WebElement okButton;
+    @FindBy(xpath = "//span[@class='ant-tag ant-tag-orange css-aqx16b']")
+    public WebElement serviceText;
+    @FindBy(xpath = "//span[@class='ant-tag ant-tag-success css-aqx16b']")
+    public List<WebElement> appointmentDates;
+
+    @FindBy(xpath = "(//input[@type='search'])[2]")
+    public WebElement itemDescriptionField;
+    @FindBy(xpath = "//input[@class='invoice_input__75vJN invoices_boldDark__jRBno invoices_darkRight__o078y']")
+    public List<WebElement> qytRateField;
+
+    @FindBy(xpath = "//span[@class='span invoices_boldDark__jRBno']")
+    public List<WebElement> amountSubtotalSaleTax;
+    @FindBy(xpath = "//span[@class='span invoices_darkBoldRight__p5p6Q']")
+    public WebElement totalField;
+    //textarea[@class='ant-input css-aqx16b invoice_input__75vJN  w-100']
+    @FindBy(xpath = "//button[@class='invoices_link__01VJH']")
+    public WebElement addLineItem;
+    @FindBy(xpath = "//div[@class='view invoices_row__5b9py d-flex']")
+    public List<WebElement> addLineItemList;
+
+    @FindBy(xpath = "//textarea[@class='ant-input css-aqx16b invoice_input__75vJN  w-100']")
+    public List<WebElement> notesTermsTextarea;
+
+
+
+
+
+
 
     @FindBy(xpath = "//option[@value='Turkey']")
     public WebElement selectedCountry;
