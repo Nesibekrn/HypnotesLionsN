@@ -41,6 +41,7 @@ public class US_086 extends CommonPage {
         int randomIndex = random.nextInt(getCalendarPage().calenderAllDays.size());
         System.out.println("randomIndex = " + randomIndex);
         WebElement randomElement = getCalendarPage().calenderAllDays.get(randomIndex);
+        ReusableMethods.waitForVisibility(randomElement,3);
         randomElement.click();
         waitFor(3);
     }

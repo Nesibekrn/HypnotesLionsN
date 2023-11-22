@@ -1,12 +1,12 @@
-@UI @Therapist
+@UI @TherapistQuick
 Feature: Register Services - Register Clients options
 
-  @Therapist
+  @TherapistQuick
   Scenario: Verify the current day is visible with a different color
     When user should see the current day
     Then the current day should be visible with a different colour
 
-  @Therapist
+  @TherapistQuick
   Scenario: Verify after user selecting any date 'Schedule an Appointment' page appear
     Given the user clicks on "Dashboard" title on Dashboard menu
     Given the user clicks Calendar button
