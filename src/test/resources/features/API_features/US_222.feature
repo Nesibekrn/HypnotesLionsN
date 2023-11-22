@@ -3,3 +3,6 @@
 #User needs to be logged in to get response.
 # https://test.hypnotes.net/api/hypnotherapist/timeoff/update
 #Details on the swagger document.
+Feature:Recurring block time update
+  Scenario: Block time update
+    Then user updates a recurring block time from api

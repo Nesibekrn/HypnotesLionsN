@@ -3,7 +3,9 @@ package stepDefinitions.API_StepDef;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
 import stepDefinitions.Hooks;
 import utilities.API_utilities;
@@ -19,13 +21,28 @@ public class US_204_API {
     Response response;
     Map<String,Object> payload=new HashMap<>();
 
+    String baseUrl = "https://test.hypnotes.net/api/notification/getAllNotification";
+
     List<Integer> id=new ArrayList<>();
 
     @Given("the user sends a request to get all meeting info on the Hypnotes calendar page")
     public void theUserSendsARequestToGetAllMeetingInfoOnTheHypnotesCalendarPage() {
         API_utilities.login("threapistlions@yopmail.com","Test123.");
-       response=given().post("https://test.hypnotes.net/api/settings/meeting/get");
-       response.prettyPrint();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     @Then("user verifies that status code is {int}")
