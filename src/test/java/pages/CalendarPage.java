@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CalendarPage extends CommonPage{
+public class CalendarPage extends CommonPage {
 
     @FindBy(css = "a[href='/dashboard/calendar']")
     public WebElement calender_Btn;
@@ -13,8 +13,8 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath = "(//div[@class='ant-select-selector'])[2]")
     public WebElement scheduleButton;
 
-   @FindBy(xpath="//div[@class='ant-select-item-option-content']")
-   public List<WebElement>scheduleMenu;
+    @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
+    public List<WebElement> scheduleMenu;
 
     @FindBy(xpath = "//div[@title='Month']")
     public WebElement monthButton;
@@ -40,16 +40,16 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath = "//div[@class='fc-timegrid fc-timeGridDay-view fc-view']")
     public WebElement dayView;
 
-    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_scheduleBtn']")
+    @FindBy(xpath = "//button[@data-test-id='calendar_actionButton_scheduleBtn']")
     public WebElement scheduleAppointment_button;
 
-    @FindBy(xpath ="//button[@data-test-id='calenderPage_addNewEvent_Button']")
+    @FindBy(xpath = "//button[@data-test-id='calenderPage_addNewEvent_Button']")
     public WebElement addNewEvent_button;
 
-    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_blockTimeBtn']")
+    @FindBy(xpath = "//button[@data-test-id='calendar_actionButton_blockTimeBtn']")
     public WebElement blockTime_button;
 
-    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_schedulingSettingsBtn']")
+    @FindBy(xpath = "//button[@data-test-id='calendar_actionButton_schedulingSettingsBtn']")
     public WebElement schedulingSetting_button;
 
     @FindBy(xpath = "//div[text()='Schedule an Appointment']")
@@ -64,7 +64,7 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath = "//div[text()='Block Dates']")
     public WebElement blockDatesTitle;
 
-    @FindBy(xpath = "//td[@role='gridcell']")
+    @FindBy(css = ".fc-daygrid-day-number[aria-label]")
     public List<WebElement> calenderAllDays;
 
     @FindBy(xpath = "//td[contains(@class,'fc-day-today')]")
