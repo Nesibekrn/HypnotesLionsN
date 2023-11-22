@@ -74,8 +74,9 @@ public class US_059 extends CommonPage {
     }
     @Then("Your Country dd filed is displayed")
     public void your_country_dd_filed_is_displayed() {
-        System.out.println(getAccountPage().country.getAttribute("value"));
-        Assert.assertTrue(getAccountPage().country.getAttribute("placeholder").contains("Company URL"));
+       // System.out.println(getAccountPage().country.getAttribute("value"));
+      //  Assert.assertTrue(getAccountPage().country.getAttribute("placeholder").contains("Company URL"));
+        Assert.assertTrue(getAccountPage().countryDD.isDisplayed());
     }
 
 
@@ -90,6 +91,7 @@ public class US_059 extends CommonPage {
     @Then("a valid logo is displayed successfully")
     public void a_valid_logo_is_displayed_successfully() {
         Assert.assertTrue(getAccountPage().changeLogo.isDisplayed());
+
     }
 
 
@@ -99,6 +101,7 @@ public class US_059 extends CommonPage {
         for (int i = 0; i <= formFields.size() - 1; i++) {
             Assert.assertTrue(getAccountPage().fields.get(i).isEnabled());
             getAccountPage().fields.get(i).sendKeys(formFields.get(i));
+
 
 
         }
@@ -114,6 +117,8 @@ public class US_059 extends CommonPage {
         System.out.println("*********************"+getAccountPage().selectedDDvalueforCountry.getAttribute("value"));
 
 Assert.assertTrue(getAccountPage().selectedDDvalueforCountry.getAttribute("value").contains("Turkey"));
+
+
     }
 
 }

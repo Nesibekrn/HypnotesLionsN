@@ -31,7 +31,6 @@ import static org.junit.Assert.assertTrue;
 
 public class ReusableMethods {
 
-
     public static String rasgeleIsimOlustur() {
         Faker faker = new Faker();
 
@@ -243,15 +242,17 @@ public class ReusableMethods {
 
     public static WebElement waitClickableByOfElement(WebElement webElement) {
         WebElement element = null;
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(30));
         try {
          //   element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
         } catch (Exception e) {
         }
         return element;
     }
-
+    
     protected WebElement waitVisibleByLocator(By locator) {
         WebElement element = null;
+
         try {
           //  element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (Exception e) {

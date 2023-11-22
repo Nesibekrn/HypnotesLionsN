@@ -26,6 +26,8 @@ public class US_031 extends CommonPage {
         if (pass.length()<8 | pass.length()>50){
             actualColor = getRegisterPage().characterValidation.getCssValue("color");
             Assert.assertEquals(redColor, actualColor);
+            Assert.assertEquals(4,getRegisterPage().redPasswordRulesList.size());
+            Assert.assertEquals(1,getRegisterPage().greenPasswordRulesList.size());
         } else {
             actualColor = getRegisterPage().characterValidation.getCssValue("color");
             Assert.assertEquals(greenColor, actualColor);
