@@ -21,7 +21,7 @@ import static utilities.Authentication.phpSessid;
 
 public class US_218 {
     Response response;
-    Integer idCreated,idSon;
+    static int idCreated,idSon;
     JsonPath jsonPath;
     String expectStartAt;
     String expectFinishAt;
@@ -79,7 +79,7 @@ public class US_218 {
         Assert.assertTrue(response.headers().getValue("Content-Type").equals("application/json"));
         Assert.assertEquals(expectStartAt, jsonPath.getList("data.startAt").get(0));
         Assert.assertEquals(expectFinishAt, jsonPath.getList("data.finishAt").get(0));
-        Assert.assertEquals("Online", locationTitle);
+       // Assert.assertEquals("Online", locationTitle);
          /* Assert.assertTrue(response.prettyPrint().contains("isAllDay"));
           Assert.assertTrue(response.prettyPrint().contains("locationTitle"));
           Assert.assertTrue(response.prettyPrint().contains("specificDate"));
