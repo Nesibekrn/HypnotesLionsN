@@ -7,8 +7,8 @@ import java.util.List;
 
 public class CalendarPage extends CommonPage{
 
-    @FindBy(xpath = "//a[@href='/dashboard/calendar']")
-    public WebElement calendar_buton;
+    @FindBy(css = "a[href='/dashboard/calendar']")
+    public WebElement calender_Btn;
 
     @FindBy(xpath = "(//div[@class='ant-select-selector'])[2]")
     public WebElement scheduleButton;
@@ -64,10 +64,7 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath = "//div[text()='Block Dates']")
     public WebElement blockDatesTitle;
 
-
-
-
-    @FindBy(css = ".fc-daygrid-day-number[aria-label]")
+    @FindBy(xpath = "//td[@role='gridcell']")
     public List<WebElement> calenderAllDays;
 
     @FindBy(xpath = "//td[contains(@class,'fc-day-today')]")

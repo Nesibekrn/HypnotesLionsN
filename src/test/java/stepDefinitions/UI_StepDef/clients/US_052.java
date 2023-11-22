@@ -1,25 +1,19 @@
 package stepDefinitions.UI_StepDef.clients;
 
-import com.mysql.cj.xdevapi.Client;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import pages.ClientsPage;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
-//import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import static java.lang.Character.isAlphabetic;
-import static org.apache.commons.lang3.ArrayUtils.isSorted;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 
 public class US_052 extends CommonPage {

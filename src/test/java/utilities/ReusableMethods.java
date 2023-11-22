@@ -1,18 +1,13 @@
 
 package utilities;
 
-import static stepDefinitions.Hooks.driver;
-
 import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-import pages.LoginPage;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
@@ -20,16 +15,17 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static stepDefinitions.Hooks.driver;
 
 public class ReusableMethods {
 
@@ -339,23 +335,5 @@ public class ReusableMethods {
 
     public static void assertBackgroundColor(String color, WebElement webElement) {
         Assert.assertEquals(color, webElement.getCssValue("background-color"));
-    }
-
-    public static String getCurrentDayAsString() {
-        LocalDate localDate = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
-        return localDate.format(formatter);
-    }
-
-
-    public static WebElement getCurrentDay(List<WebElement> dates) {
-        System.out.println("dates.size() = " + dates.size());
-        dates.stream().forEach(e -> System.out.println(e.getAttribute("aria-label")));
-        // Get today's date as a string
-        String currentDateAsString = getCurrentDayAsString();
-        return dates.stream()
-                .filter(d -> currentDateAsString.equals(d.getAttribute("aria-label")))
-                .findFirst()
-                .orElseThrow(() -> new RuntimeException("Current day element not found in the list."));
     }
 }

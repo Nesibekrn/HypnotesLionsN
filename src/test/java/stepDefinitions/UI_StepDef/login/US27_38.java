@@ -1,20 +1,14 @@
 package stepDefinitions.UI_StepDef.login;
 
-import io.cucumber.java.en.*;
-import org.junit.Assert;
-import org.openqa.selenium.By;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import pages.LoginPage;
 import utilities.ReusableMethods;
 
-
-import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
-import static utilities.ReusableMethods.waitFor;
 
 public class US27_38 {
 

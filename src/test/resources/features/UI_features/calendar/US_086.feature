@@ -1,16 +1,15 @@
 @UI @Therapist
 Feature: Register Services - Register Clients options
 
-  Background: User is on the Calender page
-    Given the user clicks on Calendar button
-
-  @UI @Therapist
+  @Therapist
   Scenario: Verify the current day is visible with a different color
     When user should see the current day
     Then the current day should be visible with a different colour
 
-  @UI @Therapist
+  @Therapist
   Scenario: Verify after user selecting any date 'Schedule an Appointment' page appear
+    Given the user clicks on "Dashboard" title on Dashboard menu
+    Given the user clicks Calendar button
     When user select any date
     Then "Schedule an Appointment" page should be appeared
     And Registered Services default should be appeared in the Select Service Type section
