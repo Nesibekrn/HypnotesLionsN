@@ -1,8 +1,9 @@
 package stepDefinitions.UI_StepDef.account;
-import io.cucumber.datatable.DataTable;
+
 import io.cucumber.java.en.Then;
 import pages.CommonPage;
 import utilities.ReusableMethods;
+
 import static org.junit.Assert.assertTrue;
 
 public class US_058 extends CommonPage {

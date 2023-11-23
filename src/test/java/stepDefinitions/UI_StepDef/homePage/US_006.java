@@ -1,21 +1,7 @@
 package stepDefinitions.UI_StepDef.homePage;
 
-import enums.COLOR;
-import io.cucumber.java.en.*;
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import utilities.ConfigurationReader;
-import utilities.JS_utilities;
-import utilities.ReusableMethods;
-
-
-import java.util.List;
-
-import static stepDefinitions.Hooks.*;
-import static utilities.ReusableMethods.waitFor;
-
 public class US_006 {
-/*
+
     @Given("user goes to home page")
     public void user_goes_to_home_page() {
         driver.get(ConfigurationReader.getProperty("url"));
@@ -159,5 +145,5 @@ public class US_006 {
         }
     }
 
- */
+
 }

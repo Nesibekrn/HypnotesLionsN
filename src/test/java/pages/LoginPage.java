@@ -3,10 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
@@ -15,10 +12,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
-import static utilities.ReusableMethods.*;
+import static utilities.ReusableMethods.waitFor;
+import static utilities.ReusableMethods.waitForPageToLoad;
 
 public class LoginPage extends CommonPage {
 
