@@ -136,8 +136,7 @@ public class Hooks {
         }catch (Exception e){
             System.out.println("Not found timezone pop up");
         }
-    }
-
+   }
 
     @Before("@Client")
     public void ClientLogInUSA() {
