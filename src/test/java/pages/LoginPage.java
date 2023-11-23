@@ -86,6 +86,8 @@ public class LoginPage extends CommonPage {
     public WebElement PasswordResetButton;
 
 
+
+
     @FindBy(xpath = "//input[@data-test-id=' newPassword_yourMailAddress']")
     public WebElement EmailAddressForNewPassword;
 
@@ -117,6 +119,9 @@ public class LoginPage extends CommonPage {
 
     @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image css-aqx16b']")
     public WebElement iconProfile;
+
+    @FindBy(xpath = "//span[.='Login']")
+    public WebElement HomePageLogin;
 
     public void verifyProfileMenuItems1() {
         List<WebElement> titleInTheProfileList = driver.findElements(By.xpath("//li[@class='ant-dropdown-menu-item']"));
@@ -328,4 +333,14 @@ public class LoginPage extends CommonPage {
 
 
     }
+
+    public void loginAs(String userName) {
+   HomePageLogin.click();
+        waitForPageToLoad(2);
+        email_login.sendKeys(ConfigurationReader.getProperty("therapistEmail"));
+        password_Login.sendKeys(ConfigurationReader.getProperty("therapistPassword"));
+        login_button.click();
+        waitForPageToLoad(5);
+    }
 }
+

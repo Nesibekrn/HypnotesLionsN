@@ -35,8 +35,6 @@ public class US_070 extends CommonPage {
             waitFor(2);
             getClientsPage().yesButton.click();
             waitFor(1);
-
-
         }
     }
     @And("the user clicks on the add new session")
@@ -83,7 +81,6 @@ public class US_070 extends CommonPage {
     public void theUserVerifiesDeletedSessionIsNotVisible() {
         for (int i = 0; i <getClientsPage().sessionHeadings.size() ; i++) {
             headings.add(getClientsPage().sessionHeadings.get(i).getText());
-
         }
         System.out.println("headings = " + headings);
         System.out.println("deletedSession = " + deletedSession);

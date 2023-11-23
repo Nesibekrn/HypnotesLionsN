@@ -6,18 +6,24 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-
-import io.restassured.specification.RequestSpecification;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
+import utilities.API_utilities;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.HashMap;
+import java.util.Map;
 
+import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+import static io.restassured.RestAssured.given;
+//import static utilities.Authentication.generatePhpSessid;
 
 
 public class Hooks {
@@ -27,8 +33,6 @@ public class Hooks {
 
     public static boolean isHeadless = false;
     public static String browserType = "chrome";
-
-    public static RequestSpecification spec;
 
     public static boolean isFullScreen = true;
     public static int width;
@@ -128,6 +132,8 @@ public class Hooks {
         }
     }
 
+
+
     @Before("@Client")
     public void ClientLogInUSA(){
         commonPage.getLoginPage().ThrerapistLogIn(
@@ -135,6 +141,7 @@ public class Hooks {
                 ConfigurationReader.getProperty("clientPasswordUSA")
         );
     }
+
     @Before("@Profile")
     public void therapisteLogin(){
         driver.get(ConfigurationReader.getProperty("hypnotes"));
@@ -145,4 +152,12 @@ public class Hooks {
 
     }
 
+      @Before("@API")
+      public void setUpToken() {
+          hypnotesSetUpFormData();
+      }
+    @Before("@fatma")
+    public void fatmaSetupApi() {
+
+    }
 }
