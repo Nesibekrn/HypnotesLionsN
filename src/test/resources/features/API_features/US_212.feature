@@ -1,8 +1,13 @@
+  @US212
 Feature: US_212 As a user, I should be able to add block time with using API end point
+  Background:
 
-  Scenario: TC_001
-    Given the user login from api utilities
-    Given user send postRequest to add block time at dateInterval
-    Then  the user verify that status code is 200
+    Given user take token from api
+  Scenario: Blocked date interval time create
+    Then user creates a date interval time from Api
+    Then user verifies status is True
+    Then user verifies that response is expected
+
+
 
 
