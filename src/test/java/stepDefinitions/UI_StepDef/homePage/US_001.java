@@ -4,7 +4,6 @@ import io.cucumber.java.en.Given;
 import org.junit.Assert;
 import pages.CommonPage;
 
-
 import static stepDefinitions.Hooks.driver;
 
 public class US_001 extends CommonPage {
