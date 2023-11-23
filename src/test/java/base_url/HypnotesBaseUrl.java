@@ -1,10 +1,9 @@
 package base_url;
 
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import static utilities.Authentication.*;
+import static utilities.Authentication.generatePhpSessid;
 
 public class HypnotesBaseUrl {
     public static RequestSpecification specFormData;

@@ -4,7 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.CommonPage;
-import utilities.ReusableMethods;
 
 import java.io.File;
 
