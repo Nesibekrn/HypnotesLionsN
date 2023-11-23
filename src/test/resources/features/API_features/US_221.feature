@@ -1,6 +1,11 @@
-@API @US221
+ @US221
 Feature:Recurring Date and Time get all blocks time
+   Background:
+      Given user take token from api
 
-   Scenario: User needs to get all block times into post response through API
-      When the user sends post request to get all block times
-      Then the user validates the response for all block times
+   Scenario: Recurring Day Block Time get
+      Then user creates a Recurring Block Time from api
+      And user verifies status is true
+      Then user gets all Recurring Block Times from api
+      And user verifies created Block Time is exist in response
+
