@@ -6,7 +6,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Keys;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
@@ -70,7 +69,7 @@ public class US_055 extends CommonPage {
 
     @And("the user enter Start Date")
     public void theUserEnterStartDate() {
-        getAccountPage().startDateField.sendKeys("11/03/2023");
+      getAccountPage().startDateField.sendKeys("11/03/2023");
         waitFor(1);
 
     }
