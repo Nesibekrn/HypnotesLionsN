@@ -9,6 +9,7 @@ Feature: Group Session Creation
 
   @UI @US_083
   @TherapistLoginUSA
+  @Smoke
   Scenario: Creating a new Group Session
     Then the user clicks on the Add New Group Session button
     Then the Adding Group Session page should appear
@@ -16,7 +17,6 @@ Feature: Group Session Creation
     And enters a valid price in the Price field
     And activates the Show service price on the initial scheduler page button
     And selects any duration from the Duration drop-down menu
-    And adjusts the cursors on the right of the menu for increasing and decreasing numbers
     And activates the Show service price on the initial scheduler page button
     And activates the Payment Required button
     And activates the Service Active button
@@ -28,24 +28,33 @@ Feature: Group Session Creation
     And selects a Date from the Date calender menu
     And selects a Time from the Time panel
     And adds various notes to the Session Description optional section
-
     When the user clicks the Save button
-    Then a Group session should be created
     And the Group Session has been added message should appear
 
+  @UI @US_083
+  @TherapistLoginUSA
   Scenario: Canceling Group Session Creation
-    Then the user clicks the Edit button in Group Session page
+    Then the user clicks on the Add New Group Session button
+    Then the Adding Group Session page should appear
     When the user clicks the Cancel button
     Then the Add New Group Session page should appear
 
-  Scenario Outline: Validation for Group Session Creation
-    Given the user is on the Adding Group Session page
-    When the user tries to save without entering "<Field1>", "<Field2>", "<Field3>", "<Field4>", "<Field5>", and "<Field6>" information
-    Then a validation message should appear stating that the group session cannot be created without entering the required information
+  @UI @US_083
+  @TherapistLoginUSA
+  Scenario: Verify that multiple warning message are displayed under the relevant field once user clicks on the save button without filling fields
+    Then the user clicks on the Add New Group Session button
+    Then the Adding Group Session page should appear
+    When the user leaves the Group Session fields as empty
+    When the user clicks on the save button on the Adding Group Session page without entering necessary information
+    Then warning messages are displayed under the relevant fields for
+      | Group Name                  | Please enter Form Name                    |
+      | Price-USD                   | Please enter Price                        |
+      | Duration                    | Please enter Duration                     |
+      | Maximum Number Of Attendees | Please enter maximum number of attendees  |
+      | Date Session                | Enter Date                                |
+      | Time Session                | Please enter Time                         |
 
-    Examples:
-      | Field1 | Field2     | Field3   | Field4                      | Field5       | Field6       |
-      | Name   | Price Type | Duration | Maximum Number Of Attendees | Date Session | Time Session |
-
+  @UI @US_083
+  @TherapistLoginUSA
   Scenario: Viewing the Added Group Session
     Then the added Group Session should appear in the session table

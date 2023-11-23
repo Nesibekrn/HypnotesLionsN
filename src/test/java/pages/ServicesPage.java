@@ -151,7 +151,7 @@ public class ServicesPage extends CommonPage {
     @FindBy(xpath = "(//div[contains(text(), 'Regular')])[2]")
     public WebElement regularButton;
 
-    @FindBy(xpath = "(//span[contains(text(),'Add New Group Session')])[1]")
+    @FindBy(xpath = "//span[normalize-space()='Add New Group Session']")
     public WebElement addNewGroupSessionButton;
 
     @FindBy(xpath = "//textarea[@id='title']")
@@ -232,9 +232,39 @@ public class ServicesPage extends CommonPage {
     @FindBy(xpath = "//span[normalize-space()='Select Location']")
     public WebElement selectLocationButton;
 
+    @FindBy(xpath = "//input[@id='locationInfos']")
+    public WebElement selectLocationButton2;
+
     @FindBy(xpath = "(//span[@class='ant-select-arrow'])[2]")
     public WebElement selectLocationSelectArrow;
 
+    @FindBy(xpath = "(//span[@aria-label='Increase Value'])[2]")
+    public WebElement maximumNumberOfAttendeesIncreaseArrow;
 
+    @FindBy(xpath = "(//span[@aria-label='Decrease Value'])[2]")
+    public WebElement maximumNumberOfAttendeesDecreaseArrow;
+
+    @FindBy(xpath = "(//div[@class='rc-virtual-list-holder-inner'])[2]")
+    public WebElement sessionLocationFirstLocation;
+
+    @FindBy(xpath = "//span[@title='Home']")
+    public WebElement verifySessionLocationFirstLocation;
+
+    @FindBy(xpath = "//a[normalize-space()='Today']")
+    public WebElement dateSectionTodayButton;
+
+    @FindBy(xpath = "//div[@class='rc-time-picker-panel-inner']//div[1]//ul[1]//li[9]")
+    public WebElement hoursForSelectTimeSection;
+
+    @FindBy(xpath = "(//li[@role='button'][normalize-space()='03'])[2]")
+    public WebElement minutesForSelectTimeSection;
+
+    @FindBy(xpath = "//li[normalize-space()='PM']")
+    public WebElement pmSelectTimeSection;
+
+    public List<WebElement> groupSessionFormInputList=List.of(inputFormName,inputPrice,inputDuration);
+
+    @FindBy(xpath="//div[@data-test-id='services_title']")
+    public List<WebElement> availableGroupSessionTitle;
 
 }

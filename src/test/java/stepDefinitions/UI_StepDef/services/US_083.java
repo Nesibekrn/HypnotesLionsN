@@ -7,14 +7,27 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+import static stepDefinitions.Hooks.actions;
+import static stepDefinitions.Hooks.driver;
+import static utilities.ReusableMethods.waitFor;
+
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
-import static stepDefinitions.Hooks.driver;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class US_083 extends CommonPage {
 
     Faker faker = new Faker();
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+
 
     @And("the user clicks on the Services page")
     public void theUserClicksOnTheServicesPage() {
@@ -71,7 +84,7 @@ public class US_083 extends CommonPage {
     public void entersAValidPriceInThePriceField() {
 
         ReusableMethods.waitForVisibility(getServicesPage().inputPrice, 5);
-        //Assert.assertEquals("Switch button is open", "false", getServicesPage().inputPrice.getAttribute("aria-checked"));
+        //Assert.assertEquals("Switch button is open", "true", getServicesPage().inputPrice.getAttribute("aria-checked"));
 
         ReusableMethods.verifyElementDisplayed(getServicesPage().inputPrice);
         ReusableMethods.verifyElementEnabled(getServicesPage().inputPrice);
@@ -105,14 +118,6 @@ public class US_083 extends CommonPage {
         getServicesPage().clickDurationTime.click();
 
         Assert.assertTrue(getServicesPage().inputDuration.getAttribute("value").contains("90"));
-
-    }
-
-
-    @And("adjusts the cursors on the right of the menu for increasing and decreasing numbers")
-    public void adjustsTheCursorsOnTheRightOfTheMenuForIncreasingAndDecreasingNumbers() {
-
-        ReusableMethods.waitFor(5);
 
     }
 
@@ -150,10 +155,14 @@ public class US_083 extends CommonPage {
     @And("selects required documents from the Required Forms and eSign Documents menu")
     public void selectsRequiredDocumentsFromTheRequiredFormsAndESignDocumentsMenu() {
 
+        ReusableMethods.scrollAndClickWithJS(getServicesPage().selectDocumentSessionForm);
+
         getServicesPage().selectDocumentSessionForm.click();
+
+        ReusableMethods.waitForClickability(getServicesPage().selectDownloadFile, 5);
         getServicesPage().selectDownloadFile.click();
 
-        Assert.assertTrue("User should select required documents from the Required Forms and eSign Documents menu..", getServicesPage().verifySelectDownloadFile.getAttribute("title").contains("download.pdf"));
+        Assert.assertTrue("User should select required documents from the Required Forms and eSign Documents menu.", getServicesPage().verifySelectDownloadFile.getAttribute("title").contains("download.pdf"));
         Assert.assertEquals(true, getServicesPage().selectDownloadFile.getAttribute("title").isEmpty());
     }
 
@@ -168,6 +177,19 @@ public class US_083 extends CommonPage {
     @And("enters a location in the Session Locations field")
     public void entersALocationInTheSessionLocationsField() {
 
+        getServicesPage().checkboxOnline.click();
+        Assert.assertFalse("Online menu selected. If the online menu is selected user can not able to select Session Location.", getServicesPage().checkboxOnline.isSelected());
+
+        ReusableMethods.scrollAndClickWithJS(getServicesPage().selectLocationButton);
+
+        ReusableMethods.waitForClickability(getServicesPage().selectLocationButton2, 5);
+        actions.moveToElement(getServicesPage().selectLocationButton2).click().build().perform();
+
+        ReusableMethods.waitForClickability(getServicesPage().sessionLocationFirstLocation, 5);
+        actions.moveToElement(getServicesPage().sessionLocationFirstLocation).click().build().perform();
+
+        Assert.assertTrue("User able to select Session Locations from the Session Locations menu.", getServicesPage().verifySessionLocationFirstLocation.getAttribute("title").contains("Home"));
+        Assert.assertEquals(false, getServicesPage().verifySessionLocationFirstLocation.getAttribute("title").isEmpty());
 
     }
 
@@ -179,19 +201,39 @@ public class US_083 extends CommonPage {
 
     @And("adjusts the cursors on the right of the menus for increasing and decreasing numbers")
     public void adjustsTheCursorsOnTheRightOfTheMenusForIncreasingAndDecreasingNumbers() {
+
+        getServicesPage().maximumNumberOfAttendeesIncreaseArrow.isDisplayed();
+        getServicesPage().maximumNumberOfAttendeesIncreaseArrow.isEnabled();
+
+        getServicesPage().maximumNumberOfAttendeesIncreaseArrow.click();
+
+        getServicesPage().maximumNumberOfAttendeesDecreaseArrow.isDisplayed();
+        getServicesPage().maximumNumberOfAttendeesDecreaseArrow.isEnabled();
+
+        getServicesPage().maximumNumberOfAttendeesDecreaseArrow.click();
+
     }
 
     @And("selects a Date from the Date calender menu")
     public void selectsADateFromTheDateCalenderMenu() {
 
         getServicesPage().selectSessionDate.click();
+        getServicesPage().dateSectionTodayButton.click();
 
     }
 
     @And("selects a Time from the Time panel")
     public void selectsATimeFromTheTimePanel() {
 
+        ReusableMethods.waitForClickability(getServicesPage().inputSessionTime, 5);
         getServicesPage().inputSessionTime.click();
+
+        getServicesPage().hoursForSelectTimeSection.click();
+
+        ReusableMethods.waitForClickability(getServicesPage().minutesForSelectTimeSection, 5);
+        getServicesPage().minutesForSelectTimeSection.click();
+
+        getServicesPage().pmSelectTimeSection.click();
 
     }
 
@@ -209,14 +251,12 @@ public class US_083 extends CommonPage {
 
     }
 
-    @Then("a Group session should be created")
-    public void aGroupSessionShouldBeCreated() {
-    }
-
     @And("the Group Session has been added message should appear")
     public void theGroupSessionHasBeenAddedMessageShouldAppear() {
 
-        Assert.assertTrue(getServicesPage().groupSessionHasBeenAddedMessage.getText().contains("Group Session has been added"));
+        ReusableMethods.waitForVisibility(getServicesPage().groupSessionHasBeenAddedMessage, 7);
+        ReusableMethods.scrollToElement(getServicesPage().groupSessionHasBeenAddedMessage);
+        Assert.assertTrue("The Group Session could not be created.", getServicesPage().groupSessionHasBeenAddedMessage.getText().contains("Group Session has been added"));
     }
 
     @Given("the user is on the Add New Group Session page")
@@ -224,48 +264,92 @@ public class US_083 extends CommonPage {
 
         Assert.assertTrue("URL was :", driver.getCurrentUrl().contains("services"));
 
+
     }
 
     @Then("the user clicks the Edit button in Group Session page")
     public void theUserClicksTheEditButtonInGroupSessionPage() {
 
-        getServicesPage().editButtonInGroupSession.click();
+        //getServicesPage().editButtonInGroupSession.click();
+
+    }
+
+    @Then("the Add New Group Session page should appear")
+    public void theAddNewGroupSessionPageShouldAppear() {
+
+        ReusableMethods.waitForVisibility(getServicesPage().addNewGroupSessionButton, 5);
+        ReusableMethods.verifyElementDisplayed(getServicesPage().addNewGroupSessionButton);
+        Assert.assertTrue(getServicesPage().addNewGroupSessionButton.getText().contains("Add New Group Session"));
 
     }
 
     @When("the user clicks the Cancel button")
     public void theUserClicksTheCancelButton() {
 
+        ReusableMethods.scrollToElement(getServicesPage().cancelButton);
         getServicesPage().cancelButton.click();
-    }
-
-    @Then("the Add New Group Session page should appear")
-    public void theAddNewGroupSessionPageShouldAppear() {
-
-        String expectedAddingGroupSessionTitle = "Adding Group Session";
-
-        Assert.assertEquals("Adding Group Session Title should be visible on the Form menu", getServicesPage().addingGroupSessionTitle, expectedAddingGroupSessionTitle);
-
     }
 
     @Given("the user is on the Adding Group Session page")
     public void theUserIsOnTheAddingGroupSessionPage() {
 
         Assert.assertTrue("URL was :", driver.getCurrentUrl().contains("services"));
+        ReusableMethods.waitForVisibility(getServicesPage().availableGroupSessionButton, 5);
         Assert.assertEquals("Available Group Session Button", getServicesPage().availableGroupSessionButton);
 
     }
 
-    @When("the user tries to save without entering {string}, {string}, {string}, {string}, {string}, and {string} information")
-    public void theUserTriesToSaveWithoutEnteringAndInformation(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5) {
+    @When("the user leaves the Group Session fields as empty")
+    public void theUserLeavesTheGroupSessionFieldsAsEmpty() {
+
+        getServicesPage().groupSessionFormInputList.stream()
+                .forEach(t -> t.sendKeys(Keys.BACK_SPACE));
+
     }
 
-    @Then("a validation message should appear stating that the group session cannot be created without entering the required information")
-    public void aValidationMessageShouldAppearStatingThatTheGroupSessionCannotBeCreatedWithoutEnteringTheRequiredInformation() {
+    @When("the user clicks on the save button on the Adding Group Session page without entering necessary information")
+    public void theUserClicksOnTheSaveButtonOnTheAddingGroupSessionPageWithoutEnteringNecessaryInformation() {
+
+        getServicesPage().saveButton.click();
+
+    }
+
+    @Then("warning messages are displayed under the relevant fields for")
+    public void warningMessagesAreDisplayedUnderTheRelevantFieldsFor(io.cucumber.datatable.DataTable dataTable) {
+
+        List<String> errorList = dataTable.column(1);
+        AtomicInteger index = new AtomicInteger(0);
+
+        for (WebElement a : getServicesPage().warningMessageList) {
+            System.out.println(a.getText());
+            waitFor(2);
+
+        }
+        errorList.stream().forEach(t -> {
+
+            Assert.assertEquals(t, getServicesPage().warningMessageList.get(index.get()).getText());
+            index.getAndIncrement();
+        });
     }
 
     @Then("the added Group Session should appear in the session table")
     public void theAddedGroupSessionShouldAppearInTheSessionTable() {
-    }
 
+        boolean sessionCreated = false;
+
+        for (int i = 0; i < getServicesPage().availableGroupSessionTitle.size(); i++) {
+            String sessionTitle = getServicesPage().availableGroupSessionTitle.get(i).getText();
+            String inputFormName = getServicesPage().inputFormName.getText();
+
+            if (sessionTitle.equals(inputFormName)) {
+                System.out.println("Successfully created: " + sessionTitle);
+                sessionCreated = true;
+                break; // Exit the loop since the session was found
+            }
+        }
+
+        if (!sessionCreated) {
+            System.out.println("Group Session was not created or not found.");
+        }
+    }
 }
