@@ -5,12 +5,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import utilities.ReusableMethods;
+
 import java.io.File;
+
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 

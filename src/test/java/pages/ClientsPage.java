@@ -2,14 +2,10 @@ package pages;
 
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utilities.Driver;
-import utilities.ReusableMethods;
 
 import java.util.List;
-import java.util.*;
 
 import static utilities.ReusableMethods.waitFor;
 
@@ -121,7 +117,6 @@ public class ClientsPage extends CommonPage {
     public WebElement addNewSessionButton;
 
 
-
     @FindBy(xpath = "(//label[@style='color: rgb(0, 0, 0); font-size: 1.1rem; margin-top: 10px;'])[1]")
     public WebElement dateButton;
 
@@ -138,15 +133,12 @@ public class ClientsPage extends CommonPage {
     public WebElement afterThought;
 
 
-
     @FindBy(xpath = "//label[normalize-space()='Applications & Suggestions:']")
     public WebElement applicationsSuggestions;
 
 
-
     @FindBy(xpath = "//label[normalize-space()='Attachments:']")
     public WebElement attachments;
-
 
 
     @FindBy(xpath = "//label[normalize-space()='Voice Notes:']")
@@ -190,20 +182,20 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "(//div[@class='ant-dropdown css-aqx16b ant-dropdown-placement-bottomRight'])[1]")
     public List<WebElement> accountIconDropdown;
 
-public void companyAndItemsAreVisible(DataTable elements) {
-    List<String> title = elements.asList();
-    for (String e : title) {
-        System.out.println(e);
+    public void companyAndItemsAreVisible(DataTable elements) {
+        List<String> title = elements.asList();
+        for (String e : title) {
+            System.out.println(e);
+        }
+        for (int i = 1; i <= accountIconDropdown.size() - 1; i++) {
+            System.out.println(accountIconDropdown.get(i).getText());
+
+            Assert.assertEquals(accountIconDropdown.get(i).getText(), title.get(i));
+        }
+
+        waitFor(5);
+
     }
-    for (int i = 1; i <= accountIconDropdown.size() - 1; i++) {
-        System.out.println(accountIconDropdown.get(i).getText());
-
-        Assert.assertEquals(accountIconDropdown.get(i).getText(), title.get(i));
-    }
-
-    waitFor(5);
-
-}
 
 
 
@@ -289,12 +281,8 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(css = "[data-icon=\"plus-circle\"]")
     public WebElement attachments_plusCircleIcon;
 
-    @FindBy(xpath ="//span[@data-test-id='dashboard_clients_sessions']")
-      public WebElement sessionButon;
-
-   // @FindBy(xpath = "//span[@data-test-id='dashboard_clients_sessions']")
-  //public WebElement sessionButon;
-
+    @FindBy(xpath = "//span[@data-test-id='dashboard_clients_sessions']")
+    public WebElement sessionButon;
     @FindBy(xpath = "//span[text()='Delete Session']")
     public WebElement deleteSessionButton;
     @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']")
@@ -462,14 +450,7 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public WebElement lesDates2;//bu net tarih
 
 
-
-
-
-
-
-
-
-    @FindBy(xpath="//div[@class=\"view invoices_w55__ZZ_5p\"]/input")
+    @FindBy(xpath = "//div[@class=\"view invoices_w55__ZZ_5p\"]/input")
     public List<WebElement> invoiceClientInfo;
 
     @FindBy(xpath = "(//input[@class='invoice_input__75vJN  '])[1]")
@@ -527,11 +508,6 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public List<WebElement> notesTermsTextarea;
 
 
-
-
-
-
-
     @FindBy(xpath = "//option[@value='Turkey']")
     public WebElement selectedCountry;
 
@@ -556,15 +532,9 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public WebElement succesfullyUpdatedEdit;
 
 
-
-
     ///save51;
 
-   // yesButton;
-
-
-
-
+    // yesButton;
 
 
     @FindBy(css = "[href=\"/dashboard/clients/2830\"]")
@@ -608,4 +578,35 @@ public void companyAndItemsAreVisible(DataTable elements) {
     public List<WebElement> deleteButtonClientsPage;
     @FindBy(xpath = "//span[text()='Client has been deleted']")
     public WebElement clientDeletedMessages;
+    @FindBy(css = "[data-test-id='schedule_an_appointment_button_clientsPage']")
+    public WebElement button_ScheduleAnAppointment;
+    @FindBy(css = "[data-test-id='clients_scheduleAppointmentButton_serviceSelect']")
+    public WebElement dropDown_ScheduleAnAppointmentServiceSelect;
+    @FindBy(css = "[data-test-id='clients_scheduleAppointmentButton_locationsSelect']")
+    public WebElement dropDown_ScheduleAnAppointmentLocationsSelect;
+    @FindBy(xpath = "//input[@class='ant-checkbox-input']")
+    public WebElement checkbox_CollectPayment;
+    @FindBy(css = "[data-test-id='clients_scheduleAppointment_showColorCodesButton']")
+    public WebElement button_ShowColorCodes;
+    @FindBy(id = "rc_select_39")
+    public WebElement dropDown_YearSelect;
+    @FindBy(id = "rc_select_40")
+    public WebElement dropDown_MonthSelect;
+    @FindBy(xpath = "//table[@class='ant-picker-content']")
+    public WebElement calendar_whole;
+    @FindBy(css = "//td[contains(@class,'ant-picker-cell ant-picker-cell-in-view')]")
+    public List<WebElement> list_Calendar;
+    @FindBy(xpath = "//input[@value='month']")
+    public WebElement radio_Month;
+    @FindBy(xpath = "//input[@value='year']")
+    public WebElement radio_Year;
+    @FindBy(xpath = "//span[@class='ant-radio-button']")
+    public WebElement notCheckedMonthYear;
+    @FindBy(xpath = "//span[@class='ant-radio-button ant-radio-button-checked']")
+    public WebElement CheckedMonthYear;
+    @FindBy(xpath = "//div[@class='ant-list ant-list-vertical ant-list-split css-aqx16b']")
+    public WebElement avaliableHours;
+
+
+
 }
