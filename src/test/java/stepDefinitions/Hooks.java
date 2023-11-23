@@ -6,6 +6,8 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+
+import io.restassured.specification.RequestSpecification;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
@@ -26,6 +28,8 @@ import static io.restassured.RestAssured.given;
 //import static utilities.Authentication.generatePhpSessid;
 
 
+
+
 public class Hooks {
     public static WebDriver driver;
     public static CommonPage commonPage;
@@ -33,6 +37,8 @@ public class Hooks {
 
     public static boolean isHeadless = false;
     public static String browserType = "chrome";
+
+    public static RequestSpecification spec;
 
     public static boolean isFullScreen = true;
     public static int width;
@@ -131,7 +137,7 @@ public class Hooks {
         }
    }
 
-    
+
 
     @Before("@Client")
     public void ClientLogInUSA() {
@@ -159,4 +165,5 @@ public class Hooks {
     public void fatmaSetupApi() {
 
     }
+
 }
