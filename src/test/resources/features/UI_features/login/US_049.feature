@@ -5,4 +5,4 @@ Feature: After logging in as User (Therapist), I should be able to see the Setti
   Scenario: US_49
     Then user verifies the Settings button is clickable
     When user clicks on Settings button
-    Then useees the Settings page
+    Then user sees the Settings page
