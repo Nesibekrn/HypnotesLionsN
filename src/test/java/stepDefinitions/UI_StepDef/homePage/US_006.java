@@ -1,5 +1,23 @@
 package stepDefinitions.UI_StepDef.homePage;
 
+import enums.COLOR;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import pages.CommonPage;
+import utilities.ConfigurationReader;
+import utilities.JS_utilities;
+import utilities.ReusableMethods;
+
+import java.util.List;
+
+import static stepDefinitions.Hooks.commonPage;
+import static stepDefinitions.Hooks.driver;
+import static utilities.ReusableMethods.waitFor;
+
 public class US_006 {
 
     @Given("user goes to home page")
