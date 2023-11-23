@@ -6,6 +6,8 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+
+import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +18,8 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+
+
 public class Hooks {
     public static WebDriver driver;
     public static CommonPage commonPage;
@@ -23,6 +27,8 @@ public class Hooks {
 
     public static boolean isHeadless = false;
     public static String browserType = "chrome";
+
+    public static RequestSpecification spec;
 
     public static boolean isFullScreen = true;
     public static int width;
@@ -138,4 +144,5 @@ public class Hooks {
         commonPage.getLoginPage().LoginButtonforSignIn.click();
 
     }
+
 }
