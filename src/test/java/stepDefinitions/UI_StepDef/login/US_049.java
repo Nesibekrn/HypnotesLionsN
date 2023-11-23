@@ -1,15 +1,11 @@
 package stepDefinitions.UI_StepDef.login;
 
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CommonPage;
-import utilities.ConfigurationReader;
 import utilities.ReusableMethods;
-
-import java.sql.Driver;
 
 import static stepDefinitions.Hooks.driver;
 

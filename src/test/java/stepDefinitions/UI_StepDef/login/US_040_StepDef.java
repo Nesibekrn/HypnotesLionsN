@@ -3,14 +3,10 @@ package stepDefinitions.UI_StepDef.login;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.*;
+import org.openqa.selenium.WindowType;
 import pages.LoginPage;
 import utilities.ConfigurationReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
-
-import java.util.ArrayList;
-import java.util.Set;
 
 import static stepDefinitions.Hooks.driver;
 

@@ -6,23 +6,16 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
-import utilities.API_utilities;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
-import static io.restassured.RestAssured.given;
 //import static utilities.Authentication.generatePhpSessid;
 
 
@@ -151,12 +144,13 @@ public class Hooks {
 
     }
 
-      @Before("@API")
-      public void setUpToken() {
-          hypnotesSetUpFormData();
-      }
-     @Before("@fatma")
-     public void fatmaSetupApi() {
+    @Before("@API")
+    public void setUpToken() {
+        hypnotesSetUpFormData();
+    }
+
+    @Before("@fatma")
+    public void fatmaSetupApi() {
 
     }
 }
