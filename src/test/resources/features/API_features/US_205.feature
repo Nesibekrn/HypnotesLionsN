@@ -11,7 +11,7 @@ Feature: US_205 API
   Scenario: add new client
 
     Given kullanici API istegi gonderir create client
-    Then response alir
+
     Then status cod assert edilir
 
 

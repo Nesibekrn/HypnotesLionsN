@@ -10,6 +10,7 @@ import static io.restassured.RestAssured.given;
 
 public class Authentication_Fy {
     public static String cookie;
+    public static String phpSessid;
     public static String generateCookie(){
 
         //cookie donduren bir method
@@ -22,18 +23,23 @@ public class Authentication_Fy {
 
 
         Response response = given().contentType(ContentType.JSON).body(body).when().post(endPoint);
+        cookie = "PHPSESSID="+response.cookies().get("PHPSESSID");
+        System.out.println("phpSessid = " + phpSessid);
 
-        Map<String, String> cookiesASMap = new HashMap<>(response.getCookies());//response'un icindeki cookies leri al ve bir map'in icine koy
+
+       /* Map<String, String> cookiesASMap = new HashMap<>(response.cookies.get("PHPSESID"));//response'un icindeki cookies leri al ve bir map'in icine koy
         for (Map.Entry<String, String> entry : cookiesASMap.entrySet()) {
             if (entry.getKey().equals("PHPSESID")) {//normale if olusturmamiza gerek yoktu fakat biz if koyduk cunku site bize iki adet token veriyor bizim ihtiyacimiz olan PHPSESID
                 cookie = entry.getKey() + "=" + entry.getValue();//key=PHPSESID value=aa...  VE Bunu cookiye koy
             }
-             /*
+
+
+
              olusturdugumuz map'i bir Entry 'e ceviriyoruz,mapKey methodlarinda sadece value'yu handle edebildigimiz icin,
              biz Entry'sini aldik ki hem key hem value degerini almis olacagiz.
              Postman de header kisminda bize PHPSESID(key)=ku....(value) bir cookie veriyor.bunu map entry sayesinde aldik
-              */
-        }
+
+        }*/
         return cookie;
 
 

@@ -2,27 +2,21 @@ package stepDefinitions;
 
 
 import enums.Enum_Fy;
-import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
-import utilities.API_utilities;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
-import static baseUrl.baseUrl_fy.hypnotesSetUp;
 
-import java.util.HashMap;
-import java.util.Map;
+import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+import static base_url.baseUrl_fy.hypnotesSetUp1;
 import static io.restassured.RestAssured.given;
 //import static utilities.Authentication.generatePhpSessid;
 
@@ -162,6 +156,6 @@ public class Hooks {
     }
     @Before(value = "@API")//API tag'ina sahip feature file'larda bu methodu (hypnotesSetUp) calistir
     public  void setUpAPI(){
-        hypnotesSetUp();//cagirdigimiz methodu import ettik
+        hypnotesSetUp1();//cagirdigimiz methodu import ettik
     }
 }
