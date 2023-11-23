@@ -24,15 +24,12 @@ public class US_042 extends CommonPage {
 
     }
 
-    @And("the user clicks on Calendar button")
-    public void
-
     @Override
     public LoginPage getLoginPage() {
         return super.getLoginPage();
     }
-
-    theUserClicksOnCalendarButton() {
+    @And("the user clicks on Calendar button")
+    public void theUserClicksOnCalendarButton() {
         getCalendarPage().calendar_buton.click();
         ReusableMethods.waitFor(2);
     }

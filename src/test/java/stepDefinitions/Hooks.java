@@ -72,7 +72,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-        Driver.closeDriver();
+        //Driver.closeDriver();
 
     }
 
@@ -113,7 +113,7 @@ public class Hooks {
         );
     }
 
-   /* @Before("@Therapist")
+    @Before("@Therapist")
     public void ThrerapistLogIn(){
 //       commonPage.getLoginPage().ThrerapistLogIn(
 //               ConfigurationReader.getProperty("therapistEmail"),
@@ -122,7 +122,7 @@ public class Hooks {
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
-//
+
 //        try{
 //            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
 //            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
@@ -131,7 +131,27 @@ public class Hooks {
 //        }
    }
 
-    */
+
+//    @Before("@Therapist")
+//    public void therapistLogIn() {
+//        commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
+//        if (driver.getCurrentUrl().toLowerCase().endsWith("dashboard")) {
+//            try {
+//                ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton, 10);
+//                commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+//            } catch (Exception e) {
+//                System.out.println("Not found timezone pop up");
+//            }
+//        }
+//
+//    }
+
+
+
+
+
+
+
 
     @Before("@Client")
     public void ClientLogInUSA() {

@@ -5,20 +5,38 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class CalendarPage extends CommonPage{
+public class CalendarPage extends CommonPage {
 
-    @FindBy(xpath="//a[@href='/dashboard/calendar']")
+    @FindBy(css = "a[href='/dashboard/calendar']")
     public WebElement calendar_buton;
 
-<<<<<<< HEAD
-    @FindBy(xpath = "//tbody/tr[5]/td[3]/div[1]/div[1]")
-    public WebElement anyDateButton;
+    // @FindBy(xpath = "//div[@class='fc-daygrid-day-frame fc-scrollgrid-sync-inner']")
+    //
+     @FindBy(xpath = "//td[@class='fc-daygrid-day fc-day fc-day-tue fc-day-future fc-day-other']//div[@class='fc-daygrid-day-frame fc-scrollgrid-sync-inner']")
+    public WebElement aDateButton;
 
-    @FindBy(xpath = "//label[@title='Repeat Options']")
+   // @FindBy(xpath = "//td[@role='gridcell']")
+    //public List<WebElement> alldays;
+
+    @FindBy(xpath = "//span[@aria-label='Increase Value']")
+    public WebElement increaseNumber;
+    @FindBy(xpath = "//span[@aria-label='Decrease Value']")
+    public WebElement decreaseNumber;
+
+
+    @FindBy(xpath = "//div[@data-test-id=\"eventDrawer_repeatOptions\"]//div[@class='ant-select-selector']")
     public WebElement repeatOptionsButton;
 
     @FindBy(xpath = "//span[@title='Does not repeat']")
     public WebElement repeatOptionDropdownButton;
+     @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
+    //@FindBy(xpath = "//div[@class='ant-select-item ant-select-item-option']")
+
+    public List<WebElement> repeatOptionSelection;
+
+    @FindBy(xpath = "//div[@id='Daily']")
+    public WebElement daily;
+
 
     @FindBy(xpath = "//div[@class='ant-select-item-option-content'][normalize-space()='Daily']")
     public WebElement dailyButton;
@@ -32,14 +50,19 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath = "//div[@class='ant-select-item-option-content'][normalize-space()='Monthly']")
     public WebElement monthlyButton;
 
+    //@FindBy(xpath = "//input[@id='basic_repeat']")
+    //public WebElement repeatTimes;
+
+    @FindBy(xpath = "//div[@class=\"ant-input-number-input-wrap\"]")
+    public WebElement repeatTimes;
+
     @FindBy(xpath = "//div[contains(text(),'Does not repeat')]")
     public WebElement doesNotRepeatButton;
-=======
     @FindBy(xpath = "(//div[@class='ant-select-selector'])[2]")
     public WebElement scheduleButton;
 
-   @FindBy(xpath="//div[@class='ant-select-item-option-content']")
-   public List<WebElement>scheduleMenu;
+    @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
+    public List<WebElement> scheduleMenu;
 
     @FindBy(xpath = "//div[@title='Month']")
     public WebElement monthButton;
@@ -65,16 +88,16 @@ public class CalendarPage extends CommonPage{
     @FindBy(xpath = "//div[@class='fc-timegrid fc-timeGridDay-view fc-view']")
     public WebElement dayView;
 
-    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_scheduleBtn']")
+    @FindBy(xpath = "//button[@data-test-id='calendar_actionButton_scheduleBtn']")
     public WebElement scheduleAppointment_button;
 
-    @FindBy(xpath ="//button[@data-test-id='calenderPage_addNewEvent_Button']")
+    @FindBy(xpath = "//button[@data-test-id='calenderPage_addNewEvent_Button']")
     public WebElement addNewEvent_button;
 
-    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_blockTimeBtn']")
+    @FindBy(xpath = "//button[@data-test-id='calendar_actionButton_blockTimeBtn']")
     public WebElement blockTime_button;
 
-    @FindBy(xpath ="//button[@data-test-id='calendar_actionButton_schedulingSettingsBtn']")
+    @FindBy(xpath = "//button[@data-test-id='calendar_actionButton_schedulingSettingsBtn']")
     public WebElement schedulingSetting_button;
 
     @FindBy(xpath = "//div[text()='Schedule an Appointment']")
@@ -90,6 +113,4 @@ public class CalendarPage extends CommonPage{
     public WebElement blockDatesTitle;
 
 
-
->>>>>>> main
 }
