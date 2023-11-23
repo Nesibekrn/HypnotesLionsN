@@ -42,7 +42,7 @@ public class Driver {
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
         chromePrefs.put("download.default_directory", System.getProperty("user.dir") + "\\target");
         // isFullScreen = true;
-         isHeadless = true;
+        // isHeadless = true;
         // browserType = "chrome";
         //  browserType = "firefox";
 
