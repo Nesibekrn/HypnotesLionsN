@@ -6,12 +6,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
 import static stepDefinitions.Hooks.actions;
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
@@ -170,7 +167,7 @@ public class US_083 extends CommonPage {
     public void checksTheWouldYouLikeThisServiceToBeProvidedOnlineMenu() {
 
         // Check if checkbox is selected
-        Assert.assertTrue(getServicesPage().checkboxOnline.isSelected());
+        Assert.assertTrue("Checkbox is not selected.", getServicesPage().checkboxOnline.isSelected());
 
     }
 
@@ -264,13 +261,6 @@ public class US_083 extends CommonPage {
 
         Assert.assertTrue("URL was :", driver.getCurrentUrl().contains("services"));
 
-
-    }
-
-    @Then("the user clicks the Edit button in Group Session page")
-    public void theUserClicksTheEditButtonInGroupSessionPage() {
-
-        //getServicesPage().editButtonInGroupSession.click();
 
     }
 

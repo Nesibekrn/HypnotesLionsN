@@ -244,7 +244,7 @@ public class ServicesPage extends CommonPage {
     @FindBy(xpath = "(//span[@aria-label='Decrease Value'])[2]")
     public WebElement maximumNumberOfAttendeesDecreaseArrow;
 
-    @FindBy(xpath = "(//div[@class='rc-virtual-list-holder-inner'])[2]")
+    @FindBy(xpath = "//div[@title='Home']")
     public WebElement sessionLocationFirstLocation;
 
     @FindBy(xpath = "//span[@title='Home']")
