@@ -128,6 +128,7 @@ public class ClientsPage extends CommonPage {
     public WebElement keyPoint;
 
 
+
     @FindBy(xpath = "//label[normalize-space()='After Thoughts:']")
     public WebElement afterThought;
 
@@ -195,6 +196,7 @@ public class ClientsPage extends CommonPage {
         waitFor(5);
 
     }
+
 
 
     @FindBy(xpath = "//span[text()='Import Client']")
@@ -386,8 +388,16 @@ public class ClientsPage extends CommonPage {
     public WebElement showExtraFields_checkbox;
     @FindBy(xpath = "//div[@class='ant-form-item-explain-error']")
     public WebElement errorMessage;
+
+    //@FindBy(css="div.ant-select-item ant-select-item-option")
+   // @FindBy(xpath = "//li[@class='country']")
+   // public List<WebElement> phoneFlag_Dropdown;
+   // @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
+   // public List<WebElement> phoneDialCode;
+
 //    @FindBy(css="div.ant-select-item ant-select-item-option")
 //    public List<WebElement> phoneFlag_Dropdown;
+
 
     @FindBy(css = "div.ant-select-item ant-select-item-option")
     public List<WebElement> countryList;
