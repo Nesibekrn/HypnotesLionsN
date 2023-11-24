@@ -26,14 +26,23 @@ public class CalendarPage extends CommonPage {
     public WebElement decreaseNumber;
 
 
+   // @FindBy(xpath = "//div[@data-test-id=\"eventDrawer_repeatOptions\"]//div[@class='ant-select-selector']")
+    //public WebElement repeatOptionsButton;
+
+   // @FindBy(xpath = "//span[@title='Does not repeat']")
+    //public WebElement repeatOptionDropdownButton;
+   //  @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
+    //@FindBy(xpath = "//div[@class='ant-select-item ant-select-item-option']")
+    //public List<WebElement> repeatOptionSelection;
+
     @FindBy(xpath = "//div[@data-test-id=\"eventDrawer_repeatOptions\"]//div[@class='ant-select-selector']")
     public WebElement repeatOptionsButton;
+    @FindBy(xpath = "//div[@data-test-id=\"eventDrawer_repeatOptions\"]//span[@class='ant-select-selection-item']")
+    public WebElement repeatOptionsButtonText;
 
     @FindBy(xpath = "//span[@title='Does not repeat']")
     public WebElement repeatOptionDropdownButton;
-     @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
-    //@FindBy(xpath = "//div[@class='ant-select-item ant-select-item-option']")
-
+    @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
     public List<WebElement> repeatOptionSelection;
 
     @FindBy(xpath = "//div[@id='Daily']")
@@ -53,10 +62,10 @@ public class CalendarPage extends CommonPage {
     public WebElement monthlyButton;
 
     //@FindBy(xpath = "//input[@id='basic_repeat']")
-    //public WebElement repeatTimes;
+   // public WebElement repeatTimes;
 
     @FindBy(xpath = "//div[@class=\"ant-input-number-input-wrap\"]")
-    public WebElement repeatTimes;
+    public List<WebElement> repeatTimes;
 
     @FindBy(xpath = "//div[contains(text(),'Does not repeat')]")
     public WebElement doesNotRepeatButton;
