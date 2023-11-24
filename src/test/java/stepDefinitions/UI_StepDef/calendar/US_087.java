@@ -1,18 +1,13 @@
 package stepDefinitions.UI_StepDef.calendar;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import pages.CommonPage;
-import utilities.JS_utilities;
-import utilities.ReusableMethods;
-
 import java.util.List;
 import java.util.Random;
+import io.cucumber.java.en.*;
+import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.actions;
 import static utilities.ReusableMethods.waitFor;
@@ -22,7 +17,6 @@ public class US_087 extends CommonPage {
     public void userSelectADate() {
         waitFor(2);
         getCalendarPage().aDateButton.click();
-
 
 
     }
@@ -38,91 +32,68 @@ public class US_087 extends CommonPage {
         Assert.assertTrue(getCalendarPage().repeatOptionDropdownButton.isEnabled());
     }
 
-
+    @And("user verifies {string} option is default")
+    public void userVerifiesDoesNotRepeatOptionIsDefault(String option) {
+        Assert.assertEquals(option, calendarPage.repeatOptionsButtonText.getAttribute("title"));
+    }
 
     @And("Any option should be selectable in the Repeat Options section")
     public void anyOptionShouldBeSelectableInTheRepeatOptionsSection(DataTable dataTable) {
+        List<String> menu = dataTable.column(0);
 
+        getCalendarPage().repeatOptionsButton.click();
+        waitFor(1);
 
-        List<String> menu = dataTable.asList();
-        int index=getCalendarPage().repeatOptionSelection.size();
-        for (int i = 1; i < index; i++) {
-            getCalendarPage().repeatOptionDropdownButton.click();
-           waitFor(1);
-          // Assert.assertTrue(getCalendarPage().repeatOptionSelection.get(i).isSelected()) ;
-            //String actualTitle=getCalendarPage().repeatOptionSelection.get(i).getAttribute("title");
-           // getCalendarPage().repeatOptionSelection.get(i).click();
-            getCalendarPage().repeatOptionSelection.get(i).click();
-            String expectedTitle= dataTable.column(0).get(i);
+        int index = getCalendarPage().repeatOptionSelection.size() - 1;
+        for (int i = 0; i < index; i++) {
+            getCalendarPage().repeatOptionSelection.get(i + 1).click();
+            String expectedTitle = menu.get(i);
             System.out.println("expectedTitle = " + expectedTitle);
-            String actualTitle=getCalendarPage().repeatOptionsButton.getAttribute("title");
+            String actualTitle = getCalendarPage().repeatOptionsButtonText.getAttribute("title");
             System.out.println("actualTitle = " + actualTitle);
 
-            //Assert.assertEquals(dataTable.column(0).get(i),getCalendarPage().repeatOptionSelection.get(i).getAttribute("title"));
-            Assert.assertEquals("Expected Title is not matching",expectedTitle,actualTitle);
-
-            Assert.assertTrue(getCalendarPage().repeatTimes.isDisplayed());
-//            JS_utilities.mouseHoverJScript(getCalendarPage().repeatTimes);
-//            Assert.assertTrue(getCalendarPage().increaseNumber.isDisplayed());
-//            Assert.assertTrue(getCalendarPage().decreaseNumber.isDisplayed());
+            Assert.assertEquals("Expected Title is not matching", expectedTitle, actualTitle);
 
             actions.sendKeys(Keys.ARROW_DOWN).perform();
-
-
-
-
-           //System.out.println(menu.get(i));
-           // Assert.assertEquals("Daily",getCalendarPage().repeatOptionSelection.get(1).getText());
-
-           //Assert.assertTrue(getCalendarPage().repeatOptionSelection.get(i).isEnabled());
-
         }
-
-
-
-
-
-
-       // Assert.assertTrue(getCalendarPage().repeatOptionDropdownButton.isDisplayed());
-
-
-
     }
 
 
-
-
-//    @And("A number should be selectable from the Repeat times dropdown menu")
-//    public void aNumberShouldBeSelectableFromTheRepeatTimesDropdownMenu() {
-//        getCalendarPage().repeatOptionsButton.click();
-//       getCalendarPage().dailyButton.click();
-//        Assert.assertTrue(getCalendarPage().repeatTimes.isDisplayed());
-//        JS_utilities.mouseHoverJScript(getCalendarPage().repeatTimes);
-//        Assert.assertTrue(getCalendarPage().increaseNumber.isDisplayed());
-//        Assert.assertTrue(getCalendarPage().decreaseNumber.isDisplayed());
-//
-//
-//
-//    }
-
-
-    @When("user clicks on daily options")
-    public void userClicksOnDailyOptions() {
+    @When("user clicks on any options")
+    public void userClicksOnAnyOptions() {
         getCalendarPage().repeatOptionsButton.click();
-        actions.sendKeys(Keys.ARROW_DOWN).perform();
-        getCalendarPage().daily.click();
+        Random random = new Random();
+        int ind = random.nextInt(getCalendarPage().repeatOptionSelection.size() - 1);
+        getCalendarPage().repeatOptionSelection.get(ind + 1).click();
     }
 
     @Then("user sees repeat times")
     public void userSeesRepeatTimes() {
+        Assert.assertTrue(getCalendarPage().repeatTimes.get(0).isDisplayed());
+        Assert.assertTrue(getCalendarPage().repeatTimes.get(0).isEnabled());
 
+
+    }
+
+    @And("A number should be selectable from the Repeat times dropdown menu")
+    public void aNumberShouldBeSelectableFromTheRepeatTimesDropdownMenu() {
+        getCalendarPage().repeatTimes.get(0).click();
+        ReusableMethods.waitForVisibility(getCalendarPage().increaseNumber, 1);
+
+        Assert.assertTrue(getCalendarPage().increaseNumber.isDisplayed());
+        Assert.assertTrue(getCalendarPage().increaseNumber.isEnabled());
+
+        Assert.assertTrue(getCalendarPage().decreaseNumber.isDisplayed());
+        Assert.assertTrue(getCalendarPage().decreaseNumber.isEnabled());
     }
 
     @And("The repeat option should not appear when Does not repeat is selected")
     public void theRepeatOptionShouldNotAppearWhenDoesNotRepeatIsSelected() {
+        getCalendarPage().repeatOptionsButton.click();
 
         getCalendarPage().doesNotRepeatButton.click();
-        Assert.assertFalse(getCalendarPage().repeatTimes.isDisplayed());
+        Assert.assertEquals(0,getCalendarPage().repeatTimes.size());
     }
+
 
 }
