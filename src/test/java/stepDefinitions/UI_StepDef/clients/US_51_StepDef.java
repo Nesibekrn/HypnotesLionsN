@@ -1,27 +1,19 @@
 package stepDefinitions.UI_StepDef.clients;
 
 import com.github.javafaker.Faker;
-import enums.USER_INFO;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
 import javax.swing.*;
-import java.security.Key;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
-import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
 
 public class US_51_StepDef extends CommonPage {

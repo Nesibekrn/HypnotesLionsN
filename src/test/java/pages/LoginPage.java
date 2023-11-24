@@ -3,10 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
@@ -15,10 +12,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
-import static utilities.ReusableMethods.*;
+import static utilities.ReusableMethods.waitFor;
+import static utilities.ReusableMethods.waitForPageToLoad;
 
 public class LoginPage extends CommonPage {
 
@@ -86,6 +83,8 @@ public class LoginPage extends CommonPage {
     public WebElement PasswordResetButton;
 
 
+
+
     @FindBy(xpath = "//input[@data-test-id=' newPassword_yourMailAddress']")
     public WebElement EmailAddressForNewPassword;
 
@@ -117,6 +116,9 @@ public class LoginPage extends CommonPage {
 
     @FindBy(xpath = "//span[@class='ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image css-aqx16b']")
     public WebElement iconProfile;
+
+    @FindBy(xpath = "//span[.='Login']")
+    public WebElement HomePageLogin;
 
     public void verifyProfileMenuItems1() {
         List<WebElement> titleInTheProfileList = driver.findElements(By.xpath("//li[@class='ant-dropdown-menu-item']"));
@@ -328,4 +330,14 @@ public class LoginPage extends CommonPage {
 
 
     }
+
+    public void loginAs(String userName) {
+   HomePageLogin.click();
+        waitForPageToLoad(2);
+        email_login.sendKeys(ConfigurationReader.getProperty("therapistEmail"));
+        password_Login.sendKeys(ConfigurationReader.getProperty("therapistPassword"));
+        login_button.click();
+        waitForPageToLoad(5);
+    }
 }
+

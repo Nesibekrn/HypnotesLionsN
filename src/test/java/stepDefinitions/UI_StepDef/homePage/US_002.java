@@ -1,9 +1,7 @@
 package stepDefinitions.UI_StepDef.homePage;
 
 import io.cucumber.java.en.And;
-
 import io.cucumber.java.en.Then;
-
 
 import static stepDefinitions.Hooks.commonPage;
 

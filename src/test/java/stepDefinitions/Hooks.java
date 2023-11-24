@@ -15,6 +15,9 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+//import static utilities.Authentication.generatePhpSessid;
+
 
 public class Hooks {
     public static WebDriver driver;
@@ -62,7 +65,7 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshots");
         }
-       Driver.closeDriver();
+        Driver.closeDriver();
 
     }
 
@@ -95,16 +98,15 @@ public class Hooks {
     }
 
 
-
     @Before("@TherapistLoginUSA")
-    public void ThrerapistLogInUSA(){
+    public void ThrerapistLogInUSA() {
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("therapistEmailUSA"),
                 ConfigurationReader.getProperty("therapistPasswordUSA")
         );
     }
 
-    @Before("@Therapist")
+   @Before("@Therapist")
     public void ThrerapistLogIn(){
 //       commonPage.getLoginPage().ThrerapistLogIn(
 //               ConfigurationReader.getProperty("therapistEmail"),
@@ -120,22 +122,35 @@ public class Hooks {
         }catch (Exception e){
             System.out.println("Not found timezone pop up");
         }
-    }
+   }
+
+
 
     @Before("@Client")
-    public void ClientLogInUSA(){
+    public void ClientLogInUSA() {
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("clientEmailUSA"),
                 ConfigurationReader.getProperty("clientPasswordUSA")
         );
     }
+
     @Before("@Profile")
-    public void therapisteLogin(){
+    public void therapisteLogin() {
         driver.get(ConfigurationReader.getProperty("hypnotes"));
         commonPage.getLoginPage().Login.click();
-        commonPage. getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPIST.getUsername());
+        commonPage.getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPIST.getUsername());
         commonPage.getLoginPage().PasswordButton.sendKeys(Enum_Fy.THERAPIST.getPassword());
         commonPage.getLoginPage().LoginButtonforSignIn.click();
+
+    }
+
+    @Before("@API")
+    public void setUpToken() {
+        hypnotesSetUpFormData();
+    }
+
+    @Before("@fatma")
+    public void fatmaSetupApi() {
 
     }
 }
