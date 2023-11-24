@@ -98,15 +98,16 @@ public class Hooks {
     }
 
 
+
     @Before("@TherapistLoginUSA")
-    public void ThrerapistLogInUSA() {
+    public void ThrerapistLogInUSA(){
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("therapistEmailUSA"),
                 ConfigurationReader.getProperty("therapistPasswordUSA")
         );
     }
 
-   @Before("@Therapist")
+    @Before("@Therapist")
     public void ThrerapistLogIn(){
 //       commonPage.getLoginPage().ThrerapistLogIn(
 //               ConfigurationReader.getProperty("therapistEmail"),
@@ -124,7 +125,7 @@ public class Hooks {
         }
    }
 
-
+    
 
     @Before("@Client")
     public void ClientLogInUSA() {
@@ -144,11 +145,10 @@ public class Hooks {
 
     }
 
-    @Before("@API")
-    public void setUpToken() {
-        hypnotesSetUpFormData();
-    }
-
+      @Before("@API")
+      public void setUpToken() {
+          hypnotesSetUpFormData();
+      }
     @Before("@fatma")
     public void fatmaSetupApi() {
 
