@@ -46,7 +46,7 @@ public class SettingsPage extends CommonPage{
     public List<WebElement> maxAppointments;
 
    @FindBy(xpath = "//input[@data-test-id='calendar_settingsForm_number_client_limit']")
-   public WebElement maxAppointmentNumber;
+   public List<WebElement> maxAppointmentNumber;
 
    @FindBy(xpath = "//button[@data-test-id='calendar_settingsForm_saveBtn']")
     public WebElement saveSettings;
@@ -54,22 +54,18 @@ public class SettingsPage extends CommonPage{
    @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_blockTimeColorButton']")
    public WebElement blockTimeColor;
 
-   @FindBy(xpath = "//div[@id='rc-tabs-24-tab-2']")
+   @FindBy(xpath = "//span[@data-test-id='settings_scheduling&Calender_calendarDisplay']")
    public WebElement calendarDisplay;
 
-   @FindBy(xpath = "//div[@id='rc-tabs-27-tab-3']")
+   @FindBy(xpath = "//span[@data-test-id='settings_scheduling&Calender_timezone']")
    public WebElement timeZone;
 
-   @FindBy(xpath = "//div[@class='ant-select ant-select-lg css-aqx16b ant-select-single ant-select-show-arrow ant-select-show-search']")
+   @FindBy(xpath = "//div[@data-test-id='settings_scheduling&Calendar_timeZone_timeZoneSelectDropDown']")
    public WebElement timeZoneArea;
 
-   @FindBy(xpath = "//div[@style='display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;']")
+   @FindBy(xpath = "//div[@class='ant-select-item-option-content']")
    public List<WebElement> newyorkTime;
 
-   //div[@class='ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line timezone-select css-aqx16b']
-
-   @FindBy(xpath = "//div[@label='(UTC-04:30) Venezuela Standard Time - America/Caracas']")
-   public WebElement venezuelaTime;
 
    @FindBy(xpath = "//span[@data-test-id='settings_scheduling&Calender_schedulerUrl']")
    public WebElement schedulerUrl;
@@ -104,6 +100,12 @@ public class SettingsPage extends CommonPage{
 
    @FindBy(xpath = "//button[@data-test-id='settings_scheduling&Calendar_calendarDisplay_canceledMeetingsColorButton']")
    public WebElement canceledMeetings;
+
+   @FindBy(xpath = "//input[@class='color_colorInputServiceSettings___xPkQ']")
+   public WebElement colorSkalasi;
+
+   @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-block']")
+   public WebElement saveColor;
 
 
 

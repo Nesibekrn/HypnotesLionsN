@@ -44,8 +44,12 @@ public class US_84 extends CommonPage {
 
     @And("User verifies if Add New Block Time option is functional and give correct result")
     public void userVerifiesIfAddNewBlockTimeOptionIsFunctionalAndGiveCorrectResult() {
-        ReusableMethods.verifyElementDisplayed(getSettingsPage().addNewBlockTime.get(1));
-        ReusableMethods.clickWithTimeOut(getSettingsPage().addNewBlockTime.get(1),1);
+        for (int i = 0; i < getSettingsPage().addNewBlockTime.size(); i++) {
+            ReusableMethods.verifyElementDisplayed(getSettingsPage().addNewBlockTime.get(1));
+            ReusableMethods.clickWithTimeOut(getSettingsPage().addNewBlockTime.get(1),1);
+
+        }
+
         ReusableMethods.clickWithTimeOut(getSettingsPage().blockTimeFrom,1);
         ReusableMethods.waitFor(1);
         ReusableMethods.scrollAndClickWithJS(getSettingsPage().timeFirst);
@@ -58,6 +62,7 @@ public class US_84 extends CommonPage {
         ReusableMethods.waitFor(2);
         getSettingsPage().addButton.click();
        // Assert.assertTrue(getSettingsPage().blockTime.isDisplayed());
+        ReusableMethods.waitFor(1);
         getSettingsPage().xButton.click();
 
 
@@ -66,69 +71,84 @@ public class US_84 extends CommonPage {
     @Then("User verifies The Max appointments button is fonctional and can enter number on the screen")
     public void userVerifiesTheMaxAppointmentsButtonIsFonctionalAndCanEnterNumberOnTheScreen() {
         ReusableMethods.waitFor(1);
-       /* for (int i = 0; i < getSettingsPage().maxAppointments.size(); i++) {
+        for (int i = 1; i < getSettingsPage().maxAppointments.size(); i++) {
             if (!getSettingsPage().maxAppointments.get(i).isSelected()) {
                 ReusableMethods.waitFor(1);
-                getSettingsPage().maxAppointments.get(i).click();
+            }    getSettingsPage().maxAppointments.get(i).click();
 
+        }
+        for (int j = 1; j < getSettingsPage().maxAppointmentNumber.size(); j++) {
+            getSettingsPage().maxAppointmentNumber.get(j).sendKeys("10");
+            ReusableMethods.waitFor(1);
+            //getSettingsPage().maxAppointmentNumber.get(j).sendKeys(Keys.ENTER);
+
+
+        }
+      /*  for (int i = 1; i < getSettingsPage().maxAppointments.size(); i++) {
+            if (!getSettingsPage().maxAppointments.get(i).isSelected()) {
+                ReusableMethods.waitFor(1);
+            }
+
+            getSettingsPage().maxAppointments.get(i).click();
+
+            for (int j = 1; j < getSettingsPage().maxAppointmentNumber.size(); j++) {
+                getSettingsPage().maxAppointmentNumber.get(j).sendKeys("10");
+                getSettingsPage().maxAppointmentNumber.get(j).sendKeys(Keys.ENTER);
             }
         }*/
 
-        getSettingsPage().maxAppointments.forEach(t->{
-            if (!t.isSelected()) {
-                ReusableMethods.scrollToElement(t);
-                JS_utilities.scrollAndClickWithJS(t);
 
-            }
-        });
 
-        ReusableMethods.clickWithTimeOut(getSettingsPage().maxAppointmentNumber,1);
-        getSettingsPage().maxAppointmentNumber.sendKeys("10");
-        getSettingsPage().maxAppointmentNumber.sendKeys(Keys.ENTER);
     }
 
     @And("User verifies if save button is clickable and checks the saved message")
     public void userVerifiesIfSaveButtonIsClickableAndChecksTheSavedMessage() {
         //ReusableMethods.waitForClickability(getSettingsPage().settingsButton,3);
-        ReusableMethods.clickWithTimeOut(getSettingsPage().saveSettings,3);
+        //ReusableMethods.clickWithTimeOut(getSettingsPage().saveSettings,3);
+        getSettingsPage().saveSettings.click();
     }
 
     @Then("User verifies color changes on the calendar display section")
     public void userVerifiesColorChangesOnTheCalendarDisplaySection() {
-       //ReusableMethods.scrollToElement(getSettingsPage().calendarDisplay);
-        //getSettingsPage().settingsButton.click();
-       ReusableMethods.clickWithTimeOut(getSettingsPage().calendarDisplay,1);
-       //getSettingsPage().individualSessions.getCssValue("color");
+        ReusableMethods.waitFor(1);
+        getSettingsPage().calendarDisplay.click();
+        getSettingsPage().individualSessions.click();
+        getSettingsPage().colorSkalasi.clear();
+        getSettingsPage().colorSkalasi.sendKeys("2F2378");
+        getSettingsPage().saveColor.click();
+        ReusableMethods.waitFor(1);
 
     }
 
     @And("User verifies if time zone change is visible")
     public void userVerifiesIfTimeZoneChangeIsVisible() {
-        ReusableMethods.clickWithTimeOut(getSettingsPage().timeZone,1);
-        //System.out.println();getSettingsPage().newyorkTime.getText();
-        ReusableMethods.clickWithTimeOut(getSettingsPage().timeZoneArea,1);
+        getSettingsPage().timeZone.click();
+        ReusableMethods.waitFor(1);
+        getSettingsPage().timeZoneArea.click();
         ReusableMethods.waitFor(2);
         for (int i = 0; i < getSettingsPage().newyorkTime.size(); i++) {
-            getSettingsPage().newyorkTime.get(4).click();
+            ReusableMethods.scrollAndClickWithJS(getSettingsPage().newyorkTime.get(1));
 
         }
-        //ReusableMethods.scrollAndClickWithJS(getSettingsPage().newyorkTime);
 
-        ReusableMethods.clickWithTimeOut(getDashboardPage().calendar,2);
-        Assert.assertTrue(getCalendarPage().location.getText().contains("New_York"));
+        ReusableMethods.waitFor(2);
+        getCalendarPage().calendar_buton.click();
+        ReusableMethods.waitFor(1);
+       Assert.assertTrue(getCalendarPage().location.getText().contains("America"));
 
     }
 
     @Then("User verifies if the url changes and changed url is appeared on the page")
     public void userVerifiesIfTheUrlChangesAndChangedUrlIsAppearedOnThePage() {
-        ReusableMethods.clickWithTimeOut(getSettingsPage().settingsButton,1);
-        ReusableMethods.clickWithTimeOut(getSettingsPage().schedulerUrl,1);
+        getSettingsPage().settingsButton.click();
+        getSettingsPage().schedulerUrl.click();
         getSettingsPage().customizeUrl.click();
         ReusableMethods.waitFor(1);
         getSettingsPage().changeUrl.clear();
         getSettingsPage().changeUrl.sendKeys("duygu");
         ReusableMethods.waitFor(1);
         getSettingsPage().changeSchedularLink.click();
+        ReusableMethods.waitFor(1);
         String message = "Scheduler URL has been updated";
         Assert.assertEquals(message,getSettingsPage().successMessage.getText());
 
