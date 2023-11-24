@@ -7,7 +7,6 @@ import org.junit.Assert;
 import pages.CommonPage;
 import utilities.ReusableMethods;
 
-import static org.junit.Assert.assertEquals;
 import static utilities.JS_utilities.scrollAndClickWithJS;
 
 public class US_005 extends CommonPage {

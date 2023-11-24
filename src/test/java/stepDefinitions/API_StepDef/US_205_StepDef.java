@@ -1,10 +1,14 @@
 package stepDefinitions.API_StepDef;
 
+import com.github.javafaker.Faker;
 import com.google.gson.JsonObject;
 import io.cucumber.java.en.Given;
+import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import org.junit.Assert;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,10 +20,14 @@ public class US_205_StepDef {
 
     String cookie;
     String PHPSESID1;
+    JsonPath jsonPath;
+    static int idCreated, idSon;
+    Response response;
+    int clientId;
 
 
-    @Given("kullanici login olur ve token alir")
-    public void kullanici_login_olur_ve_token_alir() {
+    @Given("user login with post request from API")
+    public void user_login_with_post_request_from_API() {
         String baseUrl = "https://test.hypnotes.net/api/login";
 
         Map<String, Object> payloadLogin = new HashMap<>();
@@ -29,62 +37,63 @@ public class US_205_StepDef {
         Response response = given()
                 .contentType(ContentType.JSON)
                 .when()
-                .body(payloadLogin.toString())
+                .body(payloadLogin)
                 .post(baseUrl);
-        //String PHPSESID =response.cookies().get("PHPSESID");
-      // String PHPSESID1=PHPSESID;
 
 
         Map<String, String> responseCookies = new HashMap<>(response.getCookies());
         for (Map.Entry<String, String> entry : responseCookies.entrySet()) {
             if (entry.getKey().equals("PHPSESSID")) {
 
-                cookie = entry.getValue();
+                cookie = entry.getKey() + "=" + entry.getValue();
             }
-            System.out.println("cookie=" +cookie);
+            System.out.println("cookie=" + cookie);
 
 
         }
     }
 
 
-    @Given("kullanici musteri ekler")
-    public void kullanici_musteri_ekler() {
-        String urlpost="https://test.hypnotes.net/api/dashboard/client/add";
-        EncoderConfig encoderConfig = new EncoderConfig().encodeContentTypeAs("application/x-www-form-urlencoded", ContentType.TEXT);
+    @Given("user creates a new client")
+    public void user_creates_a_new_client() {
+        String urlpost = "https://test.hypnotes.net/api/dashboard/client/add";
+        Faker faker = new Faker();
+        String firstname = faker.name().firstName();
+        String lastname = faker.name().lastName();
+        String email = faker.internet().emailAddress();
 
 
-        Map<String,Object>payloadCreerNewClient =new HashMap<>();
+        Map<String, Object> payloadCreerNewClient = new HashMap<>();
 
-        payloadCreerNewClient.put("firstname==", "senih");
-        payloadCreerNewClient.put("lastname", "yilmaz");
-        payloadCreerNewClient.put("email=", "senih@gmail.com");
-        payloadCreerNewClient.put("timezone=", "Europe/Paris");
+        payloadCreerNewClient.put("firstName", firstname);
+        payloadCreerNewClient.put("lastName", lastname);
+        payloadCreerNewClient.put("email", email);
+        payloadCreerNewClient.put("timezone", "Europe/Paris");
 
-        Response response = given()
-                .contentType(ContentType.URLENC)
-                .header("cookie","PHPSESID=" +cookie)
+
+
+         response = given()
+                 .header("cookie", cookie)
                 .formParams(payloadCreerNewClient)//body yerine bunu yazdik
                 .post(urlpost);
 
-
-
-        System.out.println("Response Status: " + response.getStatusCode());
-
-        System.out.println("Response Body: " + response.getBody().asString());
-
-
-
-
-
+        jsonPath = response.jsonPath();
+        System.out.println("response= " + response.prettyPrint());
+        int clientId = response.jsonPath().getInt("clientId");
+        System.out.println("clientId: " + clientId);
 
 
 
 
     }
 
-    @Given("donen cevabda assert islemleri yapar")
-    public void donen_cevabda_assert_islemleri_yapar() {
+    @Given("user verifies status and take clientId")
+    public void user_verifies_status_and_take_clientId() {
+        clientId = response.jsonPath().getInt("clientId");
+        System.out.println("clientId: " + clientId);
+
+        String success= response.jsonPath().getString("success");
+        System.out.println("success = " + success);
 
     }
 }

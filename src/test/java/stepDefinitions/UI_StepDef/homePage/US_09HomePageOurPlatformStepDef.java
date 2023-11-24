@@ -1,8 +1,6 @@
 package stepDefinitions.UI_StepDef.homePage;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -11,16 +9,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
-import pages.HomePage;
-import utilities.ConfigurationReader;
-import utilities.Driver;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.actions;
 import static stepDefinitions.Hooks.driver;
 

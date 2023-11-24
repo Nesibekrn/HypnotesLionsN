@@ -5,7 +5,6 @@ import manifold.ext.rt.api.This;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import utilities.Driver;
 
 import static stepDefinitions.Hooks.actions;
 import static stepDefinitions.Hooks.driver;

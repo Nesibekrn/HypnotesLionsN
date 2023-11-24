@@ -10,7 +10,8 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 
 public class US_020 extends CommonPage {

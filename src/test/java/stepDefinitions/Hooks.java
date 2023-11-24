@@ -13,11 +13,15 @@ import pages.CommonPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
+
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 import static io.restassured.RestAssured.given;
+
+import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+
 //import static utilities.Authentication.generatePhpSessid;
 
 
@@ -108,7 +112,7 @@ public class Hooks {
         );
     }
 
-   /* @Before("@Therapist")
+   @Before("@Therapist")
     public void ThrerapistLogIn(){
 //       commonPage.getLoginPage().ThrerapistLogIn(
 //               ConfigurationReader.getProperty("therapistEmail"),
@@ -116,17 +120,17 @@ public class Hooks {
 //       );
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
-        commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
-//
-//        try{
-//            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
-//            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
-//        }catch (Exception e){
-//            System.out.println("Not found timezone pop up");
-//        }
+       // commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
+
+        try{
+          //  ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
+       //     commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+        }catch (Exception e){
+            System.out.println("Not found timezone pop up");
+        }
    }
 
-    */
+    
 
     @Before("@Client")
     public void ClientLogInUSA() {
@@ -146,10 +150,11 @@ public class Hooks {
 
     }
 
-      @Before("@API")
-      public void setUpToken() {
-          hypnotesSetUpFormData();
-      }
+    @Before("@API")
+    public void setUpToken() {
+        hypnotesSetUpFormData();
+    }
+
     @Before("@fatma")
     public void fatmaSetupApi() {
 

@@ -91,7 +91,6 @@ public class US_059 extends CommonPage {
     @Then("a valid logo is displayed successfully")
     public void a_valid_logo_is_displayed_successfully() {
         Assert.assertTrue(getAccountPage().changeLogo.isDisplayed());
-
     }
 
 
@@ -101,7 +100,6 @@ public class US_059 extends CommonPage {
         for (int i = 0; i <= formFields.size() - 1; i++) {
             Assert.assertTrue(getAccountPage().fields.get(i).isEnabled());
             getAccountPage().fields.get(i).sendKeys(formFields.get(i));
-
 
 
         }
