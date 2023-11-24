@@ -1,5 +1,6 @@
 @UI
 @Therapist
+  
 
 Feature: As a user(therapist), I should be able to see Sessions button
 
