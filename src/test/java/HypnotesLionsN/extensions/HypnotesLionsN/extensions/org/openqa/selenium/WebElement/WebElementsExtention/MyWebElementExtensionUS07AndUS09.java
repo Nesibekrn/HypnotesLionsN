@@ -1,8 +1,6 @@
 package HypnotesLionsN.extensions.HypnotesLionsN.extensions.org.openqa.selenium.WebElement.WebElementsExtention;
 
 import manifold.ext.rt.api.Extension;
-import manifold.ext.rt.api.This;
-import HypnotesLionsN.extensions.org.openqa.selenium.WebElement.WebElementsExtention;
 import org.openqa.selenium.WebElement;
 
 @Extension
