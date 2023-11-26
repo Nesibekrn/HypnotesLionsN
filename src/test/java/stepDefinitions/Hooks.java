@@ -153,4 +153,16 @@ public class Hooks {
     public void fatmaSetupApi() {
 
     }
+    @Before("@TherapistFtm")
+    public void therapistLoginFtm(){
+        driver.manage().deleteAllCookies();
+        driver.navigate().refresh();
+        commonPage.getLoginPage().ThrerapistLogIn(Enum_Fy.THERAPISTLOGIN.getUsername(),Enum_Fy.THERAPISTLOGIN.getPassword());
+        try {
+            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
+            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+        }catch (Exception e){
+            System.out.println("Not found timezone pop up");
+        }
+    }
 }
