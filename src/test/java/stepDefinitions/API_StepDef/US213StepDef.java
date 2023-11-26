@@ -30,7 +30,7 @@ public class US213StepDef {
     static Integer dateIntervalID;
     static List<Integer> intervalDateBlockID= new ArrayList<>();
 
-    @Given("user take token from api")
+    /*@Given("user take token from api")
     public void user_take_token_from_api() {
         payload.put("username","test_trpst_basic@yopmail.com");
         payload.put("password","Trpst13.");
@@ -40,8 +40,8 @@ public class US213StepDef {
         phpSessId=response.cookie("PHPSESSID");
         //  System.out.println("phpSessId = " + phpSessId);
 
-    }
-    @Then("user creates a date interval time from Api")
+    }*/
+   /* @Then("user creates a date interval time from Api")
     public void user_creates_a_date_interval_time_from_api() {
         payload.put("startAt","12-25-2023");
         payload.put("finishAt","12-26-2023");
@@ -56,20 +56,20 @@ public class US213StepDef {
          System.out.println("dateIntervalID = " + dateIntervalID);
 
 
-    }
-    @Then("user verifies status is True")
+    }*/
+   /* @Then("user verifies status is True")
     public void user_verifies_status_is_true() {
         Assert.assertTrue(response.jsonPath().getBoolean("status"));
 
-    }
-        @Then("user verifies that response is expected")
+    }*/
+       /* @Then("user verifies that response is expected")
     public void user_verifies_that_response_is_expected() {
         Assert.assertEquals("12-25-2023",response.jsonPath().getString("data[0].startAt"));
         Assert.assertEquals("12-26-2023",response.jsonPath().getString("data[0].finishAt"));
         Assert.assertEquals("Online",response.jsonPath().getString("data[0].locationTitle"));
 
 
-    }
+    }*/
     @Then("user gets all interval date block times from api")
     public void     user_gets_all_interval_date_block_times_from_api() {
         response=given()

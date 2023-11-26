@@ -4,9 +4,9 @@ Feature: As a user, I should be able to schedule an Appointment
   Background:
     Given user clicks on Clients button
     And user clicks Schedule an Appointment at the selected client
-@US_093
+  @US_093
   Scenario: TC01
-    When user selects "Reschedule1 - (60min) - $20" at the Service section
+    When user selects "Reschedule1 - (30min) - $30" at the Service section
     And user selects Online at the Locations section
     * user selects tomorrows date at the calendar
     * user select available hours at the Available Hours section

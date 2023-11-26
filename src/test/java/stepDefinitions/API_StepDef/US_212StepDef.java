@@ -18,7 +18,7 @@ public class US_212StepDef  {
     static Integer dateIntervalID;
     static  List<Integer> intervalDateBlockID= new ArrayList<>();
 
-    @Given("user take token from api")
+   /* @Given("user take token from api")
     public void user_take_token_from_api() {
         payload.put("username","test_trpst_basic@yopmail.com");
         payload.put("password","Trpst13.");
@@ -28,7 +28,7 @@ public class US_212StepDef  {
         phpSessId=response.cookie("PHPSESSID");
       //  System.out.println("phpSessId = " + phpSessId);
 
-    }
+    }*/
     @Then("user creates a date interval time from Api")
     public void user_creates_a_date_interval_time_from_api() {
         payload.put("startAt","12-28-2023");
