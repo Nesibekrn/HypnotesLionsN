@@ -9,7 +9,7 @@ Feature: As a user, I should be able to schedule an Appointment
     When user selects "Reschedule1 - (60min) - $20" at the Service section
     And user selects Online at the Locations section
     * user selects tomorrows date at the calendar
-    * user select avaliable hours at the Avaliable Hours section
+    * user select available hours at the Available Hours section
     * user clicks Yes at the Confirm This Time? message
     * user clicks Click here to send the document
     * user clicks Sent to Client button and can see Sent to Client message
