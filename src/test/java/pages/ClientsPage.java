@@ -486,5 +486,24 @@ public void companyAndItemsAreVisible(DataTable elements) {
     @FindBy(xpath = "//div[@class='ant-popconfirm-buttons']//button[2]/span")
     public WebElement yesButton_toDeleteSession;
 
+    @FindBy(xpath = "//span[contains(text(),'Get Payment')]")
+    public WebElement getPaymentButton;
+
+
+
+    @FindBy(xpath = "//*[name()='path' and contains(@d,'m222.218 2')]")
+    public WebElement paypalButton;
+
+    @FindBy(xpath = "//*[@src='https://images.ctfassets.net/fzn2n1nzq965/2EOOpI2mMZgHYBlbO44zWV/5a6c5d37402652c80567ec942c733a43/favicon.png?w=180&h=180']")
+    public WebElement stripeButton;
+
+    @FindBy(xpath = "//input[@id=\"service-form_selectedCategory\"]")
+    public WebElement peymentDropDownMenu;
+
+    @FindBy(xpath = "//div[contains(text(),'aaaa')]")
+    public WebElement peymentDropDownMenuIlkElement;
+
+    @FindBy(xpath = "//span[contains(text(),'Go Payment')]")
+    public WebElement goPaymentButton;
 
 }

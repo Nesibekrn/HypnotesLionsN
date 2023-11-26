@@ -4,7 +4,6 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
@@ -17,18 +16,15 @@ import static stepDefinitions.Hooks.driver;
 public class US_050 extends CommonPage {
     String phoneCode;
 
-    @Given("user clicks on Clients button")
     public void user_clicks_on_clients_button() {
         ReusableMethods.waitForVisibility(getClientsPage().clients_button, 2);
         getClientsPage().clients_button.click();
     }
 
-    @Given("user clicks Add New Client button")
     public void user_clicks_add_new_client_button() {
         getClientsPage().addNewClient_button.click();
     }
 
-    @Given("user types name in the First Name section")
     public void user_types_name_in_the_first_name_section(DataTable dataTable) {
         List<String> firstName = dataTable.column(0);
         List<String> expectedMessage = dataTable.column(1);
@@ -44,7 +40,6 @@ public class US_050 extends CommonPage {
         }
     }
 
-    @Given("user types middle name in the middle name section")
     public void user_types_middle_name_in_the_middle_name_section(DataTable dataTable) {
         List<String> middleName = dataTable.column(0);
         List<String> expectedMessage = dataTable.column(1);
@@ -59,7 +54,6 @@ public class US_050 extends CommonPage {
         }
     }
 
-    @Given("user types last name in the Last Name section")
     public void user_types_last_name_in_the_last_name_section(DataTable dataTable) {
         List<String> lastName = dataTable.column(0);
         List<String> expectedMessage = dataTable.column(1);
@@ -74,7 +68,6 @@ public class US_050 extends CommonPage {
         }
     }
 
-    @Given("user types email in the email section")
     public void user_types_email_in_the_email_section(DataTable dataTable) {
         List<String> email = dataTable.column(0);
         List<String> expectedMessage = dataTable.column(1);
@@ -91,17 +84,14 @@ public class US_050 extends CommonPage {
         }
     }
 
-    @Given("user verify gender menu is functional")
     public void user_verify_gender_menu_is_functional() {
         Assert.assertTrue(getClientsPage().gender_dropDown.isEnabled());
     }
 
-    @Given("user verify gender menu is selectable")
     public void user_verify_gender_menu_is_selectable() {
         //  Assert.assertTrue(getClientsPage().gender_dropDown.isDisplayed());
     }
 
-    @Given("user select {string} in the gender section")
     public void user_select_in_the_gender_section(String gender) {
         getClientsPage().gender_dropDown.sendKeys(gender + Keys.ENTER);
       /*  ReusableMethods.scrollToElement(getClientsPage().gender_dropDown);
@@ -110,7 +100,6 @@ public class US_050 extends CommonPage {
         select.selectByVisibleText("Female");*/
     }
 
-    @Given("user types name in the first name section")
     public void userTypesNameInTheFirstNameSection() {
         getClientsPage().firstName_input.sendKeys(ReusableMethods.rasgeleIsimOlustur());
     }
@@ -141,7 +130,6 @@ public class US_050 extends CommonPage {
         Assert.assertEquals(phoneCode, dialCodeX);
     }
 
-    @Given("user types occupation in the occupation section")
     public void user_types_occupation_in_the_occupation_section(DataTable dataTable) {
         List<String> occupation = dataTable.column(0);
         List<String> expectedMessage = dataTable.column(1);
@@ -156,7 +144,6 @@ public class US_050 extends CommonPage {
         }
     }
 
-    @Given("user types zip code in the zip code inbox")
     public void user_types_zip_code_in_the_zip_code_inbox(DataTable dataTable) {
         List<String> zipCode = dataTable.column(0);
         List<String> expectedMessage = dataTable.column(1);
@@ -170,7 +157,6 @@ public class US_050 extends CommonPage {
         }
     }
 
-    @Given("user types {string}, {string}, {string} in the relevant section")
     public void user_types_in_the_relevant_section(String country, String state, String city) {
         getClientsPage().country_input.sendKeys(country);
         getClientsPage().state_input.sendKeys(state);
@@ -188,7 +174,6 @@ public class US_050 extends CommonPage {
         //     Assert.assertEquals(city,getClientsPage().city_input.getText());
     }
 
-    @Given("user types {string} in the address section")
     public void user_types_in_the_address_section(String address) {
         getClientsPage().address_input.sendKeys(address);
     }

@@ -51,8 +51,7 @@ public class US_061 extends CommonPage {
        ReusableMethods.verifyElementDisplayed(getClientsPage().clientInfoSectionBtn.get(0));
    }
 
-   @Given("User should see the Schedule an Appointment option")
-    public void userShouldSeeTheScheduleAnAppointmentOption() {
+   public void userShouldSeeTheScheduleAnAppointmentOption() {
         ReusableMethods.waitFor(3);
         ReusableMethods.verifyElementDisplayed(getClientsPage().scheduleAnAppointment.get(0));
     }
