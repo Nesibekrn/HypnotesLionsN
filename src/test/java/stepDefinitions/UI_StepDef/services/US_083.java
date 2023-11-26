@@ -72,9 +72,6 @@ public class US_083 extends CommonPage {
 
         getServicesPage().inputFormName.sendKeys(faker.name().fullName());
 
-        //Assert.assertTrue(getServicesPage().inputFormName.getText().contains(????));
-        //assertion nasil yapicam?
-
     }
 
     @And("enters a valid price in the Price field")
@@ -325,21 +322,5 @@ public class US_083 extends CommonPage {
     @Then("the added Group Session should appear in the session table")
     public void theAddedGroupSessionShouldAppearInTheSessionTable() {
 
-        boolean sessionCreated = false;
-
-        for (int i = 0; i < getServicesPage().availableGroupSessionTitle.size(); i++) {
-            String sessionTitle = getServicesPage().availableGroupSessionTitle.get(i).getText();
-            String inputFormName = getServicesPage().inputFormName.getText();
-
-            if (sessionTitle.equals(inputFormName)) {
-                System.out.println("Successfully created: " + sessionTitle);
-                sessionCreated = true;
-                break; // Exit the loop since the session was found
-            }
-        }
-
-        if (!sessionCreated) {
-            System.out.println("Group Session was not created or not found.");
-        }
     }
 }
