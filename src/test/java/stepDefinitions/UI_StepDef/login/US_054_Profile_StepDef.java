@@ -2,30 +2,18 @@ package stepDefinitions.UI_StepDef.login;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
-import utilities.ConfigurationReader;
 import utilities.ReusableMethods;
 
-
-
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
-
-import static utilities.ReusableMethods.doubleClick;
 //import static utilities.ReusableMethods.waitClickableByOfElement;
 
 public class US_054_Profile_StepDef extends CommonPage {

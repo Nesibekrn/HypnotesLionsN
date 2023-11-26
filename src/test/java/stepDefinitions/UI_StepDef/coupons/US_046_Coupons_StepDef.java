@@ -5,10 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-
-
 import pages.CommonPage;
-import pages.LoginPage;
 import utilities.ConfigurationReader;
 import utilities.ReusableMethods;
 

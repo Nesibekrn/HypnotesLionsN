@@ -1,7 +1,9 @@
 package stepDefinitions.UI_StepDef.homePage;
 
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.CommonPage;
 import utilities.ReusableMethods;

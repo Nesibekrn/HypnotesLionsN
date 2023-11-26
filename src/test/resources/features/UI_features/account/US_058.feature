@@ -13,6 +13,7 @@ Background:
     Then user click the add new certificate button
     Then Verify that add license  or certification screen should be visible
     Then Verify that all input title should be visible
+
     Then Verify that the "Save" and Cancel buttons are functional
 @HL-343
   Scenario: TC_03 Verify Functionality of Add Certificate Fields and Buttons

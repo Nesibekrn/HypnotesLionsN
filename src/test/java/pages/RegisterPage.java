@@ -1,11 +1,12 @@
 package pages;
 
+import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import com.github.javafaker.Faker;
-import org.junit.Assert;
+
 import java.util.List;
+
 import static utilities.ReusableMethods.waitFor;
 
 public class RegisterPage extends CommonPage {
