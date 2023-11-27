@@ -1,4 +1,4 @@
-
+@API
 Feature: Event Management API
 
   Scenario: User logs in with valid credentials
