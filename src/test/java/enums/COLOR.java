@@ -18,7 +18,8 @@ public enum COLOR {
     HYPNOTES_MEETING_TIME("#87d068","rgb(135, 208, 104)","rgba(135, 208, 104, 1)"),
     HYPNOTES_AVAILABLE_HOURS("#299cae","rgb(41, 156, 174)","rgba(41, 156, 174, 1)"),
     HYPNOTES_GOOGLE_EVENTS("#f7d08e","rgb(247, 208, 142)","rgba(247, 208, 142, 1)"),
-    HYPNOTES_EVENTS_BACKGROUND("#bf2feb", "rgb(191, 47, 235)", "rgba(191, 47, 235, 1)");
+    HYPNOTES_EVENTS_BACKGROUND("#bf2feb", "rgb(191, 47, 235)", "rgba(191, 47, 235, 1)"),
+    HYPNOTES_SHEDULE_AN_APPOINTMENT("#299cae", "rgb(41, 156, 174)", "rgba(41, 156, 174, 1)");
     private String HEX;
     private String RBG;
     private String RGBA;

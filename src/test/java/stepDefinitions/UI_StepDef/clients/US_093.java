@@ -10,9 +10,7 @@ import utilities.ReusableMethods;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 
 import static stepDefinitions.Hooks.driver;
 
@@ -44,9 +42,9 @@ public class US_093 extends CommonPage {
     public void user_selects_tomorrows_date_at_the_calendar() {
         ReusableMethods.scrollToElement(getClientsPage().button_cancel);
         LocalDate date = LocalDate.now();
-        System.out.println("bugunun tarihi = "+date);
-        LocalDate tomorrow=date.plus(Period.ofDays(1));
-        System.out.println("Tomorrow = "+tomorrow);
+        System.out.println("bugunun tarihi = " + date);
+        LocalDate tomorrow = date.plus(Period.ofDays(1));
+        System.out.println("Tomorrow = " + tomorrow);
         int limit = getClientsPage().list_Calendar.size();
         System.out.println("limit = " + limit);
         System.out.println("getClientsPage().list_Calendar.get(25).getCssValue(\"title\") = " + getClientsPage().list_Calendar.get(25).getAttribute("title"));
@@ -121,19 +119,23 @@ public class US_093 extends CommonPage {
         ReusableMethods.waitFor(2);
         Assert.assertTrue(getClientsPage().button_upComingMeeting.isDisplayed());
     }
+
     @When("user clicks on Collect Payment checkbox")
     public void user_clicks_on_collect_payment_checkbox() {
-       getClientsPage().checkbox_CollectPayment.click();
+        getClientsPage().checkbox_CollectPayment.click();
     }
+
     @Then("user verify Collect Payment is selectable")
     public void user_verify_collect_payment_is_selectable() {
-       Assert.assertTrue(getClientsPage().checkbox_CollectPayment.isSelected());
+        Assert.assertTrue(getClientsPage().checkbox_CollectPayment.isSelected());
     }
+
     @When("user clicks on Show Color Codes")
     public void user_clicks_on_show_color_codes() {
-      getClientsPage().button_ShowColorCodes.click();
-      ReusableMethods.waitFor(2);
+        getClientsPage().button_ShowColorCodes.click();
+        ReusableMethods.waitFor(2);
     }
+
     @Then("user can see Color Codes")
     public void user_can_see_color_codes() {
         COLOR.HYPNOTES_BLOCK_TIME.assertBackroundColor(getClientsPage().span_BlockTime);
@@ -141,6 +143,39 @@ public class US_093 extends CommonPage {
         COLOR.HYPNOTES_AVAILABLE_HOURS.assertBackroundColor(getClientsPage().span_AvailableHours);
         COLOR.HYPNOTES_GOOGLE_EVENTS.assertBackroundColor(getClientsPage().span_GoogleEvents);
         COLOR.HYPNOTES_EVENTS_BACKGROUND.assertBackroundColor(getClientsPage().span_HypnotesEvents);
+    }
+
+    @When("user clicks No at the Confirm This Time? message")
+    public void user_clicks_no_at_the_confirm_this_time_message() {
+        getClientsPage().no_Button.click();
+    }
+
+    @Then("user verify unselect available hours at the Available Hours section")
+    public void user_verify_unselect_available_hours_at_the_available_hours_section() {
+        Assert.assertTrue(getClientsPage().label_ScheduleAnAppointment.isDisplayed());
+    }
+
+    @Then("user clicks on Open Document button")
+    public void user_clicks_on_open_document_button() {
+        getClientsPage().button_OpenDocument.click();
+        ReusableMethods.waitFor(2);
+    }
+
+    @Then("user can see the Document")
+    public void user_can_see_the_document() {
+        List<String> tabs=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(driver.getCurrentUrl().contains("https://test.hypnotes.net/uploads/documents"));
+    }
+    @When("user clicks on Schedule another Appointment button")
+    public void user_clicks_on_schedule_another_appointment_button() {
+      getClientsPage().buttonScheduleAnotherAppointment.click();
+    }
+    @Then("user can see Schedule an Appointment page")
+    public void user_can_see_schedule_an_appointment_page() {
+       // COLOR.HYPNOTES_SHEDULE_AN_APPOINTMENT.assertBackroundColor(getClientsPage().iconOne);
+        Assert.assertTrue(getClientsPage().dropDown_ScheduleAnAppointmentServiceSelect.isDisplayed());
     }
 
 

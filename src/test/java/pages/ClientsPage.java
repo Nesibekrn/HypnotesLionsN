@@ -583,7 +583,7 @@ public class ClientsPage extends CommonPage {
     public WebElement dropDown_ScheduleAnAppointmentServiceSelect;
     @FindBy(xpath = "//div[@class='rc-virtual-list-holder-inner']/div[contains(@class,'ant-select-item-option-grouped')]")
     public List<WebElement> serviceList;
-   // @FindBy(css = "[data-test-id='clients_scheduleAppointmentButton_locationsSelect']")
+    // @FindBy(css = "[data-test-id='clients_scheduleAppointmentButton_locationsSelect']")
     //@FindBy(xpath="//input[@id='rc_select_6']")
     @FindBy(xpath = "//span[@title='Online']")
     public WebElement dropDown_ScheduleAnAppointmentLocationsSelect;
@@ -597,7 +597,7 @@ public class ClientsPage extends CommonPage {
     public WebElement dropDown_MonthSelect;
     @FindBy(xpath = "//table[@class='ant-picker-content']")
     public WebElement calendar_whole;
-   // @FindBy(css = "//td[contains(@class,'ant-picker-cell ant-picker-cell-in-view')]")
+    // @FindBy(css = "//td[contains(@class,'ant-picker-cell ant-picker-cell-in-view')]")
     @FindBy(xpath = "//td[@class='ant-picker-cell ant-picker-cell-in-view']")
     public List<WebElement> list_Calendar;
     @FindBy(xpath = "//input[@value='month']")
@@ -616,7 +616,7 @@ public class ClientsPage extends CommonPage {
     public WebElement button_OpenDocument;
     @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-round ant-btn-primary']")
     public WebElement button_sendToClient;
-    @FindBy(xpath ="//div[@class='ant-message-custom-content ant-message-success']")
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
     public WebElement message_sendDocument;
     @FindBy(xpath = "//span[text()='Next']")
     public WebElement button_Next;
@@ -644,7 +644,7 @@ public class ClientsPage extends CommonPage {
     public List<WebElement> avaliableHoursList;
     @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-default ant-btn-dangerous']")
     public WebElement button_cancel;
-   // @FindBy(css = "data-test-id='clientsPage_upcomingMeetingButton'")
+    // @FindBy(css = "data-test-id='clientsPage_upcomingMeetingButton'")
     @FindBy(xpath = "//button[@data-test-id='clientsPage_upcomingMeetingButton']")
     public WebElement button_upComingMeeting;
     @FindBy(xpath = "//div[@class='ant-drawer-title']")
@@ -659,5 +659,6 @@ public class ClientsPage extends CommonPage {
     public WebElement span_GoogleEvents;
     @FindBy(xpath = "//span[text()='Hypnotes Events']")
     public WebElement span_HypnotesEvents;
-
+    @FindBy(xpath = "//span[text()='1']/..")
+    public WebElement iconOne;
 }
