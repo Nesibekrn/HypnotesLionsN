@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 import static base_url.baseUrl_fy.hypnotesSetUp1;
@@ -172,7 +173,7 @@ public class Hooks {
                 System.out.println("Not found timezone pop up");
             }
         }
-
+    }
     @Before(value = "@API")//API tag'ina sahip feature file'larda bu methodu (hypnotesSetUp) calistir
     public  void setUpAPI(){
         hypnotesSetUp1();//cagirdigimiz methodu import ettik
