@@ -4,6 +4,7 @@ Feature: As a user, I should be able to schedule an Appointment
   Background:
     Given user clicks on Clients button
     And user clicks Schedule an Appointment at the selected client
+
   @US_093
   Scenario: TC01
     When user selects service at the Service section
@@ -19,6 +20,13 @@ Feature: As a user, I should be able to schedule an Appointment
     * user clicks Submit button
     * user can see Meeting Details
     * user clicks Close button and user see clients page
-
+@US_093TC2
+  Scenario: TC02
+    When user selects service at the Service section
+    And user selects Online at the Locations section
+    * user clicks on Collect Payment checkbox
+    Then user verify Collect Payment is selectable
+    When user clicks on Show Color Codes
+    Then user can see Color Codes
      # * user clicks Open Document button and see the document
 

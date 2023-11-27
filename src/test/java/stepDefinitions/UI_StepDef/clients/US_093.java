@@ -1,7 +1,8 @@
 package stepDefinitions.UI_StepDef.clients;
 
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
+import enums.COLOR;
+import io.cucumber.java.en.*;
+
 import org.junit.Assert;
 import pages.CommonPage;
 import utilities.ReusableMethods;
@@ -120,5 +121,27 @@ public class US_093 extends CommonPage {
         ReusableMethods.waitFor(2);
         Assert.assertTrue(getClientsPage().button_upComingMeeting.isDisplayed());
     }
+    @When("user clicks on Collect Payment checkbox")
+    public void user_clicks_on_collect_payment_checkbox() {
+       getClientsPage().checkbox_CollectPayment.click();
+    }
+    @Then("user verify Collect Payment is selectable")
+    public void user_verify_collect_payment_is_selectable() {
+       Assert.assertTrue(getClientsPage().checkbox_CollectPayment.isSelected());
+    }
+    @When("user clicks on Show Color Codes")
+    public void user_clicks_on_show_color_codes() {
+      getClientsPage().button_ShowColorCodes.click();
+      ReusableMethods.waitFor(2);
+    }
+    @Then("user can see Color Codes")
+    public void user_can_see_color_codes() {
+        COLOR.HYPNOTES_BLOCK_TIME.assertBackroundColor(getClientsPage().span_BlockTime);
+        COLOR.HYPNOTES_MEETING_TIME.assertBackroundColor(getClientsPage().span_MeetingTime);
+        COLOR.HYPNOTES_AVAILABLE_HOURS.assertBackroundColor(getClientsPage().span_AvailableHours);
+        COLOR.HYPNOTES_GOOGLE_EVENTS.assertBackroundColor(getClientsPage().span_GoogleEvents);
+        COLOR.HYPNOTES_EVENTS_BACKGROUND.assertBackroundColor(getClientsPage().span_HypnotesEvents);
+    }
+
 
 }
