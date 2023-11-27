@@ -2,6 +2,7 @@ package stepDefinitions;
 
 
 import enums.Enum_Fy;
+import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -162,5 +163,17 @@ public class Hooks {
     @Before(value = "@API")//API tag'ina sahip feature file'larda bu methodu (hypnotesSetUp) calistir
     public  void setUpAPI(){
         hypnotesSetUp1();//cagirdigimiz methodu import ettik
+    }
+    @Before("@TherapistFtm")
+    public void therapistLoginFtm(){
+        driver.manage().deleteAllCookies();
+        driver.navigate().refresh();
+        commonPage.getLoginPage().ThrerapistLogIn(Enum_Fy.THERAPISTLOGIN.getUsername(),Enum_Fy.THERAPISTLOGIN.getPassword());
+        /*try {
+            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
+            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+        }catch (Exception e){
+            System.out.println("Not found timezone pop up");
+        }*/
     }
 }

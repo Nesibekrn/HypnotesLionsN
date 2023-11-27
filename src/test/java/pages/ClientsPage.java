@@ -1,6 +1,7 @@
 package pages;
 
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.zh_cn.假如;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -128,7 +129,6 @@ public class ClientsPage extends CommonPage {
     public WebElement keyPoint;
 
 
-
     @FindBy(xpath = "//label[normalize-space()='After Thoughts:']")
     public WebElement afterThought;
 
@@ -196,7 +196,6 @@ public class ClientsPage extends CommonPage {
         waitFor(5);
 
     }
-
 
 
     @FindBy(xpath = "//span[text()='Import Client']")
@@ -390,10 +389,10 @@ public class ClientsPage extends CommonPage {
     public WebElement errorMessage;
 
     //@FindBy(css="div.ant-select-item ant-select-item-option")
-   // @FindBy(xpath = "//li[@class='country']")
-   // public List<WebElement> phoneFlag_Dropdown;
-   // @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
-   // public List<WebElement> phoneDialCode;
+    // @FindBy(xpath = "//li[@class='country']")
+    // public List<WebElement> phoneFlag_Dropdown;
+    // @FindBy(xpath = "//li[@class='country']//span[contains(@class,'dial-code')]")
+    // public List<WebElement> phoneDialCode;
 
 //    @FindBy(css="div.ant-select-item ant-select-item-option")
 //    public List<WebElement> phoneFlag_Dropdown;
@@ -582,7 +581,11 @@ public class ClientsPage extends CommonPage {
     public WebElement button_ScheduleAnAppointment;
     @FindBy(css = "[data-test-id='clients_scheduleAppointmentButton_serviceSelect']")
     public WebElement dropDown_ScheduleAnAppointmentServiceSelect;
-    @FindBy(css = "[data-test-id='clients_scheduleAppointmentButton_locationsSelect']")
+    @FindBy(xpath = "//div[@class='rc-virtual-list-holder-inner']/div[contains(@class,'ant-select-item-option-grouped')]")
+    public List<WebElement> serviceList;
+    // @FindBy(css = "[data-test-id='clients_scheduleAppointmentButton_locationsSelect']")
+    //@FindBy(xpath="//input[@id='rc_select_6']")
+    @FindBy(xpath = "//span[@title='Online']")
     public WebElement dropDown_ScheduleAnAppointmentLocationsSelect;
     @FindBy(xpath = "//input[@class='ant-checkbox-input']")
     public WebElement checkbox_CollectPayment;
@@ -594,7 +597,8 @@ public class ClientsPage extends CommonPage {
     public WebElement dropDown_MonthSelect;
     @FindBy(xpath = "//table[@class='ant-picker-content']")
     public WebElement calendar_whole;
-    @FindBy(css = "//td[contains(@class,'ant-picker-cell ant-picker-cell-in-view')]")
+    // @FindBy(css = "//td[contains(@class,'ant-picker-cell ant-picker-cell-in-view')]")
+    @FindBy(xpath = "//td[@class='ant-picker-cell ant-picker-cell-in-view']")
     public List<WebElement> list_Calendar;
     @FindBy(xpath = "//input[@value='month']")
     public WebElement radio_Month;
@@ -604,9 +608,57 @@ public class ClientsPage extends CommonPage {
     public WebElement notCheckedMonthYear;
     @FindBy(xpath = "//span[@class='ant-radio-button ant-radio-button-checked']")
     public WebElement CheckedMonthYear;
-    @FindBy(xpath = "//div[@class='ant-list ant-list-vertical ant-list-split css-aqx16b']")
-    public WebElement avaliableHours;
-
-
-
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-block']")
+    public List<WebElement> avaliableHours;
+    @FindBy(xpath = "//div[@class='ant-card ant-card-bordered ant-card-hoverable css-aqx16b']//div")
+    public WebElement documentAdd;
+    @FindBy(xpath = "//a[@class='ant-btn css-aqx16b ant-btn-round ant-btn-primary']")
+    public WebElement button_OpenDocument;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-round ant-btn-primary']")
+    public WebElement button_sendToClient;
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    public WebElement message_sendDocument;
+    @FindBy(xpath = "//span[text()='Next']")
+    public WebElement button_Next;
+    @FindBy(xpath = "//div[text()='Confirm Meeting Details']")
+    public WebElement confirmMeetingDetails;
+    @FindBy(xpath = "//span[text()='Notify client']/..//input")
+    public WebElement checkbox_NotifyClient;
+    @FindBy(id = "sendConfirmationEmail")
+    public WebElement checkbox_sendAConfirmationEmail;
+    @FindBy(xpath = "//span[text()='Submit']")
+    public WebElement button_submit;
+    @FindBy(xpath = "//div[text()='Meeting Details']")
+    public WebElement addedMeetingDetails;
+    @FindBy(xpath = "//div[text()='Successfully created a meeting with']")
+    public WebElement addedMeetingSuccessfullyCreated;
+    @FindBy(xpath = "//div[@class='ant-result-extra']")
+    public WebElement meetingDetailsAll;
+    @FindBy(xpath = "//span[text()='Close']")
+    public WebElement buttonClose;
+    @FindBy(xpath = "//span[text()='Schedule another Appointment']")
+    public WebElement buttonScheduleAnotherAppointment;
+    @FindBy(xpath = "//input[@id='rc_select_63']")
+    public WebElement service_inputSelect2;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-primary ant-btn-block']")
+    public List<WebElement> avaliableHoursList;
+    @FindBy(xpath = "//button[@class='ant-btn css-aqx16b ant-btn-default ant-btn-dangerous']")
+    public WebElement button_cancel;
+    // @FindBy(css = "data-test-id='clientsPage_upcomingMeetingButton'")
+    @FindBy(xpath = "//button[@data-test-id='clientsPage_upcomingMeetingButton']")
+    public WebElement button_upComingMeeting;
+    @FindBy(xpath = "//div[@class='ant-drawer-title']")
+    public WebElement label_ScheduleAnAppointment;
+    @FindBy(xpath = "//span[text()='Meeting Time']")
+    public WebElement span_MeetingTime;
+    @FindBy(xpath = "//span[text()='Block Time']")
+    public WebElement span_BlockTime;
+    @FindBy(xpath = "//span[text()='Available Hours']")
+    public WebElement span_AvailableHours;
+    @FindBy(xpath = "//span[text()='Google Events']")
+    public WebElement span_GoogleEvents;
+    @FindBy(xpath = "//span[text()='Hypnotes Events']")
+    public WebElement span_HypnotesEvents;
+    @FindBy(xpath = "//span[text()='1']/..")
+    public WebElement iconOne;
 }
