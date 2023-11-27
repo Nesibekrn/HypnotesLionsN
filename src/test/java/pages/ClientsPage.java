@@ -647,5 +647,17 @@ public class ClientsPage extends CommonPage {
    // @FindBy(css = "data-test-id='clientsPage_upcomingMeetingButton'")
     @FindBy(xpath = "//button[@data-test-id='clientsPage_upcomingMeetingButton']")
     public WebElement button_upComingMeeting;
+    @FindBy(xpath = "//div[@class='ant-drawer-title']")
+    public WebElement label_ScheduleAnAppointment;
+    @FindBy(xpath = "//span[text()='Meeting Time']")
+    public WebElement span_MeetingTime;
+    @FindBy(xpath = "//span[text()='Block Time']")
+    public WebElement span_BlockTime;
+    @FindBy(xpath = "//span[text()='Available Hours']")
+    public WebElement span_AvailableHours;
+    @FindBy(xpath = "//span[text()='Google Events']")
+    public WebElement span_GoogleEvents;
+    @FindBy(xpath = "//span[text()='Hypnotes Events']")
+    public WebElement span_HypnotesEvents;
 
 }

@@ -20,6 +20,7 @@ public class US_093 extends CommonPage {
     public void userClicksScheduleAnAppointmentAtTheSelectedClient() {
         getClientsPage().button_ScheduleAnAppointment.click();
         ReusableMethods.waitFor(2);
+        Assert.assertTrue(getClientsPage().label_ScheduleAnAppointment.isDisplayed());
     }
 
     @When("user selects service at the Service section")
