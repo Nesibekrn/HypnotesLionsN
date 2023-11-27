@@ -12,11 +12,14 @@ import org.junit.runner.RunWith;
                 "junit:target/reports/xml/xml-report/cucumber.xml",
                 "rerun:target/reports/rerun.txt",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-        },
-        features = "src/test/resources/features",
-        glue = "stepDefinitions",
-        tags = " @US_093TC5",
-        dryRun = true
+        }
+       // features = "src/test/resources/features",
+      //  glue = "stepDefinitions", HEAD,
+      //  dryRun = true,
+      //  tags = "",
+      //  dryRun =
+
+
 )
 public class CukesRunner {
 
