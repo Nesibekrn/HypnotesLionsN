@@ -1,9 +1,8 @@
-@UI @US_085 @Therapist
+@UI @US_085 @Therapist @smoke
   Feature: Perform various actions in the calendar page
     Background:
       And the user clicks on Calendar button
       And the user verifies Calendar page
-
       Scenario: As a user I should be able perform Schedule duration menu
         Given the user verifies schedule menu is functional
         And the user clicks on the schedule menu

@@ -2,15 +2,16 @@ package stepDefinitions.UI_StepDef.clients;
 
 import com.github.javafaker.Faker;
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 

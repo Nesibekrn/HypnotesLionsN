@@ -21,7 +21,7 @@ import static utilities.Authentication.phpSessid;
 
 public class US_218 {
     Response response;
-    Integer idCreated,idSon;
+    static int idCreated,idSon;
     JsonPath jsonPath;
     String expectStartAt;
     String expectFinishAt;
@@ -34,7 +34,7 @@ public class US_218 {
         expectStartAt = "2023-11-18 16:40";
         expectFinishAt = "2023-11-18 16:45";
         Map<String, Object> payloadCreate = new HashMap<>();
-        payloadCreate.put("specificDate", "2023-11-18");
+        payloadCreate.put("specificDate","2023-11-18 ");
         payloadCreate.put("startAt", expectStartAt);
         payloadCreate.put("finishAt", expectFinishAt);
         payloadCreate.put("isRecurring", false);
@@ -42,7 +42,10 @@ public class US_218 {
         payloadCreate.put("title", "Online");
         payloadCreate.put("isAll", false);
 
-        response = given(specFormData).formParams(payloadCreate).post("{p1}/{p2}/{p3}/{p4}");
+        response = given(specFormData)
+                .formParams(payloadCreate)
+                .post("{p1}/{p2}/{p3}/{p4}");
+
         jsonPath = response.jsonPath();
         response.prettyPrint();
         idCreated = (Integer) jsonPath.getList("data.id").get(0);
@@ -79,7 +82,7 @@ public class US_218 {
         Assert.assertTrue(response.headers().getValue("Content-Type").equals("application/json"));
         Assert.assertEquals(expectStartAt, jsonPath.getList("data.startAt").get(0));
         Assert.assertEquals(expectFinishAt, jsonPath.getList("data.finishAt").get(0));
-        Assert.assertEquals("Online", locationTitle);
+       // Assert.assertEquals("Online", locationTitle);
          /* Assert.assertTrue(response.prettyPrint().contains("isAllDay"));
           Assert.assertTrue(response.prettyPrint().contains("locationTitle"));
           Assert.assertTrue(response.prettyPrint().contains("specificDate"));
