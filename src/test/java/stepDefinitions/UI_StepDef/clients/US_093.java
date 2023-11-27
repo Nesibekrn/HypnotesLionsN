@@ -22,16 +22,13 @@ public class US_093 extends CommonPage {
         ReusableMethods.waitFor(2);
     }
 
-    @When("user selects {string} at the Service section")
-    public void userSelectsAtTheServiceSection(String service) {
+    @When("user selects service at the Service section")
+    public void userSelectsServiceAtTheServiceSection() {
         getClientsPage().dropDown_ScheduleAnAppointmentServiceSelect.click();
         ReusableMethods.waitFor(1);
         Random random = new Random();
         int randomSize = random.nextInt(getClientsPage().serviceList.size());
         getClientsPage().serviceList.get(randomSize).click();
-        // getClientsPage().dropDown_ScheduleAnAppointmentServiceSelect.click();
-       /*getClientsPage().service_inputSelect2.sendKeys(service);
-       ReusableMethods.waitFor(2);*/
     }
 
     @And("user selects Online at the Locations section")
@@ -50,9 +47,9 @@ public class US_093 extends CommonPage {
         System.out.println("Tomorrow = "+tomorrow);
         int limit = getClientsPage().list_Calendar.size();
         System.out.println("limit = " + limit);
-        System.out.println("getClientsPage().list_Calendar.get(25).getCssValue(\"title\") = " + getClientsPage().list_Calendar.get(25).getCssValue("title"));
+        System.out.println("getClientsPage().list_Calendar.get(25).getCssValue(\"title\") = " + getClientsPage().list_Calendar.get(25).getAttribute("title"));
         for (int i = 0; i < limit; i++) {
-            if (getClientsPage().list_Calendar.get(i).getCssValue("title").equals(tomorrow)) {
+            if (getClientsPage().list_Calendar.get(i).getAttribute("title").equals(tomorrow)) {
                 getClientsPage().list_Calendar.get(i + 1).click();
             }
         }
