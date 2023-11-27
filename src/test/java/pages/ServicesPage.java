@@ -313,6 +313,4 @@ public class ServicesPage extends CommonPage {
 
     @FindBy(xpath="//div[@data-test-id='services_title']")
     public List<WebElement> availableGroupSessionTitle;
-
- main
 }
