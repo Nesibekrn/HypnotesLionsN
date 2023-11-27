@@ -3,9 +3,13 @@ package stepDefinitions.UI_StepDef.homePage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import pages.CommonPage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class US_011 extends CommonPage {
 
@@ -37,6 +41,4 @@ public class US_011 extends CommonPage {
     public void verifyThatCompanyElementsAreClickableAndRelevantPageShouldBeDisplayed() {
         getHomePage().companyElementsClick();
     }
-
-
 }

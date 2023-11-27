@@ -7,19 +7,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
-import pages.HomePage;
 
-import java.time.Duration;
 import java.util.List;
 
 import static stepDefinitions.Hooks.driver;
-import static utilities.JS_utilities.*;
+import static utilities.JS_utilities.scrollAndClickWithJS;
+import static utilities.JS_utilities.scrollToBottom;
 import static utilities.ReusableMethods.waitFor;
 
 public class US_010 extends CommonPage {
