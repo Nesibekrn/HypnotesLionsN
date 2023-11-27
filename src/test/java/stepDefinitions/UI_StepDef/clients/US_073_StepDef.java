@@ -10,7 +10,6 @@ import utilities.ConfigurationReader;
 import utilities.JS_utilities;
 import utilities.ReusableMethods;
 
-
 import static stepDefinitions.Hooks.actions;
 import static stepDefinitions.Hooks.driver;
 

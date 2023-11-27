@@ -6,23 +6,23 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
-import utilities.API_utilities;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+import static base_url.baseUrl_fy.hypnotesSetUp1;
 import static io.restassured.RestAssured.given;
+
+import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+
 //import static utilities.Authentication.generatePhpSessid;
 
 
@@ -105,15 +105,16 @@ public class Hooks {
     }
 
 
+
     @Before("@TherapistLoginUSA")
-    public void ThrerapistLogInUSA() {
+    public void ThrerapistLogInUSA(){
         commonPage.getLoginPage().ThrerapistLogIn(
                 ConfigurationReader.getProperty("therapistEmailUSA"),
                 ConfigurationReader.getProperty("therapistPasswordUSA")
         );
     }
 
-   @Before("@Therapist")
+    @Before("@Therapist")
     public void ThrerapistLogIn(){
 //       commonPage.getLoginPage().ThrerapistLogIn(
 //               ConfigurationReader.getProperty("therapistEmail"),
@@ -121,11 +122,11 @@ public class Hooks {
 //       );
         driver.manage().deleteAllCookies();
         driver.navigate().refresh();
-        commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
+       // commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
 
         try{
-            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
-            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+          //  ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
+       //     commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
         }catch (Exception e){
             System.out.println("Not found timezone pop up");
         }
@@ -158,5 +159,21 @@ public class Hooks {
     @Before("@fatma")
     public void fatmaSetupApi() {
 
+    }
+    @Before(value = "@API")//API tag'ina sahip feature file'larda bu methodu (hypnotesSetUp) calistir
+    public  void setUpAPI(){
+        hypnotesSetUp1();//cagirdigimiz methodu import ettik
+    }
+    @Before("@TherapistFtm")
+    public void therapistLoginFtm(){
+        driver.manage().deleteAllCookies();
+        driver.navigate().refresh();
+        commonPage.getLoginPage().ThrerapistLogIn(Enum_Fy.THERAPISTLOGIN.getUsername(),Enum_Fy.THERAPISTLOGIN.getPassword());
+        /*try {
+            ReusableMethods.waitForVisibility(commonPage.getDashboardPage().timeZonePopUp_yesButton,10);
+            commonPage.getDashboardPage().timeZonePopUp_yesButton.click();
+        }catch (Exception e){
+            System.out.println("Not found timezone pop up");
+        }*/
     }
 }

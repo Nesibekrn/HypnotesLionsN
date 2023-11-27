@@ -34,7 +34,7 @@ public class US_218 {
         expectStartAt = "2023-11-18 16:40";
         expectFinishAt = "2023-11-18 16:45";
         Map<String, Object> payloadCreate = new HashMap<>();
-        payloadCreate.put("specificDate", "2023-11-18");
+        payloadCreate.put("specificDate","2023-11-18 ");
         payloadCreate.put("startAt", expectStartAt);
         payloadCreate.put("finishAt", expectFinishAt);
         payloadCreate.put("isRecurring", false);
@@ -42,7 +42,10 @@ public class US_218 {
         payloadCreate.put("title", "Online");
         payloadCreate.put("isAll", false);
 
-        response = given(specFormData).formParams(payloadCreate).post("{p1}/{p2}/{p3}/{p4}");
+        response = given(specFormData)
+                .formParams(payloadCreate)
+                .post("{p1}/{p2}/{p3}/{p4}");
+
         jsonPath = response.jsonPath();
         response.prettyPrint();
         idCreated = (Integer) jsonPath.getList("data.id").get(0);

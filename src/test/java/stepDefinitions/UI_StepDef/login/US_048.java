@@ -1,13 +1,13 @@
 package stepDefinitions.UI_StepDef.login;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.CommonPage;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static stepDefinitions.Hooks.driver;
 import static utilities.ReusableMethods.waitFor;
-
-import pages.CommonPage;
-import utilities.ReusableMethods;
 
 public class US_048 extends CommonPage {
     @Then("user should see Email-sms side bar on the therapist page")
