@@ -3,3 +3,7 @@
 #User needs to be logged in to get response.
 # https://test.hypnotes.net/api/hypnotherapist/timeoff/update
 #Details on the swagger document.
+Feature:Update
+  Scenario:Updating block times
+    Given thes user updates block time
+    When user gets results
