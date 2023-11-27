@@ -35,6 +35,7 @@ public class US_202 {
 
     @Then("user assert body")
     public void userAssertBody() {
+       
         JsonPath jsonPath = response.jsonPath();
         String actueluserName = jsonPath.getString("allUserReport.userName");
         String actueluserType = jsonPath.getString("type");
@@ -43,7 +44,7 @@ public class US_202 {
         //Assert.assertTrue(jsonPath.getBoolean("authenticated"));
 
         Assert.assertTrue(actueluserName.contains(ConfigurationReader.getProperty("userName")));
-       actueluserId.contains("1055");
+        actueluserId.contains("1055");
         //Assert.assertEquals("therapist", actueluserType);
         Assert.assertEquals(200, response.getStatusCode());
 
