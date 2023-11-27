@@ -22,6 +22,8 @@ public class US_092 extends CommonPage {
     @When("user clicks on {int} more text on any date on the calendar")
     public void user_clicks_on_more_text_on_any_date_on_the_calendar(Integer int1) {
         driver.manage().window().maximize();
+        driver.navigate().refresh();
+        waitFor(2);
         getCalendarPage().createdAppointmentsListOnCalendar.get(0).click();
 
     }
