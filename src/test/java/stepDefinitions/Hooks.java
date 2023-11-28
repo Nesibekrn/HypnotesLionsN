@@ -16,14 +16,12 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+import static base_url.HypnotesBaseUrl.*;
 import static base_url.BaseUrlQuestionner.therapistSetup;
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
-import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 import static io.restassured.RestAssured.given;
-
-import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 
 //import static utilities.Authentication.generatePhpSessid;
 
@@ -167,6 +165,7 @@ public class Hooks {
       @Before("@API")
       public void setUpToken() {
           hypnotesSetUpFormData();
+          hypnotesSetUpFormDataForGroupSession();
       }
     @Before("@fatma")
     public void fatmaSetupApi() {
