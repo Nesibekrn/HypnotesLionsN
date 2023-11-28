@@ -27,19 +27,24 @@ public class US_235 {
     private String title = Faker.instance().ancient().titan();
     private String price = "100";
     private String duration = "60";
-    private int attendeeLimit = Faker.instance().number().numberBetween(3, 8);
-    String dateF = nextDate(2);
-    String timeF = nextTime(2);
+    private int attendeeLimit=Faker.instance().number().numberBetween(3, 8);
+    
+    private String dateF;
+    private String timeF ;
     private int groupSessionId;
     Map<String, Object> payload = new HashMap<>();
 
     @When("user sends Post request to add group session")
     public void user_sends_post_request_to_add_group_session() {
         specFormDataGroupSession.pathParams("p1", "api", "p2", "settings", "p3", "meeting", "p4", "category", "p5", "add");
+        dateF = nextDate(2);
+        timeF = nextTime(2);
+        String attendeeLimitReverse = Integer.toString(attendeeLimit);
+        System.out.println(" attendeeLimit = " +  attendeeLimitReverse);
         payload.put("title", title);
         payload.put("price", price);
         payload.put("duration", duration);
-        payload.put("attendeeLimit", attendeeLimit);
+        payload.put("attendeeLimit", attendeeLimitReverse);
         payload.put("sessionDate", dateF);
         payload.put("sessionTime", timeF);
 
@@ -55,6 +60,8 @@ public class US_235 {
         Assert.assertEquals(title, jsonPath.getString("category.title"));
         Assert.assertEquals(price, jsonPath.getString("category.price"));
         Assert.assertEquals(duration, jsonPath.getString("category.duration"));
+      //  Assert.assertEquals(attendeeLimit, jsonPath.getString("category.attendeeLimit"));
+       // Assert.assertEquals(attendeeLimit, jsonPath.getString("category.groupSessionDate"));
     }
 
     @Then("user sends Post request to update group session")
