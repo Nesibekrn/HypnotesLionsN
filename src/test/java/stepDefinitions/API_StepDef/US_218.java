@@ -42,7 +42,10 @@ public class US_218 {
         payloadCreate.put("title", "Online");
         payloadCreate.put("isAll", false);
 
-        response = given(specFormData).formParams(payloadCreate).post("{p1}/{p2}/{p3}/{p4}");
+        response = given(specFormData)
+                .formParams(payloadCreate)
+                .post("{p1}/{p2}/{p3}/{p4}");
+
         jsonPath = response.jsonPath();
         response.prettyPrint();
         idCreated = (Integer) jsonPath.getList("data.id").get(0);

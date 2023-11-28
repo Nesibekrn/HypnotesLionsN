@@ -101,6 +101,7 @@ Scenario: Verify that  Service Active button and Payment Required buttons are fu
 
 
 #save
+  @smoke
   Scenario: Verify that the user is able to create a new package
      # Pre-request:A document is added from documents menu
     And the user fills all mandatory fields with valid values

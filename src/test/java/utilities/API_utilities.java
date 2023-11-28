@@ -1,11 +1,8 @@
 package utilities;
 
 import enums.Enum_Fy;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.Assert;
-import org.junit.Before;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +29,6 @@ public static String login(String email, String password){
     csrfToken=response.cookies().get("csrfToken");
 
     System.out.println("phpSessId = " + phpSessId);
-    System.out.println("csrf token:"+ csrfToken);
 
     return phpSessId;
 }
@@ -54,7 +50,4 @@ public static String login(String email, String password){
 
         return phpSessId;
     }
-
-
-
 }

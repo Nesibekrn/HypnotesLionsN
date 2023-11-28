@@ -5,6 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.CommonPage;
+import pages.LoginPage;
 import utilities.ReusableMethods;
 
 import static stepDefinitions.Hooks.driver;
@@ -22,6 +23,10 @@ public class US_042 extends CommonPage {
 
     }
 
+    @Override
+    public LoginPage getLoginPage() {
+        return super.getLoginPage();
+    }
     @And("the user clicks on Calendar button")
     public void theUserClicksOnCalendarButton() {
         getCalendarPage().calender_Btn.click();
