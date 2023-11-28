@@ -5,8 +5,9 @@ Feature: US_212 As a user, I should be able to add block time with using API end
     Given user take token from api
   Scenario: Blocked date interval time create
     Then user creates a date interval time from Api
-    Then user verifies status is True
+    Then user verifies status is true
     Then user verifies that response is expected
+
 
 
 

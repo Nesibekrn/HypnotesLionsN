@@ -23,4 +23,4 @@ Feature: As a user, I should be able to update  block times that was created bef
     #Dashboard - therapist - calendar- block time - Specific Date & Time
     #User needs to be logged in to get response.
     #https://test.hypnotes.net/api/hypnotherapist/timeoff/update
-    #Details on the swagger document.
+    #Details on the sw.0.agger document.
