@@ -150,7 +150,7 @@ public class Hooks {
 
     }
 
-      @Before("@API")
+      @Before("@API_F")
       public void setUpToken() {
           hypnotesSetUpFormData();
           hypnotesSetUpFormDataForGroupSession();

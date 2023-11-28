@@ -4,6 +4,10 @@ import enums.Enum_Fy;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,5 +53,19 @@ public static String login(String email, String password){
         System.out.println("phpSessId = " + phpSessId);
 
         return phpSessId;
+    }
+    public static String nextDate(int daysLater) {
+        LocalDateTime myDate=LocalDateTime.now();
+        LocalDateTime nextDay=myDate.plus(Period.ofDays(daysLater));
+        DateTimeFormatter myFormat=DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        String nextDateTime=nextDay.format(myFormat);
+        return nextDateTime;
+    }
+    public static String nextTime(int nextHour) {
+        LocalTime myTime=LocalTime.now();
+        LocalTime oneHoursLater=myTime.plusHours(nextHour);
+        DateTimeFormatter myTimeFormatter=DateTimeFormatter.ofPattern("HH:mm");
+        String nextHours=oneHoursLater.format(myTimeFormatter);
+        return nextHours;
     }
 }
