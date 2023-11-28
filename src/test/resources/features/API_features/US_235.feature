@@ -1,4 +1,4 @@
-@API @US235
+@API_F @US235
 Feature:As a user, I should be able to delete any session on  Group Session  with using API endpoints on Services module
   Scenario: User needs to be delete any session on  Group Session into post response through API
     When user sends Post request to add group session
