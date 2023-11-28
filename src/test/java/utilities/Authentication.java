@@ -28,4 +28,12 @@ public class Authentication {
         }*/
         return cookie;
     }
+   public static String generetaPhpSessidGroupSession(){
+       Map<String, Object> body = new HashMap<>();
+       body.put("username", "hypnotes2022tr1@gmail.com");
+       body.put("password", "Aydinlik123/");
+       Response response=given().contentType(ContentType.JSON).body(body).post("https://test.hypnotes.net/api/login");
+       cookie="PHPSESSID="+response.cookies().get("PHPSESSID");
+       return cookie;
+   }
 }
