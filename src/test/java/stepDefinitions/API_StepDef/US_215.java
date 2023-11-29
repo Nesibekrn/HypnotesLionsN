@@ -1,7 +1,10 @@
 package stepDefinitions.API_StepDef;
 
+import com.mongodb.util.JSON;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
@@ -16,6 +19,8 @@ public class US_215 {
     Map<String, Object> payload = new HashMap<>();
 
     String cookie;
+    private int createdId;
+    JsonPath jsonPath;
 
 
     @Given("user sends a request to log in to home page")
@@ -37,13 +42,17 @@ public class US_215 {
     @Given("user adds a date into the date interval button")
     public void user_adds_a_date_into_the_date_interval_button() {
         // Map<String,Object> payload=new HashMap<>();
-        payload.put("startAt", "12-30-2023");
-        payload.put("finishAt", "12-31-2023");
+        payload.put("startAt", "11-30-2023");
+        payload.put("finishAt", "11-31-2023");
         payload.put("title", "Online");
         payload.put("isAll", false);
 
         response = given().header("cookie", cookie).formParams(payload).post("https://test.hypnotes.net/api/hypnotherapist/timeoff-period/create");
         response.prettyPrint();
+        jsonPath=response.jsonPath();
+        createdId=jsonPath.get("data.id[0]");
+        System.out.println("createdId = " + createdId);
+
 
 
     }
@@ -61,19 +70,21 @@ public class US_215 {
 
     @Given("user deletes date  block times that was created before with using API endpoints")
     public void user_deletes_date_block_times_that_was_created_before_with_using_api_endpoints() {
-        String dateBlockId = "478";
+        payload.put("id",createdId);
+        response = given().header("cookie", cookie).formParams(payload).post("https://test.hypnotes.net/api/hypnotherapist/timeoff-period/delete");
+        jsonPath=response.jsonPath();
 
 
-        // Send a request to delete the date block
-        response = given().header("cookie", cookie)
-                .delete("https://test.hypnotes.net/api/hypnotherapist/timeoff-period/delete/" + dateBlockId);
-
-        response.prettyPrint();
 
 
     }
 
+    @Then("verify status is true")
+    public void verifyStatusIsTrue() {
+        Assert.assertTrue(jsonPath.getBoolean("status"));
+
     }
+}
 
 
 
