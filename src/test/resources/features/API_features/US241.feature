@@ -1,12 +1,10 @@
-Feature:Therapist  needs to delete any coupons on coupons page
-
-  Background: User is on the dashboard
-  Given user login as therapist
+Feature:Therapist needs to delete any coupons on coupons pag
 
   Scenario: Verify user is able to get or delete all coupons info on therapist coupons Api section
-  When clicks on Coupons section
-  Then user should be able to get all coupons info on therapist coupons
-  And user should be able to delete any coupons on coupons page
+    Given  therapist user is authenticated
+    When user hits the get coupon end points
+    Then user should be able to get coupons
+
 
 
 
