@@ -57,8 +57,9 @@ public static String login(String email, String password){
     public static String nextDate(int daysLater) {
         LocalDateTime myDate=LocalDateTime.now();
         LocalDateTime nextDay=myDate.plus(Period.ofDays(daysLater));
-        DateTimeFormatter myFormat=DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        DateTimeFormatter myFormat=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String nextDateTime=nextDay.format(myFormat);
+        System.out.println(nextDateTime);
         return nextDateTime;
     }
     public static String nextTime(int nextHour) {

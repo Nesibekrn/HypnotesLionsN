@@ -167,11 +167,6 @@ public class Hooks {
           hypnotesSetUpFormData();
           hypnotesSetUpFormDataForGroupSession();
       }
-    @Before("@fatma")
-    public void fatmaSetupApi() {
-
-    }
-
     @Before("@TherapistQuick")
     public void therapistLogIn() {
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
