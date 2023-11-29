@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+
 public class CalendarPage extends CommonPage {
 
     @FindBy(css = "a[href='/dashboard/calendar']")
@@ -122,6 +123,9 @@ public class CalendarPage extends CommonPage {
 
     @FindBy(xpath = "//div[text()='Block Dates']")
     public WebElement blockDatesTitle;
+
+    @FindBy(xpath = "//span[@class='ant-typography text-capitalize  css-aqx16b']")
+    public WebElement location;
 
     @FindBy(css = ".fc-daygrid-day-number[aria-label]")
     public List<WebElement> calenderAllDays;
