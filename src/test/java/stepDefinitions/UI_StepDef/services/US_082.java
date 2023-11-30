@@ -34,8 +34,8 @@ public class US_082 extends CommonPage {
     @Given("the user clicks on the Packages tab")
     public void the_user_clicks_on_the_packages_tab() {
         waitFor(3);
-       // waitForVisibility(getServicesPage().PackagesButton,5);
-       getServicesPage().PackagesButton.click();
+        // waitForVisibility(getServicesPage().PackagesButton,5);
+        getServicesPage().PackagesButton.click();
     }
 
     @Given("Add New Package field is displayed")
@@ -52,15 +52,15 @@ public class US_082 extends CommonPage {
 
     @Then("the user is able view relevant page")
     public void the_user_is_able_view_relevant_page() {
-       Assert.assertTrue(getServicesPage().AddingNewPackageForm.getText().contains("Adding Package"));
+        Assert.assertTrue(getServicesPage().AddingNewPackageForm.getText().contains("Adding Package"));
     }
 
 
     @Then("the user is able to enter valid values on the Package Name field")
     public void the_user_is_able_to_enter_valid_values_on_the_package_name_field() {
-    Assert.assertTrue(getServicesPage().InputPackageName.isEnabled());
+        Assert.assertTrue(getServicesPage().InputPackageName.isEnabled());
         getServicesPage().InputPackageName.sendKeys(packageName);
-    Assert.assertTrue(getServicesPage().InputPackageName.getText().contains(packageName));
+        Assert.assertTrue(getServicesPage().InputPackageName.getText().contains(packageName));
         waitFor(5);
 
 
@@ -80,10 +80,10 @@ public class US_082 extends CommonPage {
 
     @When("the user leaves the Package fields as empty")
     public void the_user_leaves_the_package_fields_as_empty() {
-       getServicesPage().inputFieldsList.stream().forEach(t->{
-           t.sendKeys(Keys.BACK_SPACE);
-      waitFor(1);
-       });
+        getServicesPage().inputFieldsList.stream().forEach(t->{
+            t.sendKeys(Keys.BACK_SPACE);
+            waitFor(1);
+        });
     }
     @When("the user clicks on the save button on the Add New package page")
     public void the_user_clicks_on_the_save_button_on_the_add_new_package_page() {
@@ -110,17 +110,17 @@ public class US_082 extends CommonPage {
 
     @When("the user clicks on the Meeting Type")
     public void the_user_clicks_on_the_meeting_type() {
-       getServicesPage().StandardOnlineOrInPerson.click();
+        getServicesPage().StandardOnlineOrInPerson.click();
     }
 
     @Then("the below meetingType fields are displayed")
     public void the_below_meeting_type_fields_are_displayed(io.cucumber.datatable.DataTable dataTable) {
 //Assert.assertEquals();
-List<String> meetingType=dataTable.asList();
-for(int i=0; i<=meetingType.size()-1; i++){
-    Assert.assertEquals(getServicesPage().listMeeting.get(i).getText(),meetingType.get(i));
+        List<String> meetingType=dataTable.asList();
+        for(int i=0; i<=meetingType.size()-1; i++){
+            Assert.assertEquals(getServicesPage().listMeeting.get(i).getText(),meetingType.get(i));
 
-}
+        }
 
     }
     @Then("the user is able select Phone Counsultation")
@@ -134,12 +134,12 @@ for(int i=0; i<=meetingType.size()-1; i++){
 
     @Then("the user enters a valid values on the price field")
     public void the_user_enters_a_valid_values_on_the_price_field() {
-       getServicesPage().PriceUSD.sendKeys("5");
+        getServicesPage().PriceUSD.sendKeys("5");
     }
     @Then("Show service price on the initial scheduler page button is activated")
     public void show_service_price_on_the_initial_scheduler_page_button_is_activated() {
         System.out.println(getServicesPage().switchButtonForShowService.getAttribute("aria-checked"));
-      Assert.assertTrue(getServicesPage().switchButtonForShowService.getAttribute("aria-checked").contains("true"));
+        Assert.assertTrue(getServicesPage().switchButtonForShowService.getAttribute("aria-checked").contains("true"));
     }
 
 
@@ -147,7 +147,7 @@ for(int i=0; i<=meetingType.size()-1; i++){
 
     @Then("the user clicks on the Duration field")
     public void the_user_clicks_on_the_duration_field() {
-       getServicesPage().InputDuration.click();
+        getServicesPage().InputDuration.click();
     }
 
 
@@ -160,15 +160,15 @@ for(int i=0; i<=meetingType.size()-1; i++){
 
     @Then("the user verifies Duration is functional")
     public void the_user_verifies_duration_is_functional() {
-       Assert.assertTrue(getServicesPage().InputDuration.isEnabled());
+        Assert.assertTrue(getServicesPage().InputDuration.isEnabled());
     }
 
 
     @Then("the user is able to select {string} from dd")
     public void the_user_is_able_to_select_from_dd(String value) {
         getServicesPage().InputDuration.click();
-       ReusableMethods.scrollAndClickWithJS(getServicesPage().ddValueOfDuration);
-       waitFor(2);
+        ReusableMethods.scrollAndClickWithJS(getServicesPage().ddValueOfDuration);
+        waitFor(2);
         Assert.assertTrue(getServicesPage().InputDuration.getAttribute("value").contains(value));
     }
 
@@ -181,7 +181,7 @@ for(int i=0; i<=meetingType.size()-1; i++){
     @Then("the warning message {string} is displayed")
     public void the_warning_message_is_displayed(String expectedMessage) {
         waitFor(2);
-       // System.out.println(getServicesPage().warningMessageForDuration.getText());
+        // System.out.println(getServicesPage().warningMessageForDuration.getText());
         Assert.assertEquals(getServicesPage().warningMessageForDuration.getText(),expectedMessage);waitFor(2);
     }
     @Then("the user enters a string value {string}")
@@ -195,11 +195,11 @@ for(int i=0; i<=meetingType.size()-1; i++){
 
     @When("the user clicks on the Buffer Time Before Appointment \\(min) field")
     public void the_user_clicks_on_the_buffer_time_before_appointment_min_field() {
-       getServicesPage().BufferTimeBeforeAppointment.click();
+        getServicesPage().BufferTimeBeforeAppointment.click();
     }
     @Then("Buffer Time Before Appointment \\(min) field is enabled")
     public void buffer_time_before_appointment_min_field_is_enabled() {
-       Assert.assertTrue(getServicesPage().BufferTimeBeforeAppointment.isEnabled());
+        Assert.assertTrue(getServicesPage().BufferTimeBeforeAppointment.isEnabled());
     }
     @Then("the user is able to enter a valid value on Buffer Time Before Appointment \\(min) field")
     public void the_user_is_able_to_enter_a_valid_value_on_buffer_time_before_appointment_min_field() {
@@ -225,7 +225,7 @@ for(int i=0; i<=meetingType.size()-1; i++){
 
     @Then("The Advance Notice menu is enabled")
     public void the_advance_notice_menu_is_enabled() {
-      Assert.assertTrue( getServicesPage().AdvanceNoticeService.isEnabled());
+        Assert.assertTrue( getServicesPage().AdvanceNoticeService.isEnabled());
     }
 
     @Then("the user is able to increase or decrease the values")
@@ -258,9 +258,9 @@ for(int i=0; i<=meetingType.size()-1; i++){
         boolean addedPdf=false;
         getServicesPage().RequiredFormsandeSignDocuments.click();
         waitFor(3);
-ReusableMethods.scrollAndClickWithJS(getServicesPage().pdfFile);
-waitFor(3);
-Assert.assertEquals(addedPdf,getServicesPage().selectedPdfField.getAttribute("title").isEmpty());
+        ReusableMethods.scrollAndClickWithJS(getServicesPage().pdfFile);
+        waitFor(3);
+        Assert.assertEquals(addedPdf,getServicesPage().selectedPdfField.getAttribute("title").isEmpty());
     }
 
     @When("the user fills all mandatory fields with valid values")
@@ -286,17 +286,17 @@ Assert.assertEquals(addedPdf,getServicesPage().selectedPdfField.getAttribute("ti
     }
     @Then("Added Packages should appear in the package table")
     public void added_packages_should_appear_in_the_package_table() {
-Assert.assertTrue(getServicesPage().createdPackageInTable.get(getServicesPage().createdPackageInTable.size()-1).getText().contains(packageName));
+        Assert.assertTrue(getServicesPage().createdPackageInTable.get(getServicesPage().createdPackageInTable.size()-1).getText().contains(packageName));
     }
 
 
     @When("the user clicks to Cancel button")
     public void the_user_clicks_to_cancel_button() {
-      getServicesPage().cancelButton.click();
+        getServicesPage().cancelButton.click();
     }
     @When("the Add New Package page is appeared")
     public void the_add_new_package_page_is_appeared() {
-Assert.assertTrue(getServicesPage().returnAvailablePackage.getText().contains("Available"));
+        Assert.assertTrue(getServicesPage().returnAvailablePackage.getText().contains("Available"));
     }
 
     @Then("{string} message is displayed")
@@ -314,8 +314,8 @@ Assert.assertTrue(getServicesPage().returnAvailablePackage.getText().contains("A
 
     @When("Total Sessions, Session Interval \\(Weeks) menus are functional")
     public void total_sessions_session_interval_weeks_menus_are_functional() {
-       Assert.assertTrue( getServicesPage().totalSessions.isEnabled());
-       Assert.assertTrue(getServicesPage().sessionInterval.isEnabled());
+        Assert.assertTrue( getServicesPage().totalSessions.isEnabled());
+        Assert.assertTrue(getServicesPage().sessionInterval.isEnabled());
     }
 
     @Then("Numbers should be increased or decrased")
