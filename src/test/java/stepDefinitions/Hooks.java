@@ -1,11 +1,13 @@
 package stepDefinitions;
 
 
+import enums.ClientEnum;
 import enums.Enum_Fy;
 import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +17,9 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
@@ -38,6 +43,7 @@ public class Hooks {
     public static boolean isFullScreen = true;
     public static int width;
     public static int height;
+    public static Response response;
 
     @Before(value = "@headless", order = 0)
     public void setIsHeadless() {
@@ -161,6 +167,10 @@ public class Hooks {
     public void fatmaSetupApi() {
 
     }
+    @Before("@ApiClientLogin")
+    public void loginAsClient(){
+        apiLoginAsClient(ClientEnum.CLIENT_CREDENTIALS);
+    }
 
     @Before("@TherapistQuick")
     public void therapistLogIn() {
@@ -191,4 +201,18 @@ public class Hooks {
         }*/
 
     }
+    public void apiLoginAsClient(ClientEnum clientInfo){
+        Map<String,Object> requestBody =new HashMap<>();
+        requestBody.put("username", clientInfo.getEmail());
+        requestBody.put("password", clientInfo.getPassword());
+
+        response=given()
+                .header("content-type", "application/json")
+                .body(requestBody)
+                .post("https://test.hypnotes.net/api/login");
+
+        response.prettyPrint();
+
+    }
+
 }
