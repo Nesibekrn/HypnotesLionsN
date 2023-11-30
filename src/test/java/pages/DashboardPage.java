@@ -79,6 +79,9 @@ public class DashboardPage extends CommonPage{
     @FindBy(xpath = "//span[@class='ant-tag ant-tag-processing css-aqx16b']")
     public WebElement totalSpecialties;
 
+    @FindBy(xpath = "//li[@data-menu-id='rc-menu-uuid-12163-9-/dashboard/calendar']")
+    public WebElement calendar;
+
 
 
 

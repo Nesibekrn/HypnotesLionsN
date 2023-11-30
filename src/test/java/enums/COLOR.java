@@ -39,6 +39,8 @@ public enum COLOR {
     }
 
 
+
+
     public String getRGBA() {
         return RGBA;
     }
