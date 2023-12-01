@@ -18,7 +18,7 @@ public static Response response;
 
 public static String phpSessId;
 public static String csrfToken;
-static  Map<String,Object> payload=new HashMap<>();
+public static  Map<String,Object> payload=new HashMap<>();
 
 public static String login(String email, String password){
     payload.put("username",email);

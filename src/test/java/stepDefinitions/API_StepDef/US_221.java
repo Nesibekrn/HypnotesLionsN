@@ -1,10 +1,12 @@
 package stepDefinitions.API_StepDef;
 
+import enums.Enum_Fy;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import utilities.API_utilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,10 +16,12 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 public class US_221 {
-
     Response response;
     Map<String, Object> payload = new HashMap<>();
     String phpSessId;
+    private int recurringBlockId;
+    private List<Integer> recurringIds = new ArrayList<>();
+
     private int recurringBlockId;
     private List<Integer> recurringIds = new ArrayList<>();
 
@@ -26,7 +30,7 @@ public class US_221 {
         payload.put("username", "test_trpst_basic@yopmail.com");
         payload.put("password", "Trpst13.");
 
-       response = given().body(payload).post("https://test.hypnotes.net/api/login");
+        response = given().body(payload).post("https://test.hypnotes.net/api/login");
         response.prettyPrint();
         Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
         phpSessId = response.cookie("PHPSESSID");
