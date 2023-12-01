@@ -10,6 +10,7 @@ import org.junit.Assert;
 import java.util.HashMap;
 import java.util.Map;
 
+import static base_url.HypnotesBaseUrl.specFormData;
 import static io.restassured.RestAssured.given;
 
 public class US_231 {
@@ -62,6 +63,8 @@ public class US_231 {
 
     @And("the package session should be successfully deleted from the website")
     public void thePackageSessionShouldBeSuccessfullyDeletedFromTheWebsite() {
+        specFormData.pathParams("1", "api", "2", "event", "3", "updateEvent");
+
     }
 
 
