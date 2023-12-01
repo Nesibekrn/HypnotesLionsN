@@ -5,7 +5,9 @@ public enum Enum_Fy {
     THERAPIST("fatihfrance@yopmail.com", "123456789Aa@"),
     NESIBE("test_trpst_basic@yopmail.com", "Trpst13."),
     THERAPISTLOGIN("ftmcglr@yopmail.com", "Test123456!"),
-    GUL("gulyalcin2022@gmail.com", "Endemik38*");
+    GUL("gulyalcin2022@gmail.com", "Endemik38*"),
+    THERAPIST_2("therapist2023@mailsac.com","12ASDasd.,asdASD34");
+
     private final String username;
     private final String password;
 
