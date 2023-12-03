@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -22,6 +23,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
+
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -42,8 +44,6 @@ public class ReusableMethods {
              ve ardından bu değerleri birleştirebilirsiniz.
              */
     }
-
-    private static WebDriverWait wait;
 
     public static String getScreenshot() throws IOException {
         // naming the screenshot with the current date to avoid duplication
