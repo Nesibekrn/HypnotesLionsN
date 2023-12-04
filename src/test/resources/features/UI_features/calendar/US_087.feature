@@ -22,7 +22,7 @@ Feature: Register Services - Register Clients options
       | Biweekly        |
       | Monthly         |
 
-Scenario:US_087 TC_02
+Scenario:US_087 TC_02  Repeat times
   When user select a date
   When user clicks on any options
   Then user sees repeat times
