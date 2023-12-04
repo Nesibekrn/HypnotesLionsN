@@ -5,6 +5,7 @@ import io.cucumber.java.en.*;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,14 +23,15 @@ public class US_235 {
     private String newTitle = Faker.instance().name().title();
     private int price = 120;
     private int duration = 45;
-    private int attendeeLimit=Faker.instance().number().numberBetween(2, 8);
-    
+    private int attendeeLimit = Faker.instance().number().numberBetween(2, 8);
+
     private String dateF;
-    private String timeF ;
+    private String timeF;
     private int groupSessionId;
     private int categoryTypeGroupSessionId;
     Map<String, Object> payload = new HashMap<>();
     int lastAddedId;
+    List<Integer> allIds;
 
     @When("user sends Post request to add group session")
     public void user_sends_post_request_to_add_group_session() {
@@ -67,10 +69,10 @@ public class US_235 {
         payload.put("attendeeLimit", attendeeLimit);
         payload.put("sessionDate", dateF);
         payload.put("sessionTime", timeF);
-        payload.put("categoryId",groupSessionId);
+        payload.put("categoryId", groupSessionId);
         payload.put("isGroupSession", true);
-        response=given(specFormDataGroupSession).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
-        jsonPath=response.jsonPath();
+        response = given(specFormDataGroupSession).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        jsonPath = response.jsonPath();
         response.prettyPrint();
     }
 
@@ -96,51 +98,71 @@ public class US_235 {
     public void user_validates_the_response_for_delete_group_session() {
         Assert.assertTrue(jsonPath.getBoolean("success"));
     }
+
     @When("user sends Post request to add Category Type Group Session")
     public void user_sends_post_request_to_add_category_type_group_session() {
-        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","addCategoryType");
-        payload.put("title",title);
-        payload.put("categoryMainType","groupSession");
-        response=given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        specFormData.pathParams("p1", "api", "p2", "settings", "p3", "meeting", "p4", "categoryType", "p5", "addCategoryType");
+        payload.put("title", title);
+        payload.put("categoryMainType", "groupSession");
+        response = given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
         jsonPath = response.jsonPath();
         response.prettyPrint();
-        List<Integer> allIds = response.jsonPath().get("id");
-        lastAddedId = allIds.get(allIds.size()-1);
+        allIds = response.jsonPath().get("id");
+        lastAddedId = allIds.get(allIds.size() - 1);
     }
+
     @Then("user verify the response Category Type Group Session is added")
     public void user_verify_the_response_category_type_group_session_is_added() {
-
+        List<Integer> allTitle = response.jsonPath().get("title");
+        List<Integer> allActive = response.jsonPath().get("isActive");
+        List<Integer> allGroupSession = response.jsonPath().get("mainType");
+        Assert.assertEquals(title, allTitle.get(allTitle.size() - 1));
+       // Assert.assertEquals(lastAddedId, allIds.get(allIds.size() - 1));
+        Assert.assertEquals(true, allActive.get(allActive.size() - 1));
+        Assert.assertEquals("groupSession", allGroupSession.get(allGroupSession.size() - 1));
     }
+
     @Then("user sends Post request to update Category Type Group Session")
     public void user_sends_post_request_to_update_category_type_group_session() {
-        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","updateCategoryType");
-        payload.put("title",newTitle);
-        payload.put("categoryMainType","groupSession");
-        payload.put("id",lastAddedId);
-        response=given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        specFormData.pathParams("p1", "api", "p2", "settings", "p3", "meeting", "p4", "categoryType", "p5", "updateCategoryType");
+        payload.put("title", newTitle);
+        payload.put("categoryMainType", "groupSession");
+        payload.put("id", lastAddedId);
+        response = given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
         jsonPath = response.jsonPath();
         response.prettyPrint();
     }
+
     @Then("user verify the response Category Type Group Session is updated")
     public void user_verify_the_response_category_type_group_session_is_updated() {
-
+        List<Integer> allTitle = response.jsonPath().get("title");
+        List<Integer> allActive = response.jsonPath().get("isActive");
+        List<Integer> allGroupSession = response.jsonPath().get("mainType");
+        Assert.assertEquals(newTitle, allTitle.get(allTitle.size() - 1));
+        // Assert.assertEquals(lastAddedId, allIds.get(allIds.size() - 1));
+        Assert.assertEquals(true, allActive.get(allActive.size() - 1));
+        Assert.assertEquals("groupSession", allGroupSession.get(allGroupSession.size() - 1));
     }
+
     @Then("user sends Post request to delete Category Type Group Session")
     public void user_sends_post_request_to_delete_category_type_group_session() {
-        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","deleteCategoryType");
-        payload.put("id",lastAddedId);
-        response=given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        specFormData.pathParams("p1", "api", "p2", "settings", "p3", "meeting", "p4", "categoryType", "p5", "deleteCategoryType");
+        payload.put("id", lastAddedId);
+        response = given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
         jsonPath = response.jsonPath();
         response.prettyPrint();
     }
+
     @Then("user verify the response Category Type Group Session is deleted")
     public void user_verify_the_response_category_type_group_session_is_deleted() {
-
+      //  Assert.assertTrue(jsonPath.getString("data").contains("locationTitle"));
+       // Assert.assertTrue(jsonPath.getList("data").get(0).toString().contains("id"));
     }
+
     @Then("user gets All Category Type Group Session")
     public void user_gets_all_category_type_group_session() {
-        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","getCategoryTypes");
-        response=given(specFormData).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        specFormData.pathParams("p1", "api", "p2", "settings", "p3", "meeting", "p4", "categoryType", "p5", "getCategoryTypes");
+        response = given(specFormData).post("{p1}/{p2}/{p3}/{p4}/{p5}");
         jsonPath = response.jsonPath();
         response.prettyPrint();
     }
