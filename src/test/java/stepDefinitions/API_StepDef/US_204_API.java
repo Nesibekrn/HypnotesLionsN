@@ -29,7 +29,7 @@ public class US_204_API {
     String baseUrl = "https://test.hypnotes.net/api/notification/getAllNotification";
 
     List<Integer> id=new ArrayList<>();
-/*
+
     @Given("the user sends a request to get all meeting info on the Hypnotes calendar page")
     public void theUserSendsARequestToGetAllMeetingInfoOnTheHypnotesCalendarPage() {
     payload.put("username","threapistlions@yopmail.com");
@@ -63,5 +63,5 @@ public class US_204_API {
         id=response.jsonPath().getList("id");
         System.out.println("id = " + id);
 
-    }*/
+    }
 }
