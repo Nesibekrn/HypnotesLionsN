@@ -8,10 +8,12 @@ Feature:As a user, I should be able to delete any session on  Group Session  wit
     Then user validates the response for update group session
     And user sends Post request to delete group session
     Then user validates the response for delete group session
+
   @US235
   Scenario: User needs to be delete any session on  Group Session
     When user sends Post request to add Category Type Group Session
     Then user verify the response Category Type Group Session is added
+    And user gets All Category Type Group Session
     And user sends Post request to update Category Type Group Session
     Then user verify the response Category Type Group Session is updated
     And user sends Post request to delete Category Type Group Session

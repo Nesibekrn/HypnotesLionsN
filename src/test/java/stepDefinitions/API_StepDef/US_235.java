@@ -6,6 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static base_url.HypnotesBaseUrl.specFormData;
@@ -28,6 +29,7 @@ public class US_235 {
     private int groupSessionId;
     private int categoryTypeGroupSessionId;
     Map<String, Object> payload = new HashMap<>();
+    int lastAddedId;
 
     @When("user sends Post request to add group session")
     public void user_sends_post_request_to_add_group_session() {
@@ -102,7 +104,8 @@ public class US_235 {
         response=given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
         jsonPath = response.jsonPath();
         response.prettyPrint();
-       // categoryTypeGroupSessionId = jsonPath.get();
+        List<Integer> allIds = response.jsonPath().get("id");
+        lastAddedId = allIds.get(allIds.size()-1);
     }
     @Then("user verify the response Category Type Group Session is added")
     public void user_verify_the_response_category_type_group_session_is_added() {
@@ -110,7 +113,13 @@ public class US_235 {
     }
     @Then("user sends Post request to update Category Type Group Session")
     public void user_sends_post_request_to_update_category_type_group_session() {
-
+        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","updateCategoryType");
+        payload.put("title",newTitle);
+        payload.put("categoryMainType","groupSession");
+        payload.put("id",lastAddedId);
+        response=given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        jsonPath = response.jsonPath();
+        response.prettyPrint();
     }
     @Then("user verify the response Category Type Group Session is updated")
     public void user_verify_the_response_category_type_group_session_is_updated() {
@@ -118,10 +127,22 @@ public class US_235 {
     }
     @Then("user sends Post request to delete Category Type Group Session")
     public void user_sends_post_request_to_delete_category_type_group_session() {
-
+        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","deleteCategoryType");
+        payload.put("id",lastAddedId);
+        response=given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        jsonPath = response.jsonPath();
+        response.prettyPrint();
     }
     @Then("user verify the response Category Type Group Session is deleted")
     public void user_verify_the_response_category_type_group_session_is_deleted() {
 
     }
+    @Then("user gets All Category Type Group Session")
+    public void user_gets_all_category_type_group_session() {
+        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","getCategoryTypes");
+        response=given(specFormData).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        jsonPath = response.jsonPath();
+        response.prettyPrint();
+    }
+
 }
