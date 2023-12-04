@@ -57,7 +57,7 @@ public class US_215 {
 
     }
 
-    @Given("user verifies that status code is {int}")
+    @Given("User verifies that status code is {int}")
     public void user_verifies_status_code(int statusCode) {
 
         Assert.assertEquals(statusCode,response.getStatusCode());
@@ -83,7 +83,7 @@ public class US_215 {
     public void verifyStatusIsTrue() {
         Assert.assertTrue(jsonPath.getBoolean("status"));
 
-    }
+  }
 }
 
 
