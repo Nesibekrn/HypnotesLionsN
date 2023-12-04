@@ -80,7 +80,7 @@ public class ClientsPage extends CommonPage {
     //@FindBy(xpath = "//input[@type='checkbox']")
     @FindBy(xpath = "//input[@class='ant-checkbox-input']")
     public WebElement addShowExtra51;
-    @FindBy(xpath = "(//input[@class='form-control false'])[2]']")
+    @FindBy(xpath = "(//input[@class='form-control false'])[2]")
     public WebElement addEmergencyContacPhonet51;
     @FindBy(xpath = "//input[@id='register_emergencyContactRelationship']")
     public WebElement addRelationShip51;
