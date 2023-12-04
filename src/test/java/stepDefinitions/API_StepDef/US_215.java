@@ -57,8 +57,8 @@ public class US_215 {
 
     }
 
-    @Given("user verifies that status code is {int}")
-    public void user_verifies_status_code(int statusCode) {
+    @Given("user verifies that status code is {int} for interval")
+    public void user_verifies_status_code_for_interval(int statusCode) {
 
         Assert.assertEquals(statusCode,response.getStatusCode());
 
