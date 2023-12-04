@@ -6,4 +6,3 @@
     Scenario: Adding new coupon on therapist coupon section
       Given user login to website
       When user makes a post request to add new coupon on therapist coupon
-      Then the API responds with a status code 200

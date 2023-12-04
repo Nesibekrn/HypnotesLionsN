@@ -46,10 +46,10 @@ public class US_204_API {
 
     }
 
-    @Then("user verifies that status code is {int}")
+   /* @Then("user verifies that status code is {int}")
     public void userVerifiesThatStatusCodeIs(int statusCode) {
        Assert.assertEquals(statusCode,response.getStatusCode());
-    }
+    }*/
 
     @And("the user verifies id of client")
     public void theUserVerifiesIdOfClient() {

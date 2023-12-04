@@ -1,6 +1,5 @@
 package stepDefinitions.API_StepDef;
 
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,7 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static base_url.HypnotesBaseUrl.specFormData;
 import static io.restassured.RestAssured.given;
 
 public class US_231 {
@@ -24,8 +22,9 @@ public class US_231 {
 
     private int id;
     private int categoryId;
+    private int CategoryTypeId;
     private List<Integer>categoryidList=new ArrayList<>();
-    private String title = "CUma";
+    private String title = "pazar";
     private String meetingType="standartMeeting";
 
     private int price=50;
@@ -99,7 +98,7 @@ public class US_231 {
     @And("the package session should be successfully deleted from the website")
     public void thePackageSessionShouldBeSuccessfullyDeletedFromTheWebsite() {
         //specFormData.pathParams("1", "api", "2", "event", "3", "updateEvent");
-        payload.put("categorsId",categoryId);
+        payload.put("categoryId",id);
         response=given().
                 header("Cookie","PHPSESSID="+PhpSesid)
                 .formParams(payload)
@@ -108,4 +107,30 @@ public class US_231 {
     }
 
 
+    @Then("the user add new category type")
+    public void theUserAddNewCategoryType() {
+        payload.put("title","ali");
+        payload.put("categoryMainType","packages");
+
+        response=given().
+                header("Cookie","PHPSESSID="+PhpSesid)
+                .formParams(payload)
+                .post("https://test.hypnotes.net/api/settings/meeting/categoryType/addCategoryType");
+        response.prettyPrint();
+
+
+        List<Integer>allIds = response.jsonPath().get("id");
+        CategoryTypeId = allIds.get(allIds.size()-1);
+
+
+
+        payload.put("categoryTypeId",CategoryTypeId);
+        response=given().
+                header("Cookie","PHPSESSID="+PhpSesid)
+                .formParams(payload)
+                .post("https://test.hypnotes.net/api/settings/meeting/categoryType/deleteCategoryType");
+        response.prettyPrint();
+
+
+    }
 }
