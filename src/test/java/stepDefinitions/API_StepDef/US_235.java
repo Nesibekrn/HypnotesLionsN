@@ -8,6 +8,7 @@ import org.junit.Assert;
 import java.util.HashMap;
 import java.util.Map;
 
+import static base_url.HypnotesBaseUrl.specFormData;
 import static base_url.HypnotesBaseUrl.specFormDataGroupSession;
 import static io.restassured.RestAssured.given;
 import static utilities.API_utilities.nextDate;
@@ -25,6 +26,7 @@ public class US_235 {
     private String dateF;
     private String timeF ;
     private int groupSessionId;
+    private int categoryTypeGroupSessionId;
     Map<String, Object> payload = new HashMap<>();
 
     @When("user sends Post request to add group session")
@@ -91,5 +93,35 @@ public class US_235 {
     @Then("user validates the response for delete group session")
     public void user_validates_the_response_for_delete_group_session() {
         Assert.assertTrue(jsonPath.getBoolean("success"));
+    }
+    @When("user sends Post request to add Category Type Group Session")
+    public void user_sends_post_request_to_add_category_type_group_session() {
+        specFormData.pathParams("p1","api","p2","settings","p3","meeting","p4","categoryType","p5","addCategoryType");
+        payload.put("title",title);
+        payload.put("categoryMainType","groupSession");
+        response=given(specFormData).formParams(payload).post("{p1}/{p2}/{p3}/{p4}/{p5}");
+        jsonPath = response.jsonPath();
+        response.prettyPrint();
+       // categoryTypeGroupSessionId = jsonPath.get();
+    }
+    @Then("user verify the response Category Type Group Session is added")
+    public void user_verify_the_response_category_type_group_session_is_added() {
+
+    }
+    @Then("user sends Post request to update Category Type Group Session")
+    public void user_sends_post_request_to_update_category_type_group_session() {
+
+    }
+    @Then("user verify the response Category Type Group Session is updated")
+    public void user_verify_the_response_category_type_group_session_is_updated() {
+
+    }
+    @Then("user sends Post request to delete Category Type Group Session")
+    public void user_sends_post_request_to_delete_category_type_group_session() {
+
+    }
+    @Then("user verify the response Category Type Group Session is deleted")
+    public void user_verify_the_response_category_type_group_session_is_deleted() {
+
     }
 }
