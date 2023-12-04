@@ -151,6 +151,17 @@ public class Hooks {
 
     }
 
+    @Before("@ProfileGeneral")
+        public void therapisteGeneralLogin() {
+            driver.get(ConfigurationReader.getProperty("hypnotes"));
+            commonPage.getLoginPage().Login.click();
+            commonPage.getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPISTGENERAL.getUsername());
+            commonPage.getLoginPage().PasswordButton.sendKeys(Enum_Fy.THERAPISTGENERAL.getPassword());
+            commonPage.getLoginPage().LoginButtonforSignIn.click();
+
+    }
+
+
       @Before("@API_F")
       public void setUpToken() {
           hypnotesSetUpFormData();
