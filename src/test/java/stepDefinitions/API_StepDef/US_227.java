@@ -5,16 +5,21 @@ import enums.Enum_Fy;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.internal.mapping.JohnzonMapper;
 import org.junit.Assert;
 import utilities.API_utilities;
+
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static utilities.API_utilities.*;
 
 public class US_227 {
 
+    Faker faker = new Faker();
+    String fileName = faker.name().firstName();
+    int categoryId;
 
-    int addSessionId;
 
 
     @Given("the user take token from api")
@@ -22,48 +27,53 @@ public class US_227 {
         API_utilities.loginWithEnum(Enum_Fy.THERAPIST_2);
     }
 
-    @Given("the user request to add new individual session")
-    public void theUserRequestToAddNewIndividualSession() {
+    @Given("the user request to add individual session category")
+    public void theUserRequestToAddIndividualSessionCategory() {
+        payload.put("title",fileName);
+        payload.put("categoryMainType","individual");
 
-        payload.put("title","HAN");
-        payload.put("meetingType","standartMeeting");
-        payload.put("price","45");
-        payload.put("duration","30");
-        payload.put("blockBefore","10");
-        payload.put("blockAfter","5");
-        payload.put("bufferTime","0");
-        payload.put("online",true);
-        payload.put("categoryTypeId","1328");
-
-        response=given().
-                header("cookie","PHPSESSID="+phpSessId)
-                .formParams(payload)
-                .post("https://test.hypnotes.net/api/settings/meeting/category/add");
+        response = given().
+                header("cookie",  "PHPSESSID=" + phpSessId).
+                formParams(payload).
+                post("/settings/meeting/categoryType/addCategoryType");
         response.prettyPrint();
-        addSessionId=response.jsonPath().getInt("category.id");
+        List<Integer> allIds = response.jsonPath().get("id");
+        categoryId = allIds.get(allIds.size()-1);
+        System.out.println(categoryId);
 
+
+
+    }
+
+    @And("the user verify that category is added")
+    public void theUserVerifyThatCategoryIsAdded() {
+       // Assert.assertTrue(response.prettyPrint().contains("mainType"));
+        Assert.assertEquals(response.statusCode(), 200);
 
     }
 
-    @And("the user verify that response is success")
-    public void theUserVerifyThatResponseIsSuccess() {
-        Assert.assertTrue(response.jsonPath().getBoolean("success"));
-    }
 
-    @And("the user deletes individual session")
-    public void theUserDeletesIndividualSession() {
-      payload.put("categoryId",addSessionId);
-      response=given()
-              .header("cookie","PHPSESSID="+phpSessId)
-              .formParams(payload)
-              .post("https://test.hypnotes.net/api/settings/meeting/category/remove");
-      response.prettyPrint();
+    @And("the user deletes individual session category")
+    public void theUserDeletesIndividualSessionCategory() {
+        payload.put("id",categoryId);
+        response=given()
+                . header("cookie",  "PHPSESSID=" + phpSessId)
+                .formParams(payload)
+                .post("/settings/meeting/categoryType/deleteCategoryType");
+        response.prettyPrint();
     }
 
 
-    @Then("the user verifes session is deleted from api")
-    public void theUserVerifesSessionIsDeletedFromApi() {
-        Assert.assertTrue(response.jsonPath().getBoolean("success"));
+    @Then("the user verifies session is deleted from api")
+    public void theUserVerifiesSessionIsDeletedFromApi() {
+        List<Integer> LastId = response.jsonPath().get("id");
+        Assert.assertFalse(LastId.contains(categoryId));
+
+        System.out.println(categoryId);
+        System.out.println("LastId = " + LastId);
 
     }
+
+
+
 }

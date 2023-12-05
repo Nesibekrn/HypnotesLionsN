@@ -1,16 +1,15 @@
 package utilities;
 
 import enums.Enum_Fy;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
+import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.given;
 
 public class API_utilities {
@@ -41,9 +40,15 @@ public static String login(String email, String password){
         payload.put("username",user.getUsername());
         payload.put("password",user.getPassword());
 
-        response=given()
+        baseURI = "https://test.hypnotes.net";
+        basePath = "/api";
+
+
+        response = given()
+                .contentType(ContentType.JSON)
                 .body(payload)
-                .post("https://test.hypnotes.net/api/login");
+                .post("/login");
+
         Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
 
         response.prettyPrint();
@@ -53,20 +58,12 @@ public static String login(String email, String password){
         System.out.println("phpSessId = " + phpSessId);
 
         return phpSessId;
+
+
+
+
+
+
     }
-    public static String nextDate(int daysLater) {
-        LocalDateTime myDate=LocalDateTime.now();
-        LocalDateTime nextDay=myDate.plus(Period.ofDays(daysLater));
-        DateTimeFormatter myFormat=DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        String nextDateTime=nextDay.format(myFormat);
-        System.out.println(nextDateTime);
-        return nextDateTime;
-    }
-    public static String nextTime(int nextHour) {
-        LocalTime myTime=LocalTime.now();
-        LocalTime oneHoursLater=myTime.plusHours(nextHour);
-        DateTimeFormatter myTimeFormatter=DateTimeFormatter.ofPattern("HH:mm");
-        String nextHours=oneHoursLater.format(myTimeFormatter);
-        return nextHours;
-    }
+
 }
