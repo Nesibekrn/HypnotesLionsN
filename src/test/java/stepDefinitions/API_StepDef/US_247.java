@@ -37,13 +37,12 @@ public class US_247 {
 //        id = jsonPath.getInt("questionCategory.id");
 //        System.out.println("id = " + id);
 //        Assert.assertEquals(200, response.statusCode());
-        spec.pathParams("first","api","second","question","thirt","addQuestionCategory");
+        spec.pathParams("first","question","second","addQuestionCategory");
 
         response = given(spec)
-                .contentType (ContentType.URLENC)
                 .when()
                 .body("title=" + word)
-                .post("{first}/{second}/{thirt}");
+                .post("{first}/{second}");
         response.prettyPrint();
         JsonPath jsonPath = response.jsonPath();
         id = jsonPath.getInt("questionCategory.id");
@@ -55,14 +54,11 @@ public class US_247 {
 
     @And("user sends post request request to delete any Questionnaire")
     public void userSendsPostRequestRequestToDeleteAnyQuestionnaire() {
-        response = given()
-                .contentType(ContentType.URLENC)
-                .header("cookie", "PHPSESSID=" + phpSessId)
+        spec.pathParams("first","question","second","deleteQuestionCategory");
+        response = given(spec)
                 .body("questionCategoryId=" + id)
-                .post("https://test.hypnotes.net/api/question/deleteQuestionCategory");
+                .post("{first}/{second}");
         response.prettyPrint();
-
-
 
 
     }
@@ -79,10 +75,9 @@ public class US_247 {
         Assert.assertEquals(deleteBady.get("descr"),response.jsonPath().getString("descr"));
 
         // 2. way
-        response = given()
-                .contentType(ContentType.URLENC)
-                .header("cookie", "PHPSESSID=" + phpSessId)
-                .post("https://test.hypnotes.net/api/question/getAllQuestionCategory");
+        spec.pathParams("first","question","second","getAllQuestionCategory");
+        response = given(spec)
+                .post("{first}/{second}");
         response.prettyPrint();
        List<Integer> ids=response.jsonPath().getList("questionCategory.id");
         System.out.println("ids = " + ids);

@@ -16,6 +16,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+import static base_url.BaseUrlQuestionner.therapistSetup;
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
@@ -201,4 +202,11 @@ public class Hooks {
         }*/
 
     }
+
+    @Before("@TherapistQuestionnaire")
+    public void therapistLoginGul(){
+        therapistSetup();
+        System.out.println("Api before cookie  ");
+    }
+
 }

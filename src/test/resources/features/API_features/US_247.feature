@@ -1,4 +1,4 @@
-@API @US247
+ @US247 @TherapistQuestionnaire
 Feature: US_247
   Scenario:As a user, I should be able to delete any Questionnaires
 

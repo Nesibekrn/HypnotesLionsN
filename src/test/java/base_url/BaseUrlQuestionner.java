@@ -12,9 +12,10 @@ public class BaseUrlQuestionner {
     public static void therapistSetup(){
 
         spec=new RequestSpecBuilder().
-                //setContentType(ContentType.URLENC).
-                addHeader("cookie", "PHPSESSID=" + API_utilities.login("gulyalcin2022@gmail.com","Endemik38*"))
-                .setBaseUri("https://test.hypnotes.net/").build();
+                setContentType(ContentType.URLENC).
+
+                addHeader("Cookie", "PHPSESSID=" + API_utilities.login("gulyalcin2022@gmail.com","Endemik38*"))
+                .setBaseUri("https://test.hypnotes.net/api/").build();
     }
 
 
