@@ -1,5 +1,4 @@
 package stepDefinitions.API_StepDef;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -9,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static io.restassured.RestAssured.given;
-public class US_212StepDef  {
+public class US_212 {
 
     Response response;
     JsonPath jsonPath;
