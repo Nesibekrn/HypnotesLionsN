@@ -1,61 +1,61 @@
 package stepDefinitions.API_StepDef;
 
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.specification.MultiPartSpecification;
-import io.restassured.specification.RequestSpecification;
+import enums.Enum_Fy;
+import io.cucumber.java.en.Given;
 import org.junit.Assert;
-import pages.CommonPage;
+import org.openqa.selenium.json.Json;
+import utilities.API_utilities;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static utilities.API_utilities.*;
+
 
 public class US_228 {
-    Response response;
-    JsonPath jsonPath;
+   Faker faker=new Faker();
+    String titleName = faker.name().firstName();
 
-    Map<String, Object> payload = new HashMap<>();
-    static String phpSessId ;
-    Faker faker = new Faker();
-    String packageName = faker.name().fullName();
-    @When("the user sends POST request to api\\/settings\\/meeting\\/category\\/add")
-    public void the_user_sends_post_request_to_api_settings_meeting_category_add() {
-        payload.put("title",packageName);
-        payload.put("meetingType","standartMeeting");
-        payload.put("price",5);
-        payload.put("duration",2);
-        payload.put("blockBefore",1);
-        payload.put("blockAfter",1);
-        payload.put("bufferTime",2);
-        payload.put("showPrice",1);
-        payload.put("paymentRequired",1);
-        payload.put("bookable",1);
-        payload.put("documents",303);
-        payload.put("online",true);
-        payload.put("locationInfos",261);
-        payload.put("totalSessions",1);
-        payload.put("sessionInterval",1);
-        payload.put("description","deneme");
-        payload.put("categoryTypeId",1523);
-        payload.put("locationInfos[]",261);
-        payload.put("documents[]",303);
+    @Given("the user takes token from api")
+    public void the_user_takes_token_from_api() {
+        API_utilities.loginWithEnum(Enum_Fy.THERAPIST_2);
+    }
+    @Given("the user adds individual session category")
+    public void the_user_adds_individual_session_category() {
+payload.put("title",titleName);
+payload.put("categoryMainType","packages");
 
-                response=given()
-                .headers("cookie","PHPSESSID="+phpSessId)
-                        .formParams(payload)
-                .post("https://test.hypnotes.net/api/settings/meeting/categoryType/addCategoryType");
+
+response=given().
+        //adding cookies from loging api
+        header("cookie","PHPSESSID=" + phpSessId).
+        //sending response body as a map from api utilities
+        formParams(payload).
+        //sending post method
+        post("https://test.hypnotes.net/api/settings/meeting/categoryType/addCategoryType");
+
+//printing response
         response.prettyPrint();
+        System.out.println(titleName);
+
 
     }
-    @Then("the  {int} status code is returned for api\\/settings\\/meeting\\/category\\/add")
-    public void the_status_code_is_returned_for_api_settings_meeting_category_add(int int1) {
-        Assert.assertEquals(int1,response.getStatusCode());
+    @Given("the user verifies that category is added")
+    public void the_user_verifies_that_category_is_added() {
+List<String> titleNames=response.jsonPath().get("title");
+for(String titles:titleNames){
+    if(titles.equals(titleName)){
+        System.out.println("titleName"+titles);
+    Assert.assertEquals(titleName,titles);
+}
     }
 
+}
+
+
+    @Given("the  status code is {int}")
+    public void the_status_code_is(int statucCode) {
+       Assert.assertEquals(statucCode, response.getStatusCode());
+    }
 }
