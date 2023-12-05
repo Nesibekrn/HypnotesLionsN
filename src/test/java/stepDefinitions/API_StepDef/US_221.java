@@ -26,7 +26,7 @@ public class US_221 {
         payload.put("username", "test_trpst_basic@yopmail.com");
         payload.put("password", "Trpst13.");
 
-       response = given().body(payload).post("https://test.hypnotes.net/api/login");
+        response = given().body(payload).post("https://test.hypnotes.net/api/login");
         response.prettyPrint();
         Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
         phpSessId = response.cookie("PHPSESSID");

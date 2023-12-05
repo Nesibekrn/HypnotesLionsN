@@ -1,12 +1,15 @@
 package utilities;
 
 import enums.Enum_Fy;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.given;
 
 public class API_utilities {
@@ -14,7 +17,7 @@ public static Response response;
 
 public static String phpSessId;
 public static String csrfToken;
-static  Map<String,Object> payload=new HashMap<>();
+public static  Map<String,Object> payload=new HashMap<>();
 
 public static String login(String email, String password){
     payload.put("username",email);
@@ -37,9 +40,15 @@ public static String login(String email, String password){
         payload.put("username",user.getUsername());
         payload.put("password",user.getPassword());
 
-        response=given()
+        baseURI = "https://test.hypnotes.net";
+        basePath = "/api";
+
+
+        response = given()
+                .contentType(ContentType.JSON)
                 .body(payload)
-                .post("https://test.hypnotes.net/api/login");
+                .post("/login");
+
         Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
 
         response.prettyPrint();
@@ -49,5 +58,12 @@ public static String login(String email, String password){
         System.out.println("phpSessId = " + phpSessId);
 
         return phpSessId;
+
+
+
+
+
+
     }
+
 }
