@@ -13,8 +13,7 @@ public class BaseUrlQuestionner {
 
         spec=new RequestSpecBuilder().
                 setContentType(ContentType.URLENC).
-
-                addHeader("Cookie", "PHPSESSID=" + API_utilities.login("gulyalcin2022@gmail.com","Endemik38*"))
+                addHeader("Cookie", "PHPSESSID=" + API_utilities.loginWithEnum(Enum_Fy.GUL))
                 .setBaseUri("https://test.hypnotes.net/api/").build();
     }
 
