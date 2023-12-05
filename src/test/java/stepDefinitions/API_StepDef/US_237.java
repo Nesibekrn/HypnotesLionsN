@@ -6,6 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -93,5 +94,28 @@ public class US_237 {
         Assert.assertTrue(jsonPath.getBoolean("success"));
         Assert.assertTrue(jsonPath.getString("descr").contains("Client deleted"));
         Assert.assertEquals("Client deleted",jsonPath.getString("descr"));
+    }
+    public static Connection connection;
+    public static Statement statement;
+    public static PreparedStatement preparedStatement;
+    public static ResultSet resultSet;
+    public void getConnection() {
+        try {
+            connection= DriverManager.getConnection("jdbc:mysql://212.47.242.13.6336/hypnotes",
+                    "hypnotes",
+                    "hypnotes");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void testClient () throws SQLException{
+        getConnection();
+        statement= connection.createStatement();
+        resultSet=statement.executeQuery("select * from user order by id desc limit 1");
+        while (resultSet.next()){
+            System.out.println("resultSet.getInt(1) = " + resultSet.getInt(1));
+            System.out.println("resultSet.getString(2) = " + resultSet.getString(2));
+        }
+
     }
 }
