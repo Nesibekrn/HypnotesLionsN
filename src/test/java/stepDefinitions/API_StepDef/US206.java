@@ -1,7 +1,5 @@
 package stepDefinitions.API_StepDef;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,18 +10,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.Calendar;
 import java.util.Random;
-
 import static io.restassured.RestAssured.given;
-import static java.util.Arrays.stream;
 
 public class US206 {
     Response response;
@@ -95,7 +88,7 @@ public class US206 {
                 header("cookie", "PHPSESSID=" + phpSessId).
                 formParams(payload).
                 post("https://test.hypnotes.net/api/settings/meeting/getAvailableTimes");
-        //response.prettyPrint();
+        response.prettyPrint();
 
         String jsonString = response.getBody().asString();
 
@@ -129,7 +122,7 @@ public class US206 {
                 .path("startTime")
                 .asText();
        // jsonPath = newJsonNode.jsonPath();
-
+    System.out.println(datetime);
         //verideki time zone kismini atmak
     String input = datetime;
 
@@ -147,7 +140,7 @@ public class US206 {
         payload.put("clientId", clientId);
         payload.put("datetime", laststarttime);
         payload.put("locationTitle", "Online");
-        payload.put("timezone", "Europe/Paris");
+        payload.put("timezone", "America/New_York");
 
         response = given().
                 header("cookie",  "PHPSESSID=" + phpSessId).

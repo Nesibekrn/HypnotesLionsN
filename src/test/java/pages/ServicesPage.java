@@ -313,4 +313,33 @@ public class ServicesPage extends CommonPage {
 
     @FindBy(xpath="//div[@data-test-id='services_title']")
     public List<WebElement> availableGroupSessionTitle;
+
+    @FindBy(xpath = "//span[text()='Generate Scheduler URL']")
+    public WebElement GenerateSchedulerUrl;
+
+    @FindBy(xpath = "//*[@id='rc-tabs-2-panel-123']/div[1]/div[2]/span/button/span[2]")
+    public WebElement GenerateSchedulerUrl2;
+
+    @FindBy(xpath = "//*[@id='rc-tabs-3-panel-168']/div[1]/div[2]/span/button/span[2]")
+    public WebElement GenerateSchedulerUrl3;
+
+
+
+    @FindBy(xpath = "//span[text()='Available' and text()='Individual Session']")
+    public WebElement AvailableIndividualSession;
+
+    @FindBy(xpath = "//div[@data-node-key='individual']")
+    public WebElement IndividualSessions;
+
+    @FindBy(xpath = "//div[@class='ant-table-container']")
+    public WebElement RegisteredServicesList;
+
+    @FindBy(xpath="//span[text()='Table']")
+    public WebElement  ServicesTable;
+
+    @FindBy(xpath="//span[text()='Card']")
+    public WebElement  ServicesCard;
+
+
+
 }

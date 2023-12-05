@@ -57,4 +57,16 @@ public class US_243 {
         Assert.assertTrue(jsonPath.getBoolean("status"));
     }
 
+//    @And("user adds coupons")
+//    public void userAddsCoupons() {
+//        payload.put("promoCode","serpil");
+//        payload.put("startedAt",);
+//        payload.put("enddedAt",);
+//        payload.put("usersLimit",);
+//        payload.put("discountRate",);
+//        payload.put("category",);
+//       response=given().formParams(payload).post("https://test.hypnotes.net/api/promoCode/add");
+//        jsonPath=response.jsonPath();
+//        couponId=jsonPath.getInt(".promoCode.id");
+//    }
 }
