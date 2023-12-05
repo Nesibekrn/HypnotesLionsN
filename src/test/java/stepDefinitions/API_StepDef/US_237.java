@@ -49,7 +49,7 @@ public class US_237 {
 
     @Then("user sends a request for getting all info therapist client")
     public void user_sends_a_request_for_getting_all_info_therapist_client() {
-        specFormData.pathParams("p1", "api", "p2", "dashboard", "p3", "getClientBasicInfo");
+        specFormData.pathParams("p1", "api", "p2", "dashboard", "p3", "getClientBasicInfo");//https://test.hypnotes.net/api/dashboard/getClientBasicInfo
         response = given(specFormData).post("{p1}/{p2}/{p3}");
         jsonPath = response.jsonPath();
         response.prettyPrint();
