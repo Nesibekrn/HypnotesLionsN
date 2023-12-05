@@ -6,6 +6,7 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,14 +17,16 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+
 import static base_url.BaseUrlQuestionner.therapistSetup;
-import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+import static base_url.HypnotesBaseUrl.hypnotesSetUpFormDataForGroupSession;
+
+import static base_url.baseUrl_fy.hypnotesSetUp1;
+
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 import static io.restassured.RestAssured.given;
-
-import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 
 //import static utilities.Authentication.generatePhpSessid;
 
@@ -39,6 +42,7 @@ public class Hooks {
     public static boolean isFullScreen = true;
     public static int width;
     public static int height;
+
 
     @Before(value = "@headless", order = 0)
     public void setIsHeadless() {
@@ -164,15 +168,12 @@ public class Hooks {
 
     }
 
-      @Before("@API")
+
+      @Before("@API_F")
       public void setUpToken() {
           hypnotesSetUpFormData();
+          hypnotesSetUpFormDataForGroupSession();
       }
-    @Before("@fatma")
-    public void fatmaSetupApi() {
-
-    }
-
     @Before("@TherapistQuick")
     public void therapistLogIn() {
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
