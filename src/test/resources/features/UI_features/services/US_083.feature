@@ -9,7 +9,7 @@ Feature: Group Session Creation
 
   @UI @US_083
   @TherapistLoginUSA
-  @Smoke
+  @smoke
   Scenario: Creating a new Group Session
     Then the user clicks on the Add New Group Session button
     Then the Adding Group Session page should appear

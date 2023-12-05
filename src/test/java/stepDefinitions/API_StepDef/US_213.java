@@ -2,17 +2,8 @@ package stepDefinitions.API_StepDef;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
-import org.hamcrest.Matchers;
-import org.json.simple.JSONObject;
 import org.junit.Assert;
-import utilities.API_utilities;
-import utilities.ConfigurationReader;
-import utilities.ReusableMethods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +12,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-public class US213StepDef {
+public class US_213 {
 
     Response response;
     Map<String, Object> payload = new HashMap<>();
