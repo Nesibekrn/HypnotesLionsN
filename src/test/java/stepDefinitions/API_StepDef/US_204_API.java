@@ -40,16 +40,9 @@ public class US_204_API {
         Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
         phpSessId=response.cookies().get("PHPSESSID");
         System.out.println("phpSessId = " + phpSessId);
-        //API_utilities.login("threapistlions@yopmail.com","Test123");
-
-
 
     }
 
-   /* @Then("user verifies that status code is {int}")
-    public void userVerifiesThatStatusCodeIs(int statusCode) {
-       Assert.assertEquals(statusCode,response.getStatusCode());
-    }*/
 
     @And("the user verifies id of client")
     public void theUserVerifiesIdOfClient() {

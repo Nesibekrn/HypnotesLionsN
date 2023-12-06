@@ -6,6 +6,6 @@
 Feature: All meeting
   Scenario: Get all meeting info API
     Given the user sends a request to get all meeting info on the Hypnotes calendar page
-    #Then user verifies that status code is 200
+    Then user verifies that status code is 200
     And the user verifies id of client
 

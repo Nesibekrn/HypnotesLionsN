@@ -9,4 +9,10 @@ Feature: US_231 Api
     Then the api responds with a status code 200
     When user makes a post request to delete any session on package session
     And the package session should be successfully deleted from the website
+
+  Scenario: Deleting any  session on packages categories
+    Given user login to website
     Then the user add new category type
+    And user verifies if the category is added
+    Then user deletes packages session category
+    And user verifies if the session is edeleted

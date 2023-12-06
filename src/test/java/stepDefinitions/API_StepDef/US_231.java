@@ -18,12 +18,11 @@ public class US_231 {
     Response response;//1. adim
     Map<String,Object> payload=new HashMap<>();//2. adim
 
-    String PhpSesid;//3. adim
+    private String PhpSesidPromoCode;//3. adim
 
     private int id;
     private int categoryId;
-    private int CategoryTypeId;
-    private List<Integer>categoryidList=new ArrayList<>();
+
     private String title = "pazar";
     private String meetingType="standartMeeting";
 
@@ -52,8 +51,8 @@ public class US_231 {
         response.prettyPrint();
 
         Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
-        PhpSesid=response.cookies().get("PHPSESSID");
-        System.out.println("phpSessId = " + PhpSesid);
+        PhpSesidPromoCode=response.cookies().get("PHPSESSID");
+        System.out.println("phpSessId = " + PhpSesidPromoCode);
 
     }
 
@@ -82,7 +81,7 @@ public class US_231 {
 
 
         response=given().
-                header("Cookie","PHPSESSID="+PhpSesid)
+                header("Cookie","PHPSESSID="+PhpSesidPromoCode)
                 .formParams(payload)
                 .post("https://test.hypnotes.net/api/settings/meeting/category/add");
         response.prettyPrint();
@@ -100,7 +99,7 @@ public class US_231 {
         //specFormData.pathParams("1", "api", "2", "event", "3", "updateEvent");
         payload.put("categoryId",id);
         response=given().
-                header("Cookie","PHPSESSID="+PhpSesid)
+                header("Cookie","PHPSESSID="+PhpSesidPromoCode)
                 .formParams(payload)
                 .post("https://test.hypnotes.net/api/settings/meeting/category/remove");
         response.prettyPrint();
@@ -113,24 +112,39 @@ public class US_231 {
         payload.put("categoryMainType","packages");
 
         response=given().
-                header("Cookie","PHPSESSID="+PhpSesid)
+                header("Cookie","PHPSESSID="+PhpSesidPromoCode)
                 .formParams(payload)
                 .post("https://test.hypnotes.net/api/settings/meeting/categoryType/addCategoryType");
         response.prettyPrint();
 
 
         List<Integer>allIds = response.jsonPath().get("id");
-        CategoryTypeId = allIds.get(allIds.size()-1);
+        categoryId = allIds.get(allIds.size()-1);
+        System.out.println(categoryId);
 
 
+    }
 
-        payload.put("categoryTypeId",CategoryTypeId);
+    @And("user verifies if the category is added")
+    public void userVerifiesIfTheCategoryIsAdded() {
+        Assert.assertEquals(response.statusCode(), 200);
+    }
+
+    @Then("user deletes packages session category")
+    public void userDeletesPackagesSessionCategory() {
+        payload.put("id",categoryId);
         response=given().
-                header("Cookie","PHPSESSID="+PhpSesid)
+                header("Cookie","PHPSESSID="+PhpSesidPromoCode)
                 .formParams(payload)
                 .post("https://test.hypnotes.net/api/settings/meeting/categoryType/deleteCategoryType");
         response.prettyPrint();
+    }
 
-
+    @And("user verifies if the session is edeleted")
+    public void userVerifiesIfTheSessionIsEdeleted() {
+        List<Integer> LastId = response.jsonPath().get("id");
+        Assert.assertFalse(LastId.contains(categoryId));
+        System.out.println(categoryId);
+        System.out.println("LastId = " + LastId);
     }
 }
