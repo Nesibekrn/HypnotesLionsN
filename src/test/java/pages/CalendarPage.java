@@ -100,4 +100,42 @@ public class CalendarPage extends CommonPage {
     @FindBy(xpath = "//strong[normalize-space()='------------ Individual Session------------']")
     public WebElement individualSession;
 
+    @FindBy(xpath = "//div[@class='ant-picker-cell-inner']")
+    public List<WebElement> dateDropdown;
+
+    @FindBy(xpath = "//input[@id='basic_date']")
+    public WebElement date;
+    @FindBy(xpath = "//input[@id='basic_timeStart']")
+    public WebElement startTime;
+    @FindBy(xpath = "//span[@class='rc-time-picker-icon']")
+    public List<WebElement> timeClearButton;
+    @FindBy(xpath = "//div[text()='Please Select Start Time']")
+    public WebElement startTimeErrorMsg;
+    @FindBy(xpath = "//input[@class='rc-time-picker-panel-input']")
+    public WebElement selectTimeDropdown;
+    @FindBy(xpath = "//div[@class='rc-time-picker-panel-select']//li")
+    public List<WebElement> selectHourMinButtons;
+    @FindBy(xpath = "//span[text()='Registered Clients']")
+    public WebElement registeredClientText;
+    @FindBy(xpath = "//input[@id='registeredClients']")
+    public WebElement registeredClientButton;
+    @FindBy(xpath = "//span[text()='New Client (Enter Manually)']")
+    public WebElement newClientText;
+    @FindBy(xpath = "(//input[@class='ant-select-selection-search-input'])[6]")
+    public WebElement inputClients;
+    @FindBy(xpath = "//span[@class='ant-select-selection-item']")
+    public List<WebElement> selectClients;
+    @FindBy(xpath = "//iframe[@id='tiny-react_2195370641701023391094_ifr']")
+    public WebElement iframeTherapistNote;
+    @FindBy(xpath = "//body[@id='tinymce']")
+    public WebElement therapistNote;
+    @FindBy(xpath = "//input[@class='ant-checkbox-input']")
+    public List<WebElement> checkBoxesOnFooter;
+    @FindBy(xpath = "//button[@id='submit']")
+    public WebElement submitButton;
+    @FindBy(xpath = "//div[@class='ant-message-custom-content ant-message-success']")
+    public WebElement meetingMsg;
+
+
+
 }
