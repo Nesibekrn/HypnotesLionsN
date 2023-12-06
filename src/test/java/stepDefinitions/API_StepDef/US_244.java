@@ -4,7 +4,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
@@ -41,6 +40,7 @@ public class US_244 {
     @And("user sends a POST request to the valid username and password")
     public void userSendsAPOSTRequestToTheValidUsernameAndPassword() {
 
+        //Body -> raw -> JSON => I use contentType(ContentType.JSON).body(requestBody)
         response = given().contentType(ContentType.JSON).body(requestBody).post("https://test.hypnotes.net/api/login");
         response.prettyPrint();
 
@@ -75,6 +75,7 @@ public class US_244 {
         expectedTitle = "Stress Assessment Category";
         addQuestionCategoryRequest.put("title", expectedTitle);
 
+        //Body -> form-data => formParams()
         response = given().formParams(addQuestionCategoryRequest).header("cookie", "PHPSESSID=" + phpSessId).post("https://test.hypnotes.net/api/question/addQuestionCategory");
         response.prettyPrint();
 
@@ -104,6 +105,7 @@ public class US_244 {
 
         deleteRequestFormData.put("questionCategoryId", questionCategoryId);
 
+        //Body -> form-data => formParams()
         response = given().formParams(deleteRequestFormData).header("cookie", "PHPSESSID=" + phpSessId).post("https://test.hypnotes.net/api/question/deleteQuestionCategory");
         response.prettyPrint();
 
@@ -112,6 +114,8 @@ public class US_244 {
     @And("the user makes a POST request to get all Question Category")
     public void theUserMakesAPOSTRequestToGetAllQuestionCategory() {
 
+        //GetAllQuestionCategory request body is empty.
+        //I do not need formParams() or body() methods.
         response = given().header("cookie", "PHPSESSID=" + phpSessId).post("https://test.hypnotes.net/api/question/getAllQuestionCategory");
         response.prettyPrint();
 
@@ -130,7 +134,7 @@ public class US_244 {
     @And("the user gets questionCategoryId")
     public void theUserGetsQuestionCategoryId() {
 
-        // last ID
+        //Last ID
         questionCategoryId = questionIdsList.get(questionIdsList.size() - 1);
         System.out.println("questionCategoryId = " + questionCategoryId);
 
@@ -145,10 +149,8 @@ public class US_244 {
         updateRequestFormData.put("title", updateTitle);
         updateRequestFormData.put("questionCategoryId", questionCategoryId);
 
-        response = given()
-                .formParams(updateRequestFormData)
-                .header("cookie", "PHPSESSID=" + phpSessId)
-                .post("https://test.hypnotes.net/api/question/updateQuestionCategory");
+        //Body -> form-data => formParams()
+        response = given().formParams(updateRequestFormData).header("cookie", "PHPSESSID=" + phpSessId).post("https://test.hypnotes.net/api/question/updateQuestionCategory");
         response.prettyPrint();
     }
 
@@ -170,6 +172,7 @@ public class US_244 {
         System.out.println("Actual Question Category Title = " + questionCategoryTitle);
         System.out.println("Expected Updated Question Category Title = " + updateTitle);
 
+        // Validate the Title of Question Category with updated title
         Assert.assertEquals("Updated Titles do not match.", questionCategoryTitle, updateTitle);
 
     }
