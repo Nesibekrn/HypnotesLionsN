@@ -31,10 +31,10 @@ public class US_218 {
     @When("user sends Post request to add block times")
     public void userSendsPostRequestToAddBlockTimes() {
         specFormData.pathParams("p1", "api", "p2", "hypnotherapist", "p3", "timeoff", "p4", "create");
-        expectStartAt = "2023-11-18 16:40";
-        expectFinishAt = "2023-11-18 16:45";
+        expectStartAt = "2023-11-29 16:40";
+        expectFinishAt = "2023-11-29 16:45";
         Map<String, Object> payloadCreate = new HashMap<>();
-        payloadCreate.put("specificDate","2023-11-18 ");
+        payloadCreate.put("specificDate","2023-11-29 ");
         payloadCreate.put("startAt", expectStartAt);
         payloadCreate.put("finishAt", expectFinishAt);
         payloadCreate.put("isRecurring", false);
@@ -42,10 +42,13 @@ public class US_218 {
         payloadCreate.put("title", "Online");
         payloadCreate.put("isAll", false);
 
-        response = given(specFormData).formParams(payloadCreate).post("{p1}/{p2}/{p3}/{p4}");
+        response = given(specFormData)
+                .formParams(payloadCreate)
+                .post("{p1}/{p2}/{p3}/{p4}");
+
         jsonPath = response.jsonPath();
         response.prettyPrint();
-        idCreated = (Integer) jsonPath.getList("data.id").get(0);
+        idCreated = (int) jsonPath.getList("data.id").get(0);
         idSon=(int)jsonPath.getList("data.id").get(0);
         locationTitle = (jsonPath.getList("data.locationTitle").get(0)).toString();
         System.out.println("locationTitle = " + locationTitle);//jsonPath.getInt("data[0].id");
@@ -58,11 +61,11 @@ public class US_218 {
         //Set the URL
         specFormData.pathParams("first", "api", "second", "hypnotherapist", "third", "timeoff", "fourth", "update");
         // Set the expected Data
-        expectStartAt = "2023-11-17 20:30";
-        expectFinishAt = "2023-11-17 21:00";
+        expectStartAt = "2023-11-30 20:30";
+        expectFinishAt = "2023-11-30 21:00";
         Map<String, Object> payloadUpdate = new HashMap<>();
         payloadUpdate.put("id", idCreated);
-        payloadUpdate.put("specificDate", "2023-11-17");
+        payloadUpdate.put("specificDate", "2023-11-30");
         payloadUpdate.put("isRecurring", false);
         payloadUpdate.put("startAt", expectStartAt);
         payloadUpdate.put("finishAt", expectFinishAt);
