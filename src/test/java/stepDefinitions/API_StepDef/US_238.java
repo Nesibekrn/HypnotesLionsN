@@ -13,7 +13,7 @@ import static utilities.API_utilities.*;
 
 public class US_238 {
 
-    Faker faker= new Faker();
+
     String firstName = Faker.instance().name().firstName();
     String newFirstName = Faker.instance().name().firstName();
     String lastName = Faker.instance().name().lastName();
@@ -46,6 +46,7 @@ public class US_238 {
     @And("the user validates the response for add new client")
     public void theUserValidatesTheResponseForAddNewClient() {
         Assert.assertTrue(response.jsonPath().getBoolean("success"));
+        Assert.assertEquals(firstName,response.jsonPath().getString("client.name"));
         Assert.assertEquals(clientID,response.jsonPath().getInt("client.id"));
 
     }
