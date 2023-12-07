@@ -15,6 +15,7 @@ public class BaseUrlQuestionner {
                 setContentType(ContentType.URLENC).
                 addHeader("Cookie", "PHPSESSID=" + API_utilities.loginWithEnum(Enum_Fy.GUL))
                 .setBaseUri("https://test.hypnotes.net/api/").build();
+
     }
 
 
