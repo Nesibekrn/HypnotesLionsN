@@ -6,18 +6,24 @@ import enums.USER_INFO;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.restassured.response.Response;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
+import utilities.DB_utilities;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+
+import static base_url.BaseUrlQuestionner.therapistSetup;
+
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormDataForGroupSession;
+
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.baseUrl_fy.hypnotesSetUp1;
@@ -37,6 +43,7 @@ public class Hooks {
     public static boolean isFullScreen = true;
     public static int width;
     public static int height;
+
 
     @Before(value = "@headless", order = 0)
     public void setIsHeadless() {
@@ -79,13 +86,15 @@ public class Hooks {
 
     @Before("@DB")
     public void setupDatabase() {
-        //    DatabaseUtilities.createConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.getConnection();
 
     }
 
     @After("@DB")
     public void closeDatabase() {
-        //   DatabaseUtilities.closeConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.tearDatabase();
 
     }
 
@@ -197,4 +206,11 @@ public class Hooks {
         }*/
 
     }
+
+    @Before("@TherapistQuestionnaire")
+    public void therapistLoginGul(){
+        therapistSetup();
+        System.out.println("Api before cookie  ");
+    }
+
 }
