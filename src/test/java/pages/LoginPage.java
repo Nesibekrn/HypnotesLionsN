@@ -216,7 +216,7 @@ public class LoginPage extends CommonPage {
     public WebElement email_login;
     @FindBy(xpath = "//input[@name='password']")
     public WebElement password_Login;
-    @FindBy(xpath = "//button[@class='ant-btn css-15rg2km ant-btn-default LoginForm_loginBtn__1yNyd']")
+    @FindBy(xpath = "//button[@class='ant-btn css-15rg2km ant-btn-button LoginForm_loginBtn__1yNyd']")
     public WebElement login_button;
     @FindBy(xpath = "//span[@data-test-id='loginScreen_logIn']")
     public WebElement loginButton;
