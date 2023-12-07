@@ -33,6 +33,7 @@ public class US_237 {
         payload.put("email", email);
         payload.put("timezone", timeZone);
         response = given(specFormData).formParams(payload).post("{p1},{p2},{p3},{p4}");
+        //response= given().header("cookie", "PHPSESSID=" + phpSessIdSK).formParams(payload).post("https://test.hypnotes.net/api/dashboard/client/add");
         jsonPath = response.jsonPath();
         response.prettyPrint();
         System.out.println("jsonPath = " + jsonPath.getInt("client.id"));
@@ -71,8 +72,10 @@ public class US_237 {
     @Then("user sends Post request to updating added any client on therapist client Api section")
     public void user_sends_post_request_to_updating_added_any_client_on_therapist_client_api_section() {
         specFormData.pathParams("p1", "api", "p2", "dashboard", "p3", "client", "p4", "update");
-        payload.put("firstName", newFirstName);
-        payload.put("lastName", newLastName);
+        payload.put("name", newFirstName);
+        payload.put("surname", newLastName);
+        payload.put("email", email);
+        payload.put("timezone", timeZone);
         payload.put("gender", "Male");
         payload.put("country", "United Kingdom");
         payload.put("clientId", clientId);
