@@ -13,12 +13,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
+import utilities.DB_utilities;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+
+import static base_url.BaseUrlQuestionner.therapistSetup;
+
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormDataForGroupSession;
+
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.baseUrl_fy.hypnotesSetUp1;
@@ -81,13 +86,15 @@ public class Hooks {
 
     @Before("@DB")
     public void setupDatabase() {
-        //    DatabaseUtilities.createConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.getConnection();
 
     }
 
     @After("@DB")
     public void closeDatabase() {
-        //   DatabaseUtilities.closeConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.tearDatabase();
 
     }
 
@@ -199,4 +206,11 @@ public class Hooks {
         }*/
 
     }
+
+    @Before("@TherapistQuestionnaire")
+    public void therapistLoginGul(){
+        therapistSetup();
+        System.out.println("Api before cookie  ");
+    }
+
 }
