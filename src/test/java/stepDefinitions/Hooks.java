@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
+import utilities.DB_utilities;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -81,13 +82,15 @@ public class Hooks {
 
     @Before("@DB")
     public void setupDatabase() {
-        //    DatabaseUtilities.createConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.getConnection();
 
     }
 
     @After("@DB")
     public void closeDatabase() {
-        //   DatabaseUtilities.closeConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.tearDatabase();
 
     }
 

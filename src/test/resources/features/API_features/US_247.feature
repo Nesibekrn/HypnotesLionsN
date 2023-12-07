@@ -4,7 +4,7 @@ Feature: US_247
 
 
 
-    //Given user should be able access as therapist
+    #Given user should be able access as therapist
     When user sends post request request to add new Questionnaires
     And user sends post request request to delete any Questionnaire
     Then user assert for delete
