@@ -30,8 +30,8 @@ public class US_222 {
         API_utilities.login("threapistlions@yopmail.com","Test123.");
 
         //create
-        payload.put("startAt", "04:00");
-        payload.put("finishAt", "10:00");
+        payload.put("startAt", "01:00");
+        payload.put("finishAt", "07:00");
         payload.put("isRecurring", true);
         payload.put("recurringDays[0]", "tuesday");
         payload.put("title", "Online");
@@ -43,7 +43,7 @@ public class US_222 {
                 .post("https://test.hypnotes.net/api/hypnotherapist/timeoff/create");
 
         response.prettyPrint();
-        id=response.jsonPath().get("data[0].id");
+        id=response.jsonPath().getInt("data[0].id");
 
 
 
@@ -55,16 +55,18 @@ public class US_222 {
         payload.put("finishAt", "16:00");
         payload.put("isRecurring", true);
         payload.put("recurringDays[0]", "wednesday");
-        //payload.put("title", "Online");
         payload.put("id",id);
 
        response= given()
                 .header("cookie", "PHPSESSID=" + phpSessId)
                 //.contentType(ContentType.JSON)
-                .body(payload)
+                .formParams(payload)
                 .post("https://test.hypnotes.net/api/hypnotherapist/timeoff/update");
 
        response.prettyPrint();
 
     }
-}
+
+
+    }
+
