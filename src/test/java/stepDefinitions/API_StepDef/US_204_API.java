@@ -24,25 +24,15 @@ public class US_204_API {
     Response response;//1. adim
     Map<String,Object> payload=new HashMap<>();//2. adim
 
-    String phpSessId;//3. adim
 
-    String baseUrl = "https://test.hypnotes.net/api/notification/getAllNotification";
-
-    List<Integer> id=new ArrayList<>();
+    private int id;
 
     @Given("the user sends a request to get all meeting info on the Hypnotes calendar page")
     public void theUserSendsARequestToGetAllMeetingInfoOnTheHypnotesCalendarPage() {
-    payload.put("username","threapistlions@yopmail.com");
-     payload.put("password","Test123.");
-        response=given().body(payload).post("https://test.hypnotes.net/api/login");
-        response.prettyPrint();
+        API_utilities.login("threapistlions@yopmail.com","Test123.");
 
-        Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
-        phpSessId=response.cookies().get("PHPSESSID");
-        System.out.println("phpSessId = " + phpSessId);
 
     }
-
 
     @And("the user verifies id of client")
     public void theUserVerifiesIdOfClient() {
@@ -53,8 +43,11 @@ public class US_204_API {
                 .post("https://test.hypnotes.net/api/notification/getAllNotification");
 
         response.prettyPrint();
-        id=response.jsonPath().getList("id");
+        List<Integer>allIds = response.jsonPath().get("notification.id");
+        id = allIds.getFirst();
         System.out.println("id = " + id);
 
     }
+
+
 }

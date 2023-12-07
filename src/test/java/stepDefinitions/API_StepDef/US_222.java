@@ -1,10 +1,12 @@
 package stepDefinitions.API_StepDef;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import utilities.API_utilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,65 +14,57 @@ import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static utilities.API_utilities.phpSessId;
+import static utilities.API_utilities.response;
 
 public class US_222 {
-    Response response;//1. adim
 
-    Response response1;
     Map<String,Object> payload=new HashMap<>();//2. adim
 
-    String phpSessId;//3. adim
 
-    String timeoffEntryId = "your_timeoff_entry_id_here";
+    private int id;
+
     @Given("thes user updates block time")
     public void thesUserUpdatesBlockTime() {
         //login
-        payload.put("username","threapistlions@yopmail.com");
-        payload.put("password","Test123.");
-        response=given().body(payload).post("https://test.hypnotes.net/api/login");
-        response.prettyPrint();
-
-        Assert.assertTrue(response.jsonPath().getBoolean("authenticated"));
-        phpSessId=response.cookies().get("PHPSESSID");
-        System.out.println("phpSessId = " + phpSessId);
+        API_utilities.login("threapistlions@yopmail.com","Test123.");
 
         //create
-        payload.put("startAt", "11:00");
-        payload.put("finishAt", "13:00");
+        payload.put("startAt", "04:00");
+        payload.put("finishAt", "10:00");
         payload.put("isRecurring", true);
         payload.put("recurringDays[0]", "tuesday");
         payload.put("title", "Online");
+        payload.put("isAll",false);
 
-        response = given()
+         response= given()
                 .header("cookie", "PHPSESSID=" + phpSessId)
                 .formParams(payload)
                 .post("https://test.hypnotes.net/api/hypnotherapist/timeoff/create");
 
         response.prettyPrint();
+        id=response.jsonPath().get("data[0].id");
 
-        //update
 
 
     }
 
     @When("user gets results")
     public void userGetsResults() {
-        String updatePayload = "{"
-                + "\"startAt\": \"09:40\","
-                + "\"finishAt\": \"10:40\","
-                + "\"isRecurring\": false,"
-                + "\"recurringDays\": [\"monday\"],"
-                + "\"title\": \"Home\""
-                + "}";
+        payload.put("startAt", "14:00");
+        payload.put("finishAt", "16:00");
+        payload.put("isRecurring", true);
+        payload.put("recurringDays[0]", "wednesday");
+        //payload.put("title", "Online");
+        payload.put("id",id);
 
-       response1= given()
+       response= given()
                 .header("cookie", "PHPSESSID=" + phpSessId)
-                .contentType(ContentType.JSON)
-                .body(updatePayload)
-                .when()
+                //.contentType(ContentType.JSON)
+                .body(payload)
                 .post("https://test.hypnotes.net/api/hypnotherapist/timeoff/update");
 
-       response1.prettyPrint();
+       response.prettyPrint();
 
     }
 }
