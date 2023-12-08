@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 
+import enums.ClientEnum;
 import enums.Enum_Fy;
 import enums.USER_INFO;
 import io.cucumber.java.After;
@@ -20,6 +21,10 @@ import utilities.ReusableMethods;
 
 
 import static base_url.BaseUrlQuestionner.therapistSetup;
+import java.util.HashMap;
+import java.util.Map;
+
+import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormDataForGroupSession;
@@ -44,7 +49,7 @@ public class Hooks {
     public static boolean isFullScreen = true;
     public static int width;
     public static int height;
-
+    public static Response response;
 
     @Before(value = "@headless", order = 0)
     public void setIsHeadless() {
@@ -178,6 +183,15 @@ public class Hooks {
           hypnotesSetUpFormData();
           hypnotesSetUpFormDataForGroupSession();
       }
+    @Before("@fatma")
+    public void fatmaSetupApi() {
+
+    }
+    @Before("@ApiClientLogin")
+    public void loginAsClient(){
+        apiLoginAsClient(ClientEnum.CLIENT_CREDENTIALS);
+    }
+
     @Before("@TherapistQuick")
     public void therapistLogIn() {
         commonPage.getLoginPage().ThrerapistLogIn(USER_INFO.THERAPIST_CREDENTIALS.getTherapist_email(), USER_INFO.THERAPIST_CREDENTIALS.getTherapist_password());
@@ -219,5 +233,19 @@ public class Hooks {
 
     }
 
+
+    public void apiLoginAsClient(ClientEnum clientInfo){
+        Map<String,Object> requestBody =new HashMap<>();
+        requestBody.put("username", clientInfo.getEmail());
+        requestBody.put("password", clientInfo.getPassword());
+
+        response=given()
+                .header("content-type", "application/json")
+                .body(requestBody)
+                .post("https://test.hypnotes.net/api/login");
+
+        response.prettyPrint();
+
+    }
 
 }
