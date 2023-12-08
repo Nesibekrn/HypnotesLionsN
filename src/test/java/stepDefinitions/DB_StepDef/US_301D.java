@@ -13,7 +13,6 @@ public class US_301D {
     Connection connection;
     Statement statement;
     ResultSet resultSet;
-    PreparedStatement preparedStatement;
     @Given("the user connect to the database")
     public void theUserConnectToTheDatabase() {
         String url = "jdbc:mysql://212.47.242.13:6336/hypnotes";
@@ -43,6 +42,7 @@ public class US_301D {
 
     @When("the user get client which has created lastly")
     public void theUserGetClientWhichHasCreatedLastly() {
+
 
     }
     @Then("the user verifies the last client is the same with database")

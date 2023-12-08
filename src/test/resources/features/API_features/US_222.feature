@@ -6,4 +6,6 @@
 Feature:Update
   Scenario:Updating block times
     Given thes user updates block time
+    Then  the user verify if the rspond is correct
     When user gets results
+    And the user compares the results and respond body

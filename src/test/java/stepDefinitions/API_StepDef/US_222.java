@@ -1,7 +1,9 @@
 package stepDefinitions.API_StepDef;
 
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -30,7 +32,7 @@ public class US_222 {
         API_utilities.login("threapistlions@yopmail.com","Test123.");
 
         //create
-        payload.put("startAt", "01:00");
+        payload.put("startAt", "01:19");
         payload.put("finishAt", "07:00");
         payload.put("isRecurring", true);
         payload.put("recurringDays[0]", "tuesday");
@@ -47,6 +49,13 @@ public class US_222 {
 
 
 
+
+
+    }
+    @Then("the user verify if the rspond is correct")
+    public void theUserVerifyIfTheRspondIsCorrect() {
+        Assert.assertTrue(response.jsonPath().getBoolean("status"));
+        Assert.assertEquals(id,response.jsonPath().getInt("data[0].id"));
     }
 
     @When("user gets results")
@@ -68,5 +77,13 @@ public class US_222 {
     }
 
 
+    @And("the user compares the results and respond body")
+    public void theUserComparesTheResultsAndRespondBody() {
+        Assert.assertTrue(response.jsonPath().getBoolean("status"));
+        Assert.assertEquals(id,response.jsonPath().getInt("data[0].id"));
+
+
+
     }
+}
 

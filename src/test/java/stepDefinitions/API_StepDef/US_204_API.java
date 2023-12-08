@@ -46,8 +46,10 @@ public class US_204_API {
         List<Integer>allIds = response.jsonPath().get("notification.id");
         id = allIds.getFirst();
         System.out.println("id = " + id);
+        Assert.assertTrue(response.jsonPath().getBoolean("success"));
 
     }
+
 
 
 }
