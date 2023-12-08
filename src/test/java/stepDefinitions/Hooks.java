@@ -14,20 +14,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import pages.CommonPage;
 import utilities.ConfigurationReader;
+import utilities.DB_utilities;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 
+
+import static base_url.BaseUrlQuestionner.therapistSetup;
 import java.util.HashMap;
 import java.util.Map;
 
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
+import static base_url.HypnotesBaseUrl.hypnotesSetUpFormDataForGroupSession;
+
+import static base_url.baseUrl_fy.hypnotesSetUp1;
+
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 import static io.restassured.RestAssured.given;
-
-import static base_url.HypnotesBaseUrl.hypnotesSetUpFormData;
 
 //import static utilities.Authentication.generatePhpSessid;
 
@@ -86,13 +91,15 @@ public class Hooks {
 
     @Before("@DB")
     public void setupDatabase() {
-        //    DatabaseUtilities.createConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.getConnection();
 
     }
 
     @After("@DB")
     public void closeDatabase() {
-        //   DatabaseUtilities.closeConnection();
+        DB_utilities dbUtilities=new DB_utilities();
+        dbUtilities.tearDatabase();
 
     }
 
@@ -139,7 +146,7 @@ public class Hooks {
         }
    }
 
-
+    
 
     @Before("@Client")
     public void ClientLogInUSA() {
@@ -159,9 +166,21 @@ public class Hooks {
 
     }
 
-      @Before("@API")
+    @Before("@ProfileGeneral")
+        public void therapisteGeneralLogin() {
+            driver.get(ConfigurationReader.getProperty("hypnotes"));
+            commonPage.getLoginPage().Login.click();
+            commonPage.getLoginPage().ButtonEMAILFORLOGIN.sendKeys(Enum_Fy.THERAPISTGENERAL.getUsername());
+            commonPage.getLoginPage().PasswordButton.sendKeys(Enum_Fy.THERAPISTGENERAL.getPassword());
+            commonPage.getLoginPage().LoginButtonforSignIn.click();
+
+    }
+
+
+      @Before("@API_F")
       public void setUpToken() {
           hypnotesSetUpFormData();
+          hypnotesSetUpFormDataForGroupSession();
       }
     @Before("@fatma")
     public void fatmaSetupApi() {
@@ -201,6 +220,13 @@ public class Hooks {
         }*/
 
     }
+
+    @Before("@TherapistQuestionnaire")
+    public void therapistLoginGul(){
+        therapistSetup();
+        System.out.println("Api before cookie  ");
+    }
+
     public void apiLoginAsClient(ClientEnum clientInfo){
         Map<String,Object> requestBody =new HashMap<>();
         requestBody.put("username", clientInfo.getEmail());
