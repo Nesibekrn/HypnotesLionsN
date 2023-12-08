@@ -27,6 +27,7 @@ import static base_url.HypnotesBaseUrl.hypnotesSetUpFormDataForGroupSession;
 import static base_url.baseUrl_fy.hypnotesSetUp1;
 
 import static base_url.baseUrl_fy.hypnotesSetUp1;
+import static base_url.couponURL.therapistLogin;
 import static io.restassured.RestAssured.given;
 
 //import static utilities.Authentication.generatePhpSessid;
@@ -212,5 +213,11 @@ public class Hooks {
         therapistSetup();
         System.out.println("Api before cookie  ");
     }
+    @Before("@TherapistCoupon")
+    public void therapistSet(){
+        therapistLogin();
+
+    }
+
 
 }
