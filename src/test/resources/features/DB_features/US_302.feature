@@ -5,6 +5,3 @@
       Then the user finds a coupon
       Then the user validates data
       And user delete coupon in API
-
-
-
