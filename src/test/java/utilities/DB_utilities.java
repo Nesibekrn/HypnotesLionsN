@@ -21,8 +21,6 @@ public class DB_utilities {
         }
     }
 
-
-
     public void tearDatabase() {
         try {
 
