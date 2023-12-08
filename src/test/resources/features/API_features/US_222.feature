@@ -5,7 +5,8 @@
 #Details on the swagger document.
 Feature:Update
   Scenario:Updating block times
-    Given thes user updates block time
+    Given the user login to the website
+    When the user create a new block time
     Then  the user verify if the rspond is correct
-    When user gets results
+    And the user update the block time
     And the user compares the results and respond body

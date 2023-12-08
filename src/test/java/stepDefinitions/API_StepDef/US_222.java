@@ -26,20 +26,21 @@ public class US_222 {
 
     private int id;
 
-    @Given("thes user updates block time")
-    public void thesUserUpdatesBlockTime() {
-        //login
-        API_utilities.login("threapistlions@yopmail.com","Test123.");
+    @Given("the user login to the website")
+    public void theUserLoginToTheWebsite() {
 
-        //create
-        payload.put("startAt", "01:19");
+        API_utilities.login("threapistlions@yopmail.com","Test123.");
+    }
+    @When("the user create a new block time")
+    public void theUserCreateANewBlockTime() {
+        payload.put("startAt", "01:22");
         payload.put("finishAt", "07:00");
         payload.put("isRecurring", true);
         payload.put("recurringDays[0]", "tuesday");
         payload.put("title", "Online");
         payload.put("isAll",false);
 
-         response= given()
+        response= given()
                 .header("cookie", "PHPSESSID=" + phpSessId)
                 .formParams(payload)
                 .post("https://test.hypnotes.net/api/hypnotherapist/timeoff/create");
@@ -47,34 +48,30 @@ public class US_222 {
         response.prettyPrint();
         id=response.jsonPath().getInt("data[0].id");
 
-
-
-
-
     }
+
     @Then("the user verify if the rspond is correct")
     public void theUserVerifyIfTheRspondIsCorrect() {
         Assert.assertTrue(response.jsonPath().getBoolean("status"));
         Assert.assertEquals(id,response.jsonPath().getInt("data[0].id"));
     }
-
-    @When("user gets results")
-    public void userGetsResults() {
+    @And("the user update the block time")
+    public void theUserUpdateTheBlockTime() {
         payload.put("startAt", "14:00");
         payload.put("finishAt", "16:00");
         payload.put("isRecurring", true);
         payload.put("recurringDays[0]", "wednesday");
         payload.put("id",id);
 
-       response= given()
+        response= given()
                 .header("cookie", "PHPSESSID=" + phpSessId)
                 //.contentType(ContentType.JSON)
                 .formParams(payload)
                 .post("https://test.hypnotes.net/api/hypnotherapist/timeoff/update");
 
-       response.prettyPrint();
-
+        response.prettyPrint();
     }
+
 
 
     @And("the user compares the results and respond body")
@@ -85,5 +82,11 @@ public class US_222 {
 
 
     }
+
+
+
+
+
+
 }
 

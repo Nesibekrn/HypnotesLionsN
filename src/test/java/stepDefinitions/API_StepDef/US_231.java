@@ -23,7 +23,7 @@ public class US_231 {
     private int id;
     private int categoryId;
 
-    private String title = "pazar";
+    private String title = "pazartsi";
     private String meetingType="standartMeeting";
 
     private int price=50;
@@ -108,7 +108,7 @@ public class US_231 {
 
     @Then("the user add new category type")
     public void theUserAddNewCategoryType() {
-        payload.put("title","ali");
+        payload.put("title","veli");
         payload.put("categoryMainType","packages");
 
         response=given().
