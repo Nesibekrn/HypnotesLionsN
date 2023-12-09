@@ -10,3 +10,7 @@ Feature:As a user, I should be able to get all info  on therapist client Api sec
   #  When user sends Post request to updating added any client on therapist client Api section
    # When user sends Post request to delete client
   #  Then user verifies the response for delete client
+
+  Scenario: User needs
+    When user adds coupons
+    Then user delete coupons

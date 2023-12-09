@@ -11,7 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static base_url.HypnotesBaseUrl.specFormData;
+import static base_url.HypnotesBaseUrl.specFormDataGroupSession;
 import static io.restassured.RestAssured.given;
+import static utilities.API_utilities.nextDate;
+import static utilities.API_utilities.nextTime;
 
 public class US_237 {
     Response response;
@@ -24,6 +27,7 @@ public class US_237 {
     private String newLastName = Faker.instance().name().lastName();
     private String email = Faker.instance().internet().emailAddress();
     private String timeZone = "Turkey Standard Time";
+    private int createdCouponId;
 
     @When("user sends Post request to add new client")
     public void user_sends_post_request_to_add_new_client() {
@@ -121,4 +125,32 @@ public class US_237 {
         }
 
     }
+
+    @When("user adds coupons")
+    public void userAddsCoupons() {
+        specFormDataGroupSession.pathParams("p1", "api", "p2", "promoCode", "p3", "add");
+        payload.put("promoCode", "denemeF");
+        payload.put("startedAt", "11 Dec 2023");
+        payload.put("enddedAt", "12 Dec 2023");
+        payload.put("usersLimit", 3);
+        payload.put("discountType", "percentage");
+        payload.put("discountRate",5 );
+        payload.put("category", 8216);
+        payload.put("description", "undefined");
+        response = given(specFormDataGroupSession).formParams(payload).post("{p1}/{p2}/{p3}");
+        response.prettyPrint();
+        jsonPath = response.jsonPath();
+        createdCouponId= jsonPath.getInt("promoCode.id");
+        System.out.println("id = " + createdCouponId);
+
+    }
+    @Then("user delete coupons")
+    public void user_delete_coupons() {
+        specFormDataGroupSession.pathParams("p1", "api", "p2", "promoCode", "p3", "deleteCoupon");
+        payload.put("id", createdCouponId);
+        response =  given(specFormDataGroupSession).formParams(payload).post("{p1}/{p2}/{p3}");
+        jsonPath = response.jsonPath();
+        response.prettyPrint();
+    }
 }
+
