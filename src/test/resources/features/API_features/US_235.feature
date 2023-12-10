@@ -21,3 +21,7 @@ Feature:As a user, I should be able to delete any session on  Group Session  wit
     #Dashboard - therapist -Services- Group Session
     #https://test.hypnotes.net/api/settings/meeting/categoryType/deleteCategoryType
     #Therapist needs to delete any session on  Group Session  endpoint
+@DB
+  Scenario: As a therapist, when i should sign up then Should be able to see new user information in the correct user schema and columns
+    Given user signs up to the website as a therapist with the API
+    Then user verifies the new user information exists at the user table in the database
