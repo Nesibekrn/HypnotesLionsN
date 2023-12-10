@@ -308,6 +308,7 @@ public class ClientsPage extends CommonPage {
 
     @FindBy(xpath = "//a/span[.='View Details']")
     public List<WebElement> viewDetailsBtns;
+
     @FindBy(xpath = "//a[@href='/dashboard/services']")
     public WebElement services_button;
 
