@@ -57,7 +57,7 @@ public class US_243 {
     @And("user adds coupons")
     public void userAddsCoupons() {
 
-        payload.put("promoCode", "hello6");
+        payload.put("promoCode", "hello777");
         payload.put("startedAt", "11 Dec 2023");
         payload.put("enddedAt", "12 Dec 2023");
         payload.put("usersLimit", 3);
@@ -76,17 +76,17 @@ public class US_243 {
    @And("user hits the delete coupon end points")
    public void userHitsTheDeleteCouponEndPoints() {
 
-       payload.put("id", createdCouponId);
+       payload.put("couponId", createdCouponId);
        response1 = given().header("cookie", "PHPSESSID=" + cookie).formParams(payload).post("https://test.hypnotes.net/api/promoCode/deleteCoupon");
 
-       jsonPath = response1.jsonPath();
+       //jsonPath = response1.jsonPath();
        response1.prettyPrint();
    }
 
        @Then("user verifies if the coupon is deleted")
        public void userVerifiesIfTheCouponIsDeleted () {
 
-           Assert.assertTrue(jsonPath.getBoolean("status"));
+           Assert.assertTrue(response1.jsonPath().getBoolean("success"));
 
        }
    }
