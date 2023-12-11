@@ -6,10 +6,12 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
 import static base_url.HypnotesBaseUrl.specFormData;
+import static base_url.HypnotesBaseUrl.specFormDataGroupSession;
 import static io.restassured.RestAssured.given;
 
 public class US_237 {
@@ -23,6 +25,7 @@ public class US_237 {
     private String newLastName = Faker.instance().name().lastName();
     private String email = Faker.instance().internet().emailAddress();
     private String timeZone = "Turkey Standard Time";
+    private int createdCouponId;
 
     @When("user sends Post request to add new client")
     public void user_sends_post_request_to_add_new_client() {
@@ -32,6 +35,7 @@ public class US_237 {
         payload.put("email", email);
         payload.put("timezone", timeZone);
         response = given(specFormData).formParams(payload).post("{p1},{p2},{p3},{p4}");
+        //response= given().header("cookie", "PHPSESSID=" + phpSessIdSK).formParams(payload).post("https://test.hypnotes.net/api/dashboard/client/add");
         jsonPath = response.jsonPath();
         response.prettyPrint();
         System.out.println("jsonPath = " + jsonPath.getInt("client.id"));
@@ -49,7 +53,7 @@ public class US_237 {
 
     @Then("user sends a request for getting all info therapist client")
     public void user_sends_a_request_for_getting_all_info_therapist_client() {
-        specFormData.pathParams("p1", "api", "p2", "dashboard", "p3", "getClientBasicInfo");
+        specFormData.pathParams("p1", "api", "p2", "dashboard", "p3", "getClientBasicInfo");//https://test.hypnotes.net/api/dashboard/getClientBasicInfo
         response = given(specFormData).post("{p1}/{p2}/{p3}");
         jsonPath = response.jsonPath();
         response.prettyPrint();
@@ -70,8 +74,10 @@ public class US_237 {
     @Then("user sends Post request to updating added any client on therapist client Api section")
     public void user_sends_post_request_to_updating_added_any_client_on_therapist_client_api_section() {
         specFormData.pathParams("p1", "api", "p2", "dashboard", "p3", "client", "p4", "update");
-        payload.put("firstName", newFirstName);
-        payload.put("lastName", newLastName);
+        payload.put("name", newFirstName);
+        payload.put("surname", newLastName);
+        payload.put("email", email);
+        payload.put("timezone", timeZone);
         payload.put("gender", "Male");
         payload.put("country", "United Kingdom");
         payload.put("clientId", clientId);
@@ -84,14 +90,66 @@ public class US_237 {
     public void user_sends_post_request_to_delete_client() {
         specFormData.pathParams("p1", "api", "p2", "dashboard", "p3", "client", "p4", "delete");
         payload.put("clientId", clientId);
-        response=given(specFormData).formParams(payload).post("{p1},{p2},{p3},{p4}");
-        jsonPath=response.jsonPath();
+        response = given(specFormData).formParams(payload).post("{p1},{p2},{p3},{p4}");
+        jsonPath = response.jsonPath();
     }
 
     @Then("user verifies the response for delete client")
     public void user_verifies_the_response_for_delete_client() {
         Assert.assertTrue(jsonPath.getBoolean("success"));
         Assert.assertTrue(jsonPath.getString("descr").contains("Client deleted"));
-        Assert.assertEquals("Client deleted",jsonPath.getString("descr"));
+        Assert.assertEquals("Client deleted", jsonPath.getString("descr"));
+    }
+  /*  public static Connection connection;
+    public static Statement statement;
+    public static PreparedStatement preparedStatement;
+    public static ResultSet resultSet;
+    public void getConnection() {
+        try {
+            connection= DriverManager.getConnection("jdbc:mysql://212.47.242.13.6336/hypnotes",
+                    "hypnotes",
+                    "hypnotes");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void testClient () throws SQLException{
+        getConnection();
+        statement= connection.createStatement();
+        resultSet=statement.executeQuery("select * from user order by id desc limit 1");
+        while (resultSet.next()){
+            System.out.println("resultSet.getInt(1) = " + resultSet.getInt(1));
+            System.out.println("resultSet.getString(2) = " + resultSet.getString(2));
+        }
+
+    }*/
+
+    @When("user adds coupons")
+    public void userAddsCoupons() {
+        specFormDataGroupSession.pathParams("p1", "api", "p2", "promoCode", "p3", "add");
+        payload.put("promoCode", "denemeF");
+        payload.put("startedAt", "11 Dec 2023");
+        payload.put("enddedAt", "12 Dec 2023");
+        payload.put("usersLimit", 3);
+        payload.put("discountType", "percentage");
+        payload.put("discountRate", 5);
+        payload.put("category", 8216);
+        payload.put("description", "undefined");
+        response = given(specFormDataGroupSession).formParams(payload).post("{p1}/{p2}/{p3}");
+        response.prettyPrint();
+        jsonPath = response.jsonPath();
+        createdCouponId = jsonPath.getInt("promoCode.id");
+        System.out.println("id = " + createdCouponId);
+
+    }
+
+    @Then("user delete coupons")
+    public void user_delete_coupons() {
+        specFormDataGroupSession.pathParams("p1", "api", "p2", "promoCode", "p3", "deleteCoupon");
+        payload.put("id", createdCouponId);
+        response = given(specFormDataGroupSession).formParams(payload).post("{p1}/{p2}/{p3}");
+        jsonPath = response.jsonPath();
+        response.prettyPrint();
     }
 }
+
