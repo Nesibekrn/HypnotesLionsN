@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public interface TestDataGeneration {
 

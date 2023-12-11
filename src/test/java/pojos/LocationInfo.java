@@ -2,9 +2,6 @@ package pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.javafaker.Faker;
-import lombok.NoArgsConstructor;
-
-import java.util.Random;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationInfo {
