@@ -1,4 +1,4 @@
-@UI @Therapist @smoke @US050
+@UI @Therapist  @US050
 Feature: As a user (therapist) I should be able to add new client
 
   Background:
