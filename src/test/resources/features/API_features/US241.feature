@@ -1,4 +1,4 @@
-Feature:Therapist needs to delete any coupons on coupons pag
+Feature:Therapist needs to delete any coupons on coupons on the page
 
   Scenario: Verify user is able to get or delete all coupons info on therapist coupons Api section
     Given  therapist user is authenticated
